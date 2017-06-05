@@ -8,12 +8,12 @@ Authors: Souvik Das (Univ. of Florida) & Caterina Vernieri (FNAL)
 #include <TTree.h>
 #include <TChain.h>
 #include <iostream>
-#include "/uscms_data/d3/cvernier/4b/HbbHbb_2016/HbbHbb_Run2/AnalysisCode/DrawFunctions.h"
+#include "HbbHbb_Run2/AnalysisCode/DrawFunctions.h"
 #include "TLorentzVector.h"
 #include "TMath.h"
-#include "/uscms_data/d3/cvernier/4b/HbbHbb_2016/HbbHbb_Run2/AnalysisCode/Trigger/Double76.h"
-#include "/uscms_data/d3/cvernier/4b/HbbHbb_2016/HbbHbb_Run2/AnalysisCode/Trigger/Quad76.h" // to be updated
-#include "/uscms_data/d3/cvernier/4b/HbbHbb_2016/HbbHbb_Run2/AnalysisCode/PDFs/BTagCalibrationStandalone.cpp"
+#include "HbbHbb_Run2/AnalysisCode/Trigger/Double76.h"
+#include "HbbHbb_Run2/AnalysisCode/Trigger/Quad76.h" // to be updated
+#include "HbbHbb_Run2/AnalysisCode/PDFs/BTagCalibrationStandalone.cpp"
 
 #include <TSystem.h>
 #if not defined(__CINT__) || defined(__MAKECINT__)
@@ -65,14 +65,14 @@ void HbbHbb_PreSelection(std::string dir, std::string sample,
 
    
   std::string inputfilename=dir+"/"+sample+".root";
-     TChain *tree_test=new TChain("tree");
-    tree_test->Add(inputfilename.c_str());
-    int test=tree_test->GetEntries();
-   
-    TChain *tree=new TChain("tree");                                                   
-    tree->Add(inputfilename.c_str());                                                  
-    std::cout<<"Opened input file "<<inputfilename<<std::endl;                         
-    if (test<=0) tree->Scan();
+  TChain *tree_test=new TChain("tree");
+  tree_test->Add(inputfilename.c_str());
+  int test=tree_test->GetEntries();
+  
+  TChain *tree=new TChain("tree");                                                   
+  tree->Add(inputfilename.c_str());                                                  
+  std::cout<<"Opened input file "<<inputfilename<<std::endl;                         
+  if (test<=0) tree->Scan();
 
   
   if (regressionFile=="") std::cout<<"b jet regression not done. jet_regressed_pT = jet_pT"<<std::endl;
@@ -112,7 +112,7 @@ void HbbHbb_PreSelection(std::string dir, std::string sample,
   int nJets;
   float jet_btagCSV[100], jet_btagCMVA[100], jet_btagCMVAMSF[100], jet_btagCMVAMSFUp[100], jet_btagCMVAMSFDown[100],jet_btagDeepCSVb[100], jet_btagDeepCSVbb[100];
   float jet_pT[100], jet_eta[100], jet_phi[100], jet_mass[100], jet_rawpT[100];
-  int  jet_flavor[100];
+  int jet_flavor[100];
   float jet_corrJERUp[100], jet_corrJERDown[100], jet_corrJECUp[100], jet_corrJECDown[100] , jet_corrJER[100];
   Float_t jet_corrJEC[100];
   int nGenHiggsBoson;	
@@ -341,7 +341,8 @@ void HbbHbb_PreSelection(std::string dir, std::string sample,
   outtree->Branch("Jet_regressed_pt", &jet_regressed_pT, "Jet_regressed_pt[nJet]/F");
   outtree->Branch("jetIndex_CentralpT40btag_pTOrder", &jetIndex_CentralpT40btag_pTOrder);
   outtree->Branch("jetIndex_CentralpT40btag_CSVOrder", &jetIndex_CentralpT40btag_CSVOrder);
-  outtree->Branch("jetIndex_CentralpT40btag_CMVAOrder", &jetIndex_CentralpT40btag_CMVAOrder);
+  //outtree->Branch("jetIndex_CentralpT40btag_CMVAOrder", &jetIndex_CentralpT40btag_CMVAOrder);
+  outtree->Branch("jetIndex_CentralpT40btag_deepCSVOrder", &jetIndex_CentralpT40btag_CMVAOrder);
   outtree->Branch("jetIndex_Central_pTOrder", &jetIndex_Central_pTOrder);
   outtree->Branch("jetIndex_CentralpT40_CSVOrder", &jetIndex_CentralpT40_CSVOrder);
   outtree->Branch("eventWeight", &eventWeight);
@@ -636,7 +637,7 @@ void HbbHbb_PreSelection(std::string dir, std::string sample,
   TH1F *h_Count=(TH1F*)file->Get("Count");
   double nInitial=h_Count->GetBinContent(1);
                   
-  std::string histfilename="Histograms_"+sample+".root";
+  std::string histfilename="Histograms_Preselected_"+sample+".root";
   TFile *tFile=new TFile(histfilename.c_str(), "RECREATE");
   h_Count->Write();
   h_nCbJets->Write();
