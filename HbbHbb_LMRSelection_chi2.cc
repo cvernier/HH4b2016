@@ -156,10 +156,10 @@ void HbbHbb_LMRSelection_chi2(std::string type, std::string sample, int signal_m
   TH1F *h_mX_SB_biasCorrected = new TH1F("h_mX_SB_biasCorrected", "; m_{X} (GeV)", 3000, 0., 3000.);   h_mX_SB_biasCorrected->Sumw2();
   TH1F *h_mX_SB_kinFit        = new TH1F("h_mX_SB_kinFit", "; m_{X} (GeV)", 3000, 0., 3000.);          h_mX_SB_kinFit->Sumw2();
   
-  // Get the h_Cuts histogram
-  std::string histfilename="Histograms_LMR_"+sample+".root";
-  gSystem->Exec(("cp ../"+histfilename+" "+histfilename).c_str());
-  TFile *tFile1=new TFile((histfilename).c_str(), "READ");
+  std::string Old_histfilename="../Histograms_PreSelected_"+sample+".root";
+  std::string histfilename="../Histograms_LMR_"+sample+".root";
+  gSystem->Exec(("cp "+Old_histfilename+" "+histfilename).c_str());
+  TFile *tFile1=new TFile((Old_histfilename).c_str(), "READ");
   TH1F h_Cuts=*((TH1F*)((TH1F*)tFile1->Get("h_Cuts"))->Clone("h_Cuts"));
   tFile1->Close();
 
