@@ -14,9 +14,9 @@
 
 double jet_pT_cut1=30.;
 
-double mean_H1_mass_=120;
+double mean_H1_mass_=150;
 double sigma_H1_mass_=20;
-double mean_H2_mass_=120;
+double mean_H2_mass_=150;
 double sigma_H2_mass_=20;
 
 float mass_mean( int mass )
@@ -73,7 +73,7 @@ TLorentzVector fillTLorentzVector(double pT, double eta, double phi, double M)
   return jet_p4;
 }
 
-void HbbHbb_LMRSelection_chi2(std::string type, std::string sample, int signal_mass = 300, bool reg = false  )
+void HbbHbb_LMRSelection_chi2_150(std::string type, std::string sample, int signal_mass = 300, bool reg = false  )
 {
 
   std::string inputfilename="../PreSelected_"+sample+".root";
@@ -157,7 +157,7 @@ void HbbHbb_LMRSelection_chi2(std::string type, std::string sample, int signal_m
   TH1F *h_mX_SB_kinFit        = new TH1F("h_mX_SB_kinFit", "; m_{X} (GeV)", 3000, 0., 3000.);          h_mX_SB_kinFit->Sumw2();
   
   // Get the h_Cuts histogram
-  std::string histfilename="Histograms_LMR_"+sample+".root";
+  std::string histfilename="Histograms_LMR_150"+sample+".root";
   gSystem->Exec(("cp ../"+histfilename+" "+histfilename).c_str());
   TFile *tFile1=new TFile((histfilename).c_str(), "READ");
   TH1F h_Cuts=*((TH1F*)((TH1F*)tFile1->Get("h_Cuts"))->Clone("h_Cuts"));
@@ -220,7 +220,7 @@ void HbbHbb_LMRSelection_chi2(std::string type, std::string sample, int signal_m
                     double mH2=diJet2_p4.M();
                     double m_diff=fabs(mH1-mH2);
                     double chi2=pow((mH1-mean_H1_mass_)/sigma_H1_mass_, 2)+pow((mH2-mean_H2_mass_)/sigma_H2_mass_, 2);
-                    if (chi2< chi2_old && ((80.<mH1 && mH1<160.) && (80.<mH2 && mH2<160.)))
+                    if (chi2< chi2_old && ((110.<mH1 && mH1<190.) && (110.<mH2 && mH2<190.)))
                     {
                       H1jet1_i=j_jetIndex;
                       H1jet2_i=k_jetIndex;
