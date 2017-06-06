@@ -1,52 +1,41 @@
-#!/bin/sh
+#!/bin/sh                                                                 
 
 run="RunE"
-#folder="VHBB_HEPPY_V24_JetHT__Run2016B-PromptReco-v2/160910_205020/"
-#folder="VHBB_HEPPY_V24_JetHT__Run2016B-PromptReco-v2/160912_07022/"
-folder="/eos/uscms/store/user/lpchbb/HeppyNtuples/V25rereco/BTagCSV/VHBB_HEPPY_V25b_BTagCSV__Run2016E-03Feb2017-v1/170226_200249/"
+location=$1
+if test $location -eq 0
+        then folder="/eos/uscms/store/user/lpchbb/HeppyNtuples/V25rereco/BTagCSV/VHBB_HEPPY_V25b_BTagCSV__Run2016E-03Feb2017-v1/170226_200249/"
+elif test $location -eq 1
+        then folder="/gpfs/ddn/srm/cms/store/user/arizzi/VHBBHeppyV25b/BTagCSV/VHBB_HEPPY_V25b_BTagCSV__Run2016E-03Feb2017-v1/170226_200249/"
+else
+        folder="./"
+fi
+
+                                                                            
+from=1
+to=1239
+  
 mkdir $run
-for i in {1..1239}
-do    
-    if test $i -lt 1000 
-        then subfolder="0000/"
-    elif test $i -lt 2000 
-        then subfolder="0001/"
-    elif test $i -lt 3000
-        then subfolder="0002/"
-    else 
-        subfolder="0003/"
-    fi
-    file="tree_"$i
-    echo $folder$subfolder
-    cd $run
-    ln -s ../../HbbHbb_PreSelection.cc .
-    #cd $run
-#    root -b -l -q "TE_presel.cc(\"$run\", \"$folder\", \"$subfolder\", \"$file\" )"
-    root -l -b -q "HbbHbb_PreSelection.cc++(\"$folder$subfolder\",  \"$file\",\"JEC\",\"JER\",\"Trig\",\"bTag\",\"/uscms_data/d3/cvernier/4b/HbbHbb_2016/HbbHbb_Run2/AnalysisCode//gravall-v25.weights.xml\")"
-#    root -b -l -q "TE_presel.cc(\"$run\", \"$folder\", \"$subfolder\", \"$file\" )"
-    #root -l -b -q "../../HbbHbb_PreSelection.cc++(\"$folder$subfolder\",  \"$file\",\"JEC\",\"JER\",\"Trig\",\"bTag\",\"../grav_all_upTo1400.xml\")"
-done        
+cd $run
+mkdir PDFs
+cp ../../PDFs/deepCSV_BH_Moriond17.csv PDFs/
 
+for (( i=$from; i<=$to; i++ ))
+do
+	if test $i -lt 1000
+		then subfolder="0000"
+	elif test $i -lt 2000
+		then subfolder="0001"
+	elif test $i -lt 3000
+		then subfolder="0002"
+	else
+		subfolder="0003"
+	fi
+	file="tree_"$i
+	echo $file
+	root -l -b -q "../../HbbHbb_PreSelection.cc++(\"$folder$subfolder\", \"$file\", \"JEC\", \"JER\", \"Trig\", \"bTag\", \"../../gravall-v25.weights.xml\")"
+done
 
-#sfs="0000 0001 0002 0003"
-#out_L1=""
+rm -fr PDFs/
 
-#for f in $sfs
-#do
-#    name="SingleMuonSkimmed$f.root"    
-#    echo "Output file: $name"
-#    echo "Input files:"
-#    files=$(ls $run/$f)
-#    new_files=""
-#    for file in $files
-#    do 
-   #     echo $file
-#        new_files="$new_files $run/$f/$file"
-#    done
-#    hadd -f $run/$name $new_files
-#    out_L1="$out_L1 $run/$name"
-#done
-
-#hadd -f "SingleMuonSkimmed$run.root" $out_L1
-
+cd ../
 

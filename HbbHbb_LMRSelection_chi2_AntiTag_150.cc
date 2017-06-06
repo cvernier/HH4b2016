@@ -33,7 +33,7 @@ TLorentzVector fillTLorentzVector(double pT, double eta, double phi, double M)
   return jet_p4;
 }
 
-void HbbHbb_LMRSelection_AntiTag_150(std::string type, std::string sample)
+void HbbHbb_LMRSelection_chi2_AntiTag_150(std::string type, std::string sample)
 {
 
   std::string inputfilename="../PreSelected_"+sample+".root";
@@ -48,7 +48,7 @@ void HbbHbb_LMRSelection_AntiTag_150(std::string type, std::string sample)
   float jet_btagCSV[100], jetList_CentralpT40_CSVOrder[100];
   float jet_pT[100], jet_eta[100], jet_phi[100], jet_mass[100];
   float genBQuarkFromH_pT[100],genBQuarkFromH_eta[100],genBQuarkFromH_phi[100],genBQuarkFromH_mass[100];
-  float jet_regressed_pT[100];
+  float jet_regressed_pT[100], jet_btagDeepCSVb[100], jet_btagDeepCSVbb[100];
   //std::vector<unsigned int> *jetIndex_CentralpT40_CSVOrder=0;
   std::vector<unsigned int> *jetIndex_CentralpT40btag_deepCSVOrder=0;
   
@@ -63,6 +63,8 @@ void HbbHbb_LMRSelection_AntiTag_150(std::string type, std::string sample)
   tree->SetBranchAddress("Jet_phi", &(jet_phi));                  
   tree->SetBranchAddress("Jet_mass", &(jet_mass));
   tree->SetBranchAddress("Jet_regressed_pt", &(jet_regressed_pT));
+  tree->SetBranchAddress("Jet_btagDeepCSVb", &(jet_btagDeepCSVb));
+  tree->SetBranchAddress("Jet_btagDeepCSVbb", &(jet_btagDeepCSVbb));
   //tree->SetBranchAddress("jetIndex_CentralpT40_CSVOrder", &(jetIndex_CentralpT40_CSVOrder));
   tree->SetBranchAddress("jetIndex_CentralpT40btag_deepCSVOrder", &(jetIndex_CentralpT40btag_deepCSVOrder));
   tree->SetBranchAddress("nGenBQuarkFromH", &(nGenBQuarkFromH));         
@@ -113,10 +115,10 @@ void HbbHbb_LMRSelection_AntiTag_150(std::string type, std::string sample)
   TH1F *h_mX_SB_biasCorrected = new TH1F("h_mX_SB_biasCorrected", "; m_{X} (GeV)", 3000, 0., 3000.);   h_mX_SB_biasCorrected->Sumw2();
   TH1F *h_mX_SB_kinFit        = new TH1F("h_mX_SB_kinFit", "; m_{X} (GeV)", 3000, 0., 3000.);          h_mX_SB_kinFit->Sumw2();
   
-  // Get the h_Cuts histogram
+  std::string Old_histfilename="../Histograms_Preselected_"+sample+".root";
   std::string histfilename="Histograms_LMR_AntiTag_150_"+sample+".root";
-  gSystem->Exec(("cp ../"+histfilename+" "+histfilename).c_str());
-  TFile *tFile1=new TFile((histfilename).c_str(), "READ");
+  gSystem->Exec(("cp "+Old_histfilename+" "+histfilename).c_str());
+  TFile *tFile1=new TFile((Old_histfilename).c_str(), "READ");
   TH1F h_Cuts=*((TH1F*)((TH1F*)tFile1->Get("h_Cuts"))->Clone("h_Cuts"));
   tFile1->Close();
 
@@ -155,7 +157,7 @@ void HbbHbb_LMRSelection_AntiTag_150(std::string type, std::string sample)
                 {
                   unsigned int m_jetIndex=jetIndex_CentralpT40btag_deepCSVOrder->at(m);
                   jet4_p4=fillTLorentzVector(jet_regressed_pT[m_jetIndex], jet_eta[m_jetIndex], jet_phi[m_jetIndex], jet_mass[m_jetIndex]);
-                  if (m_jetIndex!=j_jetIndex && m_jetIndex!=k_jetIndex && m_jetIndex!=l_jetIndex && jet4_p4.Pt()>jet_pT_cut1 && jetIndex_CentralpT40btag_deepCSVOrder[m_jetIndex]<0.6324)
+                  if (m_jetIndex!=j_jetIndex && m_jetIndex!=k_jetIndex && m_jetIndex!=l_jetIndex && jet4_p4.Pt()>jet_pT_cut1 && jet_btagDeepCSVb[m_jetIndex]+jet_btagDeepCSVbb[m_jetIndex]<0.6324)
                   {
 
 

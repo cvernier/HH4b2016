@@ -8,7 +8,7 @@
 #include <TLorentzVector.h>
 #include <iostream>
 #include <vector>
-#include "PDFs/BtagCalibrationStandalone.cc"
+//#include "PDFs/BtagCalibrationStandalone.cc"
 #include "HbbHbb_Component_SignalPurity.cc"
 #include "HbbHbb_Component_KinFit.cc"
 
@@ -156,10 +156,10 @@ void HbbHbb_LMRSelection_chi2_150(std::string type, std::string sample, int sign
   TH1F *h_mX_SB_biasCorrected = new TH1F("h_mX_SB_biasCorrected", "; m_{X} (GeV)", 3000, 0., 3000.);   h_mX_SB_biasCorrected->Sumw2();
   TH1F *h_mX_SB_kinFit        = new TH1F("h_mX_SB_kinFit", "; m_{X} (GeV)", 3000, 0., 3000.);          h_mX_SB_kinFit->Sumw2();
   
-  // Get the h_Cuts histogram
+  std::string Old_histfilename="../Histograms_Preselected_"+sample+".root";
   std::string histfilename="Histograms_LMR_150"+sample+".root";
-  gSystem->Exec(("cp ../"+histfilename+" "+histfilename).c_str());
-  TFile *tFile1=new TFile((histfilename).c_str(), "READ");
+  gSystem->Exec(("cp "+Old_histfilename+" "+histfilename).c_str());
+  TFile *tFile1=new TFile((Old_histfilename).c_str(), "READ");
   TH1F h_Cuts=*((TH1F*)((TH1F*)tFile1->Get("h_Cuts"))->Clone("h_Cuts"));
   tFile1->Close();
 
