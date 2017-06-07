@@ -1,16 +1,6 @@
 {
   gSystem->Load("../../libPhysicsToolsKinFitter.so");
-  gROOT->LoadMacro("../../HbbHbb_LMRSelection_chi2.cc++");
+  gROOT->LoadMacro("../../HbbHbb_LMRSelection_chi2_150.cc++");
 
-  HbbHbb_LMRSelection_chi2("Data", "BTagTotal", 300, true);
-  //HbbHbb_LMRSelection_chi2("Data", "RunBv2", 300, true);
-  //HbbHbb_LMRSelection_chi2("Data", "RunBv3", 300, true);
-  //HbbHbb_LMRSelection_chi2("Data", "RunC", 300, true);
-  //HbbHbb_LMRSelection_chi2("Data", "RunD", 300, true);
-  //HbbHbb_LMRSelection_chi2("Data", "RunE", 300, true);
-  //HbbHbb_LMRSelection_chi2("Data", "RunF", 300, true);
-  //HbbHbb_LMRSelection_chi2("Data", "RunG", 300, true);
-  //HbbHbb_LMRSelection_chi2("Data", "RunHv1", 300, true);
-  //HbbHbb_LMRSelection_chi2("Data", "RunHv2", 300, true);
-  //HbbHbb_LMRSelection_chi2("Data", "RunHv3", 300, true);
+  HbbHbb_LMRSelection_chi2_150("Data", "BTagTotal", 300, true);
 }

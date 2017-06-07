@@ -1,6 +1,6 @@
 {
   gSystem->Load("../../libPhysicsToolsKinFitter.so");
-  gROOT->LoadMacro("../../HbbHbb_LMRSelection_chi2_AntiTag.cc++");
+  gROOT->LoadMacro("../../HbbHbb_LMRSelection_chi2_AntiTag_150.cc++");
 
-  HbbHbb_LMRSelection_chi2_AntiTag("Data", "BTagTotal");
+  HbbHbb_LMRSelection_chi2_AntiTag_150("Data", "BTagTotal");
 }
