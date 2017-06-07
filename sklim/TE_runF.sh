@@ -32,7 +32,7 @@ do
 	fi
 	file="tree_"$i
 	echo $file
-	root -l -b -q "../../HbbHbb_PreSelection.cc++(\"$folder$subfolder\", \"$file\", \"JEC\", \"JER\", \"Trig\", \"bTag\", \"../../gravall-v25.weights.xml\")"
+	root -l -b -q "../../HbbHbb_PreSelectionF.cc++(\"$folder$subfolder\", \"$file\", \"JEC\", \"JER\", \"Trig\", \"bTag\", \"../../gravall-v25.weights.xml\")"
 done
 
 rm -fr PDFs/
