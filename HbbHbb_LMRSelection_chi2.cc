@@ -8,7 +8,7 @@
 #include <TLorentzVector.h>
 #include <iostream>
 #include <vector>
-#include "PDFs/BtagCalibrationStandalone.cc"
+//#include "PDFs/BtagCalibrationStandalone.cc"
 #include "HbbHbb_Component_SignalPurity.cc"
 #include "HbbHbb_Component_KinFit.cc"
 
@@ -85,11 +85,10 @@ void HbbHbb_LMRSelection_chi2(std::string type, std::string sample, int signal_m
   int evt;
   float eventWeight;
   int nJets, nGenBQuarkFromH;
-  float jet_btagCSV[100], jet_btagCMVA[100];
+  float jet_btagCSV[100];
   float jet_pT[100], jet_eta[100], jet_phi[100], jet_mass[100];
   float genBQuarkFromH_pT[100],genBQuarkFromH_eta[100],genBQuarkFromH_phi[100],genBQuarkFromH_mass[100];
   float jet_regressed_pT[100], jet_flavor[100];
-  //std::vector<unsigned int> *jetIndex_CentralpT40btag_CMVAOrder=0;
   std::vector<unsigned int> *jetIndex_CentralpT40btag_deepCSVOrder=0;
   
   // Retrieve variables
@@ -97,13 +96,11 @@ void HbbHbb_LMRSelection_chi2(std::string type, std::string sample, int signal_m
   tree->SetBranchAddress("eventWeight", &(eventWeight));                
   tree->SetBranchAddress("nJet", &(nJets));                       
   tree->SetBranchAddress("Jet_btagCSV", &(jet_btagCSV));          
-  tree->SetBranchAddress("Jet_btagCMVAV2", &(jet_btagCMVA));
   tree->SetBranchAddress("Jet_pt", &(jet_pT));                    
   tree->SetBranchAddress("Jet_eta", &(jet_eta));                  
   tree->SetBranchAddress("Jet_phi", &(jet_phi));                  
   tree->SetBranchAddress("Jet_mass", &(jet_mass));
   tree->SetBranchAddress("Jet_regressed_pt", &(jet_regressed_pT));
-  //tree->SetBranchAddress("jetIndex_CentralpT40btag_CMVAOrder", &(jetIndex_CentralpT40btag_CMVAOrder));
   tree->SetBranchAddress("jetIndex_CentralpT40btag_deepCSVOrder", &(jetIndex_CentralpT40btag_deepCSVOrder));
   if(type!="Data"){
   tree->SetBranchAddress("nGenBQuarkFromH", &(nGenBQuarkFromH));         
@@ -156,8 +153,8 @@ void HbbHbb_LMRSelection_chi2(std::string type, std::string sample, int signal_m
   TH1F *h_mX_SB_biasCorrected = new TH1F("h_mX_SB_biasCorrected", "; m_{X} (GeV)", 3000, 0., 3000.);   h_mX_SB_biasCorrected->Sumw2();
   TH1F *h_mX_SB_kinFit        = new TH1F("h_mX_SB_kinFit", "; m_{X} (GeV)", 3000, 0., 3000.);          h_mX_SB_kinFit->Sumw2();
   
-  std::string Old_histfilename="../Histograms_PreSelected_"+sample+".root";
-  std::string histfilename="../Histograms_LMR_"+sample+".root";
+  std::string Old_histfilename="../Histograms_Preselected_"+sample+".root";
+  std::string histfilename="Histograms_LMR_"+sample+".root";
   gSystem->Exec(("cp "+Old_histfilename+" "+histfilename).c_str());
   TFile *tFile1=new TFile((Old_histfilename).c_str(), "READ");
   TH1F h_Cuts=*((TH1F*)((TH1F*)tFile1->Get("h_Cuts"))->Clone("h_Cuts"));
@@ -168,6 +165,7 @@ void HbbHbb_LMRSelection_chi2(std::string type, std::string sample, int signal_m
   std::map<int,float> SB_m, SR_m;
   for( auto m : masses ){ SR_m[m]=0; SB_m[m]=0; }
   // Event loop
+  int nEvents=tree->GetEntries();
   double nCut4=0, nCut5=0, nCutGen=0;
   for (int i=0; i<tree->GetEntries(); ++i)
   {
@@ -397,6 +395,9 @@ void HbbHbb_LMRSelection_chi2(std::string type, std::string sample, int signal_m
       }
       
     }
+    
+    if (i%(nEvents/10)==0) std::cout<<int(i*100./nEvents)+1<<"% of "<<nEvents<<" events have been processed."<<std::endl;
+    
   } // Event loop
 
   if(type!="Data") std::cout << signal_mass <<  "   " << SR_m[signal_mass] << std::endl;
@@ -449,13 +450,13 @@ void HbbHbb_LMRSelection_chi2(std::string type, std::string sample, int signal_m
 
   tFile2->Write();
   tFile2->Close();
-  //std::cout<<"Wrote output file "<<histfilename<<std::endl;
+  std::cout<<"Wrote output file "<<histfilename<<std::endl;
 
-  /*std::cout<<"=== Cut Efficiencies === "<<std::endl;
+  std::cout<<"=== Cut Efficiencies === "<<std::endl;
   std::cout<<"Number of events after finding HH candidate (btag && pT>40 GeV && |eta|<2.5)  = "<<nCut4<<std::endl;
   std::cout<<"Number of events in SR = "<<nCut5<<std::endl;
   std::cout<<"========================"<<std::endl;
-  */
+  
   delete h_H1_mass;
   delete h_H1_pT;
   delete h_H2_mass;
