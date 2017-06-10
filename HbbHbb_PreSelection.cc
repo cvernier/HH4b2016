@@ -70,7 +70,7 @@ void HbbHbb_PreSelection(std::string dir, std::string sample,
   tree->Add(inputfilename.c_str());                                                  
   std::cout<<"Opened input file "<<inputfilename<<std::endl;                         
   std::cout<<test<<std::endl;                         
-  if (test<=0) tree->Scan();
+  if (test<=0) return; //tree->Scan();
 
   
   if (regressionFile=="") std::cout<<"b jet regression not done. jet_regressed_pT = jet_pT"<<std::endl;

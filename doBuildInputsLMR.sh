@@ -1,29 +1,44 @@
 #!/bin/bash
 
-
-#rebin=$1
 mass=$1
-#fitModel=$3
 
+function="crystal" #gaus_exp crystal novo crystal_1
+range="252_330" #252_330 285_624
+background="_${function}_${range}"
 
+dir_preselection="PreselectedWithRegressionDeepCSV"
+dir_selection="LMRSelection_chi2"
+dest_dir="PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit"
+background_type="fit_split.c"
+Type="Split"
 
-mkdir LMR_${mass}
+file_histograms="Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-"
+
+rm -fr ${dest_dir}"/SignalFits_LMRreg"
+mkdir ${dest_dir}"/SignalFits_LMRreg"
+folder=${dest_dir}/LMR_${mass}${background}
+rm -fr $folder
+mkdir $folder
+echo $folder
+
+rm -f test.c
+echo " { gSystem->Load(\"PDFs/ExpGaussExp_cxx.so\"); gROOT->LoadMacro(\"Display_SignalFits_LMR.cc\"); Display_SignalFits_LMR(\"$dir_preselection\",\"reg\",\"$dir_selection\",\"$dest_dir\",\"$file_histograms\",${mass},\"false\"); }" > test.c
+
+echo 
+root -x -b -l -q test.c > $folder/signal${mass}_sig.log
+mv ${dest_dir}/SignalFits_LMRreg/*${mass}* $folder/
+
+echo "Done Signal"
 echo
-
-echo "root -x -b -l -q Display_SignalFits_LMR.cc\(\"PreselectedWithRegressionDeepCSV\",\"reg\",\"LMRSelection_chi2\",\"Histograms_GluGluToBulkGravitonToHHTo4B_M-\",${mass},\"false\"\) > LMR_${mass}/signal${mass}_sig.log"
+echo "root -x -b -l -q " $dir_preselection/$dir_selection/$background_type 
+root -x -b -l -q $dir_preselection/$dir_selection/$background_type > $folder/data_bkg.log
+echo "Done Background"
 echo
-root -x -b -l -q Display_SignalFits_LMR.cc\(\"PreselectedWithRegressionDeepCSV\",\"reg\",\"LMRSelection_chi2\",\"Histograms_GluGluToBulkGravitonToHHTo4B_M-\",${mass},\"False\"\) > LMR_${mass}/signal${mass}_sig.log
-cp SignalFits_LMRreg/*${mass}* LMR_${mass}/
-cp SignalFits_LMRreg/index.html LMR_${mass}/
-
-echo
-cd PreselectedWithRegressionDeepCSV/LMRSelection_chi2	
-echo "root -x -b -l -q fit_background.c "
-echo
-root -x -b -l -q fit_crystal.c > ../../LMR_${mass}/data_bkg.log
-cp w_background_Crystal.root ../../LMR_${mass}/
-cp w_data.root ../../LMR_${mass}/
-cd ../../
-
-python PDFSyst.py --mass $1 > LMR_${mass}/pdf.log 
-
+echo "PDF"
+python PDFSyst.py --mass $1 > $folder/pdf.log
+mv $dest_dir/w_background$background.root $folder/
+mv $dest_dir/*BackgroundFit_*${background}*.png* $folder/ 
+mv $dest_dir/BackgroundFit_SB_Split* $folder/ 
+rm -fr $dest_dir/Background*  
+rm -fr $dest_dir/w_background*
+echo "end"
