@@ -2,8 +2,8 @@
 
 mass=$1
 
-function="novo" #novo crystal_1
-range="550_1200"
+function=$2
+range=$3
 background="_${function}_${range}"
 
 dir_preselection="PreselectedWithRegressionDeepCSV"

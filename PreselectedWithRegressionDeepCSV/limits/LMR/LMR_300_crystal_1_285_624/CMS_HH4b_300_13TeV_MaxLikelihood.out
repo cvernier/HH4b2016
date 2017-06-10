@@ -1,0 +1,341 @@
+Running Minos for POI 
+[#0] WARNING:Integration -- RooIntegrator1D::integral: integral of shapeBkg_background_HbbHbb over range (285,624) did not converge after 20 steps
+   [1] h = 1 , s = 0
+   [2] h = 0.25 , s = 1.45051e-104
+   [3] h = 0.0625 , s = 2.26749e-20
+   [4] h = 0.015625 , s = 0.0210787
+   [5] h = 0.00390625 , s = 14.5628
+   [6] h = 0.000976562 , s = 7.89997
+   [7] h = 0.000244141 , s = 5.40231
+   [8] h = 6.10352e-05 , s = 6.69066
+   [9] h = 1.52588e-05 , s = 7.34206
+   [10] h = 3.8147e-06 , s = 7.66948
+   [11] h = 9.53674e-07 , s = 7.83362
+   [12] h = 2.38419e-07 , s = 7.91579
+   [13] h = 5.96046e-08 , s = 7.9569
+   [14] h = 1.49012e-08 , s = 7.97747
+   [15] h = 3.72529e-09 , s = 7.96719
+   [16] h = 9.31323e-10 , s = 7.97233
+   [17] h = 2.32831e-10 , s = 7.9749
+   [18] h = 5.82077e-11 , s = 7.97361
+   [19] h = 1.45519e-11 , s = 7.97425
+   [20] h = 3.63798e-12 , s = 7.97393
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (28.4835) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.261073, JER=-1.08676, PDF=-0.827445, bTag=-3.59831, lumi_13TeV=-1.39686, par_crystal_1_0=-0.111878, par_crystal_1_1=5.10717, par_crystal_1_2=300.133, par_crystal_1_3=-6.98456, r=1.97635, sg_p0=300.807, sg_p1=6.67531, sg_p2=286.354, sg_p3=37.0067, sg_p4=0.646422, trigger=-5.18514
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.111878 +/- 0.146293, p1=par_crystal_1_1=5.10717 +/- 0.368331, p2=par_crystal_1_2=300.133 +/- 29.0834, p3=par_crystal_1_3=-6.98456 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.111878 +/- 0.146293, p1=par_crystal_1_1=5.10717 +/- 0.368331, p2=par_crystal_1_2=300.133 +/- 29.0834, p3=par_crystal_1_3=-6.98456 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=295.594, p0=par_crystal_1_0=-0.111878 +/- 0.146293, p1=par_crystal_1_1=5.10717 +/- 0.368331, p2=par_crystal_1_2=300.133 +/- 29.0834, p3=par_crystal_1_3=-6.98456 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=290.297, p0=par_crystal_1_0=-0.111878 +/- 0.146293, p1=par_crystal_1_1=5.10717 +/- 0.368331, p2=par_crystal_1_2=300.133 +/- 29.0834, p3=par_crystal_1_3=-6.98456 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=300.891, p0=par_crystal_1_0=-0.111878 +/- 0.146293, p1=par_crystal_1_1=5.10717 +/- 0.368331, p2=par_crystal_1_2=300.133 +/- 29.0834, p3=par_crystal_1_3=-6.98456 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=287.648, p0=par_crystal_1_0=-0.111878 +/- 0.146293, p1=par_crystal_1_1=5.10717 +/- 0.368331, p2=par_crystal_1_2=300.133 +/- 29.0834, p3=par_crystal_1_3=-6.98456 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=292.945, p0=par_crystal_1_0=-0.111878 +/- 0.146293, p1=par_crystal_1_1=5.10717 +/- 0.368331, p2=par_crystal_1_2=300.133 +/- 29.0834, p3=par_crystal_1_3=-6.98456 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=298.242, p0=par_crystal_1_0=-0.111878 +/- 0.146293, p1=par_crystal_1_1=5.10717 +/- 0.368331, p2=par_crystal_1_2=300.133 +/- 29.0834, p3=par_crystal_1_3=-6.98456 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.324, p0=par_crystal_1_0=-0.111878 +/- 0.146293, p1=par_crystal_1_1=5.10717 +/- 0.368331, p2=par_crystal_1_2=300.133 +/- 29.0834, p3=par_crystal_1_3=-6.98456 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=288.973, p0=par_crystal_1_0=-0.111878 +/- 0.146293, p1=par_crystal_1_1=5.10717 +/- 0.368331, p2=par_crystal_1_2=300.133 +/- 29.0834, p3=par_crystal_1_3=-6.98456 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=291.621, p0=par_crystal_1_0=-0.111878 +/- 0.146293, p1=par_crystal_1_1=5.10717 +/- 0.368331, p2=par_crystal_1_2=300.133 +/- 29.0834, p3=par_crystal_1_3=-6.98456 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=294.27, p0=par_crystal_1_0=-0.111878 +/- 0.146293, p1=par_crystal_1_1=5.10717 +/- 0.368331, p2=par_crystal_1_2=300.133 +/- 29.0834, p3=par_crystal_1_3=-6.98456 +/- 11.8996
+    ... (remaining 24609 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.220025, JER=-0.88602, PDF=-0.669587, bTag=-2.91162, lumi_13TeV=-1.12981, par_crystal_1_0=-0.07279, par_crystal_1_1=4.59022, par_crystal_1_2=289.688, par_crystal_1_3=-6.26845, r=1.97635, sg_p0=300.807, sg_p1=6.67518, sg_p2=286.358, sg_p3=37.0026, sg_p4=0.646421, trigger=-4.19573
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.07279 +/- 0.146293, p1=par_crystal_1_1=4.59022 +/- 0.368331, p2=par_crystal_1_2=289.688 +/- 29.0834, p3=par_crystal_1_3=-6.26845 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.07279 +/- 0.146293, p1=par_crystal_1_1=4.59022 +/- 0.368331, p2=par_crystal_1_2=289.688 +/- 29.0834, p3=par_crystal_1_3=-6.26845 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=287.648, p0=par_crystal_1_0=-0.07279 +/- 0.146293, p1=par_crystal_1_1=4.59022 +/- 0.368331, p2=par_crystal_1_2=289.688 +/- 29.0834, p3=par_crystal_1_3=-6.26845 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.324, p0=par_crystal_1_0=-0.07279 +/- 0.146293, p1=par_crystal_1_1=4.59022 +/- 0.368331, p2=par_crystal_1_2=289.688 +/- 29.0834, p3=par_crystal_1_3=-6.26845 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=288.973, p0=par_crystal_1_0=-0.07279 +/- 0.146293, p1=par_crystal_1_1=4.59022 +/- 0.368331, p2=par_crystal_1_2=289.688 +/- 29.0834, p3=par_crystal_1_3=-6.26845 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285.662, p0=par_crystal_1_0=-0.07279 +/- 0.146293, p1=par_crystal_1_1=4.59022 +/- 0.368331, p2=par_crystal_1_2=289.688 +/- 29.0834, p3=par_crystal_1_3=-6.26845 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.986, p0=par_crystal_1_0=-0.07279 +/- 0.146293, p1=par_crystal_1_1=4.59022 +/- 0.368331, p2=par_crystal_1_2=289.688 +/- 29.0834, p3=par_crystal_1_3=-6.26845 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=288.311, p0=par_crystal_1_0=-0.07279 +/- 0.146293, p1=par_crystal_1_1=4.59022 +/- 0.368331, p2=par_crystal_1_2=289.688 +/- 29.0834, p3=par_crystal_1_3=-6.26845 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=289.635, p0=par_crystal_1_0=-0.07279 +/- 0.146293, p1=par_crystal_1_1=4.59022 +/- 0.368331, p2=par_crystal_1_2=289.688 +/- 29.0834, p3=par_crystal_1_3=-6.26845 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285.331, p0=par_crystal_1_0=-0.07279 +/- 0.146293, p1=par_crystal_1_1=4.59022 +/- 0.368331, p2=par_crystal_1_2=289.688 +/- 29.0834, p3=par_crystal_1_3=-6.26845 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285.993, p0=par_crystal_1_0=-0.07279 +/- 0.146293, p1=par_crystal_1_1=4.59022 +/- 0.368331, p2=par_crystal_1_2=289.688 +/- 29.0834, p3=par_crystal_1_3=-6.26845 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.655, p0=par_crystal_1_0=-0.07279 +/- 0.146293, p1=par_crystal_1_1=4.59022 +/- 0.368331, p2=par_crystal_1_2=289.688 +/- 29.0834, p3=par_crystal_1_3=-6.26845 +/- 11.8996
+    ... (remaining 7948 messages suppressed)
+
+[#0] WARNING:Integration -- RooIntegrator1D::integral: integral of shapeBkg_background_HbbHbb over range (285,624) did not converge after 20 steps
+   [1] h = 1 , s = 9.65994e-242
+   [2] h = 0.25 , s = 2.45908e-57
+   [3] h = 0.0625 , s = 1.51521e-12
+   [4] h = 0.015625 , s = 0.0443369
+   [5] h = 0.00390625 , s = 6.11593
+   [6] h = 0.000976562 , s = 12.6562
+   [7] h = 0.000244141 , s = 9.99603
+   [8] h = 6.10352e-05 , s = 11.3229
+   [9] h = 1.52588e-05 , s = 11.9856
+   [10] h = 3.8147e-06 , s = 11.6556
+   [11] h = 9.53674e-07 , s = 11.4909
+   [12] h = 2.38419e-07 , s = 11.4086
+   [13] h = 5.96046e-08 , s = 11.3675
+   [14] h = 1.49012e-08 , s = 11.3469
+   [15] h = 3.72529e-09 , s = 11.3366
+   [16] h = 9.31323e-10 , s = 11.3418
+   [17] h = 2.32831e-10 , s = 11.3392
+   [18] h = 5.82077e-11 , s = 11.3379
+   [19] h = 1.45519e-11 , s = 11.3373
+   [20] h = 3.63798e-12 , s = 11.3376
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.247106, JER=-0.993446, PDF=-0.750488, bTag=-3.26346, lumi_13TeV=-1.2663, par_crystal_1_0=-0.115929, par_crystal_1_1=4.56855, par_crystal_1_2=290.455, par_crystal_1_3=-9.96577, r=1.97635, sg_p0=300.807, sg_p1=6.67514, sg_p2=286.359, sg_p3=37.0012, sg_p4=0.646421, trigger=-4.70272
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.115929 +/- 0.146293, p1=par_crystal_1_1=4.56855 +/- 0.368331, p2=par_crystal_1_2=290.455 +/- 29.0834, p3=par_crystal_1_3=-9.96577 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.115929 +/- 0.146293, p1=par_crystal_1_1=4.56855 +/- 0.368331, p2=par_crystal_1_2=290.455 +/- 29.0834, p3=par_crystal_1_3=-9.96577 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=290.297, p0=par_crystal_1_0=-0.115929 +/- 0.146293, p1=par_crystal_1_1=4.56855 +/- 0.368331, p2=par_crystal_1_2=290.455 +/- 29.0834, p3=par_crystal_1_3=-9.96577 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=287.648, p0=par_crystal_1_0=-0.115929 +/- 0.146293, p1=par_crystal_1_1=4.56855 +/- 0.368331, p2=par_crystal_1_2=290.455 +/- 29.0834, p3=par_crystal_1_3=-9.96577 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.324, p0=par_crystal_1_0=-0.115929 +/- 0.146293, p1=par_crystal_1_1=4.56855 +/- 0.368331, p2=par_crystal_1_2=290.455 +/- 29.0834, p3=par_crystal_1_3=-9.96577 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=288.973, p0=par_crystal_1_0=-0.115929 +/- 0.146293, p1=par_crystal_1_1=4.56855 +/- 0.368331, p2=par_crystal_1_2=290.455 +/- 29.0834, p3=par_crystal_1_3=-9.96577 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285.662, p0=par_crystal_1_0=-0.115929 +/- 0.146293, p1=par_crystal_1_1=4.56855 +/- 0.368331, p2=par_crystal_1_2=290.455 +/- 29.0834, p3=par_crystal_1_3=-9.96577 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.986, p0=par_crystal_1_0=-0.115929 +/- 0.146293, p1=par_crystal_1_1=4.56855 +/- 0.368331, p2=par_crystal_1_2=290.455 +/- 29.0834, p3=par_crystal_1_3=-9.96577 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=288.311, p0=par_crystal_1_0=-0.115929 +/- 0.146293, p1=par_crystal_1_1=4.56855 +/- 0.368331, p2=par_crystal_1_2=290.455 +/- 29.0834, p3=par_crystal_1_3=-9.96577 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=289.635, p0=par_crystal_1_0=-0.115929 +/- 0.146293, p1=par_crystal_1_1=4.56855 +/- 0.368331, p2=par_crystal_1_2=290.455 +/- 29.0834, p3=par_crystal_1_3=-9.96577 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=290.959, p0=par_crystal_1_0=-0.115929 +/- 0.146293, p1=par_crystal_1_1=4.56855 +/- 0.368331, p2=par_crystal_1_2=290.455 +/- 29.0834, p3=par_crystal_1_3=-9.96577 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285.331, p0=par_crystal_1_0=-0.115929 +/- 0.146293, p1=par_crystal_1_1=4.56855 +/- 0.368331, p2=par_crystal_1_2=290.455 +/- 29.0834, p3=par_crystal_1_3=-9.96577 +/- 11.8996
+    ... (remaining 10215 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.179402, JER=-0.72488, PDF=-0.548235, bTag=-2.38387, lumi_13TeV=-0.925078, par_crystal_1_0=-0.00635216, par_crystal_1_1=4.6227, par_crystal_1_2=288.537, par_crystal_1_3=-0.60006, r=1.97635, sg_p0=300.807, sg_p1=6.67525, sg_p2=286.356, sg_p3=37.0047, sg_p4=0.646422, trigger=-3.43525
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.00635216 +/- 0.146293, p1=par_crystal_1_1=4.6227 +/- 0.368331, p2=par_crystal_1_2=288.537 +/- 29.0834, p3=par_crystal_1_3=-0.60006 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.00635216 +/- 0.146293, p1=par_crystal_1_1=4.6227 +/- 0.368331, p2=par_crystal_1_2=288.537 +/- 29.0834, p3=par_crystal_1_3=-0.60006 +/- 11.8996
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.178048, JER=-0.719509, PDF=-0.54419, bTag=-2.36627, lumi_13TeV=-0.918253, par_crystal_1_0=-0.00410623, par_crystal_1_1=4.62378, par_crystal_1_2=288.498, par_crystal_1_3=-0.408916, r=1.97635, sg_p0=300.807, sg_p1=6.67525, sg_p2=286.356, sg_p3=37.0048, sg_p4=0.646422, trigger=-3.4099
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.00410623 +/- 0.146293, p1=par_crystal_1_1=4.62378 +/- 0.368331, p2=par_crystal_1_2=288.498 +/- 29.0834, p3=par_crystal_1_3=-0.408916 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.00410623 +/- 0.146293, p1=par_crystal_1_1=4.62378 +/- 0.368331, p2=par_crystal_1_2=288.498 +/- 29.0834, p3=par_crystal_1_3=-0.408916 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=286.5, p0=par_crystal_1_0=-0.00410623 +/- 0.146293, p1=par_crystal_1_1=4.62378 +/- 0.368331, p2=par_crystal_1_2=288.498 +/- 29.0834, p3=par_crystal_1_3=-0.408916 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=289.5, p0=par_crystal_1_0=-0.00410623 +/- 0.146293, p1=par_crystal_1_1=4.62378 +/- 0.368331, p2=par_crystal_1_2=288.498 +/- 29.0834, p3=par_crystal_1_3=-0.408916 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=292.5, p0=par_crystal_1_0=-0.00410623 +/- 0.146293, p1=par_crystal_1_1=4.62378 +/- 0.368331, p2=par_crystal_1_2=288.498 +/- 29.0834, p3=par_crystal_1_3=-0.408916 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=295.5, p0=par_crystal_1_0=-0.00410623 +/- 0.146293, p1=par_crystal_1_1=4.62378 +/- 0.368331, p2=par_crystal_1_2=288.498 +/- 29.0834, p3=par_crystal_1_3=-0.408916 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=298.5, p0=par_crystal_1_0=-0.00410623 +/- 0.146293, p1=par_crystal_1_1=4.62378 +/- 0.368331, p2=par_crystal_1_2=288.498 +/- 29.0834, p3=par_crystal_1_3=-0.408916 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=301.5, p0=par_crystal_1_0=-0.00410623 +/- 0.146293, p1=par_crystal_1_1=4.62378 +/- 0.368331, p2=par_crystal_1_2=288.498 +/- 29.0834, p3=par_crystal_1_3=-0.408916 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=304.5, p0=par_crystal_1_0=-0.00410623 +/- 0.146293, p1=par_crystal_1_1=4.62378 +/- 0.368331, p2=par_crystal_1_2=288.498 +/- 29.0834, p3=par_crystal_1_3=-0.408916 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=307.5, p0=par_crystal_1_0=-0.00410623 +/- 0.146293, p1=par_crystal_1_1=4.62378 +/- 0.368331, p2=par_crystal_1_2=288.498 +/- 29.0834, p3=par_crystal_1_3=-0.408916 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=310.5, p0=par_crystal_1_0=-0.00410623 +/- 0.146293, p1=par_crystal_1_1=4.62378 +/- 0.368331, p2=par_crystal_1_2=288.498 +/- 29.0834, p3=par_crystal_1_3=-0.408916 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=313.5, p0=par_crystal_1_0=-0.00410623 +/- 0.146293, p1=par_crystal_1_1=4.62378 +/- 0.368331, p2=par_crystal_1_2=288.498 +/- 29.0834, p3=par_crystal_1_3=-0.408916 +/- 11.8996
+    ... (remaining 105 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.0677144, JER=-0.29668, PDF=-0.228639, bTag=-0.995218, lumi_13TeV=-0.386454, par_crystal_1_0=-0.00990033, par_crystal_1_1=4.0492, par_crystal_1_2=286.92, par_crystal_1_3=-1.27553, r=1.97635, sg_p0=300.807, sg_p1=6.67552, sg_p2=286.347, sg_p3=37.0139, sg_p4=0.646423, trigger=-1.43377
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.00990033 +/- 0.146293, p1=par_crystal_1_1=4.0492 +/- 0.368331, p2=par_crystal_1_2=286.92 +/- 29.0834, p3=par_crystal_1_3=-1.27553 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.00990033 +/- 0.146293, p1=par_crystal_1_1=4.0492 +/- 0.368331, p2=par_crystal_1_2=286.92 +/- 29.0834, p3=par_crystal_1_3=-1.27553 +/- 11.8996
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.0507773, JER=-0.232468, PDF=-0.180858, bTag=-0.787674, lumi_13TeV=-0.305957, par_crystal_1_0=-0.0195894, par_crystal_1_1=3.93253, par_crystal_1_2=286.753, par_crystal_1_3=-2.17387, r=1.97635, sg_p0=300.807, sg_p1=6.67556, sg_p2=286.345, sg_p3=37.0155, sg_p4=0.646423, trigger=-1.13461
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.0195894 +/- 0.146293, p1=par_crystal_1_1=3.93253 +/- 0.368331, p2=par_crystal_1_2=286.753 +/- 29.0834, p3=par_crystal_1_3=-2.17387 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.0195894 +/- 0.146293, p1=par_crystal_1_1=3.93253 +/- 0.368331, p2=par_crystal_1_2=286.753 +/- 29.0834, p3=par_crystal_1_3=-2.17387 +/- 11.8996
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=0.296585, JER=1.15782, PDF=0.86468, bTag=3.76605, lumi_13TeV=1.46055, par_crystal_1_0=-0.0029241, par_crystal_1_1=4.28701, par_crystal_1_2=286.1, par_crystal_1_3=-0.231374, r=1.97635, sg_p0=300.806, sg_p1=6.67624, sg_p2=286.322, sg_p3=37.025, sg_p4=0.64643, trigger=5.42387
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.0029241 +/- 0.146293, p1=par_crystal_1_1=4.28701 +/- 0.368331, p2=par_crystal_1_2=286.1 +/- 29.0834, p3=par_crystal_1_3=-0.231374 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=286.5, p0=par_crystal_1_0=-0.0029241 +/- 0.146293, p1=par_crystal_1_1=4.28701 +/- 0.368331, p2=par_crystal_1_2=286.1 +/- 29.0834, p3=par_crystal_1_3=-0.231374 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=289.5, p0=par_crystal_1_0=-0.0029241 +/- 0.146293, p1=par_crystal_1_1=4.28701 +/- 0.368331, p2=par_crystal_1_2=286.1 +/- 29.0834, p3=par_crystal_1_3=-0.231374 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=292.5, p0=par_crystal_1_0=-0.0029241 +/- 0.146293, p1=par_crystal_1_1=4.28701 +/- 0.368331, p2=par_crystal_1_2=286.1 +/- 29.0834, p3=par_crystal_1_3=-0.231374 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=295.5, p0=par_crystal_1_0=-0.0029241 +/- 0.146293, p1=par_crystal_1_1=4.28701 +/- 0.368331, p2=par_crystal_1_2=286.1 +/- 29.0834, p3=par_crystal_1_3=-0.231374 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=298.5, p0=par_crystal_1_0=-0.0029241 +/- 0.146293, p1=par_crystal_1_1=4.28701 +/- 0.368331, p2=par_crystal_1_2=286.1 +/- 29.0834, p3=par_crystal_1_3=-0.231374 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=301.5, p0=par_crystal_1_0=-0.0029241 +/- 0.146293, p1=par_crystal_1_1=4.28701 +/- 0.368331, p2=par_crystal_1_2=286.1 +/- 29.0834, p3=par_crystal_1_3=-0.231374 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=304.5, p0=par_crystal_1_0=-0.0029241 +/- 0.146293, p1=par_crystal_1_1=4.28701 +/- 0.368331, p2=par_crystal_1_2=286.1 +/- 29.0834, p3=par_crystal_1_3=-0.231374 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=307.5, p0=par_crystal_1_0=-0.0029241 +/- 0.146293, p1=par_crystal_1_1=4.28701 +/- 0.368331, p2=par_crystal_1_2=286.1 +/- 29.0834, p3=par_crystal_1_3=-0.231374 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=310.5, p0=par_crystal_1_0=-0.0029241 +/- 0.146293, p1=par_crystal_1_1=4.28701 +/- 0.368331, p2=par_crystal_1_2=286.1 +/- 29.0834, p3=par_crystal_1_3=-0.231374 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=313.5, p0=par_crystal_1_0=-0.0029241 +/- 0.146293, p1=par_crystal_1_1=4.28701 +/- 0.368331, p2=par_crystal_1_2=286.1 +/- 29.0834, p3=par_crystal_1_3=-0.231374 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=316.5, p0=par_crystal_1_0=-0.0029241 +/- 0.146293, p1=par_crystal_1_1=4.28701 +/- 0.368331, p2=par_crystal_1_2=286.1 +/- 29.0834, p3=par_crystal_1_3=-0.231374 +/- 11.8996
+    ... (remaining 104 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=0.0929689, JER=0.340797, PDF=0.249189, bTag=1.08638, lumi_13TeV=0.421034, par_crystal_1_0=-0.000269978, par_crystal_1_1=3.09515, par_crystal_1_2=286.475, par_crystal_1_3=0.0158696, r=1.97635, sg_p0=300.815, sg_p1=6.66562, sg_p2=286.688, sg_p3=36.9525, sg_p4=0.646423, trigger=1.56435
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.000269978 +/- 0.146293, p1=par_crystal_1_1=3.09515 +/- 0.368331, p2=par_crystal_1_2=286.475 +/- 29.0834, p3=par_crystal_1_3=0.0158696 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=624, p0=par_crystal_1_0=-0.000269978 +/- 0.146293, p1=par_crystal_1_1=3.09515 +/- 0.368331, p2=par_crystal_1_2=286.475 +/- 29.0834, p3=par_crystal_1_3=0.0158696 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=454.5, p0=par_crystal_1_0=-0.000269978 +/- 0.146293, p1=par_crystal_1_1=3.09515 +/- 0.368331, p2=par_crystal_1_2=286.475 +/- 29.0834, p3=par_crystal_1_3=0.0158696 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=369.75, p0=par_crystal_1_0=-0.000269978 +/- 0.146293, p1=par_crystal_1_1=3.09515 +/- 0.368331, p2=par_crystal_1_2=286.475 +/- 29.0834, p3=par_crystal_1_3=0.0158696 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=539.25, p0=par_crystal_1_0=-0.000269978 +/- 0.146293, p1=par_crystal_1_1=3.09515 +/- 0.368331, p2=par_crystal_1_2=286.475 +/- 29.0834, p3=par_crystal_1_3=0.0158696 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=327.375, p0=par_crystal_1_0=-0.000269978 +/- 0.146293, p1=par_crystal_1_1=3.09515 +/- 0.368331, p2=par_crystal_1_2=286.475 +/- 29.0834, p3=par_crystal_1_3=0.0158696 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=412.125, p0=par_crystal_1_0=-0.000269978 +/- 0.146293, p1=par_crystal_1_1=3.09515 +/- 0.368331, p2=par_crystal_1_2=286.475 +/- 29.0834, p3=par_crystal_1_3=0.0158696 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=496.875, p0=par_crystal_1_0=-0.000269978 +/- 0.146293, p1=par_crystal_1_1=3.09515 +/- 0.368331, p2=par_crystal_1_2=286.475 +/- 29.0834, p3=par_crystal_1_3=0.0158696 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=581.625, p0=par_crystal_1_0=-0.000269978 +/- 0.146293, p1=par_crystal_1_1=3.09515 +/- 0.368331, p2=par_crystal_1_2=286.475 +/- 29.0834, p3=par_crystal_1_3=0.0158696 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=306.188, p0=par_crystal_1_0=-0.000269978 +/- 0.146293, p1=par_crystal_1_1=3.09515 +/- 0.368331, p2=par_crystal_1_2=286.475 +/- 29.0834, p3=par_crystal_1_3=0.0158696 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=348.562, p0=par_crystal_1_0=-0.000269978 +/- 0.146293, p1=par_crystal_1_1=3.09515 +/- 0.368331, p2=par_crystal_1_2=286.475 +/- 29.0834, p3=par_crystal_1_3=0.0158696 +/- 11.8996
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=390.938, p0=par_crystal_1_0=-0.000269978 +/- 0.146293, p1=par_crystal_1_1=3.09515 +/- 0.368331, p2=par_crystal_1_2=286.475 +/- 29.0834, p3=par_crystal_1_3=0.0158696 +/- 11.8996
+    ... (remaining 232 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=0.176497, JER=0.710976, PDF=0.535493, bTag=2.33705, lumi_13TeV=0.906113, par_crystal_1_0=-0.0035443, par_crystal_1_1=3.59386, par_crystal_1_2=286.432, par_crystal_1_3=-0.158599, r=1.97635, sg_p0=300.818, sg_p1=6.6623, sg_p2=286.803, sg_p3=36.9387, sg_p4=0.64643, trigger=3.36504
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.0035443 +/- 0.146293, p1=par_crystal_1_1=3.59386 +/- 0.368331, p2=par_crystal_1_2=286.432 +/- 29.0834, p3=par_crystal_1_3=-0.158599 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=286.5, p0=par_crystal_1_0=-0.0035443 +/- 0.146293, p1=par_crystal_1_1=3.59386 +/- 0.368331, p2=par_crystal_1_2=286.432 +/- 29.0834, p3=par_crystal_1_3=-0.158599 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=289.5, p0=par_crystal_1_0=-0.0035443 +/- 0.146293, p1=par_crystal_1_1=3.59386 +/- 0.368331, p2=par_crystal_1_2=286.432 +/- 29.0834, p3=par_crystal_1_3=-0.158599 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=292.5, p0=par_crystal_1_0=-0.0035443 +/- 0.146293, p1=par_crystal_1_1=3.59386 +/- 0.368331, p2=par_crystal_1_2=286.432 +/- 29.0834, p3=par_crystal_1_3=-0.158599 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=295.5, p0=par_crystal_1_0=-0.0035443 +/- 0.146293, p1=par_crystal_1_1=3.59386 +/- 0.368331, p2=par_crystal_1_2=286.432 +/- 29.0834, p3=par_crystal_1_3=-0.158599 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=298.5, p0=par_crystal_1_0=-0.0035443 +/- 0.146293, p1=par_crystal_1_1=3.59386 +/- 0.368331, p2=par_crystal_1_2=286.432 +/- 29.0834, p3=par_crystal_1_3=-0.158599 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=301.5, p0=par_crystal_1_0=-0.0035443 +/- 0.146293, p1=par_crystal_1_1=3.59386 +/- 0.368331, p2=par_crystal_1_2=286.432 +/- 29.0834, p3=par_crystal_1_3=-0.158599 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=304.5, p0=par_crystal_1_0=-0.0035443 +/- 0.146293, p1=par_crystal_1_1=3.59386 +/- 0.368331, p2=par_crystal_1_2=286.432 +/- 29.0834, p3=par_crystal_1_3=-0.158599 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=307.5, p0=par_crystal_1_0=-0.0035443 +/- 0.146293, p1=par_crystal_1_1=3.59386 +/- 0.368331, p2=par_crystal_1_2=286.432 +/- 29.0834, p3=par_crystal_1_3=-0.158599 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=310.5, p0=par_crystal_1_0=-0.0035443 +/- 0.146293, p1=par_crystal_1_1=3.59386 +/- 0.368331, p2=par_crystal_1_2=286.432 +/- 29.0834, p3=par_crystal_1_3=-0.158599 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=313.5, p0=par_crystal_1_0=-0.0035443 +/- 0.146293, p1=par_crystal_1_1=3.59386 +/- 0.368331, p2=par_crystal_1_2=286.432 +/- 29.0834, p3=par_crystal_1_3=-0.158599 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=316.5, p0=par_crystal_1_0=-0.0035443 +/- 0.146293, p1=par_crystal_1_1=3.59386 +/- 0.368331, p2=par_crystal_1_2=286.432 +/- 29.0834, p3=par_crystal_1_3=-0.158599 +/- 11.8996
+    ... (remaining 104 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.275664, JER=-0.866826, PDF=-0.605208, bTag=-2.59762, lumi_13TeV=-1.0092, par_crystal_1_0=-0.000188442, par_crystal_1_1=2.60491, par_crystal_1_2=286.498, par_crystal_1_3=-0.011506, r=1.97635, sg_p0=300.815, sg_p1=6.67619, sg_p2=286.346, sg_p3=36.989, sg_p4=0.646461, trigger=-3.75202
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.000188442 +/- 0.146293, p1=par_crystal_1_1=2.60491 +/- 0.368331, p2=par_crystal_1_2=286.498 +/- 29.0834, p3=par_crystal_1_3=-0.011506 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=286.5, p0=par_crystal_1_0=-0.000188442 +/- 0.146293, p1=par_crystal_1_1=2.60491 +/- 0.368331, p2=par_crystal_1_2=286.498 +/- 29.0834, p3=par_crystal_1_3=-0.011506 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=289.5, p0=par_crystal_1_0=-0.000188442 +/- 0.146293, p1=par_crystal_1_1=2.60491 +/- 0.368331, p2=par_crystal_1_2=286.498 +/- 29.0834, p3=par_crystal_1_3=-0.011506 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=292.5, p0=par_crystal_1_0=-0.000188442 +/- 0.146293, p1=par_crystal_1_1=2.60491 +/- 0.368331, p2=par_crystal_1_2=286.498 +/- 29.0834, p3=par_crystal_1_3=-0.011506 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=295.5, p0=par_crystal_1_0=-0.000188442 +/- 0.146293, p1=par_crystal_1_1=2.60491 +/- 0.368331, p2=par_crystal_1_2=286.498 +/- 29.0834, p3=par_crystal_1_3=-0.011506 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=298.5, p0=par_crystal_1_0=-0.000188442 +/- 0.146293, p1=par_crystal_1_1=2.60491 +/- 0.368331, p2=par_crystal_1_2=286.498 +/- 29.0834, p3=par_crystal_1_3=-0.011506 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=301.5, p0=par_crystal_1_0=-0.000188442 +/- 0.146293, p1=par_crystal_1_1=2.60491 +/- 0.368331, p2=par_crystal_1_2=286.498 +/- 29.0834, p3=par_crystal_1_3=-0.011506 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=304.5, p0=par_crystal_1_0=-0.000188442 +/- 0.146293, p1=par_crystal_1_1=2.60491 +/- 0.368331, p2=par_crystal_1_2=286.498 +/- 29.0834, p3=par_crystal_1_3=-0.011506 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=307.5, p0=par_crystal_1_0=-0.000188442 +/- 0.146293, p1=par_crystal_1_1=2.60491 +/- 0.368331, p2=par_crystal_1_2=286.498 +/- 29.0834, p3=par_crystal_1_3=-0.011506 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=310.5, p0=par_crystal_1_0=-0.000188442 +/- 0.146293, p1=par_crystal_1_1=2.60491 +/- 0.368331, p2=par_crystal_1_2=286.498 +/- 29.0834, p3=par_crystal_1_3=-0.011506 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=313.5, p0=par_crystal_1_0=-0.000188442 +/- 0.146293, p1=par_crystal_1_1=2.60491 +/- 0.368331, p2=par_crystal_1_2=286.498 +/- 29.0834, p3=par_crystal_1_3=-0.011506 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=316.5, p0=par_crystal_1_0=-0.000188442 +/- 0.146293, p1=par_crystal_1_1=2.60491 +/- 0.368331, p2=par_crystal_1_2=286.498 +/- 29.0834, p3=par_crystal_1_3=-0.011506 +/- 11.8996
+    ... (remaining 104 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.240217, JER=-0.810796, PDF=-0.580825, bTag=-2.50218, lumi_13TeV=-0.971891, par_crystal_1_0=-1.25414e-05, par_crystal_1_1=2.57918, par_crystal_1_2=286.5, par_crystal_1_3=-0.00125101, r=1.97635, sg_p0=300.812, sg_p1=6.67737, sg_p2=286.299, sg_p3=36.9941, sg_p4=0.646448, trigger=-3.61182
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-1.25414e-05 +/- 0.146293, p1=par_crystal_1_1=2.57918 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00125101 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=286.5, p0=par_crystal_1_0=-1.25414e-05 +/- 0.146293, p1=par_crystal_1_1=2.57918 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00125101 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=289.5, p0=par_crystal_1_0=-1.25414e-05 +/- 0.146293, p1=par_crystal_1_1=2.57918 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00125101 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=292.5, p0=par_crystal_1_0=-1.25414e-05 +/- 0.146293, p1=par_crystal_1_1=2.57918 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00125101 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=295.5, p0=par_crystal_1_0=-1.25414e-05 +/- 0.146293, p1=par_crystal_1_1=2.57918 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00125101 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=298.5, p0=par_crystal_1_0=-1.25414e-05 +/- 0.146293, p1=par_crystal_1_1=2.57918 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00125101 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=301.5, p0=par_crystal_1_0=-1.25414e-05 +/- 0.146293, p1=par_crystal_1_1=2.57918 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00125101 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=304.5, p0=par_crystal_1_0=-1.25414e-05 +/- 0.146293, p1=par_crystal_1_1=2.57918 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00125101 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=307.5, p0=par_crystal_1_0=-1.25414e-05 +/- 0.146293, p1=par_crystal_1_1=2.57918 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00125101 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=310.5, p0=par_crystal_1_0=-1.25414e-05 +/- 0.146293, p1=par_crystal_1_1=2.57918 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00125101 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=313.5, p0=par_crystal_1_0=-1.25414e-05 +/- 0.146293, p1=par_crystal_1_1=2.57918 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00125101 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=316.5, p0=par_crystal_1_0=-1.25414e-05 +/- 0.146293, p1=par_crystal_1_1=2.57918 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00125101 +/- 11.8996
+    ... (remaining 104 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.23612, JER=-0.773476, PDF=-0.5484, bTag=-2.35823, lumi_13TeV=-0.916135, par_crystal_1_0=-5.09744e-05, par_crystal_1_1=2.56603, par_crystal_1_2=286.5, par_crystal_1_3=-0.00384418, r=1.97635, sg_p0=300.813, sg_p1=6.67782, sg_p2=286.286, sg_p3=36.9938, sg_p4=0.646451, trigger=-3.40516
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-5.09744e-05 +/- 0.146293, p1=par_crystal_1_1=2.56603 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00384418 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=286.5, p0=par_crystal_1_0=-5.09744e-05 +/- 0.146293, p1=par_crystal_1_1=2.56603 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00384418 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=289.5, p0=par_crystal_1_0=-5.09744e-05 +/- 0.146293, p1=par_crystal_1_1=2.56603 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00384418 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=292.5, p0=par_crystal_1_0=-5.09744e-05 +/- 0.146293, p1=par_crystal_1_1=2.56603 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00384418 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=295.5, p0=par_crystal_1_0=-5.09744e-05 +/- 0.146293, p1=par_crystal_1_1=2.56603 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00384418 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=298.5, p0=par_crystal_1_0=-5.09744e-05 +/- 0.146293, p1=par_crystal_1_1=2.56603 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00384418 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=301.5, p0=par_crystal_1_0=-5.09744e-05 +/- 0.146293, p1=par_crystal_1_1=2.56603 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00384418 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=304.5, p0=par_crystal_1_0=-5.09744e-05 +/- 0.146293, p1=par_crystal_1_1=2.56603 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00384418 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=307.5, p0=par_crystal_1_0=-5.09744e-05 +/- 0.146293, p1=par_crystal_1_1=2.56603 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00384418 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=310.5, p0=par_crystal_1_0=-5.09744e-05 +/- 0.146293, p1=par_crystal_1_1=2.56603 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00384418 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=313.5, p0=par_crystal_1_0=-5.09744e-05 +/- 0.146293, p1=par_crystal_1_1=2.56603 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00384418 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=316.5, p0=par_crystal_1_0=-5.09744e-05 +/- 0.146293, p1=par_crystal_1_1=2.56603 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00384418 +/- 11.8996
+    ... (remaining 104 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.240527, JER=-0.886408, PDF=-0.653064, bTag=-2.82682, lumi_13TeV=-1.0975, par_crystal_1_0=-3.63031e-06, par_crystal_1_1=2.62353, par_crystal_1_2=286.5, par_crystal_1_3=-0.00037665, r=1.97635, sg_p0=300.81, sg_p1=6.67684, sg_p2=286.309, sg_p3=36.9973, sg_p4=0.646435, trigger=-4.0769
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-3.63031e-06 +/- 0.146293, p1=par_crystal_1_1=2.62353 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00037665 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=286.5, p0=par_crystal_1_0=-3.63031e-06 +/- 0.146293, p1=par_crystal_1_1=2.62353 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00037665 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=289.5, p0=par_crystal_1_0=-3.63031e-06 +/- 0.146293, p1=par_crystal_1_1=2.62353 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00037665 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=292.5, p0=par_crystal_1_0=-3.63031e-06 +/- 0.146293, p1=par_crystal_1_1=2.62353 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00037665 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=295.5, p0=par_crystal_1_0=-3.63031e-06 +/- 0.146293, p1=par_crystal_1_1=2.62353 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00037665 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=298.5, p0=par_crystal_1_0=-3.63031e-06 +/- 0.146293, p1=par_crystal_1_1=2.62353 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00037665 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=301.5, p0=par_crystal_1_0=-3.63031e-06 +/- 0.146293, p1=par_crystal_1_1=2.62353 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00037665 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=304.5, p0=par_crystal_1_0=-3.63031e-06 +/- 0.146293, p1=par_crystal_1_1=2.62353 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00037665 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=307.5, p0=par_crystal_1_0=-3.63031e-06 +/- 0.146293, p1=par_crystal_1_1=2.62353 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00037665 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=310.5, p0=par_crystal_1_0=-3.63031e-06 +/- 0.146293, p1=par_crystal_1_1=2.62353 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00037665 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=313.5, p0=par_crystal_1_0=-3.63031e-06 +/- 0.146293, p1=par_crystal_1_1=2.62353 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00037665 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=316.5, p0=par_crystal_1_0=-3.63031e-06 +/- 0.146293, p1=par_crystal_1_1=2.62353 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00037665 +/- 11.8996
+    ... (remaining 104 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.233129, JER=-0.939774, PDF=-0.710206, bTag=-3.08751, lumi_13TeV=-1.19821, par_crystal_1_0=-1.39133e-05, par_crystal_1_1=2.66723, par_crystal_1_2=286.5, par_crystal_1_3=-0.000871728, r=1.97635, sg_p0=300.807, sg_p1=6.67736, sg_p2=286.277, sg_p3=37.0038, sg_p4=0.64642, trigger=-4.44938
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-1.39133e-05 +/- 0.146293, p1=par_crystal_1_1=2.66723 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.000871728 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=286.5, p0=par_crystal_1_0=-1.39133e-05 +/- 0.146293, p1=par_crystal_1_1=2.66723 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.000871728 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=289.5, p0=par_crystal_1_0=-1.39133e-05 +/- 0.146293, p1=par_crystal_1_1=2.66723 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.000871728 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=292.5, p0=par_crystal_1_0=-1.39133e-05 +/- 0.146293, p1=par_crystal_1_1=2.66723 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.000871728 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=295.5, p0=par_crystal_1_0=-1.39133e-05 +/- 0.146293, p1=par_crystal_1_1=2.66723 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.000871728 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=298.5, p0=par_crystal_1_0=-1.39133e-05 +/- 0.146293, p1=par_crystal_1_1=2.66723 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.000871728 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=301.5, p0=par_crystal_1_0=-1.39133e-05 +/- 0.146293, p1=par_crystal_1_1=2.66723 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.000871728 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=304.5, p0=par_crystal_1_0=-1.39133e-05 +/- 0.146293, p1=par_crystal_1_1=2.66723 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.000871728 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=307.5, p0=par_crystal_1_0=-1.39133e-05 +/- 0.146293, p1=par_crystal_1_1=2.66723 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.000871728 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=310.5, p0=par_crystal_1_0=-1.39133e-05 +/- 0.146293, p1=par_crystal_1_1=2.66723 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.000871728 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=313.5, p0=par_crystal_1_0=-1.39133e-05 +/- 0.146293, p1=par_crystal_1_1=2.66723 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.000871728 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=316.5, p0=par_crystal_1_0=-1.39133e-05 +/- 0.146293, p1=par_crystal_1_1=2.66723 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.000871728 +/- 11.8996
+    ... (remaining 104 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.200629, JER=-1.01449, PDF=-0.808304, bTag=-3.54401, lumi_13TeV=-1.37425, par_crystal_1_0=-0.000192227, par_crystal_1_1=2.78765, par_crystal_1_2=286.499, par_crystal_1_3=-0.0120086, r=1.97635, sg_p0=300.798, sg_p1=6.67942, sg_p2=286.169, sg_p3=37.0213, sg_p4=0.646383, trigger=-5.09937
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.000192227 +/- 0.146293, p1=par_crystal_1_1=2.78765 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.0120086 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=286.5, p0=par_crystal_1_0=-0.000192227 +/- 0.146293, p1=par_crystal_1_1=2.78765 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.0120086 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=289.5, p0=par_crystal_1_0=-0.000192227 +/- 0.146293, p1=par_crystal_1_1=2.78765 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.0120086 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=292.5, p0=par_crystal_1_0=-0.000192227 +/- 0.146293, p1=par_crystal_1_1=2.78765 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.0120086 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=295.5, p0=par_crystal_1_0=-0.000192227 +/- 0.146293, p1=par_crystal_1_1=2.78765 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.0120086 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=298.5, p0=par_crystal_1_0=-0.000192227 +/- 0.146293, p1=par_crystal_1_1=2.78765 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.0120086 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=301.5, p0=par_crystal_1_0=-0.000192227 +/- 0.146293, p1=par_crystal_1_1=2.78765 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.0120086 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=304.5, p0=par_crystal_1_0=-0.000192227 +/- 0.146293, p1=par_crystal_1_1=2.78765 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.0120086 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=307.5, p0=par_crystal_1_0=-0.000192227 +/- 0.146293, p1=par_crystal_1_1=2.78765 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.0120086 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=310.5, p0=par_crystal_1_0=-0.000192227 +/- 0.146293, p1=par_crystal_1_1=2.78765 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.0120086 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=313.5, p0=par_crystal_1_0=-0.000192227 +/- 0.146293, p1=par_crystal_1_1=2.78765 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.0120086 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=316.5, p0=par_crystal_1_0=-0.000192227 +/- 0.146293, p1=par_crystal_1_1=2.78765 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.0120086 +/- 11.8996
+    ... (remaining 104 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.221107, JER=-0.967413, PDF=-0.746494, bTag=-3.25638, lumi_13TeV=-1.26333, par_crystal_1_0=-7.98748e-05, par_crystal_1_1=2.70922, par_crystal_1_2=286.499, par_crystal_1_3=-0.00499143, r=1.97635, sg_p0=300.803, sg_p1=6.67812, sg_p2=286.237, sg_p3=37.0103, sg_p4=0.646406, trigger=-4.68982
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-7.98748e-05 +/- 0.146293, p1=par_crystal_1_1=2.70922 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.00499143 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=286.5, p0=par_crystal_1_0=-7.98748e-05 +/- 0.146293, p1=par_crystal_1_1=2.70922 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.00499143 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=289.5, p0=par_crystal_1_0=-7.98748e-05 +/- 0.146293, p1=par_crystal_1_1=2.70922 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.00499143 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=292.5, p0=par_crystal_1_0=-7.98748e-05 +/- 0.146293, p1=par_crystal_1_1=2.70922 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.00499143 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=295.5, p0=par_crystal_1_0=-7.98748e-05 +/- 0.146293, p1=par_crystal_1_1=2.70922 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.00499143 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=298.5, p0=par_crystal_1_0=-7.98748e-05 +/- 0.146293, p1=par_crystal_1_1=2.70922 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.00499143 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=301.5, p0=par_crystal_1_0=-7.98748e-05 +/- 0.146293, p1=par_crystal_1_1=2.70922 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.00499143 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=304.5, p0=par_crystal_1_0=-7.98748e-05 +/- 0.146293, p1=par_crystal_1_1=2.70922 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.00499143 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=307.5, p0=par_crystal_1_0=-7.98748e-05 +/- 0.146293, p1=par_crystal_1_1=2.70922 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.00499143 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=310.5, p0=par_crystal_1_0=-7.98748e-05 +/- 0.146293, p1=par_crystal_1_1=2.70922 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.00499143 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=313.5, p0=par_crystal_1_0=-7.98748e-05 +/- 0.146293, p1=par_crystal_1_1=2.70922 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.00499143 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=316.5, p0=par_crystal_1_0=-7.98748e-05 +/- 0.146293, p1=par_crystal_1_1=2.70922 +/- 0.368331, p2=par_crystal_1_2=286.499 +/- 29.0834, p3=par_crystal_1_3=-0.00499143 +/- 11.8996
+    ... (remaining 104 messages suppressed)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (24271.5) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.231345, JER=-0.943873, PDF=-0.715588, bTag=-3.11256, lumi_13TeV=-1.20787, par_crystal_1_0=-2.36973e-05, par_crystal_1_1=2.67326, par_crystal_1_2=286.5, par_crystal_1_3=-0.00148279, r=1.97635, sg_p0=300.806, sg_p1=6.67747, sg_p2=286.271, sg_p3=37.0048, sg_p4=0.646418, trigger=-4.48504
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-2.36973e-05 +/- 0.146293, p1=par_crystal_1_1=2.67326 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00148279 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=286.5, p0=par_crystal_1_0=-2.36973e-05 +/- 0.146293, p1=par_crystal_1_1=2.67326 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00148279 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=289.5, p0=par_crystal_1_0=-2.36973e-05 +/- 0.146293, p1=par_crystal_1_1=2.67326 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00148279 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=292.5, p0=par_crystal_1_0=-2.36973e-05 +/- 0.146293, p1=par_crystal_1_1=2.67326 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00148279 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=295.5, p0=par_crystal_1_0=-2.36973e-05 +/- 0.146293, p1=par_crystal_1_1=2.67326 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00148279 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=298.5, p0=par_crystal_1_0=-2.36973e-05 +/- 0.146293, p1=par_crystal_1_1=2.67326 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00148279 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=301.5, p0=par_crystal_1_0=-2.36973e-05 +/- 0.146293, p1=par_crystal_1_1=2.67326 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00148279 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=304.5, p0=par_crystal_1_0=-2.36973e-05 +/- 0.146293, p1=par_crystal_1_1=2.67326 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00148279 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=307.5, p0=par_crystal_1_0=-2.36973e-05 +/- 0.146293, p1=par_crystal_1_1=2.67326 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00148279 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=310.5, p0=par_crystal_1_0=-2.36973e-05 +/- 0.146293, p1=par_crystal_1_1=2.67326 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00148279 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=313.5, p0=par_crystal_1_0=-2.36973e-05 +/- 0.146293, p1=par_crystal_1_1=2.67326 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00148279 +/- 11.8996
+     p.d.f normalization integral is zero or negative @ x=x=316.5, p0=par_crystal_1_0=-2.36973e-05 +/- 0.146293, p1=par_crystal_1_1=2.67326 +/- 0.368331, p2=par_crystal_1_2=286.5 +/- 29.0834, p3=par_crystal_1_3=-0.00148279 +/- 11.8996
+    ... (remaining 104 messages suppressed)
+
+Real time 0:00:04, CP time 4.980
+
+
+ --- MaxLikelihoodFit ---
+Best fit r: 0.0169806  -0.0169806/+1.95937  (68% CL)
+nll S+B -> -0.00226229  nll B -> -0.000682033
+Done in 0.09 min (cpu), 0.10 min (real)

@@ -1,0 +1,194 @@
+
+Processing test.c...
+prova
+nSignal_init = 250000
+ here 15082
+  here 4308
+[#0] WARNING:InputArguments -- RooAbsPdf::fitTo(signal) WARNING: a likelihood fit is request of what appears to be weighted data. 
+       While the estimated values of the parameters will always be calculated taking the weights into account, 
+       there are multiple ways to estimate the errors on these parameter values. You are advised to make an 
+       explicit choice on the error calculation: 
+           - Either provide SumW2Error(kTRUE), to calculate a sum-of-weights corrected HESSE error matrix 
+             (error will be proportional to the number of events)
+           - Or provide SumW2Error(kFALSE), to return errors from original HESSE error matrix
+             (which will be proportional to the sum of the weights)
+       If you want the errors to reflect the information contained in the provided dataset, choose kTRUE. 
+       If you want the errors to reflect the precision you would be able to obtain with an unweighted dataset 
+       with 'sum-of-weights' events, choose kFALSE.
+ **********
+ **   13 **MIGRAD        2500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=18501.3 FROM MIGRAD    STATUS=INITIATE       20 CALLS          21 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  sg_p0        3.45000e+02   7.00000e+00   2.01358e-01   1.54983e+03
+   2  sg_p1        2.00000e+01   3.00000e+00   2.01358e-01  -1.72408e+01
+   3  sg_p2        3.75000e+02   9.00000e+00   2.01358e-01   9.74505e+02
+   4  sg_p3        5.50000e+01   9.00000e+00   2.01358e-01  -2.52773e+02
+   5  sg_p4        5.00000e-01   1.00000e-01   2.01358e-01  -8.53128e+02
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=17540.1 FROM HESSE     STATUS=OK             39 CALLS         196 TOTAL
+                     EDM=0.00704358    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  sg_p0        3.33869e+02   5.10949e-01   1.17621e-03   1.19546e-02
+   2  sg_p1        2.32767e+01   5.92757e-01   2.12974e-03  -6.61466e-02
+   3  sg_p2        3.30514e+02   1.20186e+01   6.05933e-02   1.55833e-01
+   4  sg_p3        7.64163e+01   9.01612e+00   1.09855e-02   6.29864e-02
+   5  sg_p4        9.36494e-01   1.60312e-02   2.52287e-03   2.43756e-02
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ FCN=17540 FROM MIGRAD    STATUS=CONVERGED     227 CALLS         228 TOTAL
+                     EDM=3.77833e-05    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   9.9 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  sg_p0        3.33885e+02   4.93340e-01  -3.80671e-04  -8.94686e-02
+   2  sg_p1        2.32554e+01   5.71689e-01   1.12800e-03   6.52248e-02
+   3  sg_p2        3.30001e+02   5.63476e+01  -3.29213e-02   6.35726e-03
+   4  sg_p3        7.62397e+01   9.08372e+00   2.27593e-03  -2.61427e-02
+   5  sg_p4        9.35985e-01   1.59001e-02   1.44513e-03   1.28935e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  5    ERR DEF=0.5
+  2.434e-01 -1.281e-01 -1.781e-02 -1.785e+00 -3.696e-03 
+ -1.281e-01  3.270e-01  1.877e-02  3.495e+00  7.220e-03 
+ -1.781e-02  1.877e-02  1.401e-01 -1.218e-01  2.196e-04 
+ -1.785e+00  3.495e+00 -1.218e-01  8.400e+01  1.239e-01 
+ -3.696e-03  7.220e-03  2.196e-04  1.239e-01  2.532e-04 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5
+        1  0.49358   1.000 -0.454 -0.096 -0.395 -0.471
+        2  0.80035  -0.454  1.000  0.088  0.667  0.793
+        3  0.17812  -0.096  0.088  1.000 -0.036  0.037
+        4  0.85218  -0.395  0.667 -0.036  1.000  0.850
+        5  0.90499  -0.471  0.793  0.037  0.850  1.000
+ **********
+ **   18 **HESSE        2500
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=17540 FROM HESSE     STATUS=OK             39 CALLS         267 TOTAL
+                     EDM=4.96921e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  sg_p0        3.33885e+02   4.88192e-01   1.17533e-03  -3.23166e-01
+   2  sg_p1        2.32554e+01   5.60953e-01   2.12742e-03   2.18767e-01
+   3  sg_p2        3.30001e+02   5.99756e+01   9.17019e-02  -1.56295e+00
+   4  sg_p3        7.62397e+01   8.91805e+00   1.08707e-02   4.91550e-01
+   5  sg_p4        9.35985e-01   1.56260e-02   2.52150e-03   1.05921e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  5    ERR DEF=0.5
+  2.383e-01 -1.205e-01 -3.554e-02 -1.684e+00 -3.493e-03 
+ -1.205e-01  3.148e-01  4.263e-02  3.323e+00  6.893e-03 
+ -3.554e-02  4.263e-02  1.910e-01  6.661e-02  7.721e-04 
+ -1.684e+00  3.323e+00  6.661e-02  8.091e+01  1.191e-01 
+ -3.493e-03  6.893e-03  7.721e-04  1.191e-01  2.445e-04 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5
+        1  0.48595   1.000 -0.440 -0.167 -0.384 -0.458
+        2  0.79434  -0.440  1.000  0.174  0.658  0.786
+        3  0.25440  -0.167  0.174  1.000  0.017  0.113
+        4  0.85054  -0.384  0.658  0.017  1.000  0.847
+        5  0.90209  -0.458  0.786  0.113  0.847  1.000
+350
+333.885 +- 0.488192
+23.2554 +- 0.560953
+[#0] WARNING:InputArguments -- RooAbsPdf::fitTo(signal) WARNING: a likelihood fit is request of what appears to be weighted data. 
+       While the estimated values of the parameters will always be calculated taking the weights into account, 
+       there are multiple ways to estimate the errors on these parameter values. You are advised to make an 
+       explicit choice on the error calculation: 
+           - Either provide SumW2Error(kTRUE), to calculate a sum-of-weights corrected HESSE error matrix 
+             (error will be proportional to the number of events)
+           - Or provide SumW2Error(kFALSE), to return errors from original HESSE error matrix
+             (which will be proportional to the sum of the weights)
+       If you want the errors to reflect the information contained in the provided dataset, choose kTRUE. 
+       If you want the errors to reflect the precision you would be able to obtain with an unweighted dataset 
+       with 'sum-of-weights' events, choose kFALSE.
+ **********
+ **   13 **MIGRAD        2500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=14568.3 FROM MIGRAD    STATUS=INITIATE       20 CALLS          21 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  sg_p0        3.55000e+02   5.00000e+00   2.01358e-01   2.79651e+03
+   2  sg_p1        7.00000e+00   4.00000e-01   2.01358e-01  -3.49639e+02
+   3  sg_p2        2.65000e+02   3.30000e+01   2.01358e-01   7.80948e+01
+   4  sg_p3        8.00000e+01   1.40000e+01   2.01358e-01   1.04242e+02
+   5  sg_p4        8.25000e-01   3.50000e-02   2.01358e-01   3.25224e+02
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=14180.2 FROM HESSE     STATUS=OK             33 CALLS         245 TOTAL
+                     EDM=0.00257049    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  sg_p0        3.51690e+02   2.29489e-01   7.23358e-04   7.68195e-01
+   2  sg_p1        8.94028e+00   5.15769e-01   3.20465e-02  -8.43312e-02
+   3  sg_p2        3.38634e+02   3.45065e+00   8.25427e-04   8.03583e-02
+   4  sg_p3        3.42214e+01   3.16332e+00   1.85913e-03  -1.82360e-01
+   5  sg_p4        7.28534e-01   2.83144e-02   6.62266e-03   1.13832e-01
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ FCN=14180.2 FROM MIGRAD    STATUS=CONVERGED     258 CALLS         259 TOTAL
+                     EDM=4.89758e-05    STRATEGY= 1  ERROR MATRIX UNCERTAINTY  18.1 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  sg_p0        3.51691e+02   2.27369e-01   5.29472e-05   2.85433e-01
+   2  sg_p1        8.92292e+00   2.95247e-01   3.35446e-02   1.89258e-02
+   3  sg_p2        3.38742e+02   3.10316e+00   7.33240e-04  -2.59351e-02
+   4  sg_p3        3.41173e+01   2.78758e+00  -1.96778e-03  -5.72804e-02
+   5  sg_p4        7.27392e-01   2.37153e-02  -7.84034e-03   4.96474e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  5    ERR DEF=0.5
+  5.170e-02  1.140e-02  1.097e-02 -8.477e-02 -8.741e-04 
+  1.140e-02  9.533e-02  5.804e-01 -5.642e-01 -5.701e-03 
+  1.097e-02  5.804e-01  9.631e+00 -7.527e+00 -5.475e-02 
+ -8.477e-02 -5.642e-01 -7.527e+00  7.778e+00  5.330e-02 
+ -8.741e-04 -5.701e-03 -5.475e-02  5.330e-02  5.675e-04 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5
+        1  0.27970   1.000  0.162  0.016 -0.134 -0.161
+        2  0.77835   0.162  1.000  0.606 -0.655 -0.775
+        3  0.87947   0.016  0.606  1.000 -0.870 -0.741
+        4  0.90379  -0.134 -0.655 -0.870  1.000  0.802
+        5  0.87003  -0.161 -0.775 -0.741  0.802  1.000
+ **********
+ **   18 **HESSE        2500
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=14180.2 FROM HESSE     STATUS=OK             37 CALLS         296 TOTAL
+                     EDM=2.3226e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  sg_p0        3.51691e+02   2.28207e-01   7.23592e-04  -1.32734e-01
+   2  sg_p1        8.92292e+00   3.20573e-01   2.77910e-02   1.84933e+00
+   3  sg_p2        3.38742e+02   3.21461e+00   8.22962e-04   4.63321e-01
+   4  sg_p3        3.41173e+01   2.93046e+00   1.85599e-03  -7.14801e-01
+   5  sg_p4        7.27392e-01   2.59669e-02   6.63209e-03  -5.91683e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  5    ERR DEF=0.5
+  5.208e-02  1.395e-02  3.281e-02 -1.064e-01 -1.124e-03 
+  1.395e-02  1.038e-01  6.728e-01 -6.614e-01 -6.851e-03 
+  3.281e-02  6.728e-01  1.034e+01 -8.303e+00 -6.436e-02 
+ -1.064e-01 -6.614e-01 -8.303e+00  8.596e+00  6.325e-02 
+ -1.124e-03 -6.851e-03 -6.436e-02  6.325e-02  6.816e-04 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5
+        1  0.29598   1.000  0.190  0.045 -0.159 -0.189
+        2  0.81715   0.190  1.000  0.650 -0.700 -0.815
+        3  0.88976   0.045  0.650  1.000 -0.881 -0.767
+        4  0.91415  -0.159 -0.700 -0.881  1.000  0.826
+        5  0.89207  -0.189 -0.815 -0.767  0.826  1.000
+350
+351.691 +- 0.228207
+8.92292 +- 0.320573
+ fit done 
+36.0 fb^{-1} (13 TeV)

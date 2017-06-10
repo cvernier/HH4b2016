@@ -2,8 +2,8 @@
 
 mass=$1
 
-function="crystal" #gaus_exp crystal novo crystal_1
-range="252_330" #252_330 285_624
+function=$2
+range=$3
 background="_${function}_${range}"
 
 dir_preselection="PreselectedWithRegressionDeepCSV"

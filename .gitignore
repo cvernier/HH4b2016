@@ -1,0 +1,5 @@
+*.d
+*.so
+*.root
+*.pcm
+!libPhysicsToolsKinFitter.so

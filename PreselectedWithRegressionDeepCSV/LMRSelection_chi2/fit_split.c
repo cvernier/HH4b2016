@@ -6,7 +6,7 @@
     gROOT->LoadMacro("BackgroundPrediction_Kinematic_Split.c");
     
     BackgroundPrediction_Kinematic_Split(252, 330, 3, // range low
-                                         285, 650,    // range hi
+                                         285, 624,    // range hi
                                          "h_mX_SB_kinFit", // histogram
                                          "lin",
                                          "../Histograms_LMR_BTagTotal.root",
