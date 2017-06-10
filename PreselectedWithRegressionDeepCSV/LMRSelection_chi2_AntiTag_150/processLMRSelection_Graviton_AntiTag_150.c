@@ -11,7 +11,6 @@
   HbbHbb_LMRSelection_chi2_AntiTag_150("Signal", "GluGluToBulkGravitonToHHTo4B_M-550_narrow_13TeV-madgraph");
   HbbHbb_LMRSelection_chi2_AntiTag_150("Signal", "GluGluToBulkGravitonToHHTo4B_M-600_narrow_13TeV-madgraph");
   HbbHbb_LMRSelection_chi2_AntiTag_150("Signal", "GluGluToBulkGravitonToHHTo4B_M-650_narrow_13TeV-madgraph");
-  HbbHbb_LMRSelection_chi2_AntiTag_150("Signal", "GluGluToBulkGravitonToHHTo4B_M-700_narrow_13TeV-madgraph");
   HbbHbb_LMRSelection_chi2_AntiTag_150("Signal", "GluGluToBulkGravitonToHHTo4B_M-750_narrow_13TeV-madgraph");
   HbbHbb_LMRSelection_chi2_AntiTag_150("Signal", "GluGluToBulkGravitonToHHTo4B_M-800_narrow_13TeV-madgraph");
   HbbHbb_LMRSelection_chi2_AntiTag_150("Signal", "GluGluToBulkGravitonToHHTo4B_M-900_narrow_13TeV-madgraph");

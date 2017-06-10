@@ -1,28 +1,44 @@
 #!/bin/bash
 
-
 mass=$1
-#fitModel=$3
 
+function="novo" #novo crystal_1
+range="550_1200"
+background="_${function}_${range}"
 
+dir_preselection="PreselectedWithRegressionDeepCSV"
+dir_selection="MMRSelection_chi2"
+dest_dir="PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit"
+background_type="fit_split.c"
+Type="Split"
 
-mkdir MMR_${mass}
-echo
+file_histograms="Histograms_MMR_GluGluToBulkGravitonToHHTo4B_M-"
 
-echo " { gSystem->Load(\"PDFs/ExpGaussExp_cxx.so\"); gROOT->LoadMacro(\"Display_SignalFits.cc\"); Display_SignalFits(\"PreselectedWithRegressionDeepCSV\",\"reg\",\"MMRSelection_chi2\",\"Histograms_GluGluToBulkGravitonToHHTo4B_M-\",${mass},\"false\"); }" > test.c
+rm -fr ${dest_dir}"/SignalFitsreg"
+mkdir ${dest_dir}"/SignalFitsreg"
+folder=${dest_dir}/MMR_${mass}${background}
+rm -fr $folder
+mkdir $folder
+echo $folder
+
+rm -f test.c
+echo " { gSystem->Load(\"PDFs/ExpGaussExp_cxx.so\"); gROOT->LoadMacro(\"Display_SignalFits.cc\"); Display_SignalFits(\"$dir_preselection\",\"reg\",\"$dir_selection\",\"$dest_dir\",\"$file_histograms\",${mass},\"false\"); }" > test.c
+
 echo 
-root -x -b -l -q test.c > MMR_${mass}/signal${mass}_sig.log
-cp SignalFitsreg/*${mass}* MMR_${mass}/
-cp SignalFitsreg/index.html MMR_${mass}/
-#Display_SignalFits.cc\(\"PreselectedWithRegressionDeepCSV\",\"MMRSelection_chi2\",\"Histograms_GluGluToBulkGravitonToHHTo4B_M-\",${mass},\"true\"\) > MMR_${mass}/signal${mass}_sig.log
-echo
-cd PreselectedWithRegressionDeepCSV/MMRSelection_chi2	
-echo "root -x -b -l -q fit_background.c "
-echo
-root -x -b -l -q fit_crystal.c > ../../MMR_${mass}/data_bkg.log
-cp w_background_Crystal.root ../../MMR_${mass}/
-cp w_data.root ../../MMR_${mass}/
-cd ../../
+root -x -b -l -q test.c > $folder/signal${mass}_sig.log
+mv ${dest_dir}/SignalFitsreg/*${mass}* $folder/
 
-python PDFSyst.py --mass $1 > MMR_${mass}/pdf.log
-
+echo "Done Signal"
+echo
+echo "root -x -b -l -q " $dir_preselection/$dir_selection/$background_type 
+root -x -b -l -q $dir_preselection/$dir_selection/$background_type > $folder/data_bkg.log
+echo "Done Background"
+echo
+echo "PDF"
+python PDFSyst.py --mass $1 > $folder/pdf.log
+mv $dest_dir/w_background$background.root $folder/
+mv $dest_dir/*BackgroundFit_*${background}*.png* $folder/ 
+mv $dest_dir/BackgroundFit_SB_Split* $folder/ 
+rm -fr $dest_dir/Background*  
+rm -fr $dest_dir/w_background*
+echo "end"
