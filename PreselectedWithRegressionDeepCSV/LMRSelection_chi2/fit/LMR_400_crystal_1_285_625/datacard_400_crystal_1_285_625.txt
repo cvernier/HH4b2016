@@ -1,0 +1,30 @@
+imax 1 number of channels
+jmax * number of backgrounds
+kmax * number of systematic uncertainty sources
+----------
+shapes signal     HbbHbb w_signal_400.root      HbbHbb:signal_fixed
+shapes background HbbHbb w_background_crystal_1_285_625.root      HbbHbb:f_crystal_1
+shapes data_obs   HbbHbb w_background_crystal_1_285_625.root      HbbHbb:data_obs_crystal_1_285_625
+----------
+## Observation
+bin                     HbbHbb
+observation             -1
+----------
+bin                   HbbHbb          HbbHbb
+process               signal      background
+process               0           1
+rate                  790.651 17663.5
+lumi_13TeV  lnN   1.026       -     
+bTag      lnN     1.06523    -
+JER       lnN     1.01925   - 
+JEC       lnN     1.00381   -
+trigger   lnN     1.10    -
+sg_p0   param   403.031 -0.393186/+0.517221
+sg_p1   param   9.12153 -0.182675/+0.229073
+sg_p2   param   399.298  -1.13534/+0.652569
+sg_p3   param   21.4947  -0.582718/+0.966802
+sg_p4   param   0.642062  -0.0211457/+0.049893 
+par_crystal_1_0   param   0.0645343 0.0109874
+par_crystal_1_1   param   4.51372 0.49288
+par_crystal_1_2   param   265.898 22.1276
+par_crystal_1_3   param   4.85315 0.697596

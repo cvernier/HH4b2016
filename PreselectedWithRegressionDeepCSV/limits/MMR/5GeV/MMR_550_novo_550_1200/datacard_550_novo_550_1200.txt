@@ -1,0 +1,28 @@
+imax 1 number of channels
+jmax * number of backgrounds
+kmax * number of systematic uncertainty sources
+----------
+shapes signal     HbbHbb w_signal_550.root      HbbHbb:signal_fixed
+shapes background HbbHbb w_background_novo_550_1200.root      HbbHbb:f_novo
+shapes data_obs   HbbHbb w_background_novo_550_1200.root      HbbHbb:data_obs_novo_550_1200
+----------
+## Observation
+bin                     HbbHbb
+observation             -1
+----------
+bin                   HbbHbb          HbbHbb
+process               signal      background
+process               0           1
+rate                  2.47576 1266.17
+lumi_13TeV  lnN   1.026       -     
+bTag      lnN     1.06518    -
+JER       lnN     1.01484   - 
+JEC       lnN     1.02905   -
+trigger   lnN     1.10    -
+sg_p0   param   557.153 -0.841572/+1.72896
+sg_p1   param   15.9907 -1.40739/+0.147463
+sg_p2   param   1.40719  -0.132995/+0.0332402
+sg_p3   param   1.40947  -0.296917/+0.0302524
+par_novo_0   param   500 120.312
+par_novo_1   param   130.637 20.1762
+par_novo_2   param   -0.695187 0.162575

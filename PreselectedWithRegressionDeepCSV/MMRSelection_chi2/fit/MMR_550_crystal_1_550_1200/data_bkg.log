@@ -254,6 +254,8 @@ ERR MATRIX NOT POS-DEF
 [#0] WARNING:Minization -- RooFitGlue: Minimized function has error status.
 Returning maximum FCN so far (13168.6) to force MIGRAD to back out of this region. Error log follows
 Parameter values: par_novo_0=575, par_novo_1=100, par_novo_2=1.58864
+RooNLLVar::nll_f_novo_pred_2[ paramSet=(par_novo_0,par_novo_1,par_novo_2) ]
+     function value is NAN @ paramSet=(par_novo_0 = 575,par_novo_1 = 100,par_novo_2 = 1.58864)
 RooNovosibirsk::f_novo[ x=x width=par_novo_1 peak=par_novo_0 tail=par_novo_2 ]
      getLogVal() top-level p.d.f evaluates to zero @ x=x=645, width=par_novo_1=100, peak=par_novo_0=575, tail=par_novo_2=1.58864
      getLogVal() top-level p.d.f evaluates to zero @ x=x=655, width=par_novo_1=100, peak=par_novo_0=575, tail=par_novo_2=1.58864
@@ -268,8 +270,6 @@ RooNovosibirsk::f_novo[ x=x width=par_novo_1 peak=par_novo_0 tail=par_novo_2 ]
      getLogVal() top-level p.d.f evaluates to zero @ x=x=745, width=par_novo_1=100, peak=par_novo_0=575, tail=par_novo_2=1.58864
      getLogVal() top-level p.d.f evaluates to zero @ x=x=755, width=par_novo_1=100, peak=par_novo_0=575, tail=par_novo_2=1.58864
     ... (remaining 46 messages suppressed)
-RooNLLVar::nll_f_novo_pred_2[ paramSet=(par_novo_0,par_novo_1,par_novo_2) ]
-     function value is NAN @ paramSet=(par_novo_0 = 575,par_novo_1 = 100,par_novo_2 = 1.58864)
 
  FCN=13054.5 FROM MIGRAD    STATUS=INITIATE       14 CALLS          15 TOTAL
                      EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       

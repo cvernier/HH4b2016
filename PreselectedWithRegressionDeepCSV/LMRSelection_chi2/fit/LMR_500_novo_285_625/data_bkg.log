@@ -1,0 +1,718 @@
+
+Processing PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c...
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(pred_1): fit range of variable x expanded to nearest bin boundaries: [250,330] --> [250,330]
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(pred_2): fit range of variable x expanded to nearest bin boundaries: [285,625] --> [285,625]
+[#0] WARNING:InputArguments -- RooAbsPdf::fitTo(f_crystal) WARNING: a likelihood fit is request of what appears to be weighted data. 
+       While the estimated values of the parameters will always be calculated taking the weights into account, 
+       there are multiple ways to estimate the errors on these parameter values. You are advised to make an 
+       explicit choice on the error calculation: 
+           - Either provide SumW2Error(kTRUE), to calculate a sum-of-weights corrected HESSE error matrix 
+             (error will be proportional to the number of events)
+           - Or provide SumW2Error(kFALSE), to return errors from original HESSE error matrix
+             (which will be proportional to the sum of the weights)
+       If you want the errors to reflect the information contained in the provided dataset, choose kTRUE. 
+       If you want the errors to reflect the precision you would be able to obtain with an unweighted dataset 
+       with 'sum-of-weights' events, choose kFALSE.
+[#1] INFO:Eval -- RooRealVar::setRange(x) new range named 'fit' created with bounds [250,330]
+[#1] INFO:Fitting -- RooAbsOptTestStatistic::ctor(nll_f_crystal_pred_1) constructing test statistic for sub-range named fit
+[#1] INFO:Eval -- RooRealVar::setRange(x) new range named 'NormalizationRangeForfit' created with bounds [250,330]
+[#1] INFO:Eval -- RooRealVar::setRange(x) new range named 'fit_nll_f_crystal_pred_1' created with bounds [250,330]
+[#1] INFO:Fitting -- RooAbsOptTestStatistic::ctor(nll_f_crystal_pred_1) fixing interpretation of coefficients of any RooAddPdf to full domain of observables 
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **   13 **MIGRAD        2000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=63879.5 FROM MIGRAD    STATUS=INITIATE       80 CALLS          81 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  par_crystal_0   7.58510e-02   5.09000e-01   0.00000e+00  -1.31214e+03
+   2  par_crystal_1   2.55500e+00   5.09000e-01   0.00000e+00  -1.07928e+01
+   3  par_crystal_2   2.67026e+02   4.00000e+00   0.00000e+00   3.35126e+02
+   4  par_crystal_3   1.21311e+01   2.70000e+00  -3.29559e-01  -1.48255e+00
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=63794.8 FROM MIGRAD    STATUS=CONVERGED     225 CALLS         226 TOTAL
+                     EDM=1.32672e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  par_crystal_0   1.42317e-01   8.62073e-03   1.21092e-03   2.66685e-01
+   2  par_crystal_1   5.10000e+00   4.29164e+00   3.32269e-01   3.04726e-04
+   3  par_crystal_2   2.66792e+02   4.49780e-01   2.38769e-03  -1.75473e-01
+   4  par_crystal_3   1.17962e+01   5.14395e-01   4.29017e-03   9.13411e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  4    ERR DEF=0.5
+  7.432e-05  7.840e-06  2.783e-03  3.001e-03 
+  7.840e-06  3.498e-05  1.556e-05 -2.356e-05 
+  2.783e-03  1.556e-05  2.023e-01  1.795e-01 
+  3.001e-03 -2.356e-05  1.795e-01  2.647e-01 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4
+        1  0.75795   1.000  0.154  0.718  0.676
+        2  0.22962   0.154  1.000  0.006 -0.008
+        3  0.81987   0.718  0.006  1.000  0.776
+        4  0.79604   0.676 -0.008  0.776  1.000
+ **********
+ **   18 **HESSE        2000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=63794.8 FROM HESSE     STATUS=OK             27 CALLS         253 TOTAL
+                     EDM=1.35434e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  par_crystal_0   1.42317e-01   8.68975e-03   4.84368e-05  -1.24692e+00
+   2  par_crystal_1   5.10000e+00   4.25299e+00   5.00000e-01   1.57199e+00
+   3  par_crystal_2   2.66792e+02   4.48367e-01   9.55076e-05   3.46495e-01
+   4  par_crystal_3   1.17962e+01   5.12747e-01   1.71607e-04  -3.55893e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  4    ERR DEF=0.5
+  7.551e-05  1.109e-05  2.748e-03  2.947e-03 
+  1.109e-05  3.382e-05  4.730e-07 -6.072e-05 
+  2.748e-03  4.730e-07  2.011e-01  1.780e-01 
+  2.947e-03 -6.072e-05  1.780e-01  2.631e-01 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4
+        1  0.76238   1.000  0.219  0.705  0.661
+        2  0.33030   0.219  1.000  0.000 -0.020
+        3  0.81861   0.705  0.000  1.000  0.774
+        4  0.79454   0.661 -0.020  0.774  1.000
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+[#1] INFO:InputArguments -- RooAbsData::plotOn(pred_1) INFO: dataset has non-integer weights, auto-selecting SumW2 errors instead of Poisson errors
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#0] WARNING:InputArguments -- RooAbsPdf::fitTo(f_gaus_exp) WARNING: a likelihood fit is request of what appears to be weighted data. 
+       While the estimated values of the parameters will always be calculated taking the weights into account, 
+       there are multiple ways to estimate the errors on these parameter values. You are advised to make an 
+       explicit choice on the error calculation: 
+           - Either provide SumW2Error(kTRUE), to calculate a sum-of-weights corrected HESSE error matrix 
+             (error will be proportional to the number of events)
+           - Or provide SumW2Error(kFALSE), to return errors from original HESSE error matrix
+             (which will be proportional to the sum of the weights)
+       If you want the errors to reflect the information contained in the provided dataset, choose kTRUE. 
+       If you want the errors to reflect the precision you would be able to obtain with an unweighted dataset 
+       with 'sum-of-weights' events, choose kFALSE.
+[#1] INFO:Fitting -- RooAbsOptTestStatistic::ctor(nll_f_gaus_exp_pred_1) constructing test statistic for sub-range named fit
+[#1] INFO:Eval -- RooRealVar::setRange(x) new range named 'fit_nll_f_gaus_exp_pred_1' created with bounds [250,330]
+[#1] INFO:Fitting -- RooAbsOptTestStatistic::ctor(nll_f_gaus_exp_pred_1) fixing interpretation of coefficients of any RooAddPdf to full domain of observables 
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **   13 **MIGRAD        1500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=63978.4 FROM MIGRAD    STATUS=INITIATE       31 CALLS          32 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  par_gaus_exp_0   2.80000e+02   4.00000e+00   0.00000e+00  -2.00467e+01
+   2  par_gaus_exp_1   2.45000e+01   3.10000e+00   0.00000e+00  -4.07315e+02
+   3  par_gaus_exp_2   6.76947e-01   3.05000e-01  -6.29681e-01   7.77396e+02
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=63794.4 FROM MIGRAD    STATUS=CONVERGED     155 CALLS         156 TOTAL
+                     EDM=9.20833e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  par_gaus_exp_0   2.66790e+02   4.58962e-01   3.00407e-03   3.59566e-03
+   2  par_gaus_exp_1   1.18392e+01   5.25618e-01   6.02472e-03  -1.40129e-02
+   3  par_gaus_exp_2   1.34802e-01   8.08136e-03   1.76323e-03   8.12676e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  3    ERR DEF=0.5
+  2.107e-01  1.891e-01  2.773e-03 
+  1.891e-01  2.766e-01  3.070e-03 
+  2.773e-03  3.070e-03  6.531e-05 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.82621   1.000  0.783  0.747
+        2  0.80995   0.783  1.000  0.722
+        3  0.77911   0.747  0.722  1.000
+ **********
+ **   18 **HESSE        1500
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=63794.4 FROM HESSE     STATUS=OK             16 CALLS         172 TOTAL
+                     EDM=9.10076e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  par_gaus_exp_0   2.66790e+02   4.52108e-01   1.20163e-04  -7.21476e-01
+   2  par_gaus_exp_1   1.18392e+01   5.17604e-01   2.40989e-04  -9.55889e-01
+   3  par_gaus_exp_2   1.34802e-01   7.96113e-03   7.05294e-05  -1.23574e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  3    ERR DEF=0.5
+  2.045e-01  1.818e-01  2.661e-03 
+  1.818e-01  2.682e-01  2.939e-03 
+  2.661e-03  2.939e-03  6.338e-05 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.82032   1.000  0.776  0.739
+        2  0.80330   0.776  1.000  0.713
+        3  0.77140   0.739  0.713  1.000
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+[#1] INFO:InputArguments -- RooAbsData::plotOn(pred_1) INFO: dataset has non-integer weights, auto-selecting SumW2 errors instead of Poisson errors
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#0] WARNING:InputArguments -- RooAbsPdf::fitTo(f_novo) WARNING: a likelihood fit is request of what appears to be weighted data. 
+       While the estimated values of the parameters will always be calculated taking the weights into account, 
+       there are multiple ways to estimate the errors on these parameter values. You are advised to make an 
+       explicit choice on the error calculation: 
+           - Either provide SumW2Error(kTRUE), to calculate a sum-of-weights corrected HESSE error matrix 
+             (error will be proportional to the number of events)
+           - Or provide SumW2Error(kFALSE), to return errors from original HESSE error matrix
+             (which will be proportional to the sum of the weights)
+       If you want the errors to reflect the information contained in the provided dataset, choose kTRUE. 
+       If you want the errors to reflect the precision you would be able to obtain with an unweighted dataset 
+       with 'sum-of-weights' events, choose kFALSE.
+[#1] INFO:Eval -- RooRealVar::setRange(x) new range named 'fit' created with bounds [285,625]
+[#1] INFO:Fitting -- RooAbsOptTestStatistic::ctor(nll_f_novo_pred_2) constructing test statistic for sub-range named fit
+[#1] INFO:Eval -- RooRealVar::setRange(x) new range named 'NormalizationRangeForfit' created with bounds [285,625]
+[#1] INFO:Eval -- RooRealVar::setRange(x) new range named 'fit_nll_f_novo_pred_2' created with bounds [285,625]
+[#1] INFO:Fitting -- RooAbsOptTestStatistic::ctor(nll_f_novo_pred_2) fixing interpretation of coefficients of any RooAddPdf to full domain of observables 
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **   13 **MIGRAD        1500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+[#0] WARNING:Minization -- RooFitGlue: Minimized function has error status.
+Returning maximum FCN so far (313207) to force MIGRAD to back out of this region. Error log follows
+Parameter values: par_novo_0=275.5, par_novo_1=27, par_novo_2=7.33953
+RooNovosibirsk::f_novo[ x=x width=par_novo_1 peak=par_novo_0 tail=par_novo_2 ]
+     p.d.f normalization integral is zero or negative @ x=x=287.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=7.33953
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=287.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=7.33953
+     p.d.f normalization integral is zero or negative @ x=x=292.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=7.33953
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=292.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=7.33953
+     p.d.f normalization integral is zero or negative @ x=x=297.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=7.33953
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=297.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=7.33953
+     p.d.f normalization integral is zero or negative @ x=x=302.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=7.33953
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=302.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=7.33953
+     p.d.f normalization integral is zero or negative @ x=x=307.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=7.33953
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=307.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=7.33953
+     p.d.f normalization integral is zero or negative @ x=x=312.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=7.33953
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=312.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=7.33953
+    ... (remaining 126 messages suppressed)
+RooNLLVar::nll_f_novo_pred_2[ paramSet=(par_novo_0,par_novo_1,par_novo_2) ]
+     function value is NAN @ paramSet=(par_novo_0 = 275.5,par_novo_1 = 27,par_novo_2 = 7.33953)
+
+[#0] WARNING:Minization -- RooFitGlue: Minimized function has error status.
+Returning maximum FCN so far (313207) to force MIGRAD to back out of this region. Error log follows
+Parameter values: par_novo_0=275.5, par_novo_1=27, par_novo_2=0.734607
+RooNovosibirsk::f_novo[ x=x width=par_novo_1 peak=par_novo_0 tail=par_novo_2 ]
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=312.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.734607
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=317.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.734607
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=322.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.734607
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=327.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.734607
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=332.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.734607
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=337.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.734607
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=342.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.734607
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=347.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.734607
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=352.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.734607
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=357.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.734607
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=362.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.734607
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=367.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.734607
+    ... (remaining 53 messages suppressed)
+RooNLLVar::nll_f_novo_pred_2[ paramSet=(par_novo_0,par_novo_1,par_novo_2) ]
+     function value is NAN @ paramSet=(par_novo_0 = 275.5,par_novo_1 = 27,par_novo_2 = 0.734607)
+
+[#0] WARNING:Minization -- RooFitGlue: Minimized function has error status.
+Returning maximum FCN so far (313207) to force MIGRAD to back out of this region. Error log follows
+Parameter values: par_novo_0=275.5, par_novo_1=27, par_novo_2=0.0734613
+RooNovosibirsk::f_novo[ x=x width=par_novo_1 peak=par_novo_0 tail=par_novo_2 ]
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=622.5, width=par_novo_1=27, peak=par_novo_0=275.5, tail=par_novo_2=0.0734613
+
+ FCN=103496 FROM MIGRAD    STATUS=INITIATE       49 CALLS          50 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  par_novo_0   2.50000e+02   5.10000e+00  -1.57091e+00** at limit **
+   2  par_novo_1   2.70000e+01   5.40000e+00   0.00000e+00  -1.55810e+03
+   3  par_novo_2  -1.33585e+00   2.00000e+01   0.00000e+00   1.53362e+05
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=103261 FROM MIGRAD    STATUS=CONVERGED     127 CALLS         128 TOTAL
+                     EDM=1.28603e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  par_novo_0   2.50000e+02   3.26951e+01   1.52017e-01** at limit **
+   2  par_novo_1   3.91331e+01   2.26795e+00   4.99683e-03  -3.84258e-02
+   3  par_novo_2  -1.25747e+00   6.90522e-02   3.64952e-05   4.15504e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  3    ERR DEF=0.5
+  4.720e-10 -5.977e-07 -1.810e-07 
+ -5.977e-07  5.159e+00  1.514e-01 
+ -1.810e-07  1.514e-01  4.768e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.41636   1.000 -0.012 -0.121
+        2  0.97081  -0.012  1.000  0.965
+        3  0.97124  -0.121  0.965  1.000
+ **********
+ **   18 **HESSE        1500
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=103261 FROM HESSE     STATUS=OK             20 CALLS         148 TOTAL
+                     EDM=2.33598e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  par_novo_0   2.50000e+02   3.23910e+01   5.00000e-01  -1.57080e+00
+                                 WARNING -   - ABOVE PARAMETER IS AT LIMIT.
+   2  par_novo_1   3.91331e+01   2.29600e+00   1.99873e-04   4.66064e-01
+   3  par_novo_2  -1.25747e+00   7.08241e-02   1.45981e-06  -1.25750e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  3    ERR DEF=0.5
+  4.498e-10  5.336e-06 -3.399e-07 
+  5.336e-06  5.288e+00  1.491e-01 
+ -3.399e-07  1.491e-01  5.016e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.81908   1.000  0.109 -0.226
+        2  0.97153   0.109  1.000  0.916
+        3  0.97268  -0.226  0.916  1.000
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+[#1] INFO:InputArguments -- RooAbsData::plotOn(pred_2) INFO: dataset has non-integer weights, auto-selecting SumW2 errors instead of Poisson errors
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#0] WARNING:InputArguments -- RooAbsPdf::fitTo(f_crystal_1) WARNING: a likelihood fit is request of what appears to be weighted data. 
+       While the estimated values of the parameters will always be calculated taking the weights into account, 
+       there are multiple ways to estimate the errors on these parameter values. You are advised to make an 
+       explicit choice on the error calculation: 
+           - Either provide SumW2Error(kTRUE), to calculate a sum-of-weights corrected HESSE error matrix 
+             (error will be proportional to the number of events)
+           - Or provide SumW2Error(kFALSE), to return errors from original HESSE error matrix
+             (which will be proportional to the sum of the weights)
+       If you want the errors to reflect the information contained in the provided dataset, choose kTRUE. 
+       If you want the errors to reflect the precision you would be able to obtain with an unweighted dataset 
+       with 'sum-of-weights' events, choose kFALSE.
+[#1] INFO:Fitting -- RooAbsOptTestStatistic::ctor(nll_f_crystal_1_pred_2) constructing test statistic for sub-range named fit
+[#1] INFO:Eval -- RooRealVar::setRange(x) new range named 'fit_nll_f_crystal_1_pred_2' created with bounds [285,625]
+[#1] INFO:Fitting -- RooAbsOptTestStatistic::ctor(nll_f_crystal_1_pred_2) fixing interpretation of coefficients of any RooAddPdf to full domain of observables 
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Minization -- RooMinuit::optimizeConst: activating const optimization
+ **********
+ **   13 **MIGRAD        2000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=106649 FROM MIGRAD    STATUS=INITIATE       88 CALLS          89 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  par_crystal_1_0   2.52454e+00   5.09000e-01   0.00000e+00   1.19879e+04
+   2  par_crystal_1_1   2.57552e-01   5.09000e-01  -2.07051e-01   8.62582e+02
+   3  par_crystal_1_2   2.56842e+02   4.00000e+00   0.00000e+00   3.69420e+03
+   4  par_crystal_1_3   1.65000e+01   2.70000e+00   0.00000e+00   3.80347e+03
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -7.4179e-03  2.0505e-03  4.2073e-02  3.9633e+00
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 0.011381 TO DIAGONAL.
+ FCN=103260 FROM MIGRAD    STATUS=CONVERGED     615 CALLS         616 TOTAL
+                     EDM=5.24709e-05    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  par_crystal_1_0   6.45343e-02   9.24325e-03   3.58098e-04  -4.34930e+00
+   2  par_crystal_1_1   4.51372e+00   7.04691e-01   2.05753e-02   7.72521e-02
+   3  par_crystal_1_2   2.65898e+02   2.38694e+01   5.17507e-02   3.01349e-02
+   4  par_crystal_1_3   4.85315e+00   4.27037e-01   2.07361e-03   7.51742e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  4    ERR DEF=0.5
+  8.545e-05 -2.052e-03  3.926e-01  1.649e-03 
+ -2.052e-03  5.313e-01 -2.688e+01  1.300e-02 
+  3.926e-01 -2.688e+01  3.145e+03 -4.326e+00 
+  1.649e-03  1.300e-02 -4.326e+00  1.826e-01 
+ERR MATRIX NOT POS-DEF
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4
+        1  0.99585   1.000 -0.305  0.757  0.417
+        2  0.97841  -0.305  1.000 -0.658  0.042
+        3  0.99687   0.757 -0.658  1.000 -0.181
+        4  0.98893   0.417  0.042 -0.181  1.000
+ ERR MATRIX NOT POS-DEF
+ **********
+ **   18 **HESSE        2000
+ **********
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -7.5361e-04  1.1554e-03  6.5251e-02  3.9343e+00
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 0.004688 TO DIAGONAL.
+ FCN=103260 FROM HESSE     STATUS=NOT POSDEF     23 CALLS         639 TOTAL
+                     EDM=5.18987e-05    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE     INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  par_crystal_1_0   6.45343e-02   1.09874e-02   7.16195e-05  -1.36341e+00
+   2  par_crystal_1_1   4.51372e+00   4.92880e-01   8.23013e-04  -4.01986e+00
+   3  par_crystal_1_2   2.65898e+02   2.21276e+01   2.07003e-03   2.84223e+00
+   4  par_crystal_1_3   4.85315e+00   6.97596e-01   4.14722e-04  -1.04064e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  4    ERR DEF=0.5
+  1.207e-04  4.777e-04  3.444e-01  3.962e-03 
+  4.777e-04  2.508e-01 -3.035e+00 -2.132e-02 
+  3.444e-01 -3.035e+00  2.782e+03 -1.256e+01 
+  3.962e-03 -2.132e-02 -1.256e+01  4.883e-01 
+ERR MATRIX NOT POS-DEF
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4
+        1  0.99704   1.000  0.087  0.594  0.516
+        2  0.95335   0.087  1.000 -0.115 -0.061
+        3  0.99644   0.594 -0.115  1.000 -0.341
+        4  0.99585   0.516 -0.061 -0.341  1.000
+ ERR MATRIX NOT POS-DEF
+[#1] INFO:Minization -- RooMinuit::optimizeConst: deactivating const optimization
+[#1] INFO:InputArguments -- RooAbsData::plotOn(pred_2) INFO: dataset has non-integer weights, auto-selecting SumW2 errors instead of Poisson errors
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:InputArguments -- RooAbsData::plotOn(pred_1) INFO: dataset has non-integer weights, auto-selecting SumW2 errors instead of Poisson errors
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) only plotting range 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_gaus_exp) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_gaus_exp_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_gaus_exp_Int[x|fit_nll_f_gaus_exp_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) only plotting range 'fit_nll_f_crystal_pred_1'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_pred_1'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_Int[x|fit_nll_f_crystal_pred_1]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+35.9 fb^{-1} (13 TeV)
+[#1] INFO:InputArguments -- RooAbsData::plotOn(pred_2) INFO: dataset has non-integer weights, auto-selecting SumW2 errors instead of Poisson errors
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) only plotting range 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_crystal_1) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_crystal_1_pred_2'
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(f_crystal_1_Int[x|fit_nll_f_crystal_1_pred_2]_Norm[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f was fitted in range and no explicit plot,norm range was specified, using fit range as default
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) only plotting range 'fit_nll_f_novo_pred_2'
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(f_novo) p.d.f. curve is normalized using explicit choice of ranges 'fit_nll_f_novo_pred_2'
+35.9 fb^{-1} (13 TeV)
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(data_obs_crystal_250_330): fit range of variable x expanded to nearest bin boundaries: [250,330] --> [250,330]
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(data_obs_gaus_exp_250_330): fit range of variable x expanded to nearest bin boundaries: [250,330] --> [250,330]
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(data_obs_novo_285_625): fit range of variable x expanded to nearest bin boundaries: [285,625] --> [285,625]
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(data_obs_crystal_1_285_625): fit range of variable x expanded to nearest bin boundaries: [285,625] --> [285,625]
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing dataset data_obs_crystal_250_330
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::x
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RevCrystalBall::f_crystal
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_crystal_0
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_crystal_1
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_crystal_2
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_crystal_3
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing dataset data_obs_gaus_exp_250_330
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::x
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing GaussExp::f_gaus_exp
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_gaus_exp_0
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_gaus_exp_1
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_gaus_exp_2
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing dataset data_obs_novo_285_625
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::x
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooNovosibirsk::f_novo
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_novo_1
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_novo_0
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_novo_2
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing dataset data_obs_crystal_1_285_625
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::x
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RevCrystalBall::f_crystal_1
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_crystal_1_0
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_crystal_1_1
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_crystal_1_2
+[#1] INFO:ObjectHandling -- RooWorkspace::import(HbbHbb) importing RooRealVar::par_crystal_1_3
+ === RooFit data fit result to be entered in datacard === 
+ Background number of crystal_250_330 = 14211
+ Background number of gaus_exp_250_330 = 14211
+ Background number of novo_285_625 = 17663.5
+ Background number of crystal_1_285_625 = 17663.5
+ Background number of gaus_bern_285_625 = 17663.5
+ Background number of landau_285_625 = 17663.5
+par_crystal_0   param   0.142317 0.00868975
+par_crystal_1   param   5.1 4.25299
+par_crystal_2   param   266.792 0.448367
+par_crystal_3   param   11.7962 0.512747
+par_crystal_1_0   param   0.0645343 0.0109874
+par_crystal_1_1   param   4.51372 0.49288
+par_crystal_1_2   param   265.898 22.1276
+par_crystal_1_3   param   4.85315 0.697596
+par_gaus_exp_0   param   266.79 0.452108
+par_gaus_exp_1   param   11.8392 0.517604
+par_gaus_exp_2   param   0.134802 0.00796113
+par_novo_0   param   250 32.391
+par_novo_1   param   39.1331 2.296
+par_novo_2   param   -1.25747 0.0708241
