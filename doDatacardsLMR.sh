@@ -49,8 +49,8 @@ bTag      lnN     ${btag_norm}    -
 JER       lnN     ${jer_norm}   - 
 JEC       lnN     ${jec_norm}   -
 trigger   lnN     1.10    -
-PDF       lnN     ${pdf_norm}   -
 EOF
+#PDF       lnN     ${pdf_norm}   -
 
 
 #now add the systematics to the card

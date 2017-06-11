@@ -13,18 +13,17 @@ observation             -1
 bin                   HbbHbb          HbbHbb
 process               signal      background
 process               0           1
-rate                  790.651 17637.2
+rate                  790.651 17618.3
 lumi_13TeV  lnN   1.026       -     
 bTag      lnN     1.06523    -
 JER       lnN     1.01925   - 
 JEC       lnN     1.00381   -
 trigger   lnN     1.10    -
-PDF       lnN     1.0199774927   -
 sg_p0   param   403.031 -0.393186/+0.517221
 sg_p1   param   9.12153 -0.182675/+0.229073
 sg_p2   param   399.298  -1.13534/+0.652569
 sg_p3   param   21.4947  -0.582718/+0.966802
 sg_p4   param   0.642062  -0.0211457/+0.049893 
-par_novo_0   param   250 31.5107
-par_novo_1   param   38.7878 2.3041
-par_novo_2   param   -1.26766 0.0713892
+par_novo_0   param   250 34.0246
+par_novo_1   param   38.6596 2.31421
+par_novo_2   param   -1.2752 0.072293

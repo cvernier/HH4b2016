@@ -19,7 +19,6 @@ bTag      lnN     1.35523    -
 JER       lnN     1.0152   - 
 JEC       lnN     1.01006   -
 trigger   lnN     1.10    -
-PDF       lnN     1.03016737915   -
 sg_p0   param   1016.58 -3.74805/+1.77868
 sg_p1   param   40 -0.302396/+0.234552
 sg_p2   param   1.2224  -0.101761/+0.0537708

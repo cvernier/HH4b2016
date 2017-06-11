@@ -35,7 +35,7 @@ root -x -b -l -q $dir_preselection/$dir_selection/$background_type > $folder/dat
 echo "Done Background"
 echo
 echo "PDF"
-python PDFSyst.py --mass $1 > $folder/pdf.log
+#python PDFSyst.py --mass $1 > $folder/pdf.log
 mv $dest_dir/w_background$background.root $folder/
 mv $dest_dir/*BackgroundFit_*${background}*.png* $folder/ 
 mv $dest_dir/BackgroundFit_SB_Split* $folder/ 

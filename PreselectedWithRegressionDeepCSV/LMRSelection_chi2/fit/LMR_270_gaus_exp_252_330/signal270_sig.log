@@ -614,20 +614,6 @@ test
 [#0] WARNING:Minization -- RooFitGlue: Minimized function has error status.
 Returning maximum FCN so far (9513.77) to force MIGRAD to back out of this region. Error log follows
 Parameter values: sg_p0=269.51, sg_p1=3.81892, sg_p2=26.0784, sg_p3=20.4464, sg_p4=0.504154
-RooAddPdf::signal[ sg_p4 * signalCore + [%] * signalComb ]
-     p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 250.5), !pdfs=(signalCore = 4.16274e-06/9.57261,signalComb = 6.90752e-27/0), !coefficients=(sg_p4 = 0.504154)
-     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 250.5), !pdfs=(signalCore = 4.16274e-06/9.57261,signalComb = 6.90752e-27/0), !coefficients=(sg_p4 = 0.504154)
-     p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 253.5), !pdfs=(signalCore = 0.000152629/9.57261,signalComb = 1.36531e-27/0), !coefficients=(sg_p4 = 0.504154)
-     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 253.5), !pdfs=(signalCore = 0.000152629/9.57261,signalComb = 1.36531e-27/0), !coefficients=(sg_p4 = 0.504154)
-     p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 256.5), !pdfs=(signalCore = 0.00301916/9.57261,signalComb = 2.64114e-28/0), !coefficients=(sg_p4 = 0.504154)
-     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 256.5), !pdfs=(signalCore = 0.00301916/9.57261,signalComb = 2.64114e-28/0), !coefficients=(sg_p4 = 0.504154)
-     p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 259.5), !pdfs=(signalCore = 0.0322202/9.57261,signalComb = 5.00036e-29/0), !coefficients=(sg_p4 = 0.504154)
-     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 259.5), !pdfs=(signalCore = 0.0322202/9.57261,signalComb = 5.00036e-29/0), !coefficients=(sg_p4 = 0.504154)
-     p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 262.5), !pdfs=(signalCore = 0.185509/9.57261,signalComb = 9.26534e-30/0), !coefficients=(sg_p4 = 0.504154)
-     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 262.5), !pdfs=(signalCore = 0.185509/9.57261,signalComb = 9.26534e-30/0), !coefficients=(sg_p4 = 0.504154)
-     p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 265.5), !pdfs=(signalCore = 0.576226/9.57261,signalComb = 1.68024e-30/0), !coefficients=(sg_p4 = 0.504154)
-     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 265.5), !pdfs=(signalCore = 0.576226/9.57261,signalComb = 1.68024e-30/0), !coefficients=(sg_p4 = 0.504154)
-    ... (remaining 58 messages suppressed)
 RooGaussian::signalComb[ x=x mean=sg_p2 sigma=sg_p3 ]
      p.d.f normalization integral is zero or negative @ x=x=250.5, mean=sg_p2=26.0784, sigma=sg_p3=20.4464
      p.d.f normalization integral is zero or negative @ x=x=253.5, mean=sg_p2=26.0784, sigma=sg_p3=20.4464
@@ -644,6 +630,20 @@ RooGaussian::signalComb[ x=x mean=sg_p2 sigma=sg_p3 ]
     ... (remaining 24 messages suppressed)
 RooNLLVar::nll_signal_signalHistogram[ paramSet=(sg_p0,sg_p1,sg_p2,sg_p3,sg_p4) ]
      function value is NAN @ paramSet=(sg_p0 = 269.51,sg_p1 = 3.81892,sg_p2 = 26.0784,sg_p3 = 20.4464,sg_p4 = 0.504154)
+RooAddPdf::signal[ sg_p4 * signalCore + [%] * signalComb ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 250.5), !pdfs=(signalCore = 4.16274e-06/9.57261,signalComb = 6.90752e-27/0), !coefficients=(sg_p4 = 0.504154)
+     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 250.5), !pdfs=(signalCore = 4.16274e-06/9.57261,signalComb = 6.90752e-27/0), !coefficients=(sg_p4 = 0.504154)
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 253.5), !pdfs=(signalCore = 0.000152629/9.57261,signalComb = 1.36531e-27/0), !coefficients=(sg_p4 = 0.504154)
+     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 253.5), !pdfs=(signalCore = 0.000152629/9.57261,signalComb = 1.36531e-27/0), !coefficients=(sg_p4 = 0.504154)
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 256.5), !pdfs=(signalCore = 0.00301916/9.57261,signalComb = 2.64114e-28/0), !coefficients=(sg_p4 = 0.504154)
+     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 256.5), !pdfs=(signalCore = 0.00301916/9.57261,signalComb = 2.64114e-28/0), !coefficients=(sg_p4 = 0.504154)
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 259.5), !pdfs=(signalCore = 0.0322202/9.57261,signalComb = 5.00036e-29/0), !coefficients=(sg_p4 = 0.504154)
+     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 259.5), !pdfs=(signalCore = 0.0322202/9.57261,signalComb = 5.00036e-29/0), !coefficients=(sg_p4 = 0.504154)
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 262.5), !pdfs=(signalCore = 0.185509/9.57261,signalComb = 9.26534e-30/0), !coefficients=(sg_p4 = 0.504154)
+     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 262.5), !pdfs=(signalCore = 0.185509/9.57261,signalComb = 9.26534e-30/0), !coefficients=(sg_p4 = 0.504154)
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 265.5), !pdfs=(signalCore = 0.576226/9.57261,signalComb = 1.68024e-30/0), !coefficients=(sg_p4 = 0.504154)
+     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 265.5), !pdfs=(signalCore = 0.576226/9.57261,signalComb = 1.68024e-30/0), !coefficients=(sg_p4 = 0.504154)
+    ... (remaining 58 messages suppressed)
 RooRealIntegral::signalComb_Int[x|NormalizationRangeForfit]_Norm[x][ Int signalComb_Norm(x) d[Ana](x) ]
      function value is NAN @ !sumList=(), !intList=(), !anaList=(x = 250.5), !jacList=(), !facList=(), !func=signalComb=6.90752e-27/0, !sumCat=()
 
@@ -766,6 +766,8 @@ RooGaussian::signalComb[ x=x mean=sg_p2 sigma=sg_p3 ]
 [#0] WARNING:Minization -- RooFitGlue: Minimized function has error status.
 Returning maximum FCN so far (10056.7) to force MIGRAD to back out of this region. Error log follows
 Parameter values: sg_p0=272.29, sg_p1=6.01777, sg_p2=84.8692, sg_p3=12.3721, sg_p4=0.588994
+RooNLLVar::nll_signal_signalHistogram[ paramSet=(sg_p0,sg_p1,sg_p2,sg_p3,sg_p4) ]
+     function value is NAN @ paramSet=(sg_p0 = 272.29,sg_p1 = 6.01777,sg_p2 = 84.8692,sg_p3 = 12.3721,sg_p4 = 0.588994)
 RooAddPdf::signal[ sg_p4 * signalCore + [%] * signalComb ]
      p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 250.5), !pdfs=(signalCore = 0.00142225/15.0827,signalComb = 1.20756e-39/0), !coefficients=(sg_p4 = 0.588994)
      getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 250.5), !pdfs=(signalCore = 0.00142225/15.0827,signalComb = 1.20756e-39/0), !coefficients=(sg_p4 = 0.588994)
@@ -780,8 +782,6 @@ RooAddPdf::signal[ sg_p4 * signalCore + [%] * signalComb ]
      p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 265.5), !pdfs=(signalCore = 0.529127/15.0827,signalComb = 5.17191e-47/0), !coefficients=(sg_p4 = 0.588994)
      getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 265.5), !pdfs=(signalCore = 0.529127/15.0827,signalComb = 5.17191e-47/0), !coefficients=(sg_p4 = 0.588994)
     ... (remaining 58 messages suppressed)
-RooNLLVar::nll_signal_signalHistogram[ paramSet=(sg_p0,sg_p1,sg_p2,sg_p3,sg_p4) ]
-     function value is NAN @ paramSet=(sg_p0 = 272.29,sg_p1 = 6.01777,sg_p2 = 84.8692,sg_p3 = 12.3721,sg_p4 = 0.588994)
 RooGaussian::signalComb[ x=x mean=sg_p2 sigma=sg_p3 ]
      p.d.f normalization integral is zero or negative @ x=x=250.5, mean=sg_p2=84.8692, sigma=sg_p3=12.3721
      p.d.f normalization integral is zero or negative @ x=x=253.5, mean=sg_p2=84.8692, sigma=sg_p3=12.3721

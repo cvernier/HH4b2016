@@ -5,7 +5,7 @@
     //gSystem->Load("../../PDFs/LogisticXChebychev3_cxx.so");
     gROOT->LoadMacro("BackgroundPrediction_Kinematic_Split.c");
     
-    BackgroundPrediction_Kinematic_Split(252, 330, 3, // range low
+    BackgroundPrediction_Kinematic_Split(252, 330, 5, // range low
                                          285, 624,    // range hi
                                          "h_mX_SB_kinFit", // histogram
                                          "lin",

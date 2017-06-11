@@ -628,6 +628,8 @@ RooGaussian::signalComb[ x=x mean=sg_p2 sigma=sg_p3 ]
      p.d.f normalization integral is zero or negative @ x=x=280.5, mean=sg_p2=26.0784, sigma=sg_p3=20.4464
      p.d.f normalization integral is zero or negative @ x=x=283.5, mean=sg_p2=26.0784, sigma=sg_p3=20.4464
     ... (remaining 24 messages suppressed)
+RooNLLVar::nll_signal_signalHistogram[ paramSet=(sg_p0,sg_p1,sg_p2,sg_p3,sg_p4) ]
+     function value is NAN @ paramSet=(sg_p0 = 269.51,sg_p1 = 3.81892,sg_p2 = 26.0784,sg_p3 = 20.4464,sg_p4 = 0.504154)
 RooAddPdf::signal[ sg_p4 * signalCore + [%] * signalComb ]
      p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 250.5), !pdfs=(signalCore = 4.16274e-06/9.57261,signalComb = 6.90752e-27/0), !coefficients=(sg_p4 = 0.504154)
      getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 250.5), !pdfs=(signalCore = 4.16274e-06/9.57261,signalComb = 6.90752e-27/0), !coefficients=(sg_p4 = 0.504154)
@@ -642,8 +644,6 @@ RooAddPdf::signal[ sg_p4 * signalCore + [%] * signalComb ]
      p.d.f value is Not-a-Number (-nan), forcing value to zero @ !refCoefNorm=(x = 265.5), !pdfs=(signalCore = 0.576226/9.57261,signalComb = 1.68024e-30/0), !coefficients=(sg_p4 = 0.504154)
      getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(x = 265.5), !pdfs=(signalCore = 0.576226/9.57261,signalComb = 1.68024e-30/0), !coefficients=(sg_p4 = 0.504154)
     ... (remaining 58 messages suppressed)
-RooNLLVar::nll_signal_signalHistogram[ paramSet=(sg_p0,sg_p1,sg_p2,sg_p3,sg_p4) ]
-     function value is NAN @ paramSet=(sg_p0 = 269.51,sg_p1 = 3.81892,sg_p2 = 26.0784,sg_p3 = 20.4464,sg_p4 = 0.504154)
 RooRealIntegral::signalComb_Int[x|NormalizationRangeForfit]_Norm[x][ Int signalComb_Norm(x) d[Ana](x) ]
      function value is NAN @ !sumList=(), !intList=(), !anaList=(x = 250.5), !jacList=(), !facList=(), !func=signalComb=6.90752e-27/0, !sumCat=()
 
