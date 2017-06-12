@@ -6,10 +6,10 @@ std::string ftoa(double i)
     return ret;
 }
 
-void drawBias_LMR(const double signal_strenght=1.0, std::string Filename="", std::string background="") {
+void drawBias_LMR(const double signal_strenght=1.0, std::string Filename="", std::string background_LMR_1="", std::string background_LMR_2="") {
 
-    gStyle->SetOptStat("SneMRou");
-    gStyle->SetOptFit(11111111);
+    gStyle->SetOptStat(1111);
+    gStyle->SetOptFit(1111);
     gStyle->SetOptTitle(1);
     gStyle->SetFitFormat("2.2g");
     gStyle->SetPadBottomMargin(0.2);
@@ -20,7 +20,7 @@ void drawBias_LMR(const double signal_strenght=1.0, std::string Filename="", std
     Color_t cols[nDirs] = {kBlack};//, kRed+1, kOrange-3, kGreen+1, kAzure+7 , kMagenta};
     
     
-    TString dirNames[nDirs] = {background};//,"expow2","pow1","lau1","atlas1","vvdijet1"};
+    TString dirNames[nDirs] = {background_LMR_1};//,"expow2","pow1","lau1","atlas1","vvdijet1"};
     
     
     const int nPoints = 10;
@@ -119,12 +119,12 @@ void drawBias_LMR(const double signal_strenght=1.0, std::string Filename="", std
             
             tree_fit_sb[dd][i] = static_cast<TTree*>(f[dd][i]->Get("tree_fit_sb"));
             
-            TString name = Form("bias_%d_GeV-",mass[i])+dirNames[dd];
-            TString name_mean = Form("bias_mean_%d_GeV-",mass[i])+dirNames[dd];
-            TString name_sigma = Form("bias_sigma_%d_GeV-",mass[i])+dirNames[dd];
-            TString title = Form("bias at %d GeV for ",mass[i])+dirNames[dd]+";#frac{#mu_{fit}-"+ftoa(signal_strenght)+"}{#sigma_{fit}};entries/0.25";
-            TString title_mean = Form("bias at %d GeV for ",mass[i])+dirNames[dd]+";#mu_{fit}-"+ftoa(signal_strenght)+";entries/0.25";
-            TString title_sigma = Form("bias at %d GeV for ",mass[i])+dirNames[dd]+";#sigma_{fit};entries/0.25";
+            TString name = Form("bias_%d_GeV-%s-%s",mass[i],background_LMR_1.c_str(),background_LMR_2.c_str());
+            TString name_mean = Form("bias_mean_%d_GeV-%s-%s",mass[i],background_LMR_1.c_str(),background_LMR_2.c_str());
+            TString name_sigma = Form("bias_sigma_%d_GeV-%s-%s",mass[i],background_LMR_1.c_str(),background_LMR_2.c_str());
+            TString title = Form("bias at %d GeV for ",mass[i])+background_LMR_1+"-"+background_LMR_2+";#frac{#mu_{fit}-"+ftoa(signal_strenght)+"}{#sigma_{fit}};entries/0.25";
+            TString title_mean = Form("bias at %d GeV for ",mass[i])+background_LMR_1+"-"+background_LMR_2+"mu_{fit}-"+ftoa(signal_strenght)+";entries/0.25";
+            TString title_sigma = Form("bias at %d GeV for ",mass[i])+background_LMR_1+"-"+background_LMR_2+";#sigma_{fit};entries/0.25";
             
             hists[dd][i] = new TH1D(name,title,100,-20,20);
             hists_mean[dd][i] = new TH1D(name_mean,title_mean,100,-10,10);
@@ -147,23 +147,23 @@ void drawBias_LMR(const double signal_strenght=1.0, std::string Filename="", std
             
             tree_fit_sb[dd][i]->Draw(Form("(mu-%f)*2/(muLoErr+muHiErr)>>"+name,double(signal_strenght)),Form("( fit_status>=0 && (mu-%f)< 5*muHiErr &&(mu-%f)>-5*muLoErr) && abs((mu-%f)*2/(muLoErr+muHiErr)) < 5 ", double(signal_strenght), double(signal_strenght), double(signal_strenght)),"pe");
             hists[dd][i]->Fit("gaus","LM","",-2,2);
-            c1[dd][i]->SaveAs(dirNames[dd]+Form("_%d_strenght_%s.pdf",mass[i],(ftoa(signal_strenght)).c_str()));
-            c1[dd][i]->SaveAs(dirNames[dd]+Form("_%d_strenght_%s.png",mass[i],(ftoa(signal_strenght)).c_str()));
-            c1[dd][i]->SaveAs(dirNames[dd]+Form("_%d_strenght_%s.root",mass[i],(ftoa(signal_strenght)).c_str()));
+            c1[dd][i]->SaveAs(Form("%s_%s_mass_%d_strenght_%s.pdf",background_LMR_1.c_str(),background_LMR_2.c_str(),mass[i],(ftoa(signal_strenght)).c_str()));
+            c1[dd][i]->SaveAs(Form("%s_%s_mass_%d_strenght_%s.png",background_LMR_1.c_str(),background_LMR_2.c_str(),mass[i],(ftoa(signal_strenght)).c_str()));
+            c1[dd][i]->SaveAs(Form("%s_%s_mass_%d_strenght_%s.root",background_LMR_1.c_str(),background_LMR_2.c_str(),mass[i],(ftoa(signal_strenght)).c_str()));
 
             c1[dd][i]->Clear();
 
             tree_fit_sb[dd][i]->Draw(Form("(mu-%f)>>"+name_mean,double(signal_strenght)),Form("( fit_status>=0 && (mu-%f)< 5*muHiErr &&(mu-%f)>-5*muLoErr) && abs((mu-%f)*2/(muLoErr+muHiErr)) < 5 ", double(signal_strenght), double(signal_strenght), double(signal_strenght)),"pe");
-            c1[dd][i]->SaveAs(dirNames[dd]+Form("_%d_strenght_%s_mean.pdf",mass[i],(ftoa(signal_strenght)).c_str()));
-            c1[dd][i]->SaveAs(dirNames[dd]+Form("_%d_strenght_%s_mean.png",mass[i],(ftoa(signal_strenght)).c_str()));
-            c1[dd][i]->SaveAs(dirNames[dd]+Form("_%d_strenght_%s_mean.root",mass[i],(ftoa(signal_strenght)).c_str()));
+            c1[dd][i]->SaveAs(Form("%s_%s_mass_%d_strenght_%s_mean.pdf",background_LMR_1.c_str(),background_LMR_2.c_str(),mass[i],(ftoa(signal_strenght)).c_str()));
+            c1[dd][i]->SaveAs(Form("%s_%s_mass_%d_strenght_%s_mean.png",background_LMR_1.c_str(),background_LMR_2.c_str(),mass[i],(ftoa(signal_strenght)).c_str()));
+            c1[dd][i]->SaveAs(Form("%s_%s_mass_%d_strenght_%s_mean.root",background_LMR_1.c_str(),background_LMR_2.c_str(),mass[i],(ftoa(signal_strenght)).c_str()));
             c1[dd][i]->Clear();
 
 
             tree_fit_sb[dd][i]->Draw(Form("(muLoErr+muHiErr)/2>>"+name_sigma,double(signal_strenght)),Form("( fit_status>=0 && (mu-%f)< 5*muHiErr &&(mu-%f)>-5*muLoErr) && abs((mu-%f)*2/(muLoErr+muHiErr)) < 5 ", double(signal_strenght), double(signal_strenght), double(signal_strenght)),"pe");
-            c1[dd][i]->SaveAs(dirNames[dd]+Form("_%d_strenght_%s_sigma.pdf",mass[i],(ftoa(signal_strenght)).c_str()));
-            c1[dd][i]->SaveAs(dirNames[dd]+Form("_%d_strenght_%s_sigma.png",mass[i],(ftoa(signal_strenght)).c_str()));
-            c1[dd][i]->SaveAs(dirNames[dd]+Form("_%d_strenght_%s_sigma.root",mass[i],(ftoa(signal_strenght)).c_str()));
+            c1[dd][i]->SaveAs(Form("%s_%s_mass_%d_strenght_%s_sigma.pdf",background_LMR_1.c_str(),background_LMR_2.c_str(),mass[i],(ftoa(signal_strenght)).c_str()));
+            c1[dd][i]->SaveAs(Form("%s_%s_mass_%d_strenght_%s_sigma.png",background_LMR_1.c_str(),background_LMR_2.c_str(),mass[i],(ftoa(signal_strenght)).c_str()));
+            c1[dd][i]->SaveAs(Form("%s_%s_mass_%d_strenght_%s_sigma.root",background_LMR_1.c_str(),background_LMR_2.c_str(),mass[i],(ftoa(signal_strenght)).c_str()));
             c1[dd][i]->Clear();
 
             biasG[dd]->SetPoint(i,mass[i],hists[dd][i]->GetFunction("gaus")->GetParameter(1));
@@ -182,7 +182,7 @@ void drawBias_LMR(const double signal_strenght=1.0, std::string Filename="", std
             g_err2[dd]->SetPointError(i,0, hists_mean[dd][i]->GetStdDev());
 
             std::ofstream myfile;
-            myfile.open(Form("latex_bias_%s%s.txt",(ftoa(signal_strenght)).c_str(), (background).c_str()), ios::app);
+            myfile.open(Form("latex_bias_%s_%s_%s.txt",(ftoa(signal_strenght)).c_str(), background_LMR_1.c_str(),background_LMR_2.c_str()), ios::app);
             myfile << signal_strenght << " " << mass[i] << " " << hists_mean[dd][i]->GetMean() << " " << hists_mean[dd][i]->GetMeanError() << " " << hists_mean[dd][i]->GetStdDev() << endl;
             myfile.close();
             
@@ -226,24 +226,24 @@ void drawBias_LMR(const double signal_strenght=1.0, std::string Filename="", std
     }
     c2->cd();
     leg->Draw("same");
-    c2->SaveAs(Form("%s_strenght_%s.pdf",background.c_str(),(ftoa(signal_strenght)).c_str()));
-    c2->SaveAs(Form("%s_strenght_%s.png",background.c_str(),(ftoa(signal_strenght)).c_str()));
-    c2->SaveAs(Form("%s_strenght_%s.root",background.c_str(),(ftoa(signal_strenght)).c_str()));
+    c2->SaveAs(Form("%s_%s_strenght_%s.pdf",background_LMR_1.c_str(),background_LMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    c2->SaveAs(Form("%s_%s_strenght_%s.png",background_LMR_1.c_str(),background_LMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    c2->SaveAs(Form("%s_%s_strenght_%s.root",background_LMR_1.c_str(),background_LMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
     c2a->cd();
     leg2->Draw("same");
-    c2a->SaveAs(Form("%s_a_strenght_%s.pdf",background.c_str(),(ftoa(signal_strenght)).c_str()));
-    c2a->SaveAs(Form("%s_a_strenght_%s.png",background.c_str(),(ftoa(signal_strenght)).c_str()));
-    c2a->SaveAs(Form("%s_a_strenght_%s.root",background.c_str(),(ftoa(signal_strenght)).c_str()));
+    c2a->SaveAs(Form("%s_%s_a_strenght_%s.pdf",background_LMR_1.c_str(),background_LMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    c2a->SaveAs(Form("%s_%s_a_strenght_%s.png",background_LMR_1.c_str(),background_LMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    c2a->SaveAs(Form("%s_%s_a_strenght_%s.root",background_LMR_1.c_str(),background_LMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
     c3->cd();
     leg3->Draw("same");
-    c3->SaveAs(Form("%s_strenght_%s_sigma.pdf",background.c_str(),(ftoa(signal_strenght)).c_str()));
-    c3->SaveAs(Form("%s_strenght_%s_sigma.png",background.c_str(),(ftoa(signal_strenght)).c_str()));
-    c3->SaveAs(Form("%s_strenght_%s_sigma.root",background.c_str(),(ftoa(signal_strenght)).c_str()));
+    c3->SaveAs(Form("%s_%s_strenght_%s_sigma.pdf",background_LMR_1.c_str(),background_LMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    c3->SaveAs(Form("%s_%s_strenght_%s_sigma.png",background_LMR_1.c_str(),background_LMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    c3->SaveAs(Form("%s_%s_strenght_%s_sigma.root",background_LMR_1.c_str(),background_LMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
     c3a->cd();
     leg4->Draw("same");
-    c3a->SaveAs(Form("%s_a_strenght_%s_sigma.pdf",background.c_str(),(ftoa(signal_strenght)).c_str()));
-    c3a->SaveAs(Form("%s_a_strenght_%s_sigma.png",background.c_str(),(ftoa(signal_strenght)).c_str()));
-    c3a->SaveAs(Form("%s_a_strenght_%s_sigma.root",background.c_str(),(ftoa(signal_strenght)).c_str()));
+    c3a->SaveAs(Form("%s_%s_a_strenght_%s_sigma.pdf",background_LMR_1.c_str(),background_LMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    c3a->SaveAs(Form("%s_%s_a_strenght_%s_sigma.png",background_LMR_1.c_str(),background_LMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    c3a->SaveAs(Form("%s_%s_a_strenght_%s_sigma.root",background_LMR_1.c_str(),background_LMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
     
 }
 

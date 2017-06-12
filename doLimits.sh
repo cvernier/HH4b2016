@@ -36,7 +36,7 @@ for m in ${massesLMR[@]}
 do
     if [ $cleanUp -eq 0 ]; then
 	echo  'LMR' $function_LMR $range_LMR
-        source doBuildInputsLMR.sh $m $function_LMR $range_LMR $6
+        source doBuildInputsLMR.sh $m $function_LMR $range_LMR $7
         source doDatacardsLMR.sh $m $function_LMR $range_LMR
     fi
     
@@ -47,10 +47,12 @@ done
 
 
 
+if [ $5 -eq 1 ];
+        then
+	massesMMR=(550 600 650 750 800 900 1000)
+        else massesMMR=() #550 600 650 750 800 900 1000)
+fi
 
-massesMMR=(
-550 600 650 750 800 900 1000
-)
 cleanUp=0
 debug=0
 
@@ -72,7 +74,7 @@ for m in ${massesMMR[@]}
 do
     if [ $cleanUp -eq 0 ]; then
         echo  'MMR' $function_MMR $range_MMR
-        source doBuildInputs.sh $m $function_MMR $range_MMR
+        source doBuildInputs.sh $m $function_MMR $range_MMR $7
         source doDatacards.sh $m $function_MMR $range_MMR
     fi
 

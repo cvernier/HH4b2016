@@ -1,8 +1,0 @@
-Running Minos for POI 
-Real time 0:00:00, CP time 0.030
-
-
- --- MaxLikelihoodFit ---
-Best fit r: 0.0450387  -0.0450387/+0.302504  (68% CL)
-nll S+B -> -0.0161041  nll B -> -0.00485972
-Done in 0.01 min (cpu), 0.02 min (real)

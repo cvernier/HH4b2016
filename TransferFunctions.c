@@ -47,8 +47,6 @@ void TransferFunctions(){
     TH1F *h_SR_AntiTag_150=(TH1F*)f_SR_AntiTag_150->Get("h_mX_SR_kinFit");
     h_SR_AntiTag_150->Rebin(rebin);
 
-
-
     TFile *f_SR_AntiTag=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2_AntiTag/Histograms_LMR_AntiTag_BTagTotal.root");
     TH1F *h_SR_AntiTag=(TH1F*)f_SR_AntiTag->Get("h_mX_SR_kinFit");
     h_SR_AntiTag->Rebin(rebin);
@@ -181,6 +179,11 @@ void TransferFunctions(){
     h_SR_150_test_2->SetTitle("Test for ABCD Method in SR-150");
     h_SR_150_test_2->Draw("same");
     h_SR_150->Draw("same");
+    //h_SB_150->SetLineColor(kAzure+10);
+    //h_SR_AntiTag_150->Draw("same");
+    //h_SR_AntiTag_150->SetLineColor(kOrange);
+    //h_SB_AntiTag_150->Draw("same");
+    //h_SB_AntiTag_150->SetLineColor(kGreen);
     TLegend *leg_E2 = new TLegend(0.6,0.6,0.8,0.89,NULL,"brNDC");
     leg_E2->SetBorderSize(0);
     leg_E2->SetTextSize(0.02);
@@ -193,7 +196,10 @@ void TransferFunctions(){
     h_SR_150->SetMarkerColor(kAzure+10);
     leg_E2->AddEntry(h_SR_150_test_2, "h_SR_150_test", "l");
     leg_E2->AddEntry(h_SR_150, "h_SR_150", "l");
+    //leg_E2->AddEntry(h_SR_AntiTag_150, "h_SR_AntiTag_150", "l");
+    //leg_E2->AddEntry(h_SB_AntiTag_150, "h_SB_AntiTag_150", "l");
     leg_E2->Draw("same");
+    c_E2->SaveAs("ABCDvalidation.png");
 
     TCanvas *c_B1=new TCanvas("c_B1", "c_B1", 700, 700);
     h_SB_test_1->GetXaxis()->SetRangeUser(240, 700);
@@ -225,7 +231,6 @@ void TransferFunctions(){
     h_SR_test_1->GetXaxis()->SetRangeUser(240, 700);
     h_SR_test_1->SetTitle("Prediction of \"A\"");
     h_SR_test_1->Draw("same");
-    h_SR->Draw("same");
     h_SB->Draw("same");
     h_SB->SetLineColor(kAzure+10);
     h_SR_AntiTag->Draw("same");
@@ -243,11 +248,11 @@ void TransferFunctions(){
     h_SR_test_1->SetMarkerColor(kRed);
     h_SR_test_1->SetMarkerColor(kAzure+10);
     leg_A1->AddEntry(h_SR_test_1, "h_SR_prediction", "l");
-    leg_A1->AddEntry(h_SR, "h_SR", "l");
     leg_A1->AddEntry(h_SB, "h_SB", "l");
     leg_A1->AddEntry(h_SR_AntiTag, "h_SR_AntiTag", "l");
     leg_A1->AddEntry(h_SB_AntiTag, "h_SB_AntiTag", "l");
     leg_A1->Draw("same");
+    c_A1->SaveAs("ABCDprediction.png");
 
 
 
@@ -258,7 +263,7 @@ new TCanvas;
     h_SR_150_diff->Draw("same");
 
 
-    TCanvas * c_ratio = new TCanvas("Ratio_fit","Ratio_fit", 800,1200);
+    TCanvas * c_ratio = new TCanvas("Ratio_fit","Ratio_fit", 700,700);
     c_ratio->Divide(1,3);
 
     c_ratio->cd(1);
@@ -296,8 +301,10 @@ new TCanvas;
     h_SR_150_ratio_2->GetYaxis()->SetRangeUser(0,2);
     h_SR_150_ratio_2->Draw();
 
+    c_ratio->SaveAs("ABCDratio.png");
 
 
+/*
 new TCanvas;
     TH1F *h_SB_AntiTag_ratio=(TH1F*)h_SB_AntiTag_test_1->Clone("h_mX_SB_kinFit");
     h_SB_AntiTag_ratio->Divide(h_SB_AntiTag);
@@ -321,7 +328,7 @@ TF1 *fit_pol2 = new TF1("fit_pol", pol0, 0., 2000., 1);
         fit_pol2->SetParameter(0, 1.);
 
         h_SB_ratio->Fit(fit_pol2,"","",0.,700.);
-
+*/
 
 }
 

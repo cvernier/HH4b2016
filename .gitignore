@@ -5,5 +5,12 @@
 *.root
 *.pcm
 !libPhysicsToolsKinFitter.so
-PreselectedWithRegressionDeepCSV/Bias/LMR/
-PreselectedWithRegressionDeepCSV/Bias/MMR/
+PreselectedWithRegressionDeepCSV/Bias/
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/save/
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/save/
+PreselectedWithRegressionDeepCSV/limits/LMR/save/
+PreselectedWithRegressionDeepCSV/limits/MMR/save/
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/
+PreselectedWithRegressionDeepCSV/limits/LMR/
+PreselectedWithRegressionDeepCSV/limits/MMR/
