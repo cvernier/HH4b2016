@@ -231,9 +231,9 @@ void drawBias_MMR(const double signal_strenght=1.0, std::string Filename="", std
     c2->SaveAs(Form("%s_%s_strenght_%s.root",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
     c2a->cd();
     leg2->Draw("same");
-    c2a->SaveAs(Form("%s_%s_a_strenght_%s.pdf",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
-    c2a->SaveAs(Form("%s_%s_a_strenght_%s.png",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
-    c2a->SaveAs(Form("%s_%s_a_strenght_%s.root",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    //c2a->SaveAs(Form("%s_%s_a_strenght_%s.pdf",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    //c2a->SaveAs(Form("%s_%s_a_strenght_%s.png",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    //c2a->SaveAs(Form("%s_%s_a_strenght_%s.root",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
     c3->cd();
     leg3->Draw("same");
     c3->SaveAs(Form("%s_%s_strenght_%s_sigma.pdf",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
@@ -241,9 +241,9 @@ void drawBias_MMR(const double signal_strenght=1.0, std::string Filename="", std
     c3->SaveAs(Form("%s_%s_strenght_%s_sigma.root",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
     c3a->cd();
     leg4->Draw("same");
-    c3a->SaveAs(Form("%s_%s_a_strenght_%s_sigma.pdf",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
-    c3a->SaveAs(Form("%s_%s_a_strenght_%s_sigma.png",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
-    c3a->SaveAs(Form("%s_%s_a_strenght_%s_sigma.root",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    //c3a->SaveAs(Form("%s_%s_a_strenght_%s_sigma.pdf",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    //c3a->SaveAs(Form("%s_%s_a_strenght_%s_sigma.png",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
+    //c3a->SaveAs(Form("%s_%s_a_strenght_%s_sigma.root",background_MMR_1.c_str(),background_MMR_2.c_str(),(ftoa(signal_strenght)).c_str()));
     
 }
 

@@ -12,8 +12,8 @@
   background_MMR_2="_${function_MMR_2}_${range_MMR_2}"
   if [ $5 -eq 1 ];
           then
-          masses_MMR=(650 ) #650 750 800 900 1000) #550 600) #750 800 900 1000)
-          strenght_MMR=(0.0 0.2) #0.3) #0.1)
+          masses_MMR=(550 600 650 750 800 900 1000) #650 750 800 900 1000) #550 600) #750 800 900 1000)
+          strenght_MMR=(0.0 0.1 0.2 0.3)
           else masses_MMR=(550 600 650 750 800 900 1000)
           strenght_MMR=(0.0 0.1 0.2 0.3)
   fi
