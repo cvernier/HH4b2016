@@ -260,7 +260,7 @@ void DrawLimitPlot(std::vector<double> mass, double ymin, double ymax)
 	{
 		std::string mass_string=itoa(mass[i]);
 		//    std::string filename="HbbHbb_13TeV_mX"+mass_string+"_Asymptotic.log";
-		std::string filename="LMR_"+mass_string+"_gaus_exp_252_330/CMS_HH4b_"+mass_string+"_13TeV_asymptoticCLs.out";
+		std::string filename="LMR_"+mass_string+"_novo_285_625/CMS_HH4b_"+mass_string+"_13TeV_asymptoticCLs.out";
 		std::ifstream file(filename.c_str(), ios::in);
 		std::cout<<"Opened file "<<filename<<std::endl;
 		std::string line;

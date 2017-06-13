@@ -69,7 +69,7 @@
 #include "RooRealVar.h"
 #include "RooPlot.h"
 #include "RooWorkspace.h"
-#include "/scratch/malara/WorkingArea/HbbHbb_Run2/AnalysisCode/PDFs/ExpGaussExp.h"
+#include "../../../PDFs/ExpGaussExp.h"
 
 using namespace RooFit ;
 
@@ -80,46 +80,47 @@ Double_t straight_line(Double_t *x, Double_t *par);
 Double_t pol_line(Double_t *x, Double_t *par);
 void PrintArray(Double_t *v, Int_t dim, Int_t precision);
 std::string itoa(int i);
-void interpolation_normalization(bool);
+void interpolation_normalization(bool, std::string, std::string, int);
 bool flag_crystal = 1; //1 for CrystalBall 0 for ExpGaussExp
 
-void InterpolateSignal() {
-    gSystem->Load("/scratch/malara/WorkingArea/HbbHbb_Run2/AnalysisCode/PDFs/ExpGaussExp_cxx.so");
-    bool flag_MMR = 1; //1 for MMR 0 for LMR
-    interpolation_normalization(flag_MMR);
+void InterpolateSignal(std::string function, std::string name_range, int range, bool flag_MMR) {
+    gSystem->Load("../../../PDFs/ExpGaussExp_cxx.so");
+    interpolation_normalization(flag_MMR, function, name_range, range);
     // I m p o r t   p d f   s h a p e s
     // ------------------------------------------------------
     
     // Observable
-    RooRealVar x("x","x",400,1200);
+    RooRealVar *X;
+    if(flag_MMR){
+	X= new RooRealVar("x","x",400,1200);
+    }
+    else{
+	if (range==1){X= new RooRealVar("x","x",230,400);}
+        else{X= new RooRealVar("x","x",250,700);}
+    }
     
-    std::string dir, background;
+    std::string dir, background=function+"_"+name_range;
     double step = 10;
     std::vector<double> masses;
     if (flag_MMR) {
         dir = "MMR";
-        std::vector<double> masses_temp= {500, 550, 600, 650, 750, 800, 900, 1000};
+	std::vector<double> masses_temp;
+	if (range==1){masses_temp= {550, 600, 650, 750, 800, 900, 1000};}
+	else{masses_temp= {550, 600, 650, 750, 800, 900, 1000};}
         for (unsigned int i = 0 ; i< masses_temp.size(); i++) {
             masses.push_back(masses_temp[i]);
         }
     }
     else{
         dir = "LMR";
-        std::vector<double> masses_temp= {260, 270, 300, 350, 400, 450, 500, 550};
+	std::vector<double> masses_temp;
+	if (range==1){masses_temp= {260, 270, 300, 350};}
+        else{masses_temp= {270, 300, 350, 400, 450, 500, 550, 600, 650};}
         for (unsigned int i = 0 ; i< masses_temp.size(); i++) {
             masses.push_back(masses_temp[i]);
         }
         
     }
-
-
-    if (flag_crystal) {
-        background="_crystal_1_550_1200";
-    }
-    else{
-        background="_crystal_1_550_1200";
-    }
-
     const unsigned int nMCpoints=masses.size();
     
     TFile *f[nMCpoints];
@@ -127,7 +128,7 @@ void InterpolateSignal() {
     RooAbsPdf* PDF_mass[nMCpoints];
     
     for (unsigned int i = 0; i<nMCpoints; i++ ) {
-        TString name = Form("%s_%d%s/w_signal_%d.root", dir.c_str(), int(masses[i]), background.c_str(), int(masses[i]));
+        TString name = Form("%s_%d_%s/w_signal_%d.root", dir.c_str(), int(masses[i]), background.c_str(), int(masses[i]));
         if (!gSystem->AccessPathName(name)) {
             f[i] = new TFile(name);
             xf[i] = (RooWorkspace*)f[i]->Get("HbbHbb");
@@ -179,18 +180,18 @@ void InterpolateSignal() {
     RooRealVar alpha("alpha","alpha",0,1.0) ;
     
     // Specify sampling density on observable and interpolation variable
-    x.setBins(10000,"cache") ;
+    X->setBins(10000,"cache") ;
     alpha.setBins(2200,"cache") ;
     
     TCanvas* c[nMCpoints];
     TCanvas* c_tot;
     RooPlot* frame1[nMCpoints];
     RooPlot* frame_tot;
-    frame_tot = x.frame() ;
+    frame_tot = X->frame() ;
     
     for (unsigned int iPoint = 0; iPoint<nMCpoints-1; iPoint++) {
         
-        RooIntegralMorph lmorph("lmorph","lmorph",*PDF_mass[iPoint+1],*PDF_mass[iPoint],x,alpha) ;
+        RooIntegralMorph lmorph("lmorph","lmorph",*PDF_mass[iPoint+1],*PDF_mass[iPoint],*X,alpha) ;
         if (masses[iPoint]<300){
             step=5;
         }
@@ -198,7 +199,7 @@ void InterpolateSignal() {
             step=10;
         }
         
-        frame1[iPoint] = x.frame() ;
+        frame1[iPoint] = X->frame() ;
         PDF_mass[iPoint]->plotOn(frame1[iPoint]) ;
         PDF_mass[iPoint+1]->plotOn(frame1[iPoint]) ;
         PDF_mass[iPoint]->plotOn(frame_tot,LineColor(kBlue)) ;
@@ -213,10 +214,17 @@ void InterpolateSignal() {
             lmorph.plotOn(frame1[iPoint],LineColor(kRed)) ;
             lmorph.plotOn(frame_tot,LineColor(kRed), LineWidth(1)) ;
             
-            TH1D* hist = (TH1D*)lmorph.createHistogram("m_X (GeV)",x,Binning(1000,400,1200));
+            TH1D* hist;
+	    if(flag_MMR){
+		hist= (TH1D*)lmorph.createHistogram("m_X (GeV)",*X,Binning(1000,400,1200));
+	    }
+	    else{
+		hist= (TH1D*)lmorph.createHistogram("m_X (GeV)",*X,Binning(1000,0,1000));
+	    }
+
             TCanvas* c_temp = new TCanvas(Form("linearmorph_%d",iPoint),Form("linearmorph_%d",iPoint),700,700) ;
             hist->Draw();
-            c_temp->SaveAs(Form("%s_%d%s/c_mX_SR_KinFit_%d.png", dir.c_str(), int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
+            c_temp->SaveAs(Form("%s_%d_%s/c_mX_SR_KinFit_%d.png", dir.c_str(), int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
             delete c_temp;
             
             
@@ -243,7 +251,7 @@ void InterpolateSignal() {
                 ExpGaussExp signal_fixed("signal_fixed", "Signal Prediction Fixed", *x, signal_p0, signal_p1, signal_p2, signal_p3);
                 RooWorkspace *w=new RooWorkspace("HbbHbb");
                 w->import(signal_fixed);
-                w->SaveAs(Form("MMR_%d%s/w_signal_%d.root", int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
+                w->SaveAs(Form("%s_%d_%s/w_signal_%d.root", dir.c_str(), int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
             }
             else{
                 double rangeHi = 1.1*m + 50;
@@ -275,7 +283,7 @@ void InterpolateSignal() {
                 
                 RooWorkspace *w=new RooWorkspace("HbbHbb");
                 w->import(signal_fixed);
-                w->SaveAs(Form("%s_%d%s/w_signal_%d.root", dir.c_str(), int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
+                w->SaveAs(Form("%s_%d_%s/w_signal_%d.root", dir.c_str(), int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
             }
         }
         c[iPoint] = new TCanvas(Form("linearmorph_%d",iPoint),Form("linearmorph_%d",iPoint),700,700) ;
@@ -299,33 +307,33 @@ void InterpolateSignal() {
 
 //================================================================================
 
-void interpolation_normalization(bool flag_MMR=0){
+void interpolation_normalization(bool flag_MMR, std::string function, std::string name_range, int range){
     
     std::vector<double> mass_0;
     std::vector<double> mass;
-    std::string dir, background;
+    std::string dir, background=function+"_"+name_range;
     if (flag_MMR) {
         dir = "MMR";
-        std::vector<double> mass_0_temp= {500, 550, 600, 650, 750, 800, 900, 100};
-        std::vector<double> mass_temp={500, 520, 550, 570, 600, 620, 650, 670, 700, 720, 750, 770, 800, 820, 850, 870, 900, 920, 950, 970, 1000};
+	std::vector<double> mass_0_temp,mass_temp;
+	if (range==1){mass_0_temp= {550, 600, 650, 750, 800, 900, 1000};}
+        else{mass_0_temp= {550, 600, 650, 750, 800, 900, 1000};}
+	if (range==1){mass_temp= {550, 570, 600, 620, 650, 670, 700, 720, 750, 770, 800, 820, 850, 870, 900, 920, 950, 970, 1000};}
+        else{mass_temp= {550, 570, 600, 620, 650, 670, 700, 720, 750, 770, 800, 820, 850, 870, 900, 920, 950, 970, 1000};}
         for (unsigned int i = 0 ; i< mass_0_temp.size(); i++) {
             mass_0.push_back(mass_0_temp[i]);
         }
         
         for (unsigned int i = 0 ; i< mass_temp.size(); i++){
             mass.push_back(mass_temp[i]);
-        }
-        
-        double m = 500;
-        while (m<1001) {
-            //mass.push_back(m); 
-            m++;
         }
     }
     else{
         dir = "LMR";
-        std::vector<double> mass_0_temp= {260, 270, 300, 350, 400, 450, 500, 550};
-        std::vector<double> mass_temp={260, 265, 270, 275, 280, 285, 290, 295, 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550};
+	std::vector<double> mass_0_temp,mass_temp;
+	if (range==1){mass_0_temp= {260, 270, 300, 350};}
+        else{mass_0_temp= {270, 300, 350, 400, 450, 500, 550, 600, 650};}
+	if (range==1){mass_temp= {260, 265, 270, 275, 280, 285, 290, 295, 300, 310, 320, 350};}
+        else{mass_temp= {270, 275, 280, 285, 290, 295, 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600, 610, 620};}
         for (unsigned int i = 0 ; i< mass_0_temp.size(); i++) {
             mass_0.push_back(mass_0_temp[i]);
         }
@@ -334,11 +342,6 @@ void interpolation_normalization(bool flag_MMR=0){
             mass.push_back(mass_temp[i]);
         }
         
-        double m = 260;
-        while (m<501) {
-            //mass.push_back(m); 
-            m++;
-        }
     }
     const unsigned int nPoints=mass.size();
     const unsigned int nPoints_0=mass_0.size();
@@ -347,19 +350,13 @@ void interpolation_normalization(bool flag_MMR=0){
     double signal_0[nPoints_0];
     int j=0;
     
-    if (flag_crystal) {
-        background="_crystal_1_550_1200";
-    }
-    else{
-        background="_crystal_1_550_1200";
-    }
     
     for (unsigned i = 0; i<nPoints; i++) {
         if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){
             continue;
         }
-        if (gSystem->AccessPathName(Form("%s_%d%s", dir.c_str(), int(mass[i]), background.c_str()))) {
-            gSystem->Exec(Form("mkdir %s_%d%s", dir.c_str(), int(mass[i]), background.c_str()));
+        if (gSystem->AccessPathName(Form("%s_%d_%s", dir.c_str(), int(mass[i]), background.c_str()))) {
+            gSystem->Exec(Form("mkdir %s_%d_%s", dir.c_str(), int(mass[i]), background.c_str()));
         }
         int lMarker=0;
         for (auto m : mass_0){
@@ -368,10 +365,10 @@ void interpolation_normalization(bool flag_MMR=0){
             }
             lMarker++;
         }
-        gSystem->Exec(Form("cp -r %s_%d%s/datacard_%d%s.txt %s_%d%s/datacard_%d%s.txt", dir.c_str(), int(mass_0[lMarker]), background.c_str(), int(mass_0[lMarker]), background.c_str(), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
-        gSystem->Exec(Form("cp -r %s_%d%s/index.html %s_%d%s/index.html", dir.c_str(), int(mass_0[lMarker]), background.c_str(), dir.c_str(), int(mass[i]), background.c_str()));
-            gSystem->Exec(Form("cp -r %s_%d%s/w_background%s.root %s_%d%s/w_background%s.root", dir.c_str(), int(mass_0[lMarker]), background.c_str(), background.c_str(), dir.c_str(), int(mass[i]), background.c_str(), background.c_str()));
-        gSystem->Exec(Form("sed -i 's/%d./%d./g' %s_%d%s/datacard_%d%s.txt", int(mass_0[lMarker]), int(mass[i]), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
+        gSystem->Exec(Form("cp -r %s_%d_%s/datacard_%d_%s.txt %s_%d_%s/datacard_%d_%s.txt", dir.c_str(), int(mass_0[lMarker]), background.c_str(), int(mass_0[lMarker]), background.c_str(), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
+        gSystem->Exec(Form("cp -r %s_%d_%s/signal%d_sig.log %s_%d_%s/signal%d_sig.log", dir.c_str(), int(mass_0[lMarker]), background.c_str(), int(mass_0[lMarker]), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i])));
+            gSystem->Exec(Form("cp -r %s_%d_%s/w_background_%s.root %s_%d_%s/w_background_%s.root", dir.c_str(), int(mass_0[lMarker]), background.c_str(), background.c_str(), dir.c_str(), int(mass[i]), background.c_str(), background.c_str()));
+        gSystem->Exec(Form("sed -i 's/%d./%d./g' %s_%d_%s/datacard_%d_%s.txt", int(mass_0[lMarker]), int(mass[i]), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
         
     }
     
@@ -379,7 +376,8 @@ void interpolation_normalization(bool flag_MMR=0){
         
         std::string mass_string= itoa(mass[i]);
         std::cout<< mass_string << std::endl;
-        std::string filename=dir+"_"+mass_string+background+"/index.html";
+        std::string filename=dir+"_"+mass_string+"_"+background+"/signal"+mass_string+"_sig.log";
+        std::cout<< filename << std::endl;
         
         std::ifstream file(filename.c_str(), ios::in);
         
@@ -391,8 +389,10 @@ void interpolation_normalization(bool flag_MMR=0){
             if (pos!=std::string::npos){
                 found=true;
                 signal_test[i] = atof(line.substr(line.find("norm")+7,line.find_last_of(" ")).c_str());
+		cout <<"trova " << signal_test[i]<< " "<< mass_string << endl;
                 if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){
-                    signal_0_test[j] = atof(line.substr(line.find("norm")+7,line.find_last_of(" ")).c_str());
+                    signal_0_test[j] = atof(line.substr(line.find("norm")+3,line.find_last_of(" ")).c_str());
+		cout <<"trova " << signal_test[i]<< " "<< mass_string << endl;
                     j++;
                 }
             }
@@ -404,7 +404,7 @@ void interpolation_normalization(bool flag_MMR=0){
         
         std::string mass_string= itoa(mass[i]);
         std::cout<< mass_string << std::endl;
-        std::string filename=dir+"_"+mass_string+background+"/datacard_"+mass_string+background+".txt";
+        std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
         
         std::ifstream file(filename.c_str(), ios::in);
         
@@ -454,10 +454,12 @@ void interpolation_normalization(bool flag_MMR=0){
     TH1F* hr_1;
     TH1F* hr_2;
     if (flag_MMR) {
-        hr_1 = c1->DrawFrame(400,0,1200,50);
+	if (range==1){hr_1 = c1->DrawFrame(400,0,1200,10);}
+	else{hr_1 = c1->DrawFrame(400,0,1200,10);}
         hr_1->SetTitle("MMR");
     } else {
-        hr_1 = c1->DrawFrame(250,0,550,1600);
+	if (range==1){hr_1 = c1->DrawFrame(250,0,370,600);}
+        else{hr_1 = c1->DrawFrame(250,0,550,1600);}
         hr_1->SetTitle("LMR");
     }
     hr_1->SetXTitle("mass (GeV)");
@@ -466,9 +468,11 @@ void interpolation_normalization(bool flag_MMR=0){
     c1->GetFrame()->SetBorderSize(12);
     p_2->cd();
     if (flag_MMR) {
-        hr_2 = c1->DrawFrame(400,-0.07,1200,0.07);
+	if (range==1){hr_2 = c1->DrawFrame(400,-0.07,1200,0.07);}
+        else{hr_2 = c1->DrawFrame(400,-0.07,1200,0.07);}
     } else {
-        hr_2 = c1->DrawFrame(250,-0.04,550,0.04);
+	if (range==1){hr_2 = c1->DrawFrame(250,-0.04,370,0.04);}
+        else{hr_2 = c1->DrawFrame(250,-0.04,550,0.04);}
     }
     hr_2->SetXTitle("mass (GeV)");
     hr_2->GetXaxis()->SetTitleOffset(0.6);
@@ -496,7 +500,7 @@ void interpolation_normalization(bool flag_MMR=0){
     g_signal_0->Draw("P");
     
     TF1 *fit_lin = new TF1("fit_lin",straight_line,100,1000,2);
-    fit_lin->SetParameter(0, -1000.);
+    fit_lin->SetParameter(0, 1000.);
     fit_lin->SetParameter(1, 5.);
     fit_lin->SetParName(0, "q");
     fit_lin->SetParName(1, "m");
@@ -504,7 +508,8 @@ void interpolation_normalization(bool flag_MMR=0){
         g_signal_0->Fit(fit_lin,"","",400,1000);
     }
     else{
-        g_signal_0->Fit(fit_lin,"","",260,550);
+	if (range==1){g_signal_0->Fit(fit_lin,"","",260,250);}
+        else{g_signal_0->Fit(fit_lin,"","",270,550);}
     }
     
     for (unsigned i = 0; i<nPoints; i++) {
@@ -542,9 +547,9 @@ void interpolation_normalization(bool flag_MMR=0){
     g_signal_0->Draw("P");
     
     
-    TF1 *fit_pol = new TF1("fit_lin",pol_line,100,1000,4);
-    fit_pol->SetParameter(0, 2386.);
-    fit_pol->SetParameter(1, -20.);
+    TF1 *fit_pol = new TF1("fit_pol",pol_line,100,1000,4);
+    fit_pol->SetParameter(0, 1500.);
+    fit_pol->SetParameter(1, -13.);
     fit_pol->SetParameter(2, 0.07 );
     fit_pol->SetParameter(3, -1.e-05);
     fit_pol->SetParName(0, "x_0");
@@ -555,7 +560,9 @@ void interpolation_normalization(bool flag_MMR=0){
         g_signal_0->Fit(fit_pol,"","", 400,1000);
     }
     else{
-        g_signal_0->Fit(fit_pol,"","", 260,550);
+	if (range==1){
+	g_signal_0->Fit(fit_pol,"","",250,400);}
+        else{g_signal_0->Fit(fit_pol,"","",260,550);}
     }
     
     TH1F* h_test;
@@ -584,7 +591,6 @@ void interpolation_normalization(bool flag_MMR=0){
         
         if (!trovato) {
             double error= sqrt(pow(fit_pol->GetParError(0)*pow(mass[i],0),2)+pow(fit_pol->GetParError(1)*pow(mass[i],1),2)+pow(fit_pol->GetParError(2)*pow(mass[i],2),2)+pow(fit_pol->GetParError(3)*pow(mass[i],3),2));
-            //double temp = (interpol[i]-fit_pol->Eval(mass[i]))/sqrt(fit_pol->Eval(mass[i]));
             double temp = (interpol[i]-fit_pol->Eval(mass[i]))/fit_pol->Eval(mass[i]);
             chi_2+=pow(temp,2);
             h_test->Fill(temp);
@@ -599,9 +605,6 @@ void interpolation_normalization(bool flag_MMR=0){
     leg->SetFillStyle(1); leg->SetFillColor(kWhite);
     leg->AddEntry(g_signal_0, "Norm for MC masses", "lep");
     leg->AddEntry(g_signal_2, "Interpolation", "lep");
-    //leg->AddEntry((TObject*)0, Form("Pseudo-Chi^2 = %f",chi_2), "l");
-    //leg->AddEntry("", Form("Chi^2 = %f",chi_1), "l");
-    //leg->AddEntry("", Form("Ndof = %d",nPoints-nPoints_0), "l");
     leg->SetFillColor(kWhite);
     leg->SetFillStyle(0);
     leg->SetTextSize(0.03);
@@ -638,7 +641,7 @@ void interpolation_normalization(bool flag_MMR=0){
     for (unsigned i = 0; i<nPoints; i++) {
         
         std::string mass_string= itoa(mass[i]);
-        std::string filename=dir+"_"+mass_string+background+"/datacard_"+mass_string+background+".txt";
+        std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
         
         std::ifstream file(filename.c_str(), ios::in);
         
@@ -670,7 +673,7 @@ void interpolation_normalization(bool flag_MMR=0){
             }
             lMarker++;
         }
-        gSystem->Exec(Form("sed -i 's/.*rate.*/rate                  %f %f/g' %s_%d%s/datacard_%d%s.txt", interpol[i], background_temp, dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
+        gSystem->Exec(Form("sed -i 's/.*rate.*/rate                  %f %f/g' %s_%d_%s/datacard_%d_%s.txt", interpol[i], background_temp, dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
     }
     cout<<"end"<<endl;
     TCanvas *c_test = new TCanvas("canvas_test","canvas_test",700, 700);

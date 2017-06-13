@@ -13,15 +13,16 @@ function_MMR=$3
 range_MMR=$4
 background_MMR="_${function_MMR}_${range_MMR}"
 
+
 if [ $5 -eq 1 ];
         then
-        masses_LMR=(260 270 300 350)
-        else masses_LMR=(270 300 350 400 450 500 550 600 650)
+        masses_LMR=(260 265 270 275 280 285 290 295 300 310 320)
+        else masses_LMR=(270 275 280 285 290 295 300 310 320 330 340 350 360 370 380 390 400 410 420 430 440 450 460 470 480 490 500 510 520 530 540 550 560 570 580 590 600 610 620)
 fi
 
 if [ $5 -eq 1 ];
         then
-        masses_MMR=() #550 600 650 750 800 900 1000)
+        masses_MMR=(550 570 600 620 650 670 700 720 750 770 800 820 850 870 900 920 950 970 1000) #550 600 650 750 800 900 1000)
         else masses_MMR=() #550 600 650 750 800 900 1000)
 fi
 
@@ -32,14 +33,13 @@ do
         cd $DIR
         folder="PreselectedWithRegressionDeepCSV/limits/MMR/MMR_${i}${background_MMR}"
 	if [ -d $folder ]
-	then
-	rm -fr $folder 
-	fi	
-        echo "mass point $i"
-        cp -r PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_${i}${background_MMR} ${folder} 
-	cd $folder 
-	mkdir out
-        #text2workspace.py datacard_${i}${background_MMR}.txt  -o datacard_${i}${background_MMR}.root
+        then
+        cd $folder
+        else
+        echo "mass point $i" 
+        continue
+        fi
+        mkdir out
         echo "Asymptotic"
         combine -M Asymptotic datacard_${i}${background_MMR}.txt -t -1 &> CMS_HH4b_$i\_13TeV_asymptoticCLs.out
         echo "MaxLikelihoodFit"
@@ -59,13 +59,12 @@ do
         folder="PreselectedWithRegressionDeepCSV/limits/LMR/LMR_${i}${background_LMR}"
         if [ -d $folder ]
         then
-        rm -fr $folder
-        fi
-        echo "mass point $i"
-        cp -r PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_${i}${background_LMR} ${folder}
         cd $folder
+	else
+        echo "mass point $i" 
+	continue
+        fi
         mkdir out
-        #text2workspace.py datacard_${i}${background_LMR}.txt  -o datacard_${i}${background_LMR}.root
         echo "Asymptotic"
         combine -M Asymptotic datacard_${i}${background_LMR}.txt -t -1 &> CMS_HH4b_$i\_13TeV_asymptoticCLs.out
         echo "MaxLikelihoodFit"
