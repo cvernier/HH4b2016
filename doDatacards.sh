@@ -50,8 +50,8 @@ JER       lnN     ${jer_norm}   -
 JEC       lnN     ${jec_norm}   -
 trigger   lnN     1.10    -
 PDF       lnN     ${pdf_norm}   -
-bkg_norm rateParam HbbHbb 1 ${bkg_norm} 
 EOF
+#bkg_norm rateParam HbbHbb 1 ${bkg_norm} 
 
 
 #now add the systematics to the card
