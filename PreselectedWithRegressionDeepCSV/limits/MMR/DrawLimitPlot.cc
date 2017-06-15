@@ -10,9 +10,9 @@
 #include "TFile.h"
 #include "TLatex.h"
 
-#include "/scratch/malara/WorkingArea/HbbHbb_Run2/AnalysisCode/TDRStyle.h"
+#include "../../../TDRStyle.h"
 
-#include "/scratch/malara/WorkingArea/HbbHbb_Run2/AnalysisCode/CMS_lumi.h"
+#include "../../../CMS_lumi.h"
 #include <iostream>
 int iPeriod = 4;    // 1=7TeV, 2=8TeV, 3=7+8TeV, 7=7+8+13TeV 
 int iPos = 11;
@@ -186,7 +186,7 @@ std::string itoa(int i)
   return ret;
 }
 
-void DrawLimitPlot(std::vector<double> mass, double ymin, double ymax)
+void DrawLimitPlot(std::vector<double> mass, double ymin, double ymax, std::string background, bool flag_MMR)
 {
 	gStyle->SetTitleOffset(1.2,"Y");
 		gStyle->SetPadLeftMargin(0.18);
@@ -249,6 +249,9 @@ void DrawLimitPlot(std::vector<double> mass, double ymin, double ymax)
 	extraText  = "Preliminary";  // default extra text is "Preliminary"
 	lumi_13TeV  = "35.9 fb^{-1}";  // default is "5.1 fb^{-1}"
 
+	double norm;
+	if(flag_MMR){norm=2;}
+	else{norm=1000;}
 	const unsigned int nPoints=mass.size();
 	double xsec[nPoints], xsecNeg1[nPoints], xsecPos1[nPoints], xsecNeg2[nPoints], xsecPos2[nPoints];
 	double obs[nPoints];
@@ -260,7 +263,9 @@ void DrawLimitPlot(std::vector<double> mass, double ymin, double ymax)
 	{
 		std::string mass_string=itoa(mass[i]);
 		//    std::string filename="HbbHbb_13TeV_mX"+mass_string+"_Asymptotic.log";
-		std::string filename="MMR_"+mass_string+"_crystal_1_550_1200/CMS_HH4b_"+mass_string+"_13TeV_asymptoticCLs.out";
+		std::string filename;
+		if(flag_MMR){filename="MMR_"+mass_string+"_"+background+"/CMS_HH4b_"+mass_string+"_13TeV_asymptoticCLs.out";}
+		else{filename="LMR_"+mass_string+"_"+background+"/CMS_HH4b_"+mass_string+"_13TeV_asymptoticCLs.out";}
 		std::ifstream file(filename.c_str(), ios::in);
 		std::cout<<"Opened file "<<filename<<std::endl;
 		std::string line;
@@ -268,12 +273,12 @@ void DrawLimitPlot(std::vector<double> mass, double ymin, double ymax)
 		getline(file, line);
 		getline(file, line);
 
-		getline(file, line); obs[i]=atof(line.substr(line.find("<")+1).c_str())*20;
-		getline(file, line); xsecNeg2[i]=atof(line.substr(line.find("<")+1).c_str())*20;
-		getline(file, line); xsecNeg1[i]=atof(line.substr(line.find("<")+1).c_str())*20;
-		getline(file, line); xsec[i]=atof(line.substr(line.find("<")+1).c_str())*20;
-		getline(file, line); xsecPos1[i]=atof(line.substr(line.find("<")+1).c_str())*20;
-		getline(file, line); xsecPos2[i]=atof(line.substr(line.find("<")+1).c_str())*20;
+		getline(file, line); obs[i]=atof(line.substr(line.find("<")+1).c_str())*norm;
+		getline(file, line); xsecNeg2[i]=atof(line.substr(line.find("<")+1).c_str())*norm;
+		getline(file, line); xsecNeg1[i]=atof(line.substr(line.find("<")+1).c_str())*norm;
+		getline(file, line); xsec[i]=atof(line.substr(line.find("<")+1).c_str())*norm;
+		getline(file, line); xsecPos1[i]=atof(line.substr(line.find("<")+1).c_str())*norm;
+		getline(file, line); xsecPos2[i]=atof(line.substr(line.find("<")+1).c_str())*norm;
 
 		expNeg2[i]=xsec[i]-xsecNeg2[i];
 		expNeg1[i]=xsec[i]-xsecNeg1[i];
@@ -378,7 +383,15 @@ for(int i=0; i<masses_graviton.size(); ++i)
 	x_graviton[i]=x_graviton[i]*br_hh[i]*(0.57*0.57)*1000. ; 
 	std::cout<<"Graviton mass = "<<masses_graviton[i]<<", x-sec = "<<x_graviton[i]<<std::endl;
 }
-TGraph *g_graviton=new TGraph(masses_graviton.size(), &(masses_graviton[0]), &(x_graviton[0])); g_graviton->SetLineWidth(2); g_graviton->SetLineColor(kBlue+1); g_graviton->SetFillColor(kWhite);
+
+//TGraph *g_graviton=new TGraph(masses_graviton.size(), &(masses_graviton[0]), &(x_graviton[0])); g_graviton->SetLineWidth(2); g_graviton->SetLineColor(kBlue+1); g_graviton->SetFillColor(kWhite);
+
+// Graviton curve
+std::vector<double> masses_graviton_new={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
+std::vector<double> x_graviton_new={6.87e+00, 1.36e+02, 2.32e+02, 1.23e+02, 5.73e+01, 2.84e+01, 2.04e+01, 1.50e+01, 8.16e+00, 4.74e+00, 3.00e+00, 1.90e+00, 1.20e+00, 7.63e-01, 4.83e-01};
+
+
+TGraph *g_graviton=new TGraph(masses_graviton_new.size(), &(masses_graviton_new[0]), &(x_graviton_new[0])); g_graviton->SetLineWidth(2); g_graviton->SetLineColor(kBlue+1); g_graviton->SetFillColor(kWhite);
 
 gROOT->SetStyle("Plain");
 // gStyle->>SetOptStat(000000000);
@@ -440,10 +453,10 @@ CMS_lumi( c_xsec, iPeriod, iPos );
 
 c_xsec->Update();
 
-c_xsec->SaveAs("UpperLimit.png");
-c_xsec->SaveAs("UpperLimit.root");
+c_xsec->SaveAs(Form("UpperLimit_%s.png", background.c_str()));
+c_xsec->SaveAs(Form("UpperLimit_%s.root", background.c_str()));
 
-TFile *file=new TFile("UpperLimits_xsec.root", "RECREATE");
+TFile *file=new TFile(Form("UpperLimits_xsec_%s.root", background.c_str()), "RECREATE");
 g_obs->Write("g_obs");
 g_xsec->Write("g_xsec");
 g_xsec_1sigma->Write("g_xsec_1sigma");
