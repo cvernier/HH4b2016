@@ -1,13 +1,19 @@
 #!/bin/bash
 
+function_LMR=$1
+range_LMR=$2
+function_MMR=$3 
+range_MMR=$4
+
 function show_help { 
     echo "./doLimits.sh [-c to clean up] [-d debug combine]" 
 }
 
-massesLMR=(
-#260 270 300 350
-270 300 350 400 450 500 550 600 650
-)
+if [ $5 -eq 1 ]; 
+	then
+	massesLMR=(260 270 300 350)
+	else massesLMR=(270 300 350 400 450 500 550 600 650)
+fi
 cleanUp=0
 #rebin=10
 debug=0
@@ -29,10 +35,9 @@ done
 for m in ${massesLMR[@]}
 do
     if [ $cleanUp -eq 0 ]; then
-	echo  'LMR'
-        source doBuildInputsLMR.sh $m
-        source doDatacardsLMR.sh $m
-        #./runLimits.sh $debug $m
+	echo  'LMR' $function_LMR $range_LMR
+        source doBuildInputsLMR.sh $m $function_LMR $range_LMR $7
+        source doDatacardsLMR.sh $m $function_LMR $range_LMR
     fi
     
     if [ $cleanUp -eq 1 ]; then
@@ -42,12 +47,13 @@ done
 
 
 
+if [ $5 -eq 1 ];
+        then
+	massesMMR=(550 600 650 750 800 900 1000)
+        else massesMMR=() #550 600 650 750 800 900 1000)
+fi
 
-massesMMR=(
-550 600 650 750 800 900 1000
-)
 cleanUp=0
-#rebin=10
 debug=0
 
 while getopts "h?cr:d" opt; do
@@ -67,10 +73,9 @@ done
 for m in ${massesMMR[@]}
 do
     if [ $cleanUp -eq 0 ]; then
-        echo  'MMR'
-        source doBuildInputs.sh $m
-        source doDatacards.sh $m
-        #./runLimits.sh $debug $m
+        echo  'MMR' $function_MMR $range_MMR
+        source doBuildInputs.sh $m $function_MMR $range_MMR $7
+        source doDatacards.sh $m $function_MMR $range_MMR
     fi
 
     if [ $cleanUp -eq 1 ]; then

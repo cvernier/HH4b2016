@@ -1,0 +1,65 @@
+Running Minos for POI 
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (161.693) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.0205885, JER=-0.0237612, PDF=-0.0174317, bTag=-0.0809513, lumi_13TeV=-0.0296179, par_crystal_0=-0.0572823, par_crystal_1=0.681541, par_crystal_1_0=0.237913, par_crystal_1_1=4.44737, par_crystal_1_2=279.979, par_crystal_1_3=18.7584, par_crystal_2=271.192, par_crystal_3=38.7194, r=0.210246, sg_p0=260.912, sg_p1=3.47675, sg_p2=267.514, sg_p3=34.2364, sg_p4=0.640029, trigger=-0.107538
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_0 p1=par_crystal_1 p2=par_crystal_2 p3=par_crystal_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=330, p0=par_crystal_0=-0.0572823 +/- 0.0139489, p1=par_crystal_1=0.681541 +/- 3.84042, p2=par_crystal_2=271.192 +/- 0.599884, p3=par_crystal_3=38.7194 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=291, p0=par_crystal_0=-0.0572823 +/- 0.0139489, p1=par_crystal_1=0.681541 +/- 3.84042, p2=par_crystal_2=271.192 +/- 0.599884, p3=par_crystal_3=38.7194 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=271.5, p0=par_crystal_0=-0.0572823 +/- 0.0139489, p1=par_crystal_1=0.681541 +/- 3.84042, p2=par_crystal_2=271.192 +/- 0.599884, p3=par_crystal_3=38.7194 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=310.5, p0=par_crystal_0=-0.0572823 +/- 0.0139489, p1=par_crystal_1=0.681541 +/- 3.84042, p2=par_crystal_2=271.192 +/- 0.599884, p3=par_crystal_3=38.7194 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=281.25, p0=par_crystal_0=-0.0572823 +/- 0.0139489, p1=par_crystal_1=0.681541 +/- 3.84042, p2=par_crystal_2=271.192 +/- 0.599884, p3=par_crystal_3=38.7194 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=300.75, p0=par_crystal_0=-0.0572823 +/- 0.0139489, p1=par_crystal_1=0.681541 +/- 3.84042, p2=par_crystal_2=271.192 +/- 0.599884, p3=par_crystal_3=38.7194 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=320.25, p0=par_crystal_0=-0.0572823 +/- 0.0139489, p1=par_crystal_1=0.681541 +/- 3.84042, p2=par_crystal_2=271.192 +/- 0.599884, p3=par_crystal_3=38.7194 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=276.375, p0=par_crystal_0=-0.0572823 +/- 0.0139489, p1=par_crystal_1=0.681541 +/- 3.84042, p2=par_crystal_2=271.192 +/- 0.599884, p3=par_crystal_3=38.7194 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.125, p0=par_crystal_0=-0.0572823 +/- 0.0139489, p1=par_crystal_1=0.681541 +/- 3.84042, p2=par_crystal_2=271.192 +/- 0.599884, p3=par_crystal_3=38.7194 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=295.875, p0=par_crystal_0=-0.0572823 +/- 0.0139489, p1=par_crystal_1=0.681541 +/- 3.84042, p2=par_crystal_2=271.192 +/- 0.599884, p3=par_crystal_3=38.7194 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=305.625, p0=par_crystal_0=-0.0572823 +/- 0.0139489, p1=par_crystal_1=0.681541 +/- 3.84042, p2=par_crystal_2=271.192 +/- 0.599884, p3=par_crystal_3=38.7194 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=315.375, p0=par_crystal_0=-0.0572823 +/- 0.0139489, p1=par_crystal_1=0.681541 +/- 3.84042, p2=par_crystal_2=271.192 +/- 0.599884, p3=par_crystal_3=38.7194 +/- 0.860854
+    ... (remaining 205109 messages suppressed)
+
+[#0] WARNING:Integration -- RooIntegrator1D::integral: integral of shapeBkg_background_HbbHbb over range (252,330) did not converge after 20 steps
+   [1] h = 1 , s = 2.83239e-56
+   [2] h = 0.25 , s = 4.32127e-12
+   [3] h = 0.0625 , s = 0.0464655
+   [4] h = 0.015625 , s = 3.93686
+   [5] h = 0.00390625 , s = 6.90925
+   [6] h = 0.000976562 , s = 5.64343
+   [7] h = 0.000244141 , s = 5.03615
+   [8] h = 6.10352e-05 , s = 5.34028
+   [9] h = 1.52588e-05 , s = 5.189
+   [10] h = 3.8147e-06 , s = 5.26475
+   [11] h = 9.53674e-07 , s = 5.22691
+   [12] h = 2.38419e-07 , s = 5.24584
+   [13] h = 5.96046e-08 , s = 5.25531
+   [14] h = 1.49012e-08 , s = 5.26004
+   [15] h = 3.72529e-09 , s = 5.25767
+   [16] h = 9.31323e-10 , s = 5.25649
+   [17] h = 2.32831e-10 , s = 5.2559
+   [18] h = 5.82077e-11 , s = 5.2556
+   [19] h = 1.45519e-11 , s = 5.25575
+   [20] h = 3.63798e-12 , s = 5.25568
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (161.693) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.0206954, JER=-0.023928, PDF=-0.0174764, bTag=-0.080831, lumi_13TeV=-0.0298351, par_crystal_0=-0.108421, par_crystal_1=1.07626, par_crystal_1_0=0.237913, par_crystal_1_1=4.44737, par_crystal_1_2=279.979, par_crystal_1_3=18.7584, par_crystal_2=255.549, par_crystal_3=-4.5897, r=0.210246, sg_p0=260.912, sg_p1=3.47678, sg_p2=267.514, sg_p3=34.2364, sg_p4=0.640029, trigger=-0.108506
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_0 p1=par_crystal_1 p2=par_crystal_2 p3=par_crystal_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=253.5, p0=par_crystal_0=-0.108421 +/- 0.0139489, p1=par_crystal_1=1.07626 +/- 3.84042, p2=par_crystal_2=255.549 +/- 0.599884, p3=par_crystal_3=-4.5897 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=252, p0=par_crystal_0=-0.108421 +/- 0.0139489, p1=par_crystal_1=1.07626 +/- 3.84042, p2=par_crystal_2=255.549 +/- 0.599884, p3=par_crystal_3=-4.5897 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=254.438, p0=par_crystal_0=-0.108421 +/- 0.0139489, p1=par_crystal_1=1.07626 +/- 3.84042, p2=par_crystal_2=255.549 +/- 0.599884, p3=par_crystal_3=-4.5897 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=253.219, p0=par_crystal_0=-0.108421 +/- 0.0139489, p1=par_crystal_1=1.07626 +/- 3.84042, p2=par_crystal_2=255.549 +/- 0.599884, p3=par_crystal_3=-4.5897 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=255.656, p0=par_crystal_0=-0.108421 +/- 0.0139489, p1=par_crystal_1=1.07626 +/- 3.84042, p2=par_crystal_2=255.549 +/- 0.599884, p3=par_crystal_3=-4.5897 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=252.609, p0=par_crystal_0=-0.108421 +/- 0.0139489, p1=par_crystal_1=1.07626 +/- 3.84042, p2=par_crystal_2=255.549 +/- 0.599884, p3=par_crystal_3=-4.5897 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=253.828, p0=par_crystal_0=-0.108421 +/- 0.0139489, p1=par_crystal_1=1.07626 +/- 3.84042, p2=par_crystal_2=255.549 +/- 0.599884, p3=par_crystal_3=-4.5897 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=255.047, p0=par_crystal_0=-0.108421 +/- 0.0139489, p1=par_crystal_1=1.07626 +/- 3.84042, p2=par_crystal_2=255.549 +/- 0.599884, p3=par_crystal_3=-4.5897 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=252.305, p0=par_crystal_0=-0.108421 +/- 0.0139489, p1=par_crystal_1=1.07626 +/- 3.84042, p2=par_crystal_2=255.549 +/- 0.599884, p3=par_crystal_3=-4.5897 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=252.914, p0=par_crystal_0=-0.108421 +/- 0.0139489, p1=par_crystal_1=1.07626 +/- 3.84042, p2=par_crystal_2=255.549 +/- 0.599884, p3=par_crystal_3=-4.5897 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=253.523, p0=par_crystal_0=-0.108421 +/- 0.0139489, p1=par_crystal_1=1.07626 +/- 3.84042, p2=par_crystal_2=255.549 +/- 0.599884, p3=par_crystal_3=-4.5897 +/- 0.860854
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=254.133, p0=par_crystal_0=-0.108421 +/- 0.0139489, p1=par_crystal_1=1.07626 +/- 3.84042, p2=par_crystal_2=255.549 +/- 0.599884, p3=par_crystal_3=-4.5897 +/- 0.860854
+    ... (remaining 27189 messages suppressed)
+
+Real time 0:00:05, CP time 5.810
+
+
+ --- MaxLikelihoodFit ---
+Best fit r: 3.02288e-07  -3.02288e-07/+0.408135  (68% CL)
+nll S+B -> -0.117083  nll B -> -0.117083
+Done in 0.11 min (cpu), 0.11 min (real)

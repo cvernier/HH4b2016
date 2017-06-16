@@ -1,0 +1,26 @@
+Running Minos for POI 
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (77849) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-7, JER=-7, PDF=-7, bTag=-7, lumi_13TeV=-7, par_crystal_1_0=-0.473896, par_crystal_1_1=2.43221, par_crystal_1_2=282.885, par_crystal_1_3=64.2419, r=2.90749, sg_p0=554.833, sg_p1=17.5326, sg_p2=526.617, sg_p3=76.5442, sg_p4=0.913471, trigger=-7
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.473896 +/- 0.145028, p1=par_crystal_1_1=2.43221 +/- 0.443192, p2=par_crystal_1_2=282.885 +/- 29.1405, p3=par_crystal_1_3=64.2419 +/- 11.7419
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.473896 +/- 0.145028, p1=par_crystal_1_1=2.43221 +/- 0.443192, p2=par_crystal_1_2=282.885 +/- 29.1405, p3=par_crystal_1_3=64.2419 +/- 11.7419
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=624, p0=par_crystal_1_0=-0.473896 +/- 0.145028, p1=par_crystal_1_1=2.43221 +/- 0.443192, p2=par_crystal_1_2=282.885 +/- 29.1405, p3=par_crystal_1_3=64.2419 +/- 11.7419
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=454.5, p0=par_crystal_1_0=-0.473896 +/- 0.145028, p1=par_crystal_1_1=2.43221 +/- 0.443192, p2=par_crystal_1_2=282.885 +/- 29.1405, p3=par_crystal_1_3=64.2419 +/- 11.7419
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=369.75, p0=par_crystal_1_0=-0.473896 +/- 0.145028, p1=par_crystal_1_1=2.43221 +/- 0.443192, p2=par_crystal_1_2=282.885 +/- 29.1405, p3=par_crystal_1_3=64.2419 +/- 11.7419
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=539.25, p0=par_crystal_1_0=-0.473896 +/- 0.145028, p1=par_crystal_1_1=2.43221 +/- 0.443192, p2=par_crystal_1_2=282.885 +/- 29.1405, p3=par_crystal_1_3=64.2419 +/- 11.7419
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=327.375, p0=par_crystal_1_0=-0.473896 +/- 0.145028, p1=par_crystal_1_1=2.43221 +/- 0.443192, p2=par_crystal_1_2=282.885 +/- 29.1405, p3=par_crystal_1_3=64.2419 +/- 11.7419
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=412.125, p0=par_crystal_1_0=-0.473896 +/- 0.145028, p1=par_crystal_1_1=2.43221 +/- 0.443192, p2=par_crystal_1_2=282.885 +/- 29.1405, p3=par_crystal_1_3=64.2419 +/- 11.7419
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=496.875, p0=par_crystal_1_0=-0.473896 +/- 0.145028, p1=par_crystal_1_1=2.43221 +/- 0.443192, p2=par_crystal_1_2=282.885 +/- 29.1405, p3=par_crystal_1_3=64.2419 +/- 11.7419
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=581.625, p0=par_crystal_1_0=-0.473896 +/- 0.145028, p1=par_crystal_1_1=2.43221 +/- 0.443192, p2=par_crystal_1_2=282.885 +/- 29.1405, p3=par_crystal_1_3=64.2419 +/- 11.7419
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=306.188, p0=par_crystal_1_0=-0.473896 +/- 0.145028, p1=par_crystal_1_1=2.43221 +/- 0.443192, p2=par_crystal_1_2=282.885 +/- 29.1405, p3=par_crystal_1_3=64.2419 +/- 11.7419
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=348.562, p0=par_crystal_1_0=-0.473896 +/- 0.145028, p1=par_crystal_1_1=2.43221 +/- 0.443192, p2=par_crystal_1_2=282.885 +/- 29.1405, p3=par_crystal_1_3=64.2419 +/- 11.7419
+    ... (remaining 233 messages suppressed)
+
+Real time 0:00:00, CP time 0.110
+
+
+ --- MaxLikelihoodFit ---
+Best fit r: 5.93688e-06  -5.93688e-06/+2.90748  (68% CL)
+nll S+B -> -0.000682105  nll B -> -0.000682024
+Done in 0.01 min (cpu), 0.01 min (real)

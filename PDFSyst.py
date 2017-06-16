@@ -2,12 +2,21 @@ import ROOT
 from optparse import OptionParser
 
 
-def PDFsyst(mass):
+def PDFsyst(mass, location):
     
+  if location==0:
+	print("fnal")
+  	path="/eos/uscms/store/user/lpchbb/HeppyNtuples/V25/"
+  elif location==1:
+	print("pisa")
+  	path="/scratch/malara/WorkingArea/IO_file/output_file/DeepCSV_final/MC/Original/"
+  else: quit()
 
-  _file0 = ROOT.TFile.Open("/scratch/malara/WorkingArea/IO_file/output_file/DeepCSV_final/MC/Original/GluGluToBulkGravitonToHHTo4B_M-"+str(mass)+"_narrow_13TeV-madgraph.root")
-  if(mass>900.) :
-	_file0 = ROOT.TFile.Open("/eos/uscms/store/user/lpchbb/HeppyNtuples/V25/BulkGravTohhTohbbhbb_narrow_M-"+str(mass)+"_13TeV-madgraph.root")
+  if(mass<1000) :
+  	_file0 = ROOT.TFile.Open(path+"GluGluToBulkGravitonToHHTo4B_M-"+str(mass)+"_narrow_13TeV-madgraph.root")
+  if(mass==1000) :
+	print("1000")
+	_file0 = ROOT.TFile.Open(path+"BulkGravTohhTohbbhbb_narrow_M-"+str(mass)+"_13TeV-madgraph.root")
   tree = _file0.Get("tree")
   CountWeighted = _file0.Get("CountWeighted")
   CountWeightedLHEWeightPdf = _file0.Get("CountWeightedLHEWeightPdf")
@@ -24,11 +33,11 @@ def PDFsyst(mass):
     count = CountWeightedLHEWeightPdf.GetBinContent( CountWeightedLHEWeightPdf.FindBin(x) )
     ratio.append(integral / count / ratio[0])
 
-  histo = ROOT.TH1F("histo","",25,0.9,1.1)
+  histo = ROOT.TH1F("histo","histo",25,0.9,1.1)
   for r in ratio[:101]:
     histo.Fill(r)
 
-  histo.Draw()
+  #histo.Draw()
   gaus = ROOT.TF1("gaus","gaus")
   histo.Fit("gaus")
 
@@ -41,12 +50,14 @@ def PDFsyst(mass):
   print sigma,"+/-",sigmaErr
   syst=sigma+1.	
   print ("PDF lnN %s"%(syst))
+  del histo
 
 
 if __name__ == "__main__":
     parser = OptionParser()
     parser.add_option('-m','--mass'   ,action='store',type='int',dest='mass'   ,default=300, help='mass')
+    parser.add_option('-l','--location'   ,action='store',type='int',dest='location'   ,default=1, help='location')
     (options,args) = parser.parse_args()
-    PDFsyst(options.mass)
+    PDFsyst(options.mass, options.location)
 
 

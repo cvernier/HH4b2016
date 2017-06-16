@@ -1,0 +1,169 @@
+Running Minos for POI 
+WARNING: underflow to 0 in pdf_binHbbHbb_obsOnly for bin 0, weight 564.619
+FASTEXIT from pdf_binHbbHbb_obsOnly
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (2307.78) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-6.60894e-05, JER=0.00392808, PDF=-0.000118577, bTag=0.00283745, lumi_13TeV=0.00342508, par_crystal_1_0=-0.179728, par_crystal_1_1=4.16141, par_crystal_1_2=293.498, par_crystal_1_3=-15.2069, r=0, sg_p0=606.507, sg_p1=17.484, sg_p2=599.889, sg_p3=35.1182, sg_p4=0.768187, trigger=-0.00113887
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.179728 +/- 0.155843, p1=par_crystal_1_1=4.16141 +/- 0.389756, p2=par_crystal_1_2=293.498 +/- 29.1911, p3=par_crystal_1_3=-15.2069 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.179728 +/- 0.155843, p1=par_crystal_1_1=4.16141 +/- 0.389756, p2=par_crystal_1_2=293.498 +/- 29.1911, p3=par_crystal_1_3=-15.2069 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=295.594, p0=par_crystal_1_0=-0.179728 +/- 0.155843, p1=par_crystal_1_1=4.16141 +/- 0.389756, p2=par_crystal_1_2=293.498 +/- 29.1911, p3=par_crystal_1_3=-15.2069 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=290.297, p0=par_crystal_1_0=-0.179728 +/- 0.155843, p1=par_crystal_1_1=4.16141 +/- 0.389756, p2=par_crystal_1_2=293.498 +/- 29.1911, p3=par_crystal_1_3=-15.2069 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=287.648, p0=par_crystal_1_0=-0.179728 +/- 0.155843, p1=par_crystal_1_1=4.16141 +/- 0.389756, p2=par_crystal_1_2=293.498 +/- 29.1911, p3=par_crystal_1_3=-15.2069 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=292.945, p0=par_crystal_1_0=-0.179728 +/- 0.155843, p1=par_crystal_1_1=4.16141 +/- 0.389756, p2=par_crystal_1_2=293.498 +/- 29.1911, p3=par_crystal_1_3=-15.2069 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.324, p0=par_crystal_1_0=-0.179728 +/- 0.155843, p1=par_crystal_1_1=4.16141 +/- 0.389756, p2=par_crystal_1_2=293.498 +/- 29.1911, p3=par_crystal_1_3=-15.2069 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=288.973, p0=par_crystal_1_0=-0.179728 +/- 0.155843, p1=par_crystal_1_1=4.16141 +/- 0.389756, p2=par_crystal_1_2=293.498 +/- 29.1911, p3=par_crystal_1_3=-15.2069 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=291.621, p0=par_crystal_1_0=-0.179728 +/- 0.155843, p1=par_crystal_1_1=4.16141 +/- 0.389756, p2=par_crystal_1_2=293.498 +/- 29.1911, p3=par_crystal_1_3=-15.2069 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=294.27, p0=par_crystal_1_0=-0.179728 +/- 0.155843, p1=par_crystal_1_1=4.16141 +/- 0.389756, p2=par_crystal_1_2=293.498 +/- 29.1911, p3=par_crystal_1_3=-15.2069 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285.662, p0=par_crystal_1_0=-0.179728 +/- 0.155843, p1=par_crystal_1_1=4.16141 +/- 0.389756, p2=par_crystal_1_2=293.498 +/- 29.1911, p3=par_crystal_1_3=-15.2069 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.986, p0=par_crystal_1_0=-0.179728 +/- 0.155843, p1=par_crystal_1_1=4.16141 +/- 0.389756, p2=par_crystal_1_2=293.498 +/- 29.1911, p3=par_crystal_1_3=-15.2069 +/- 12.6424
+    ... (remaining 8679 messages suppressed)
+RooAbsReal::HbbHbb[ params=(JEC,JER,PDF,bTag,lumi_13TeV,n_exp_binHbbHbb_proc_background,par_crystal_1_0,par_crystal_1_1,par_crystal_1_2,par_crystal_1_3,r,signal_p0,signal_p1,signal_p2,signal_p3,signal_p4,trigger) ]
+     Number of events is negative or error @ params=(JEC = -6.60894e-05 +/- 0.994392,JER = 0.00392808 +/- 0.994478,PDF = -0.000118577 +/- 0.994328,bTag = 0.00283745 +/- 0.99437,lumi_13TeV = 0.00342508 +/- 0.994403,n_exp_binHbbHbb_proc_background = 17637.2,par_crystal_1_0 = -0.179728 +/- 0.155843,par_crystal_1_1 = 4.16141 +/- 0.389756,par_crystal_1_2 = 293.498 +/- 29.1911,par_crystal_1_3 = -15.2069 +/- 12.6424,r = 0 +/- 0.316989,signal_p0 = 606.507,signal_p1 = 17.4848,signal_p2 = 599.858,signal_p3 = 35.1205,signal_p4 = 0.769875,trigger = -0.00113887 +/- 0.994486)
+
+WARNING: underflow to 0 in pdf_binHbbHbb_obsOnly for bin 0, weight 564.619
+FASTEXIT from pdf_binHbbHbb_obsOnly
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (2307.78) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=-0.000148996, JER=0.0047967, PDF=-0.000182131, bTag=0.00342033, lumi_13TeV=0.00415307, par_crystal_1_0=-0.247124, par_crystal_1_1=4.07173, par_crystal_1_2=294.773, par_crystal_1_3=-20.9156, r=0, sg_p0=606.508, sg_p1=17.4839, sg_p2=599.894, sg_p3=35.1179, sg_p4=0.7679, trigger=-0.00144615
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.247124 +/- 0.155843, p1=par_crystal_1_1=4.07173 +/- 0.389756, p2=par_crystal_1_2=294.773 +/- 29.1911, p3=par_crystal_1_3=-20.9156 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.247124 +/- 0.155843, p1=par_crystal_1_1=4.07173 +/- 0.389756, p2=par_crystal_1_2=294.773 +/- 29.1911, p3=par_crystal_1_3=-20.9156 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=295.594, p0=par_crystal_1_0=-0.247124 +/- 0.155843, p1=par_crystal_1_1=4.07173 +/- 0.389756, p2=par_crystal_1_2=294.773 +/- 29.1911, p3=par_crystal_1_3=-20.9156 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=290.297, p0=par_crystal_1_0=-0.247124 +/- 0.155843, p1=par_crystal_1_1=4.07173 +/- 0.389756, p2=par_crystal_1_2=294.773 +/- 29.1911, p3=par_crystal_1_3=-20.9156 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=287.648, p0=par_crystal_1_0=-0.247124 +/- 0.155843, p1=par_crystal_1_1=4.07173 +/- 0.389756, p2=par_crystal_1_2=294.773 +/- 29.1911, p3=par_crystal_1_3=-20.9156 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=292.945, p0=par_crystal_1_0=-0.247124 +/- 0.155843, p1=par_crystal_1_1=4.07173 +/- 0.389756, p2=par_crystal_1_2=294.773 +/- 29.1911, p3=par_crystal_1_3=-20.9156 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=298.242, p0=par_crystal_1_0=-0.247124 +/- 0.155843, p1=par_crystal_1_1=4.07173 +/- 0.389756, p2=par_crystal_1_2=294.773 +/- 29.1911, p3=par_crystal_1_3=-20.9156 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.324, p0=par_crystal_1_0=-0.247124 +/- 0.155843, p1=par_crystal_1_1=4.07173 +/- 0.389756, p2=par_crystal_1_2=294.773 +/- 29.1911, p3=par_crystal_1_3=-20.9156 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=288.973, p0=par_crystal_1_0=-0.247124 +/- 0.155843, p1=par_crystal_1_1=4.07173 +/- 0.389756, p2=par_crystal_1_2=294.773 +/- 29.1911, p3=par_crystal_1_3=-20.9156 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=291.621, p0=par_crystal_1_0=-0.247124 +/- 0.155843, p1=par_crystal_1_1=4.07173 +/- 0.389756, p2=par_crystal_1_2=294.773 +/- 29.1911, p3=par_crystal_1_3=-20.9156 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=294.27, p0=par_crystal_1_0=-0.247124 +/- 0.155843, p1=par_crystal_1_1=4.07173 +/- 0.389756, p2=par_crystal_1_2=294.773 +/- 29.1911, p3=par_crystal_1_3=-20.9156 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=296.918, p0=par_crystal_1_0=-0.247124 +/- 0.155843, p1=par_crystal_1_1=4.07173 +/- 0.389756, p2=par_crystal_1_2=294.773 +/- 29.1911, p3=par_crystal_1_3=-20.9156 +/- 12.6424
+    ... (remaining 23104 messages suppressed)
+RooAbsReal::HbbHbb[ params=(JEC,JER,PDF,bTag,lumi_13TeV,n_exp_binHbbHbb_proc_background,par_crystal_1_0,par_crystal_1_1,par_crystal_1_2,par_crystal_1_3,r,signal_p0,signal_p1,signal_p2,signal_p3,signal_p4,trigger) ]
+     Number of events is negative or error @ params=(JEC = -0.000148996 +/- 0.994392,JER = 0.0047967 +/- 0.994478,PDF = -0.000182131 +/- 0.994328,bTag = 0.00342033 +/- 0.99437,lumi_13TeV = 0.00415307 +/- 0.994403,n_exp_binHbbHbb_proc_background = 17637.2,par_crystal_1_0 = -0.247124 +/- 0.155843,par_crystal_1_1 = 4.07173 +/- 0.389756,par_crystal_1_2 = 294.773 +/- 29.1911,par_crystal_1_3 = -20.9156 +/- 12.6424,r = 0 +/- 0.316989,signal_p0 = 606.507,signal_p1 = 17.4848,signal_p2 = 599.858,signal_p3 = 35.1205,signal_p4 = 0.769875,trigger = -0.00144615 +/- 0.994486)
+
+[#0] WARNING:Integration -- RooIntegrator1D::integral: integral of shapeBkg_background_HbbHbb over range (285,624) did not converge after 20 steps
+   [1] h = 1 , s = 0
+   [2] h = 0.25 , s = 9.63839e-149
+   [3] h = 0.0625 , s = 2.1919e-33
+   [4] h = 0.015625 , s = 2.37294e-06
+   [5] h = 0.00390625 , s = 1.31416
+   [6] h = 0.000976562 , s = 9.24939
+   [7] h = 0.000244141 , s = 6.36739
+   [8] h = 6.10352e-05 , s = 7.72376
+   [9] h = 1.52588e-05 , s = 7.06211
+   [10] h = 3.8147e-06 , s = 7.39304
+   [11] h = 9.53674e-07 , s = 7.22808
+   [12] h = 2.38419e-07 , s = 7.31063
+   [13] h = 5.96046e-08 , s = 7.35192
+   [14] h = 1.49012e-08 , s = 7.33128
+   [15] h = 3.72529e-09 , s = 7.32096
+   [16] h = 9.31323e-10 , s = 7.3158
+   [17] h = 2.32831e-10 , s = 7.31838
+   [18] h = 5.82077e-11 , s = 7.31709
+   [19] h = 1.45519e-11 , s = 7.31773
+   [20] h = 3.63798e-12 , s = 7.31741
+WARNING: underflow to 0 in pdf_binHbbHbb_obsOnly for bin 0, weight 564.619
+FASTEXIT from pdf_binHbbHbb_obsOnly
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (2307.78) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=5.82708e-05, JER=0.00262516, PDF=-2.32461e-05, bTag=0.00196314, lumi_13TeV=0.0023331, par_crystal_1_0=-0.0719653, par_crystal_1_1=4.29695, par_crystal_1_2=291.583, par_crystal_1_3=-6.19362, r=0, sg_p0=606.507, sg_p1=17.4841, sg_p2=599.881, sg_p3=35.1185, sg_p4=0.768616, trigger=-0.000677957
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.0719653 +/- 0.155843, p1=par_crystal_1_1=4.29695 +/- 0.389756, p2=par_crystal_1_2=291.583 +/- 29.1911, p3=par_crystal_1_3=-6.19362 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.0719653 +/- 0.155843, p1=par_crystal_1_1=4.29695 +/- 0.389756, p2=par_crystal_1_2=291.583 +/- 29.1911, p3=par_crystal_1_3=-6.19362 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=290.297, p0=par_crystal_1_0=-0.0719653 +/- 0.155843, p1=par_crystal_1_1=4.29695 +/- 0.389756, p2=par_crystal_1_2=291.583 +/- 29.1911, p3=par_crystal_1_3=-6.19362 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=287.648, p0=par_crystal_1_0=-0.0719653 +/- 0.155843, p1=par_crystal_1_1=4.29695 +/- 0.389756, p2=par_crystal_1_2=291.583 +/- 29.1911, p3=par_crystal_1_3=-6.19362 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.324, p0=par_crystal_1_0=-0.0719653 +/- 0.155843, p1=par_crystal_1_1=4.29695 +/- 0.389756, p2=par_crystal_1_2=291.583 +/- 29.1911, p3=par_crystal_1_3=-6.19362 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=288.973, p0=par_crystal_1_0=-0.0719653 +/- 0.155843, p1=par_crystal_1_1=4.29695 +/- 0.389756, p2=par_crystal_1_2=291.583 +/- 29.1911, p3=par_crystal_1_3=-6.19362 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=291.621, p0=par_crystal_1_0=-0.0719653 +/- 0.155843, p1=par_crystal_1_1=4.29695 +/- 0.389756, p2=par_crystal_1_2=291.583 +/- 29.1911, p3=par_crystal_1_3=-6.19362 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285.662, p0=par_crystal_1_0=-0.0719653 +/- 0.155843, p1=par_crystal_1_1=4.29695 +/- 0.389756, p2=par_crystal_1_2=291.583 +/- 29.1911, p3=par_crystal_1_3=-6.19362 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.986, p0=par_crystal_1_0=-0.0719653 +/- 0.155843, p1=par_crystal_1_1=4.29695 +/- 0.389756, p2=par_crystal_1_2=291.583 +/- 29.1911, p3=par_crystal_1_3=-6.19362 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=288.311, p0=par_crystal_1_0=-0.0719653 +/- 0.155843, p1=par_crystal_1_1=4.29695 +/- 0.389756, p2=par_crystal_1_2=291.583 +/- 29.1911, p3=par_crystal_1_3=-6.19362 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=289.635, p0=par_crystal_1_0=-0.0719653 +/- 0.155843, p1=par_crystal_1_1=4.29695 +/- 0.389756, p2=par_crystal_1_2=291.583 +/- 29.1911, p3=par_crystal_1_3=-6.19362 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=290.959, p0=par_crystal_1_0=-0.0719653 +/- 0.155843, p1=par_crystal_1_1=4.29695 +/- 0.389756, p2=par_crystal_1_2=291.583 +/- 29.1911, p3=par_crystal_1_3=-6.19362 +/- 12.6424
+    ... (remaining 10862 messages suppressed)
+RooAbsReal::HbbHbb[ params=(JEC,JER,PDF,bTag,lumi_13TeV,n_exp_binHbbHbb_proc_background,par_crystal_1_0,par_crystal_1_1,par_crystal_1_2,par_crystal_1_3,r,signal_p0,signal_p1,signal_p2,signal_p3,signal_p4,trigger) ]
+     Number of events is negative or error @ params=(JEC = 5.82708e-05 +/- 0.994392,JER = 0.00262516 +/- 0.994478,PDF = -2.32461e-05 +/- 0.994328,bTag = 0.00196314 +/- 0.99437,lumi_13TeV = 0.0023331 +/- 0.994403,n_exp_binHbbHbb_proc_background = 17637.2,par_crystal_1_0 = -0.0719653 +/- 0.155843,par_crystal_1_1 = 4.29695 +/- 0.389756,par_crystal_1_2 = 291.583 +/- 29.1911,par_crystal_1_3 = -6.19362 +/- 12.6424,r = 0 +/- 0.316989,signal_p0 = 606.507,signal_p1 = 17.4848,signal_p2 = 599.858,signal_p3 = 35.1205,signal_p4 = 0.769875,trigger = -0.000677957 +/- 0.994486)
+
+WARNING: underflow to 0 in pdf_binHbbHbb_obsOnly for bin 0, weight 564.619
+FASTEXIT from pdf_binHbbHbb_obsOnly
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (2307.78) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=5.54091e-05, JER=-0.000546472, PDF=4.92776e-05, bTag=-0.000361685, lumi_13TeV=-0.000456571, par_crystal_1_0=-0.513975, par_crystal_1_1=4.83908, par_crystal_1_2=222.122, par_crystal_1_3=43.6803, r=0, sg_p0=606.505, sg_p1=17.488, sg_p2=599.795, sg_p3=35.1307, sg_p4=0.772589, trigger=0.000199595
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.513975 +/- 0.155843, p1=par_crystal_1_1=4.83908 +/- 0.389756, p2=par_crystal_1_2=222.122 +/- 29.1911, p3=par_crystal_1_3=43.6803 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.513975 +/- 0.155843, p1=par_crystal_1_1=4.83908 +/- 0.389756, p2=par_crystal_1_2=222.122 +/- 29.1911, p3=par_crystal_1_3=43.6803 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=624, p0=par_crystal_1_0=-0.513975 +/- 0.155843, p1=par_crystal_1_1=4.83908 +/- 0.389756, p2=par_crystal_1_2=222.122 +/- 29.1911, p3=par_crystal_1_3=43.6803 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=454.5, p0=par_crystal_1_0=-0.513975 +/- 0.155843, p1=par_crystal_1_1=4.83908 +/- 0.389756, p2=par_crystal_1_2=222.122 +/- 29.1911, p3=par_crystal_1_3=43.6803 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=369.75, p0=par_crystal_1_0=-0.513975 +/- 0.155843, p1=par_crystal_1_1=4.83908 +/- 0.389756, p2=par_crystal_1_2=222.122 +/- 29.1911, p3=par_crystal_1_3=43.6803 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=539.25, p0=par_crystal_1_0=-0.513975 +/- 0.155843, p1=par_crystal_1_1=4.83908 +/- 0.389756, p2=par_crystal_1_2=222.122 +/- 29.1911, p3=par_crystal_1_3=43.6803 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=327.375, p0=par_crystal_1_0=-0.513975 +/- 0.155843, p1=par_crystal_1_1=4.83908 +/- 0.389756, p2=par_crystal_1_2=222.122 +/- 29.1911, p3=par_crystal_1_3=43.6803 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=412.125, p0=par_crystal_1_0=-0.513975 +/- 0.155843, p1=par_crystal_1_1=4.83908 +/- 0.389756, p2=par_crystal_1_2=222.122 +/- 29.1911, p3=par_crystal_1_3=43.6803 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=496.875, p0=par_crystal_1_0=-0.513975 +/- 0.155843, p1=par_crystal_1_1=4.83908 +/- 0.389756, p2=par_crystal_1_2=222.122 +/- 29.1911, p3=par_crystal_1_3=43.6803 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=581.625, p0=par_crystal_1_0=-0.513975 +/- 0.155843, p1=par_crystal_1_1=4.83908 +/- 0.389756, p2=par_crystal_1_2=222.122 +/- 29.1911, p3=par_crystal_1_3=43.6803 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=306.188, p0=par_crystal_1_0=-0.513975 +/- 0.155843, p1=par_crystal_1_1=4.83908 +/- 0.389756, p2=par_crystal_1_2=222.122 +/- 29.1911, p3=par_crystal_1_3=43.6803 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=348.562, p0=par_crystal_1_0=-0.513975 +/- 0.155843, p1=par_crystal_1_1=4.83908 +/- 0.389756, p2=par_crystal_1_2=222.122 +/- 29.1911, p3=par_crystal_1_3=43.6803 +/- 12.6424
+    ... (remaining 233 messages suppressed)
+RooAbsReal::HbbHbb[ params=(JEC,JER,PDF,bTag,lumi_13TeV,n_exp_binHbbHbb_proc_background,par_crystal_1_0,par_crystal_1_1,par_crystal_1_2,par_crystal_1_3,r,signal_p0,signal_p1,signal_p2,signal_p3,signal_p4,trigger) ]
+     Number of events is negative or error @ params=(JEC = 5.54091e-05 +/- 0.994392,JER = -0.000546472 +/- 0.994478,PDF = 4.92776e-05 +/- 0.994328,bTag = -0.000361685 +/- 0.99437,lumi_13TeV = -0.000456571 +/- 0.994403,n_exp_binHbbHbb_proc_background = 17637.2,par_crystal_1_0 = -0.513975 +/- 0.155843,par_crystal_1_1 = 4.83908 +/- 0.389756,par_crystal_1_2 = 222.122 +/- 29.1911,par_crystal_1_3 = 43.6803 +/- 12.6424,r = 0 +/- 0.316989,signal_p0 = 606.507,signal_p1 = 17.4848,signal_p2 = 599.858,signal_p3 = 35.1205,signal_p4 = 0.769875,trigger = 0.000199595 +/- 0.994486)
+
+WARNING: underflow to 0 in pdf_binHbbHbb_obsOnly for bin 21, weight 271.856
+FASTEXIT from pdf_binHbbHbb_obsOnly
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (522769) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=0.000245643, JER=0.000658232, PDF=0.000120478, bTag=0.000643022, lumi_13TeV=0.000684459, par_crystal_1_0=0.195436, par_crystal_1_1=4.50291, par_crystal_1_2=297.429, par_crystal_1_3=-1.35096, r=0, sg_p0=606.507, sg_p1=17.4843, sg_p2=599.87, sg_p3=35.1191, sg_p4=0.769268, trigger=1.75634e-05
+RooAbsReal::HbbHbb[ params=(JEC,JER,PDF,bTag,lumi_13TeV,n_exp_binHbbHbb_proc_background,par_crystal_1_0,par_crystal_1_1,par_crystal_1_2,par_crystal_1_3,r,signal_p0,signal_p1,signal_p2,signal_p3,signal_p4,trigger) ]
+     Number of events is negative or error @ params=(JEC = 0.000245643 +/- 0.994392,JER = 0.000658232 +/- 0.994478,PDF = 0.000120478 +/- 0.994328,bTag = 0.000643022 +/- 0.99437,lumi_13TeV = 0.000684459 +/- 0.994403,n_exp_binHbbHbb_proc_background = 17637.2,par_crystal_1_0 = 0.195436 +/- 0.155843,par_crystal_1_1 = 4.50291 +/- 0.389756,par_crystal_1_2 = 297.429 +/- 29.1911,par_crystal_1_3 = -1.35096 +/- 12.6424,r = 0 +/- 0.316989,signal_p0 = 606.507,signal_p1 = 17.4848,signal_p2 = 599.858,signal_p3 = 35.1205,signal_p4 = 0.769875,trigger = 1.75634e-05 +/- 0.994486)
+
+WARNING: underflow to 0 in pdf_binHbbHbb_obsOnly for bin 0, weight 564.619
+FASTEXIT from pdf_binHbbHbb_obsOnly
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (522769) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=0.000247979, JER=0.000262431, PDF=0.000112543, bTag=0.000290773, lumi_13TeV=0.000316188, par_crystal_1_0=-0.512527, par_crystal_1_1=3.72506, par_crystal_1_2=211.005, par_crystal_1_3=13.9289, r=0, sg_p0=606.507, sg_p1=17.4854, sg_p2=599.849, sg_p3=35.1224, sg_p4=0.770188, trigger=5.10159e-05
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.512527 +/- 0.155843, p1=par_crystal_1_1=3.72506 +/- 0.389756, p2=par_crystal_1_2=211.005 +/- 29.1911, p3=par_crystal_1_3=13.9289 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.512527 +/- 0.155843, p1=par_crystal_1_1=3.72506 +/- 0.389756, p2=par_crystal_1_2=211.005 +/- 29.1911, p3=par_crystal_1_3=13.9289 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=624, p0=par_crystal_1_0=-0.512527 +/- 0.155843, p1=par_crystal_1_1=3.72506 +/- 0.389756, p2=par_crystal_1_2=211.005 +/- 29.1911, p3=par_crystal_1_3=13.9289 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=454.5, p0=par_crystal_1_0=-0.512527 +/- 0.155843, p1=par_crystal_1_1=3.72506 +/- 0.389756, p2=par_crystal_1_2=211.005 +/- 29.1911, p3=par_crystal_1_3=13.9289 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=369.75, p0=par_crystal_1_0=-0.512527 +/- 0.155843, p1=par_crystal_1_1=3.72506 +/- 0.389756, p2=par_crystal_1_2=211.005 +/- 29.1911, p3=par_crystal_1_3=13.9289 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=539.25, p0=par_crystal_1_0=-0.512527 +/- 0.155843, p1=par_crystal_1_1=3.72506 +/- 0.389756, p2=par_crystal_1_2=211.005 +/- 29.1911, p3=par_crystal_1_3=13.9289 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=327.375, p0=par_crystal_1_0=-0.512527 +/- 0.155843, p1=par_crystal_1_1=3.72506 +/- 0.389756, p2=par_crystal_1_2=211.005 +/- 29.1911, p3=par_crystal_1_3=13.9289 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=412.125, p0=par_crystal_1_0=-0.512527 +/- 0.155843, p1=par_crystal_1_1=3.72506 +/- 0.389756, p2=par_crystal_1_2=211.005 +/- 29.1911, p3=par_crystal_1_3=13.9289 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=496.875, p0=par_crystal_1_0=-0.512527 +/- 0.155843, p1=par_crystal_1_1=3.72506 +/- 0.389756, p2=par_crystal_1_2=211.005 +/- 29.1911, p3=par_crystal_1_3=13.9289 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=581.625, p0=par_crystal_1_0=-0.512527 +/- 0.155843, p1=par_crystal_1_1=3.72506 +/- 0.389756, p2=par_crystal_1_2=211.005 +/- 29.1911, p3=par_crystal_1_3=13.9289 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=306.188, p0=par_crystal_1_0=-0.512527 +/- 0.155843, p1=par_crystal_1_1=3.72506 +/- 0.389756, p2=par_crystal_1_2=211.005 +/- 29.1911, p3=par_crystal_1_3=13.9289 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=348.562, p0=par_crystal_1_0=-0.512527 +/- 0.155843, p1=par_crystal_1_1=3.72506 +/- 0.389756, p2=par_crystal_1_2=211.005 +/- 29.1911, p3=par_crystal_1_3=13.9289 +/- 12.6424
+    ... (remaining 233 messages suppressed)
+RooAbsReal::HbbHbb[ params=(JEC,JER,PDF,bTag,lumi_13TeV,n_exp_binHbbHbb_proc_background,par_crystal_1_0,par_crystal_1_1,par_crystal_1_2,par_crystal_1_3,r,signal_p0,signal_p1,signal_p2,signal_p3,signal_p4,trigger) ]
+     Number of events is negative or error @ params=(JEC = 0.000247979 +/- 0.994392,JER = 0.000262431 +/- 0.994478,PDF = 0.000112543 +/- 0.994328,bTag = 0.000290773 +/- 0.99437,lumi_13TeV = 0.000316188 +/- 0.994403,n_exp_binHbbHbb_proc_background = 17637.2,par_crystal_1_0 = -0.512527 +/- 0.155843,par_crystal_1_1 = 3.72506 +/- 0.389756,par_crystal_1_2 = 211.005 +/- 29.1911,par_crystal_1_3 = 13.9289 +/- 12.6424,r = 0 +/- 0.316989,signal_p0 = 606.507,signal_p1 = 17.4848,signal_p2 = 599.858,signal_p3 = 35.1205,signal_p4 = 0.769875,trigger = 5.10159e-05 +/- 0.994486)
+
+WARNING: underflow to 0 in pdf_binHbbHbb_obsOnly for bin 0, weight 564.619
+FASTEXIT from pdf_binHbbHbb_obsOnly
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (522769) to force MIGRAD to back out of this region. Error log follows
+Parameter values: JEC=0.000256256, JER=0.000582706, PDF=0.000124766, bTag=0.000584047, lumi_13TeV=0.000619129, par_crystal_1_0=-0.0816667, par_crystal_1_1=4.37111, par_crystal_1_2=291.257, par_crystal_1_3=-6.86038, r=0, sg_p0=606.507, sg_p1=17.4845, sg_p2=599.867, sg_p3=35.1195, sg_p4=0.769398, trigger=3.41522e-05
+RevCrystalBall::shapeBkg_background_HbbHbb[ x=x p0=par_crystal_1_0 p1=par_crystal_1_1 p2=par_crystal_1_2 p3=par_crystal_1_3 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.5, p0=par_crystal_1_0=-0.0816667 +/- 0.155843, p1=par_crystal_1_1=4.37111 +/- 0.389756, p2=par_crystal_1_2=291.257 +/- 29.1911, p3=par_crystal_1_3=-6.86038 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285, p0=par_crystal_1_0=-0.0816667 +/- 0.155843, p1=par_crystal_1_1=4.37111 +/- 0.389756, p2=par_crystal_1_2=291.257 +/- 29.1911, p3=par_crystal_1_3=-6.86038 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=290.297, p0=par_crystal_1_0=-0.0816667 +/- 0.155843, p1=par_crystal_1_1=4.37111 +/- 0.389756, p2=par_crystal_1_2=291.257 +/- 29.1911, p3=par_crystal_1_3=-6.86038 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=287.648, p0=par_crystal_1_0=-0.0816667 +/- 0.155843, p1=par_crystal_1_1=4.37111 +/- 0.389756, p2=par_crystal_1_2=291.257 +/- 29.1911, p3=par_crystal_1_3=-6.86038 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.324, p0=par_crystal_1_0=-0.0816667 +/- 0.155843, p1=par_crystal_1_1=4.37111 +/- 0.389756, p2=par_crystal_1_2=291.257 +/- 29.1911, p3=par_crystal_1_3=-6.86038 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=288.973, p0=par_crystal_1_0=-0.0816667 +/- 0.155843, p1=par_crystal_1_1=4.37111 +/- 0.389756, p2=par_crystal_1_2=291.257 +/- 29.1911, p3=par_crystal_1_3=-6.86038 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=291.621, p0=par_crystal_1_0=-0.0816667 +/- 0.155843, p1=par_crystal_1_1=4.37111 +/- 0.389756, p2=par_crystal_1_2=291.257 +/- 29.1911, p3=par_crystal_1_3=-6.86038 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=285.662, p0=par_crystal_1_0=-0.0816667 +/- 0.155843, p1=par_crystal_1_1=4.37111 +/- 0.389756, p2=par_crystal_1_2=291.257 +/- 29.1911, p3=par_crystal_1_3=-6.86038 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=286.986, p0=par_crystal_1_0=-0.0816667 +/- 0.155843, p1=par_crystal_1_1=4.37111 +/- 0.389756, p2=par_crystal_1_2=291.257 +/- 29.1911, p3=par_crystal_1_3=-6.86038 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=288.311, p0=par_crystal_1_0=-0.0816667 +/- 0.155843, p1=par_crystal_1_1=4.37111 +/- 0.389756, p2=par_crystal_1_2=291.257 +/- 29.1911, p3=par_crystal_1_3=-6.86038 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=289.635, p0=par_crystal_1_0=-0.0816667 +/- 0.155843, p1=par_crystal_1_1=4.37111 +/- 0.389756, p2=par_crystal_1_2=291.257 +/- 29.1911, p3=par_crystal_1_3=-6.86038 +/- 12.6424
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=290.959, p0=par_crystal_1_0=-0.0816667 +/- 0.155843, p1=par_crystal_1_1=4.37111 +/- 0.389756, p2=par_crystal_1_2=291.257 +/- 29.1911, p3=par_crystal_1_3=-6.86038 +/- 12.6424
+    ... (remaining 10536 messages suppressed)
+RooAbsReal::HbbHbb[ params=(JEC,JER,PDF,bTag,lumi_13TeV,n_exp_binHbbHbb_proc_background,par_crystal_1_0,par_crystal_1_1,par_crystal_1_2,par_crystal_1_3,r,signal_p0,signal_p1,signal_p2,signal_p3,signal_p4,trigger) ]
+     Number of events is negative or error @ params=(JEC = 0.000256256 +/- 0.994392,JER = 0.000582706 +/- 0.994478,PDF = 0.000124766 +/- 0.994328,bTag = 0.000584047 +/- 0.99437,lumi_13TeV = 0.000619129 +/- 0.994403,n_exp_binHbbHbb_proc_background = 17637.2,par_crystal_1_0 = -0.0816667 +/- 0.155843,par_crystal_1_1 = 4.37111 +/- 0.389756,par_crystal_1_2 = 291.257 +/- 29.1911,par_crystal_1_3 = -6.86038 +/- 12.6424,r = 0 +/- 0.316989,signal_p0 = 606.507,signal_p1 = 17.4848,signal_p2 = 599.858,signal_p3 = 35.1205,signal_p4 = 0.769875,trigger = 3.41522e-05 +/- 0.994486)
+
+Real time 0:00:01, CP time 1.780
+
+
+ --- MaxLikelihoodFit ---
+Best fit r: 0.000195845  -0.000195845/+0.0285582  (68% CL)
+nll S+B -> -0.000778077  nll B -> -0.000682028
+Done in 0.04 min (cpu), 0.04 min (real)

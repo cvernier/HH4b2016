@@ -1,7 +1,7 @@
 mass=$1
 cards=""
-function="gaus_exp"
-range="252_330"
+function=$2
+range=$3
 background="_${function}_${range}"
 dirName="PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_${mass}${background}"
 dcardName="datacard_${mass}${background}.txt"
@@ -17,15 +17,14 @@ jec_norm=`grep 'JEC     lnN' ${dirName}/${sigLogName} | awk '{print $3}'`
 jer_norm=`grep 'JER     lnN' ${dirName}/${sigLogName} | awk '{print $3}'`
 btag_norm=`grep 'btag    lnN' ${dirName}/${sigLogName} | awk '{print $3}'`
 pdf_norm=`grep 'PDF lnN' ${dirName}/${pdfLogName} | awk '{print $3}'`
+bkg_norm=`grep ' Background number of '${function}_${range}' = ' ${dirName}/${bgLogName} | awk '{print $6}'`
 
 echo sig_norm ${sig_norm}
 echo JEC ${jec_norm}
 echo JER ${jer_norm}
 echo bTag ${btag_norm}
 echo PDF ${pdf_norm}
-
-
-bkg_norm=`grep ' Background number of ${function}_${range} = ' ${dirName}/${bgLogName} | awk '{print $6}'`
+echo bkg_norm ${bkg_norm}
 
 #let's build a datacard!
 cat > ${dirName}/${dcardName} <<EOF
@@ -52,11 +51,12 @@ JEC       lnN     ${jec_norm}   -
 trigger   lnN     1.10    -
 PDF       lnN     ${pdf_norm}   -
 EOF
+#bkg_norm rateParam HbbHbb 1 ${bkg_norm} 
 
 
 #now add the systematics to the card
-grep 'sg_' ${dirName}/${sigLogName} | grep 'param' >> ${dirName}/${dcardName}
-grep 'par_'${function}'_' ${dirName}/${bgLogName} | grep 'param' >> ${dirName}/${dcardName}
+grep 'sg_' ${dirName}/${sigLogName} | grep ' param ' >> ${dirName}/${dcardName}
+grep 'par_'${function}'_' ${dirName}/${bgLogName} | grep ' param ' >> ${dirName}/${dcardName}
 
 cards+="${dirName}/${dcardName} "
 echo $cards

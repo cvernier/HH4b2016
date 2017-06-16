@@ -811,26 +811,33 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     //RooDataHist data_obs_gaus_bern(Form("data_obs_gaus_bern_%d_%d",range_lo_2, range_hi_2), "Data", RooArgList(*x_2), h_mX_SR_fakeData);
     //RooDataHist data_obs_landau(Form("data_obs_landau_%d_%d",range_lo_2, range_hi_2), "Data", RooArgList(*x_2), h_mX_SR_fakeData);
     
-    
+    RooRealVar f_crystal_norm("f_crystal_norm","f_crystal_norm",h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_1),h_mX_SR_fakeData->FindBin(range_hi_1))); 
     RooWorkspace *w_background_crystal=new RooWorkspace("HbbHbb");
     w_background_crystal->import(data_obs_crystal);
     w_background_crystal->import(f_crystal);
+    //w_background_crystal->import(f_crystal_norm);
     w_background_crystal->SaveAs((dest_dir+"/"+Form("w_background_crystal_%d_%d.root",range_lo_1,range_hi_1)).c_str());
     
+    RooRealVar f_gaus_exp_norm("f_gaus_exp_norm","f_gaus_exp_norm",h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_1),h_mX_SR_fakeData->FindBin(range_hi_1))); 
     RooWorkspace *w_background_gaus_exp=new RooWorkspace("HbbHbb");
     w_background_gaus_exp->import(data_obs_gaus_exp);
     w_background_gaus_exp->import(f_gaus_exp);
+    //w_background_gaus_exp->import(f_gaus_exp_norm);
     w_background_gaus_exp->SaveAs((dest_dir+"/"+Form("w_background_gaus_exp_%d_%d.root",range_lo_1,range_hi_1)).c_str());
     
     
+    RooRealVar f_novo_norm("f_novo_norm","f_novo_norm",h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_2),h_mX_SR_fakeData->FindBin(range_hi_2))); 
     RooWorkspace *w_background_novo=new RooWorkspace("HbbHbb");
     w_background_novo->import(data_obs_novo);
     w_background_novo->import(f_novo);
+    //w_background_novo->import(f_novo_norm);
     w_background_novo->SaveAs((dest_dir+"/"+Form("w_background_novo_%d_%d.root",range_lo_2,range_hi_2)).c_str());
 
+    RooRealVar f_crystal_1_norm("f_crystal_1_norm","f_crystal_1_norm",h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_2),h_mX_SR_fakeData->FindBin(range_hi_2))); 
     RooWorkspace *w_background_crystal_1=new RooWorkspace("HbbHbb");
     w_background_crystal_1->import(data_obs_crystal_1);
     w_background_crystal_1->import(f_crystal_1);
+    //w_background_crystal_1->import(f_crystal_1_norm);
     w_background_crystal_1->SaveAs((dest_dir+"/"+Form("w_background_crystal_1_%d_%d.root",range_lo_2,range_hi_2)).c_str());
 
 /*
@@ -854,8 +861,6 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     std::cout<<Form(" Background number of gaus_exp_%d_%d = ", range_lo_1, range_hi_1)<<h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_1),h_mX_SR_fakeData->FindBin(range_hi_1))<<std::endl;
     std::cout<<Form(" Background number of novo_%d_%d = ", range_lo_2, range_hi_2)<<h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_2),h_mX_SR_fakeData->FindBin(range_hi_2))<<std::endl;
     std::cout<<Form(" Background number of crystal_1_%d_%d = ", range_lo_2, range_hi_2)<<h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_2),h_mX_SR_fakeData->FindBin(range_hi_2))<<std::endl;
-    std::cout<<Form(" Background number of gaus_bern_%d_%d = ", range_lo_2, range_hi_2)<<h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_2),h_mX_SR_fakeData->FindBin(range_hi_2))<<std::endl;
-    std::cout<<Form(" Background number of landau_%d_%d = ", range_lo_2, range_hi_2)<<h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_2),h_mX_SR_fakeData->FindBin(range_hi_2))<<std::endl;
     
     
     std::cout<<"par_crystal_0   param   "<<par_crystal_0.getVal()<<" "<<par_crystal_0.getError()<<std::endl;

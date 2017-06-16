@@ -1,0 +1,1516 @@
+LMR gaus_exp 250_330
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_260_gaus_exp_250_330
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_260.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_260.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 191.924
+JEC 1.01807
+JER 1.02103
+bTag 1.06823
+PDF 1.01504940545
+bkg_norm 14211
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_260_gaus_exp_250_330/datacard_260_gaus_exp_250_330.txt
+LMR gaus_exp 250_330
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_270_gaus_exp_250_330
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_270.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_270.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 213.048
+JEC 1.01241
+JER 1.01721
+bTag 1.06825
+PDF 1.01516984881
+bkg_norm 14211
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_270_gaus_exp_250_330/datacard_270_gaus_exp_250_330.txt
+LMR gaus_exp 250_330
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_300_gaus_exp_250_330
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_300.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_300.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 304.126
+JEC 1.00496
+JER 1.02029
+bTag 1.06837
+PDF 1.01533148611
+bkg_norm 14211
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_300_gaus_exp_250_330/datacard_300_gaus_exp_250_330.txt
+LMR gaus_exp 250_330
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_350_gaus_exp_250_330
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_350.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_350.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 541.084
+JEC 1.0101
+JER 1.00905
+bTag 1.06649
+PDF 1.0164211668
+bkg_norm 14211
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_350_gaus_exp_250_330/datacard_350_gaus_exp_250_330.txt
+MMR novo 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_550_novo_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_550.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_550.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_550.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_550.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_550.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_550.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 2.47576
+JEC 1.02905
+JER 1.01484
+bTag 1.06518
+PDF 1.02229693932
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_550_novo_550_1200/datacard_550_novo_550_1200.txt
+MMR novo 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_600_novo_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_600.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_600.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_600.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_600.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_600.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_600.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 3.01596
+JEC 1.02779
+JER 1.01328
+bTag 1.06702
+PDF 1.0229477477
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_600_novo_550_1200/datacard_600_novo_550_1200.txt
+MMR novo 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_650_novo_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_650.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_650.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_650.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_650.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_650.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_650.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 3.4471
+JEC 1.021
+JER 1.01174
+bTag 1.06923
+PDF 1.02353914841
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_650_novo_550_1200/datacard_650_novo_550_1200.txt
+MMR novo 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_750_novo_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_750.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_750.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_750.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_750.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_750.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_750.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 4.13008
+JEC 1.01674
+JER 1.01351
+bTag 1.07417
+PDF 1.0236949058
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_750_novo_550_1200/datacard_750_novo_550_1200.txt
+MMR novo 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_800_novo_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_800.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_800.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_800.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_800.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_800.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_800.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 4.34388
+JEC 1.00978
+JER 1.01239
+bTag 1.07603
+PDF 1.02582057265
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_800_novo_550_1200/datacard_800_novo_550_1200.txt
+MMR novo 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_900_novo_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_900.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_900.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_900.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_900.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_900.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_900.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 4.64156
+JEC 1.00857
+JER 1.01164
+bTag 1.0799
+PDF 1.02549102587
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_900_novo_550_1200/datacard_900_novo_550_1200.txt
+MMR novo 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_1000_novo_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_1000.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_1000.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_1000.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_1000.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_1000.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_1000.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 6.61454
+JEC 1.01006
+JER 1.0152
+bTag 1.35523
+PDF 1.03016737915
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_1000_novo_550_1200/datacard_1000_novo_550_1200.txt
+LMR crystal 250_330
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_260_crystal_250_330
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_260.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_260.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+Error in <RootX11IOErrorHandler>: fatal X11 error (connection to server lost?!)
+
+**** Save data and exit application ****
+
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 191.924
+JEC 1.01807
+JER 1.02103
+bTag 1.06823
+PDF 1.01504940545
+bkg_norm 14211
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_260_crystal_250_330/datacard_260_crystal_250_330.txt
+LMR crystal 250_330
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_270_crystal_250_330
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_270.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_270.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 213.048
+JEC 1.01241
+JER 1.01721
+bTag 1.06825
+PDF 1.01516984881
+bkg_norm 14211
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_270_crystal_250_330/datacard_270_crystal_250_330.txt
+LMR crystal 250_330
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_300_crystal_250_330
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_300.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_300.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 304.126
+JEC 1.00496
+JER 1.02029
+bTag 1.06837
+PDF 1.01533148611
+bkg_norm 14211
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_300_crystal_250_330/datacard_300_crystal_250_330.txt
+LMR crystal 250_330
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_350_crystal_250_330
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_350.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_350.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 541.084
+JEC 1.0101
+JER 1.00905
+bTag 1.06649
+PDF 1.0164211668
+bkg_norm 14211
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_350_crystal_250_330/datacard_350_crystal_250_330.txt
+MMR crystal_1 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_550_crystal_1_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_550.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_550.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_550.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_550.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_550.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_550.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 2.47576
+JEC 1.02905
+JER 1.01484
+bTag 1.06518
+PDF 1.02229693932
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_550_crystal_1_550_1200/datacard_550_crystal_1_550_1200.txt
+MMR crystal_1 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_600_crystal_1_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_600.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_600.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_600.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_600.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_600.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_600.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 3.01596
+JEC 1.02779
+JER 1.01328
+bTag 1.06702
+PDF 1.0229477477
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_600_crystal_1_550_1200/datacard_600_crystal_1_550_1200.txt
+MMR crystal_1 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_650_crystal_1_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_650.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_650.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_650.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_650.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_650.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_650.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 3.4471
+JEC 1.021
+JER 1.01174
+bTag 1.06923
+PDF 1.02353914841
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_650_crystal_1_550_1200/datacard_650_crystal_1_550_1200.txt
+MMR crystal_1 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_750_crystal_1_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_750.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_750.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_750.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_750.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_750.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_750.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 4.13008
+JEC 1.01674
+JER 1.01351
+bTag 1.07417
+PDF 1.0236949058
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_750_crystal_1_550_1200/datacard_750_crystal_1_550_1200.txt
+MMR crystal_1 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_800_crystal_1_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_800.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_800.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_800.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_800.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_800.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_800.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 4.34388
+JEC 1.00978
+JER 1.01239
+bTag 1.07603
+PDF 1.02582057265
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_800_crystal_1_550_1200/datacard_800_crystal_1_550_1200.txt
+MMR crystal_1 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_900_crystal_1_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_900.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_900.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_900.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_900.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_900.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_900.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 4.64156
+JEC 1.00857
+JER 1.01164
+bTag 1.0799
+PDF 1.02549102587
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_900_crystal_1_550_1200/datacard_900_crystal_1_550_1200.txt
+MMR crystal_1 550_1200
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_1000_crystal_1_550_1200
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H1_mass_1000.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_H2_mass_1000.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_1000.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_1000.png has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/w_signal_1000.root has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/SignalFitsreg/c_mX_SR_KinFit_1000.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_novo_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_550_1200.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_gaus_exp_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_novo_550_1200.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/w_background_crystal_1_550_1200.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 6.61454
+JEC 1.01006
+JER 1.0152
+bTag 1.35523
+PDF 1.03016737915
+bkg_norm 1266.17
+PreselectedWithRegressionDeepCSV/MMRSelection_chi2/fit/MMR_1000_crystal_1_550_1200/datacard_1000_crystal_1_550_1200.txt
+LMR novo 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_270_novo_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_270.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_270.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 213.048
+JEC 1.01241
+JER 1.01721
+bTag 1.06825
+PDF 1.01516984881
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_270_novo_285_625/datacard_270_novo_285_625.txt
+LMR novo 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_300_novo_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_300.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_300.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 304.126
+JEC 1.00496
+JER 1.02029
+bTag 1.06837
+PDF 1.01533148611
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_300_novo_285_625/datacard_300_novo_285_625.txt
+LMR novo 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_350_novo_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_350.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_350.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 541.084
+JEC 1.0101
+JER 1.00905
+bTag 1.06649
+PDF 1.0164211668
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_350_novo_285_625/datacard_350_novo_285_625.txt
+LMR novo 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_400_novo_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_400.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_400.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 790.651
+JEC 1.00381
+JER 1.01925
+bTag 1.06523
+PDF 1.0199774927
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_400_novo_285_625/datacard_400_novo_285_625.txt
+LMR novo 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_450_novo_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_450.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_450.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 1083.26
+JEC 1.00732
+JER 1.01521
+bTag 1.06507
+PDF 1.01846991095
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_450_novo_285_625/datacard_450_novo_285_625.txt
+LMR novo 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_500_novo_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_500.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_500.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 1319.62
+JEC 1.00347
+JER 1.01686
+bTag 1.06496
+PDF 1.01997778164
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_500_novo_285_625/datacard_500_novo_285_625.txt
+LMR novo 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_550_novo_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_550.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_550.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 1470.79
+JEC 1.0002
+JER 1.01675
+bTag 1.06585
+PDF 1.02229693932
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_550_novo_285_625/datacard_550_novo_285_625.txt
+LMR novo 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_600_novo_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_600.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_600.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 1712.99
+JEC 1.00275
+JER 1.01626
+bTag 1.06714
+PDF 1.0229477477
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_600_novo_285_625/datacard_600_novo_285_625.txt
+LMR novo 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_650_novo_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_650.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_650.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 1859.61
+JEC 1.0047
+JER 1.01327
+bTag 1.06919
+PDF 1.02353914841
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_650_novo_285_625/datacard_650_novo_285_625.txt
+LMR crystal_1 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_270_crystal_1_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_270.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_270.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 213.048
+JEC 1.01241
+JER 1.01721
+bTag 1.06825
+PDF 1.01516984881
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_270_crystal_1_285_625/datacard_270_crystal_1_285_625.txt
+LMR crystal_1 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_300_crystal_1_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_300.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_300.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 304.126
+JEC 1.00496
+JER 1.02029
+bTag 1.06837
+PDF 1.01533148611
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_300_crystal_1_285_625/datacard_300_crystal_1_285_625.txt
+LMR crystal_1 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_350_crystal_1_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_350.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_350.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 541.084
+JEC 1.0101
+JER 1.00905
+bTag 1.06649
+PDF 1.0164211668
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_350_crystal_1_285_625/datacard_350_crystal_1_285_625.txt
+LMR crystal_1 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_400_crystal_1_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_400.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_400.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 790.651
+JEC 1.00381
+JER 1.01925
+bTag 1.06523
+PDF 1.0199774927
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_400_crystal_1_285_625/datacard_400_crystal_1_285_625.txt
+LMR crystal_1 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_450_crystal_1_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_450.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_450.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 1083.26
+JEC 1.00732
+JER 1.01521
+bTag 1.06507
+PDF 1.01846991095
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_450_crystal_1_285_625/datacard_450_crystal_1_285_625.txt
+LMR crystal_1 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_500_crystal_1_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_500.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_500.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 1319.62
+JEC 1.00347
+JER 1.01686
+bTag 1.06496
+PDF 1.01997778164
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_500_crystal_1_285_625/datacard_500_crystal_1_285_625.txt
+LMR crystal_1 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_550_crystal_1_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_550.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_550.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 1470.79
+JEC 1.0002
+JER 1.01675
+bTag 1.06585
+PDF 1.02229693932
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_550_crystal_1_285_625/datacard_550_crystal_1_285_625.txt
+LMR crystal_1 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_600_crystal_1_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_600.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_600.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 1712.99
+JEC 1.00275
+JER 1.01626
+bTag 1.06714
+PDF 1.0229477477
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_600_crystal_1_285_625/datacard_600_crystal_1_285_625.txt
+LMR crystal_1 285_625
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_650_crystal_1_285_625
+
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H1_mass_650.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/SignalFits_LMRreg/c_H2_mass_650.png has been created
+Done Signal
+
+root -x -b -l -q  PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit_split.c
+Warning in <TClassTable::Add>: class GaussExp already in TClassTable
+Warning in <TClassTable::Add>: class RevCrystalBall already in TClassTable
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_gaus_exp_250_330.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_novo_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_crystal_1_285_625.png has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_1.pdf has been created
+Info in <TCanvas::Print>: png file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.png has been created
+Info in <TCanvas::Print>: pdf file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/BackgroundFit_SB_Split_2.pdf has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_gaus_exp_250_330.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_novo_285_625.root has been created
+Info in <RooWorkspace::SaveAs>: ROOT file PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/w_background_crystal_1_285_625.root has been created
+Done Background
+
+PDF
+Error in <TGClient::TGClient>: can't open display "localhost:10.0", switching to batch mode...
+ In case you run from a remote ssh session, reconnect with ssh -Y
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+TFile::Append:0: RuntimeWarning: Replacing existing TH1: histo (Potential memory leak).
+end
+sig_norm 1859.61
+JEC 1.0047
+JER 1.01327
+bTag 1.06919
+PDF 1.02353914841
+bkg_norm 17663.5
+PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/LMR_650_crystal_1_285_625/datacard_650_crystal_1_285_625.txt

@@ -2,8 +2,8 @@
 
 mass=$1
 
-function="crystal" #gaus_exp crystal novo crystal_1
-range="252_330" #252_330 285_624
+function=$2
+range=$3
 background="_${function}_${range}"
 
 dir_preselection="PreselectedWithRegressionDeepCSV"
@@ -35,7 +35,7 @@ root -x -b -l -q $dir_preselection/$dir_selection/$background_type > $folder/dat
 echo "Done Background"
 echo
 echo "PDF"
-python PDFSyst.py --mass $1 > $folder/pdf.log
+python PDFSyst.py --mass $1 --location $4> $folder/pdf.log
 mv $dest_dir/w_background$background.root $folder/
 mv $dest_dir/*BackgroundFit_*${background}*.png* $folder/ 
 mv $dest_dir/BackgroundFit_SB_Split* $folder/ 

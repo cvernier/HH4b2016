@@ -1,0 +1,1171 @@
+/* ************************************
+ *  *                Library             *
+ *   **************************************/
+
+#include <stdio.h>
+#include <cstdio>
+#include <stdlib.h>
+#include <unistd.h>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <cmath>
+#include <ctime>
+#include <algorithm>
+
+#include "TArrow.h"
+#include "TAxis.h"
+#include "TCanvas.h"
+#include "TChain.h"
+#include "TColor.h"
+#include "TF1.h"
+#include "TFile.h"
+#include "TFitResult.h"
+#include "TFractionFitter.h"
+#include "TFrame.h"
+#include "TGraphErrors.h"
+#include "TH1.h"
+#include "TH2.h"
+#include "TH3.h"
+#include "TH1F.h"
+#include "THStack.h"
+#include "TLatex.h"
+#include "TLegend.h"
+#include "TLine.h"
+#include "TLorentzVector.h"
+#include "TMinuit.h"
+#include "TMath.h"
+#include "TMatrixDSym.h"
+#include "TPaveText.h"
+#include "TPaveText.h"
+#include "TProfile.h"
+#include "TRandom3.h"
+#include "TROOT.h"
+#include "TStyle.h"
+#include "TSystem.h"
+#include "TTree.h"
+#include "TTreeReader.h"
+#include "TTreeReaderArray.h"
+#include "TTreeReaderValue.h"
+#include "TView.h"
+#ifndef __CINT__
+#include "RooGlobalFunc.h"
+#endif
+#include "RooAbsPdf.h"
+#include "RooAddPdf.h"
+#include "RooArgList.h"
+#include "RooCBShape.h"
+#include "RooChebychev.h"
+#include "RooConstVar.h"
+#include "RooDataHist.h"
+#include "RooDataSet.h"
+#include "RooFitResult.h"
+#include "RooGaussian.h"
+#include "RooIntegralMorph.h"
+#include "RooNLLVar.h"
+#include "RooPolynomial.h"
+#include "RooRealVar.h"
+#include "RooPlot.h"
+#include "RooWorkspace.h"
+#include "../../../PDFs/ExpGaussExp.h"
+
+using namespace RooFit ;
+
+/*************************************
+ **      Function Declaration        *
+ *************************************/
+Double_t straight_line(Double_t *x, Double_t *par);
+Double_t pol_line(Double_t *x, Double_t *par);
+void PrintArray(Double_t *v, Int_t dim, Int_t precision);
+std::string itoa(int i);
+void interpolation_normalization(bool, std::string, std::string, int);
+
+const int NumOfErr=3;
+const int NumOfSyst=4;
+const int NumOfSignalParam=5;
+
+void InterpolateSignal(std::string function, std::string name_range, int range, bool flag_MMR) {
+    gSystem->Load("../../../PDFs/ExpGaussExp_cxx.so");
+    interpolation_normalization(flag_MMR, function, name_range, range);
+
+    // I m p o r t   p d f   s h a p e s
+    // ------------------------------------------------------
+    
+    // Observable
+    RooRealVar *X;
+    if(flag_MMR){
+        X= new RooRealVar("x","x",400,1400);
+    }
+    else{
+        if (range==1){X= new RooRealVar("x","x",230,400);}
+        else{X= new RooRealVar("x","x",230,750);}
+    }
+    
+    std::string dir, background=function+"_"+name_range;
+    double step = 10;
+    std::vector<double> masses;
+    if (flag_MMR) {
+        dir = "MMR";
+        std::vector<double> masses_temp;
+        if (range==1){masses_temp= {550, 600, 650, 750, 800, 900, 1000};}
+        else{masses_temp= {550, 600, 650, 750, 800, 900, 1000};}
+        for (unsigned int i = 0 ; i< masses_temp.size(); i++) {
+            masses.push_back(masses_temp[i]);
+        }
+    }
+    else{
+        dir = "LMR";
+        std::vector<double> masses_temp;
+        if (range==1){masses_temp= {260, 270, 300, 350};}
+        else{masses_temp= {270, 300, 350, 400, 450, 500, 550, 600, 650};}
+        for (unsigned int i = 0 ; i< masses_temp.size(); i++) {
+            masses.push_back(masses_temp[i]);
+        }
+        
+    }
+    const unsigned int nMCpoints=masses.size();
+    
+    TFile *f[nMCpoints];
+    RooWorkspace* xf[nMCpoints];
+    RooAbsPdf* PDF_mass[nMCpoints];
+    RooRealVar *X_test[nMCpoints];
+    
+    for (unsigned int i = 0; i<nMCpoints; i++ ) {
+        TString name = Form("%s_%d_%s/w_signal_%d.root", dir.c_str(), int(masses[i]), background.c_str(), int(masses[i]));
+        if (!gSystem->AccessPathName(name)) {
+            f[i] = new TFile(name);
+            xf[i] = (RooWorkspace*)f[i]->Get("HbbHbb");
+            //xf[i]->Print();
+            PDF_mass[i] = xf[i]->pdf("signal_fixed");
+            //PDF_mass[i]->Print("t");
+            X_test[i] = xf[i]->var("x");
+            //X_test[i]->Print();
+            new TCanvas;
+            RooPlot* temp_frame=X_test[i]->frame();
+            PDF_mass[i]->plotOn(temp_frame);
+            temp_frame->Draw();
+        } else {
+            std::cout<<"File is not found: "<<name<<std::endl;
+            return;
+        }
+    }
+    
+    // C r e a t e   i n t e r p o l a t i n g   p d f
+    // -----------------------------------------------
+    
+    // Create interpolation variable
+    RooRealVar alpha("alpha","alpha",0,1.0) ;
+    
+    // Specify sampling density on observable and interpolation variable
+    X->setBins(10000,"cache") ;
+    alpha.setBins(2200,"cache") ;
+    
+    TCanvas* c[nMCpoints];
+    TCanvas* c_tot;
+    RooPlot* frame1[nMCpoints];
+    RooPlot* frame_tot;
+    frame_tot = X->frame() ;
+    frame_tot->GetXaxis()->SetTitle("m_X (GeV)");
+    
+    for (unsigned int iPoint = 0; iPoint<nMCpoints-1; iPoint++) {
+        
+        RooIntegralMorph lmorph("lmorph","lmorph",*PDF_mass[iPoint+1],*PDF_mass[iPoint],*X,alpha) ;
+        if (masses[iPoint]<300){
+            step=5;
+        }
+        else{
+            step=10;
+        }
+        
+        frame1[iPoint] = X->frame() ;
+        PDF_mass[iPoint]->plotOn(frame1[iPoint]) ;
+        PDF_mass[iPoint+1]->plotOn(frame1[iPoint]) ;
+        PDF_mass[iPoint]->plotOn(frame_tot,LineColor(kBlue)) ;
+        PDF_mass[iPoint+1]->plotOn(frame_tot, LineColor(kBlue)) ;
+        cout<< " Interpolate from " << masses[iPoint] << " to " << masses[iPoint+1] << endl;
+        
+        int nPoints = int((masses[iPoint+1]-masses[iPoint])/step);
+        for (int i=0; i<=nPoints; i++) {
+            
+            if (std::find(masses.begin(), masses.end(), int(masses[iPoint]+i*step)) != masses.end()){continue; }
+            alpha.setVal(double(i)/double(nPoints)) ;
+            cout<< " Interpolate mass : " << int(masses[iPoint]+i*step) << endl;
+            lmorph.plotOn(frame1[iPoint],LineColor(kRed)) ;
+            lmorph.plotOn(frame_tot,LineColor(kRed), LineWidth(1)) ;
+            
+            TH1D* hist;
+            if(flag_MMR){
+                hist= (TH1D*)lmorph.createHistogram("m_X (GeV)",*X,Binning(1000,400,1200));
+            }
+            else{
+                hist= (TH1D*)lmorph.createHistogram("m_X (GeV)",*X,Binning(1000,0,1000));
+            }
+            
+            TCanvas* c_temp = new TCanvas(Form("linearmorph_%d",iPoint),Form("linearmorph_%d",iPoint),700,700) ;
+            hist->Draw();
+            c_temp->SaveAs(Form("%s_%d_%s/c_mX_SR_KinFit_%d.png", dir.c_str(), int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
+            delete c_temp;
+            
+            
+            RooRealVar *x, *sg_p0, *sg_p1, *sg_p2, *sg_p3,*sg_p4;
+            double m=masses[iPoint]+i*step;
+            
+            if (flag_MMR) {
+                double rangeHi = 0.9*m + 160;
+                double rangeLo = 0.7*m + 80;
+                if (rangeLo<250) rangeLo=250;
+                sg_p0=new RooRealVar("sg_p0", "sg_p0", 0.9*m+20, m+30);
+                sg_p1=new RooRealVar("sg_p1", "sg_p1", 5., 35.);
+                sg_p2=new RooRealVar("sg_p2", "sg_p2", 0., 0.5);
+                sg_p3=new RooRealVar("sg_p3", "sg_p3", 0.,7.);
+                x=new RooRealVar("x", "m_{X} (GeV)", rangeLo-100., rangeHi+100.);
+                ExpGaussExp signal("signal", "Signal Prediction", *x, *sg_p0, *sg_p1, *sg_p2, *sg_p3);
+                RooDataHist signalHistogram("signalHistogram", "Signal Histogram", RooArgList(*x), hist);
+                signal.fitTo(signalHistogram, RooFit::Range(rangeLo, rangeHi), RooFit::Save());
+                
+                RooRealVar signal_p0("signal_p0", "signal_p0", sg_p0->getVal());
+                RooRealVar signal_p1("signal_p1", "signal_p1", sg_p1->getVal());
+                RooRealVar signal_p2("signal_p2", "signal_p2", sg_p2->getVal());
+                RooRealVar signal_p3("signal_p3", "signal_p3", sg_p3->getVal());
+                ExpGaussExp signal_fixed("signal_fixed", "Signal Prediction Fixed", *x, signal_p0, signal_p1, signal_p2, signal_p3);
+                RooWorkspace *w=new RooWorkspace("HbbHbb");
+                w->import(signal_fixed);
+                w->SaveAs(Form("%s_%d_%s/w_signal_%d.root", dir.c_str(), int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
+            }
+            else{
+                double rangeHi = 1.1*m + 50;
+                double rangeLo = m/3. + 160;
+                if (rangeLo<250) rangeLo=250;
+                sg_p0=new RooRealVar("sg_p0", "sg_p0", 0.94*m, 1.1*m);
+                sg_p1=new RooRealVar("sg_p1", "sg_p1", 2., 0.1*m-20.);
+                double mu_min = 1.6*m-440.; if (mu_min<0) mu_min=10.;
+                sg_p2=new RooRealVar("sg_p2", "sg_p2", mu_min, 0.95*m+100.);
+                double sigma_max;
+                if (m<300) {sigma_max=300.;}else{ sigma_max = 150.;}
+                sg_p3=new RooRealVar("sg_p3", "sg_p3", 10.,sigma_max);
+                sg_p4=new RooRealVar("sg_p4", "sg_p4", 0., 1.);
+                
+                x=new RooRealVar("x", "m_{X} (GeV)", rangeLo, rangeHi);
+                RooGaussian signalCore("signalCore", "Signal Prediction", *x, *sg_p0, *sg_p1);
+                RooGaussian signalComb("signalComb", "Combinatoric", *x, *sg_p2, *sg_p3);
+                RooAddPdf signal("signal", "signal", RooArgList(signalCore, signalComb), *sg_p4);
+                RooDataHist signalHistogram("signalHistogram", "Signal Histogram", RooArgList(*x), hist);
+                signal.fitTo(signalHistogram, RooFit::Range(rangeLo-50, rangeHi), RooFit::Save());
+                RooRealVar signal_p0("signal_p0", "signal_p0", sg_p0->getVal());
+                RooRealVar signal_p1("signal_p1", "signal_p1", sg_p1->getVal());
+                RooRealVar signal_p2("signal_p2", "signal_p2", sg_p2->getVal());
+                RooRealVar signal_p3("signal_p3", "signal_p3", sg_p3->getVal());
+                RooRealVar signal_p4("signal_p4", "signal_p4", sg_p4->getVal());
+                RooGaussian signalCore_fixed("signalCore_fixed", "Signal Prediction", *x, signal_p0, signal_p1);
+                RooGaussian signalComb_fixed("signalComb_fixed", "Combinatoric", *x, signal_p2, signal_p3);
+                RooAddPdf signal_fixed("signal_fixed", "signal", RooArgList(signalCore_fixed, signalComb_fixed), signal_p4);
+                
+                RooWorkspace *w=new RooWorkspace("HbbHbb");
+                w->import(signal_fixed);
+                w->SaveAs(Form("%s_%d_%s/w_signal_%d.root", dir.c_str(), int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
+            }
+        }
+        c[iPoint] = new TCanvas(Form("linearmorph_%d",iPoint),Form("linearmorph_%d",iPoint),700,700) ;
+        frame1[iPoint]->Draw();
+        c[iPoint]->SaveAs(Form("fig/linearmorph_%d_%d.png",int(masses[iPoint]), int(masses[iPoint+1])));
+        c[iPoint]->SaveAs(Form("fig/linearmorph_%d_%d.pdf",int(masses[iPoint]), int(masses[iPoint+1])));
+        c[iPoint]->SaveAs(Form("fig/linearmorph_%d_%d.root",int(masses[iPoint]), int(masses[iPoint+1])));
+        
+    }
+    c_tot = new TCanvas("linearmorph_tot","linearmorph_tot",700,700) ;
+    frame_tot->Draw();
+    c_tot->SaveAs(Form("fig/linearmorph_tot_%d.png", range));
+    c_tot->SaveAs(Form("fig/linearmorph_tot_%d.pdf", range));
+    c_tot->SaveAs(Form("fig/linearmorph_tot_%d.root", range));
+    return ;
+}
+
+/*********************************
+ **           Functions          *
+ *********************************/
+
+//================================================================================
+
+void interpolation_normalization(bool flag_MMR, std::string function, std::string name_range, int range){
+    
+    std::string name_syst[NumOfSyst];
+    for (int syst_num=0; syst_num<NumOfSyst; syst_num++) {
+        switch (syst_num) {
+            case 0: name_syst[syst_num]="bTag";break;
+            case 1: name_syst[syst_num]="JER";break;
+            case 2: name_syst[syst_num]="JEC";break;
+            case 3: name_syst[syst_num]="PDF";break;
+        }
+    }
+    
+    std::string name_param[NumOfSignalParam];
+    for (int parm_num=0; parm_num<NumOfSignalParam; parm_num++) {
+        switch (parm_num) {
+            case 0: name_param[parm_num]="sg_p0";break;
+            case 1: name_param[parm_num]="sg_p1";break;
+            case 2: name_param[parm_num]="sg_p2";break;
+            case 3: name_param[parm_num]="sg_p3";break;
+            case 4: name_param[parm_num]="sg_p4";break;
+        }
+    }
+    
+    std::string name_error[NumOfErr];
+    for (int error_num=0; error_num<NumOfErr; error_num++) {
+        switch (error_num) {
+            case 0: name_error[error_num]="mean";break;
+            case 1: name_error[error_num]="err-";break;
+            case 2: name_error[error_num]="err+";break;
+        }
+    }
+    
+    std::vector<double> mass_0;
+    std::vector<double> mass;
+    std::string dir, background=function+"_"+name_range;
+    if (flag_MMR) {
+        dir = "MMR";
+        std::vector<double> mass_0_temp,mass_temp;
+        if (range==1){mass_0_temp= {550, 600, 650, 750, 800, 900, 1000};}
+        else{mass_0_temp= {550, 600, 650, 750, 800, 900, 1000};}
+        if (range==1){mass_temp= {550, 570, 600, 620, 650, 670, 700, 720, 750, 770, 800, 820, 840, 860, 880, 900, 920, 940, 960, 980, 1000};}
+        else{mass_temp= {550, 570, 600, 620, 650, 670, 700, 720, 750, 770, 800, 820, 840, 860, 880, 900, 920, 940, 960, 980, 1000};}
+        for (unsigned int i = 0 ; i< mass_0_temp.size(); i++) {
+            mass_0.push_back(mass_0_temp[i]);
+        }
+        
+        for (unsigned int i = 0 ; i< mass_temp.size(); i++){
+            mass.push_back(mass_temp[i]);
+        }
+    }
+    else{
+        dir = "LMR";
+        std::vector<double> mass_0_temp,mass_temp;
+        if (range==1){mass_0_temp= {260, 270, 300, 350};}
+        else{mass_0_temp= {270, 300, 350, 400, 450, 500, 550, 600, 650};}
+        if (range==1){mass_temp= {260, 265, 270, 275, 280, 285, 290, 295, 300, 310, 320, 350};}
+        else{mass_temp= {270, 275, 280, 285, 290, 295, 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600, 610, 620};}
+        for (unsigned int i = 0 ; i< mass_0_temp.size(); i++) {
+            mass_0.push_back(mass_0_temp[i]);
+        }
+        
+        for (unsigned int i = 0 ; i< mass_temp.size(); i++){
+            mass.push_back(mass_temp[i]);
+        }
+        
+    }
+    const unsigned int nPoints=mass.size();
+    const unsigned int nPoints_0=mass_0.size();
+    double interpol_rate[nPoints], interpol_syst_0[NumOfSyst][nPoints], interpol_param_0[NumOfErr][NumOfSignalParam][nPoints];
+    
+    
+    double rate_0[nPoints_0], syst_0[NumOfSyst][nPoints_0], param_0[NumOfErr][NumOfSignalParam][nPoints_0];
+    double rate[nPoints], syst[NumOfSyst][nPoints_0],param[NumOfErr][NumOfSignalParam][nPoints];
+    
+    
+    for (unsigned i = 0; i<nPoints; i++) {
+        if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){
+            continue;
+        }
+        if (gSystem->AccessPathName(Form("%s_%d_%s", dir.c_str(), int(mass[i]), background.c_str()))) {
+            gSystem->Exec(Form("mkdir %s_%d_%s", dir.c_str(), int(mass[i]), background.c_str()));
+        }
+        int lMarker=0;
+        for (auto m : mass_0){
+            if (m > mass[i]){
+                break;
+            }
+            lMarker++;
+        }
+        gSystem->Exec(Form("cp -r %s_%d_%s/datacard_%d_%s.txt %s_%d_%s/datacard_%d_%s.txt", dir.c_str(), int(mass_0[lMarker]), background.c_str(), int(mass_0[lMarker]), background.c_str(), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
+        gSystem->Exec(Form("cp -r %s_%d_%s/w_background_%s.root %s_%d_%s/w_background_%s.root", dir.c_str(), int(mass_0[lMarker]), background.c_str(), background.c_str(), dir.c_str(), int(mass[i]), background.c_str(), background.c_str()));
+        gSystem->Exec(Form("sed -i 's/%d.root/%d.root/g' %s_%d_%s/datacard_%d_%s.txt", int(mass_0[lMarker]), int(mass[i]), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
+        
+    }
+    
+    int j = 0;
+    
+    for (unsigned i = 0; i<nPoints_0; i++) {
+        
+        std::string mass_string= itoa(mass_0[i]);
+        std::cout<< mass_string << std::endl;
+        std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
+        
+        std::ifstream file(filename.c_str(), ios::in);
+        bool found= false;
+        
+        
+        std::string line;
+        while (!found && !file.eof()) {
+            getline(file, line);
+            std::size_t pos = line.find("rate");
+            if (pos!=std::string::npos){
+                found=true;
+                rate_0[i] = atof(line.substr(pos+22,line.find_last_of(" ")).c_str());
+            }
+        }
+        
+        file.close();
+        
+        
+        for (int syst_num = 0; syst_num<NumOfSyst; syst_num++) {
+            
+            std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
+            std::ifstream file_syst(filename.c_str(), ios::in);
+            found= false;
+            while (!found && !file_syst.eof()) {
+                getline(file_syst, line);
+                std::size_t pos = line.find(Form("%s", name_syst[syst_num].c_str()));;
+                if (pos!=std::string::npos){
+                    found=true;
+                    syst_0[syst_num][i] = atof(line.substr(pos+16,line.find_last_of("-")).c_str());
+                }
+            }
+            file_syst.close();
+        }
+        
+        for (int param_num = 0; param_num<NumOfSignalParam; param_num++) {
+            
+            std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
+            std::ifstream file_par(filename.c_str(), ios::in);
+            found= false;
+            while (!found && !file_par.eof()) {
+                getline(file_par, line);
+                std::size_t pos = line.find(Form("sg_p%d   param",param_num));
+                if (pos!=std::string::npos){
+                    found=true;
+                    param_0[0][param_num][i] = atof(line.substr(pos+13,line.find_last_of("-")).c_str());
+                    param_0[1][param_num][i] = atof(line.substr(line.find_last_of("-"),line.find_last_of("\\")).c_str());
+                    param_0[2][param_num][i] = atof(line.substr(line.find_last_of("+"),line.find_last_of(" ")).c_str());
+                }
+            }
+            file_par.close();
+        }
+        if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){j++;}
+    }
+    
+    /*
+    for (int param_num=0; param_num<NumOfSignalParam; param_num++) {
+        for (int error_num = 0; error_num<NumOfErr; error_num++) {
+            PrintArray(param_0[error_num][param_num], nPoints_0, 5);
+        }
+    }
+    
+    for (int syst_num=0; syst_num<NumOfSyst; syst_num++) {
+        PrintArray(syst_0[syst_num], nPoints_0, 5);
+    }
+    */
+    
+    
+    TCanvas *c1 = new TCanvas("canvas","canvas",700,700);
+    c1->SetGrid();
+    c1->GetFrame()->SetBorderSize(12);
+    c1->cd();
+    double xPad = 0.3;
+    TPad *p_1=new TPad("p_1", "p_1", 0, xPad, 1, 1);
+    p_1->SetFillStyle(4000);
+    p_1->SetFrameFillColor(0);
+    p_1->SetBottomMargin(0.035);
+    
+    TPad* p_2 = new TPad("p_2", "p_2",0,0,1,xPad);
+    p_2->SetBottomMargin(0.2);
+    p_2->SetTopMargin(0.02);
+    p_2->SetFillColor(0);
+    p_2->SetBorderMode(0);
+    p_2->SetBorderSize(2);
+    p_2->SetFrameBorderMode(0);
+    p_2->SetFrameBorderMode(0);
+    p_1->Draw();
+    p_2->Draw();
+    p_1->cd();
+    
+    TH1F* hr_1;
+    TH1F* hr_2;
+    if (flag_MMR) {
+        if (range==1){hr_1 = c1->DrawFrame(500,0,1050,8);}
+        else{hr_1 = c1->DrawFrame(500,0,1050,8);}
+        hr_1->SetTitle("Linear interpolation of yield in MMR");
+    } else {
+        if (range==1){hr_1 = c1->DrawFrame(250,0,370,600);}
+        else{hr_1 = c1->DrawFrame(250,0,600,2000);}
+        hr_1->SetTitle("Linear interpolation of yield in LMR");
+    }
+    hr_1->SetXTitle("m_X (GeV)");
+    hr_1->GetYaxis()->SetTitleOffset(1.2);
+    hr_1->SetYTitle("Yield");
+    c1->GetFrame()->SetBorderSize(12);
+    p_2->cd();
+    if (flag_MMR) {
+        if (range==1){hr_2 = c1->DrawFrame(500,-0.07,1100,0.07);}
+        else{hr_2 = c1->DrawFrame(500,-0.07,1100,0.07);}
+    } else {
+        if (range==1){hr_2 = c1->DrawFrame(250,-0.04,370,0.04);}
+        else{hr_2 = c1->DrawFrame(250,-0.04,600,0.04);}
+    }
+    hr_2->SetXTitle("m_X (GeV)");
+    hr_2->GetXaxis()->SetTitleOffset(0.6);
+    hr_2->GetXaxis()->SetTitleSize(0.08);
+    hr_2->GetYaxis()->SetTitleOffset(0.5);
+    hr_2->GetYaxis()->SetTitleSize(0.08);
+    hr_2->SetLabelSize(0.06,"xy");
+    hr_2->SetYTitle("Relative errors");
+    p_1->cd();
+    
+    TGraphErrors* g_rate_0 = new TGraphErrors(nPoints_0, &(mass_0[0]), rate_0);
+    g_rate_0->SetMarkerColor(kRed);
+    g_rate_0->SetMarkerStyle(21);
+    g_rate_0->SetLineColor(0);
+    g_rate_0->Draw("P");
+    
+    j=0;
+    for (unsigned i = 0; i<nPoints; i++) {
+        if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){
+            interpol_rate[i]=rate_0[j];
+            j++;
+        }
+        else{int lMarker=0;
+            for (auto pVal : mass_0){  if (pVal > mass[i]){break;}lMarker++;}
+            interpol_rate[i] =( (rate_0[lMarker]-rate_0[lMarker-1])*(mass[i]-mass_0[lMarker-1])/(mass_0[lMarker]-mass_0[lMarker-1])+rate_0[lMarker-1]);
+        }
+    }
+    
+    TGraphErrors* g_rate_1 = new TGraphErrors(nPoints, &(mass[0]), interpol_rate);
+    g_rate_1->SetMarkerColor(kBlue);
+    g_rate_1->SetMarkerStyle(20);
+    g_rate_1->SetLineColor(0);
+    g_rate_1->Draw("P");
+    g_rate_0->Draw("P");
+    
+    TF1 *fit_pol = new TF1("fit_pol",Form("pol%d",nPoints_0-1),100,1000);
+    fit_pol->SetParameter(0, 1500.);
+    fit_pol->SetParameter(1, -13.);
+    fit_pol->SetParameter(2, 0.07 );
+    fit_pol->SetParameter(3, -1.e-05);
+    fit_pol->SetParName(0, "x_0");
+    fit_pol->SetParName(1, "x_1");
+    fit_pol->SetParName(2, "x_2");
+    fit_pol->SetParName(3, "x_3");
+    if (flag_MMR) {g_rate_0->Fit(fit_pol,"","", 540,1010);}
+    else{
+        if (range==1){g_rate_0->Fit(fit_pol,"","",250,400);}
+        else{g_rate_0->Fit(fit_pol,"","",260,600);}
+    }
+    
+    TGraphErrors* g_pull = new TGraphErrors(nPoints);
+    g_pull->SetMarkerStyle(7);
+    g_pull->SetMarkerSize(0.4);
+    
+    for (unsigned i = 0; i<nPoints; i++) {
+        bool trovato = false;
+        for (double m : mass_0) {if (m == mass[i]) {trovato=true;}}
+        if (!trovato) {
+            double temp = (interpol_rate[i]-fit_pol->Eval(mass[i]))/fit_pol->Eval(mass[i]);
+            g_pull->SetPoint(i, mass[i],temp);
+        }
+    }
+    
+    TLegend *leg=new TLegend(0.2, 0.65, 0.65, 0.85);
+    leg->SetFillStyle(1); leg->SetFillColor(kWhite);
+    leg->AddEntry(g_rate_0, "Yield for MC points", "lep");
+    leg->AddEntry(g_rate_1, "Yield for interpolated points", "lep");
+    leg->SetFillColor(kWhite);
+    leg->SetFillStyle(0);
+    leg->SetTextSize(0.03);
+    leg->SetTextFont(42);
+    leg->SetBorderSize(0);
+    leg->Draw();
+    
+    p_2->cd();
+    g_pull->Draw("P");
+    TLine* line;
+    if (flag_MMR) {
+        if (range==1){
+            line= new TLine(350, 0, 1200, 0);
+        }
+        else{
+            line= new TLine(350, 0, 1200, 0);
+        }
+    }
+    else{
+        if (range==1){
+            line= new TLine(250, 0, 370, 0);
+        }
+        else{
+            line= new TLine(250, 0, 600, 0);
+        }
+        
+    }
+    
+    line->SetLineStyle(2);
+    line->SetLineWidth(1);
+    line->Draw();
+    
+    p_2->cd();
+    g_pull->Draw("P");
+    
+    if (flag_MMR) {
+        c1->SaveAs(Form("yield_interpolation_MMR_%d.pdf", range));
+        c1->SaveAs(Form("yield_interpolation_MMR_%d.png", range));
+    } else {
+        c1->SaveAs(Form("yield_interpolation_LMR_%d.pdf", range));
+        c1->SaveAs(Form("yield_interpolation_LMR_%d.png", range));
+    }
+    
+    for (unsigned i = 0; i<nPoints; i++) {
+        if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){ continue;}
+        std::string mass_string= itoa(mass[i]);
+        std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
+        std::ifstream file(filename.c_str(), ios::in);
+        
+        bool found= false;
+        std::string line;
+        double background_temp=0.;
+        
+        while (!found && !file.eof()) {
+            getline(file, line);
+            std::size_t pos = line.find("rate");
+            if (pos!=std::string::npos){
+                found=true;
+                background_temp = atof((line.substr(line.find_last_of(" "))).c_str());
+            }
+        }
+        
+        gSystem->Exec(Form("sed -i 's/.*rate.*/rate                  %f %f/g' %s_%d_%s/datacard_%d_%s.txt", interpol_rate[i], background_temp, dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
+        file.close();
+    }
+    
+    
+    TCanvas *c2[NumOfSyst];
+    TPad *p_syst1[NumOfSyst];
+    TPad *p_syst2[NumOfSyst];
+    TH1F* h_syst_1[NumOfSyst];
+    TH1F* h_syst_2[NumOfSyst];
+    TGraphErrors* g_syst_0[NumOfSyst];
+    TGraphErrors* g_syst_1[NumOfSyst];
+    TF1 *fit_pol_syst[NumOfSyst];
+    TGraphErrors* g_pull_syst[NumOfSyst];
+    TLegend* leg_syst[NumOfSyst];
+    for (int syst_num=0; syst_num<NumOfSyst; syst_num++) {
+        c2[syst_num]= new TCanvas(Form("canvas_syst_%d",syst_num),Form("canvas_syst_%d",syst_num),700,700);
+        c2[syst_num]->SetGrid();
+        c2[syst_num]->GetFrame()->SetBorderSize(12);
+        p_syst1[syst_num] = new TPad(Form("p_syst1_%d",syst_num), Form("p_syst1_%d",syst_num), 0, xPad, 1, 1);
+        p_syst2[syst_num] = new TPad(Form("p_syst2_%d",syst_num), Form("p_syst2_%d",syst_num), 0,0,1,xPad);
+        p_syst1[syst_num]->SetFillStyle(4000);
+        p_syst1[syst_num]->SetFrameFillColor(0);
+        p_syst1[syst_num]->SetBottomMargin(0.035);
+        p_syst2[syst_num]->SetBottomMargin(0.2);
+        p_syst2[syst_num]->SetTopMargin(0.02);
+        p_syst2[syst_num]->SetFillColor(0);
+        p_syst2[syst_num]->SetBorderMode(0);
+        p_syst2[syst_num]->SetBorderSize(2);
+        p_syst2[syst_num]->SetFrameBorderMode(0);
+        p_syst2[syst_num]->SetFrameBorderMode(0);
+        c2[syst_num]->cd();
+        p_syst1[syst_num]->Draw();
+        p_syst2[syst_num]->Draw();
+        p_syst1[syst_num]->cd();
+        if (flag_MMR) {
+            if (range==1){
+                h_syst_1[syst_num] = c2[syst_num]->DrawFrame(500,1,1050,1.03);
+            }
+            else{
+                h_syst_1[syst_num] = c2[syst_num]->DrawFrame(500,1,1050,1.03);
+            }
+            h_syst_1[syst_num]->SetTitle(Form("Linear interpolation of %s in MMR",name_syst[syst_num].c_str()));
+        } else {
+            if (range==1){
+                switch (syst_num) {
+                    case 0: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1.065,370,1.07); break;
+                    case 1: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1.005,370,1.035); break;
+                    case 2: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,370,1.03); break;
+                    case 3: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1.0145,370,1.018); break;
+                }
+            }
+            else{
+                h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,600,1.03);
+            }
+            h_syst_1[syst_num]->SetTitle(Form("Linear interpolation of %s in LMR",name_syst[syst_num].c_str()));
+        }
+        h_syst_1[syst_num]->SetXTitle("m_X (GeV)");
+        h_syst_1[syst_num]->GetYaxis()->SetTitleOffset(1.2);
+        h_syst_1[syst_num]->SetYTitle(Form("%s",name_syst[syst_num].c_str()));
+        p_syst2[syst_num]->cd();
+        if (flag_MMR) {
+            if (range==1){h_syst_2[syst_num] = c2[syst_num]->DrawFrame(500,-0.07,1100,0.07);}
+            else{h_syst_2[syst_num] = c2[syst_num]->DrawFrame(500,-0.07,1100,0.07);}
+        } else {
+            if (range==1){
+                switch (syst_num) {
+                    case 1: h_syst_2[syst_num] = c2[syst_num]->DrawFrame(250,-0.0004,370,0.0004); break;
+                    case 3: h_syst_2[syst_num] = c2[syst_num]->DrawFrame(250,-0.0004,370,0.0004); break;
+                    default:
+                        h_syst_2[syst_num] = c2[syst_num]->DrawFrame(250,-0.004,370,0.004); break;
+                }
+            }
+            else{
+                h_syst_2[syst_num] = c2[syst_num]->DrawFrame(250,-0.002,600,0.002);
+            }
+        }
+        h_syst_2[syst_num]->SetXTitle("m_X (GeV)");
+        h_syst_2[syst_num]->GetXaxis()->SetTitleOffset(0.6);
+        h_syst_2[syst_num]->GetXaxis()->SetTitleSize(0.08);
+        h_syst_2[syst_num]->GetYaxis()->SetTitleOffset(0.5);
+        h_syst_2[syst_num]->GetYaxis()->SetTitleSize(0.08);
+        h_syst_2[syst_num]->SetLabelSize(0.06,"xy");
+        h_syst_2[syst_num]->SetYTitle("Relative errors");
+        
+        g_syst_0[syst_num] = new TGraphErrors(nPoints_0, &(mass_0[0]), syst_0[syst_num]);
+        g_syst_0[syst_num]->SetMarkerColor(kRed);
+        g_syst_0[syst_num]->SetMarkerStyle(21);
+        g_syst_0[syst_num]->SetLineColor(0);
+        c2[syst_num]->cd();
+        p_syst1[syst_num]->cd();
+        g_syst_0[syst_num]->Draw("P");
+        j=0;
+        for (unsigned i = 0; i<nPoints; i++) {
+            if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){
+                interpol_syst_0[syst_num][i]=syst_0[syst_num][j];
+                j++;
+            }
+            else{int lMarker=0;
+                for (auto pVal : mass_0){  if (pVal > mass[i]){break;}lMarker++;}
+                interpol_syst_0[syst_num][i] =( (syst_0[syst_num][lMarker]-syst_0[syst_num][lMarker-1])*(mass[i]-mass_0[lMarker-1])/(mass_0[lMarker]-mass_0[lMarker-1])+syst_0[syst_num][lMarker-1]);
+            }
+        }
+        g_syst_1[syst_num] = new TGraphErrors(nPoints, &(mass[0]), interpol_syst_0[syst_num]);
+        g_syst_1[syst_num]->SetMarkerColor(kBlue);
+        g_syst_1[syst_num]->SetMarkerStyle(20);
+        g_syst_1[syst_num]->SetLineColor(0);
+        g_syst_1[syst_num]->Draw("P");
+        g_syst_0[syst_num]->Draw("P");
+        
+        fit_pol_syst[syst_num] = new TF1(Form("fit_pol_syst_%d", syst_num),Form("pol%d",nPoints_0-1),100,1000);
+        fit_pol_syst[syst_num]->SetParameter(0, 1.);
+        fit_pol_syst[syst_num]->SetParameter(1, -13.);
+        fit_pol_syst[syst_num]->SetParameter(2, 0.07 );
+        fit_pol_syst[syst_num]->SetParameter(3, -1.e-05);
+        fit_pol_syst[syst_num]->SetParName(0, "x_0");
+        fit_pol_syst[syst_num]->SetParName(1, "x_1");
+        fit_pol_syst[syst_num]->SetParName(2, "x_2");
+        fit_pol_syst[syst_num]->SetParName(3, "x_3");
+        if (flag_MMR) {g_syst_0[syst_num]->Fit(fit_pol_syst[syst_num],"","", 540,1010);}
+        else{
+            if (range==1){g_syst_0[syst_num]->Fit(fit_pol_syst[syst_num],"","",259,351);}
+            else{g_syst_0[syst_num]->Fit(fit_pol_syst[syst_num],"","",260,600);}
+        }
+        
+        g_pull_syst[syst_num] = new TGraphErrors(nPoints);
+        g_pull_syst[syst_num]->SetMarkerStyle(7);
+        g_pull_syst[syst_num]->SetMarkerSize(0.4);
+        
+        for (unsigned i = 0; i<nPoints; i++) {
+            bool trovato = false;
+            for (double m : mass_0) {if (m == mass[i]) {trovato=true;}}
+            if (!trovato) {
+                double temp = (interpol_syst_0[syst_num][i]-fit_pol_syst[syst_num]->Eval(mass[i]))/fit_pol_syst[syst_num]->Eval(mass[i]);
+                g_pull_syst[syst_num]->SetPoint(i, mass[i],temp);
+            }
+        }
+        
+        leg_syst[syst_num] =new TLegend(0.5, 0.65, 0.82, 0.85);
+        leg_syst[syst_num]->SetFillStyle(1); leg->SetFillColor(kWhite);
+        leg_syst[syst_num]->AddEntry(g_syst_0[syst_num], Form("%s for MC points", name_syst[syst_num].c_str()), "lep");
+        leg_syst[syst_num]->AddEntry(g_syst_1[syst_num], Form("%s for interpolated points", name_syst[syst_num].c_str()), "lep");
+        leg_syst[syst_num]->SetFillColor(kWhite);
+        leg_syst[syst_num]->SetFillStyle(0);
+        leg_syst[syst_num]->SetTextSize(0.03);
+        leg_syst[syst_num]->SetTextFont(42);
+        leg_syst[syst_num]->SetBorderSize(0);
+        leg_syst[syst_num]->Draw();
+        p_syst2[syst_num]->cd();
+        g_pull_syst[syst_num]->Draw("P");
+        if (flag_MMR) {
+            if (range==1){
+                line= new TLine(350, 0, 1200, 0);
+            }
+            else{
+                line= new TLine(350, 0, 1200, 0);
+            }
+        }
+        else{
+            if (range==1){
+                line= new TLine(250, 0, 370, 0);
+            }
+            else{
+                line= new TLine(250, 0, 600, 0);
+            }
+            
+        }
+        line->SetLineStyle(2);
+        line->SetLineWidth(1);
+        line->Draw();
+        
+        if (flag_MMR) {
+            c2[syst_num]->SaveAs(Form("%s_interpolation_MMR_%d.pdf", name_syst[syst_num].c_str(), range));
+            c2[syst_num]->SaveAs(Form("%s_interpolation_MMR_%d.png", name_syst[syst_num].c_str(), range));
+        } else {
+            c2[syst_num]->SaveAs(Form("%s_interpolation_LMR_%d.pdf", name_syst[syst_num].c_str(), range));
+            c2[syst_num]->SaveAs(Form("%s_interpolation_LMR_%d.png", name_syst[syst_num].c_str(), range));
+        }
+        
+        for (unsigned i = 0; i<nPoints; i++) {
+            if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){ continue;}
+            std::string mass_string= itoa(mass[i]);
+            std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
+            std::ifstream file_syst(filename.c_str(), ios::in);
+            gSystem->Exec(Form("sed -i 's/%s.*lnN.*/%s      lnN     %f    -/g' %s_%d_%s/datacard_%d_%s.txt", name_syst[syst_num].c_str(), name_syst[syst_num].c_str(), interpol_syst_0[syst_num][i], dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
+            file_syst.close();
+        }
+        
+    }
+
+    /*
+    for (int syst_num=0; syst_num<NumOfSyst; syst_num++) {
+        PrintArray(interpol_syst_0[syst_num], nPoints, 5);
+    }
+    
+    for (int syst_num=0; syst_num<NumOfSyst; syst_num++) {
+        PrintArray(syst_0[syst_num], nPoints_0, 5);
+    }
+    */
+    
+    
+    
+    TCanvas *c3[NumOfErr][NumOfSignalParam];
+    TPad *p_param1[NumOfErr][NumOfSignalParam];
+    TPad *p_param2[NumOfErr][NumOfSignalParam];
+    TH1F* h_param_1[NumOfErr][NumOfSignalParam];
+    TH1F* h_param_2[NumOfErr][NumOfSignalParam];
+    TGraphErrors* g_param_0[NumOfErr][NumOfSignalParam];
+    TGraphErrors* g_param_1[NumOfErr][NumOfSignalParam];
+    TF1 *fit_pol_param[NumOfErr][NumOfSignalParam];
+    TGraphErrors* g_pull_param[NumOfErr][NumOfSignalParam];
+    TLegend *leg_param[NumOfErr][NumOfSignalParam];
+    
+    for (int param_num=0; param_num<NumOfSignalParam; param_num++) {
+        for (int err=0; err<NumOfErr; err++) {
+            c3[err][param_num]= new TCanvas(Form("canvas_param_%d_%d",param_num, err),Form("canvas_param_%d_%d",param_num, err),700,700);
+            c3[err][param_num]->SetGrid();
+            c3[err][param_num]->GetFrame()->SetBorderSize(12);
+            p_param1[err][param_num] = new TPad(Form("p_param1_%d_%d",param_num, err), Form("p_param1_%d_%d",param_num, err), 0, xPad, 1, 1);
+            p_param2[err][param_num] = new TPad(Form("p_param2_%d_%d",param_num, err), Form("p_param2_%d_%d",param_num, err), 0,0,1,xPad);
+            p_param1[err][param_num]->SetFillStyle(4000);
+            p_param1[err][param_num]->SetFrameFillColor(0);
+            p_param1[err][param_num]->SetBottomMargin(0.035);
+            p_param2[err][param_num]->SetBottomMargin(0.2);
+            p_param2[err][param_num]->SetTopMargin(0.02);
+            p_param2[err][param_num]->SetFillColor(0);
+            p_param2[err][param_num]->SetBorderMode(0);
+            p_param2[err][param_num]->SetBorderSize(2);
+            p_param2[err][param_num]->SetFrameBorderMode(0);
+            p_param2[err][param_num]->SetFrameBorderMode(0);
+            c3[err][param_num]->cd();
+            p_param1[err][param_num]->Draw();
+            p_param2[err][param_num]->Draw();
+            p_param1[err][param_num]->cd();
+            if (flag_MMR) {
+                if (range==1){
+                    if (err==0) {
+                        h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(500,-5,1050,5);
+                    }
+                    else{
+                        h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(500,-1,1050,1);
+                    }
+                }
+                else{
+                    h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(500,-5,1050,5);
+                }
+                h_param_1[err][param_num]->SetTitle(Form("Linear interpolation of %s of %s in MMR", name_error[err].c_str(), name_param[param_num].c_str()));
+            } else {
+                if (range==1){
+                    switch (err) {
+                        case 0:
+                            switch (param_num) {
+                                case 0: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,240,370,400); break;
+                                case 1: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,0,370,11); break;
+                                case 2: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,250,370,350); break;
+                                case 3: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,15,370,60); break;
+                                case 4: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,0.6,370,0.72); break;
+                            }
+                            break;
+                        case 1:
+                            switch (param_num) {
+                                case 0: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,-0.5,370,0.1); break;
+                                case 1: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,-0.3,370,-0.07); break;
+                                case 2: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,-25,370,25); break;
+                                case 3: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,-6,370,0); break;
+                                case 4: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,-0.05,370,0.05); break;
+                            }
+                            break;
+                        case 2:
+                            switch (param_num) {
+                                case 0: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,0.05,370,0.4); break;
+                                case 1: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,0.05,370,0.3); break;
+                                case 2: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,-2.5,370,14); break;
+                                case 3: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,0,370,12); break;
+                                case 4: h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,0,370,0.05); break;
+                            }
+                            break;
+                        
+                    }
+                }
+                else{
+                    h_param_1[err][param_num] = c3[err][param_num]->DrawFrame(250,-5,600,5);
+                }
+                h_param_1[err][param_num]->SetTitle(Form("Linear interpolation of %s of %s in LMR", name_error[err].c_str(), name_param[param_num].c_str()));
+            }
+            h_param_1[err][param_num]->SetXTitle("m_X (GeV)");
+            h_param_1[err][param_num]->GetYaxis()->SetTitleOffset(1.2);
+            h_param_1[err][param_num]->SetYTitle(Form("%s of %s", name_error[err].c_str(), name_param[param_num].c_str()));
+            
+            p_param2[err][param_num]->cd();
+            if (flag_MMR) {
+                if (range==1){h_param_2[err][param_num] = c3[err][param_num]->DrawFrame(500,-0.07,1100,0.07);}
+                else{h_param_2[err][param_num] = c3[err][param_num]->DrawFrame(500,-0.07,1100,0.07);}
+            } else {
+                if (range==1){
+                    if ((param_num==0 || err ==0)) {
+                        h_param_2[err][param_num] = c3[err][param_num]->DrawFrame(250,-0.006,370,0.006);
+                    }
+                    else{
+                        h_param_2[err][param_num] = c3[err][param_num]->DrawFrame(250,-0.04,370,0.04);
+                    }
+                }
+                else{h_param_2[err][param_num] = c3[err][param_num]->DrawFrame(250,-0.06,600,0.06);}
+            }
+            h_param_2[err][param_num]->SetXTitle("m_X (GeV)");
+            h_param_2[err][param_num]->GetXaxis()->SetTitleOffset(0.6);
+            h_param_2[err][param_num]->GetXaxis()->SetTitleSize(0.08);
+            h_param_2[err][param_num]->GetYaxis()->SetTitleOffset(0.5);
+            h_param_2[err][param_num]->GetYaxis()->SetTitleSize(0.08);
+            h_param_2[err][param_num]->SetLabelSize(0.06,"xy");
+            h_param_2[err][param_num]->SetYTitle("Relative errors");
+            
+            
+            g_param_0[err][param_num] = new TGraphErrors(nPoints_0, &(mass_0[0]), param_0[err][param_num]);
+            g_param_0[err][param_num]->SetMarkerColor(kRed);
+            g_param_0[err][param_num]->SetMarkerStyle(21);
+            g_param_0[err][param_num]->SetLineColor(0);
+            c3[err][param_num]->cd();
+            p_param1[err][param_num]->cd();
+            g_param_0[err][param_num]->Draw("P");
+            
+            j=0;
+            for (unsigned i = 0; i<nPoints; i++) {
+                if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){
+                    interpol_param_0[err][param_num][i]=param_0[err][param_num][j];
+                    j++;
+                }
+                else{int lMarker=0;
+                    for (auto pVal : mass_0){  if (pVal > mass[i]){break;}lMarker++;}
+                    interpol_param_0[err][param_num][i] =( (param_0[err][param_num][lMarker]-param_0[err][param_num][lMarker-1])*(mass[i]-mass_0[lMarker-1])/(mass_0[lMarker]-mass_0[lMarker-1])+param_0[err][param_num][lMarker-1]);
+                }
+            }
+            g_param_1[err][param_num] = new TGraphErrors(nPoints, &(mass[0]), interpol_param_0[err][param_num]);
+            g_param_1[err][param_num]->SetMarkerColor(kBlue);
+            g_param_1[err][param_num]->SetMarkerStyle(20);
+            g_param_1[err][param_num]->SetLineColor(0);
+            g_param_1[err][param_num]->Draw("P");
+            g_param_0[err][param_num]->Draw("P");
+            
+            fit_pol_param[err][param_num] = new TF1(Form("fit_pol_param_%d", param_num),Form("pol%d",nPoints_0-1),100,1000);
+            fit_pol_param[err][param_num]->SetParameter(0, 1.);
+            fit_pol_param[err][param_num]->SetParameter(1, -13.);
+            fit_pol_param[err][param_num]->SetParameter(2, 0.07 );
+            fit_pol_param[err][param_num]->SetParameter(3, -1.e-05);
+            fit_pol_param[err][param_num]->SetParName(0, "x_0");
+            fit_pol_param[err][param_num]->SetParName(1, "x_1");
+            fit_pol_param[err][param_num]->SetParName(2, "x_2");
+            fit_pol_param[err][param_num]->SetParName(3, "x_3");
+            if (flag_MMR) {g_param_0[err][param_num]->Fit(fit_pol_param[err][param_num],"","", 540,1010);}
+            else{
+                if (range==1){g_param_0[err][param_num]->Fit(fit_pol_param[err][param_num],"","",259,351);}
+                else{g_param_0[err][param_num]->Fit(fit_pol_param[err][param_num],"","",260,600);}
+            }
+            
+            g_pull_param[err][param_num] = new TGraphErrors(nPoints);
+            g_pull_param[err][param_num]->SetMarkerStyle(7);
+            g_pull_param[err][param_num]->SetMarkerSize(0.4);
+            
+            for (unsigned i = 0; i<nPoints; i++) {
+                bool trovato = false;
+                for (double m : mass_0) {if (m == mass[i]) {trovato=true;}}
+                if (!trovato) {
+                    double temp = (interpol_param_0[err][param_num][i]-fit_pol_param[err][param_num]->Eval(mass[i]))/fit_pol_param[err][param_num]->Eval(mass[i]);
+                    g_pull_param[err][param_num]->SetPoint(i, mass[i],temp);
+                }
+            }
+            
+            if ((param_num ==2 && err == 3) || (param_num ==3 && err == 2) || (param_num ==2 && err == 2)) {
+                leg_param[err][param_num]=new TLegend(0.4, 0.65, 0.75, 0.85);
+            }
+            else if(param_num ==2 && err == 1){
+                leg_param[err][param_num]=new TLegend(0.2, 0.65, 0.55, 0.85);
+            }
+            else{
+                leg_param[err][param_num]=new TLegend(0.2, 0.65, 0.65, 0.85);
+            }
+            
+            
+            leg_param[err][param_num]->SetFillStyle(1); leg->SetFillColor(kWhite);
+            leg_param[err][param_num]->AddEntry(g_param_0[err][param_num], Form("%s of %s for MC points", name_error[err].c_str(), name_param[param_num].c_str()), "lep");
+            leg_param[err][param_num]->AddEntry(g_param_1[err][param_num], Form("%s of %s for interpolated points", name_error[err].c_str(), name_param[param_num].c_str()), "lep");
+            leg_param[err][param_num]->SetFillColor(kWhite);
+            leg_param[err][param_num]->SetFillStyle(0);
+            leg_param[err][param_num]->SetTextSize(0.03);
+            leg_param[err][param_num]->SetTextFont(42);
+            leg_param[err][param_num]->SetBorderSize(0);
+            leg_param[err][param_num]->Draw();
+            
+            p_param2[err][param_num]->cd();
+            g_pull_param[err][param_num]->Draw("P");
+            if (flag_MMR) {
+                if (range==1){
+                    line= new TLine(350, 0, 1200, 0);
+                }
+                else{
+                    line= new TLine(350, 0, 1200, 0);
+                }
+            }
+            else{
+                if (range==1){
+                    line= new TLine(250, 0, 370, 0);
+                }
+                else{
+                    line= new TLine(250, 0, 600, 0);
+                }
+                
+            }
+            line->SetLineStyle(2);
+            line->SetLineWidth(1);
+            line->Draw();
+            
+            if (flag_MMR) {
+                c3[err][param_num]->SaveAs(Form("%s_of_%s_interpolation_MMR_%d.pdf", name_error[err].c_str(), name_param[param_num].c_str(), range));
+                c3[err][param_num]->SaveAs(Form("%s_of_%s_interpolation_MMR_%d.png", name_error[err].c_str(), name_param[param_num].c_str(), range));
+            } else {
+                c3[err][param_num]->SaveAs(Form("%s_of_%s_interpolation_LMR_%d.pdf", name_error[err].c_str(), name_param[param_num].c_str(), range));
+                c3[err][param_num]->SaveAs(Form("%s_of_%s_interpolation_LMR_%d.png", name_error[err].c_str(), name_param[param_num].c_str(), range));
+            }
+            
+        }
+        
+        for (unsigned i = 0; i<nPoints; i++) {
+            if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){ continue;}
+            std::string mass_string= itoa(mass[i]);
+            std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
+            std::ifstream file_param(filename.c_str(), ios::in);
+            gSystem->Exec(Form("sed -i 's/%s.*/%s   param   %f  %f\\/+%f/g' %s_%d_%s/datacard_%d_%s.txt", name_param[param_num].c_str(), name_param[param_num].c_str(), interpol_param_0[0][param_num][i], interpol_param_0[1][param_num][i], interpol_param_0[2][param_num][i], dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
+            
+            
+            file_param.close();
+        }
+    }
+    
+
+    RooPlot* plot[nPoints];
+    new TCanvas;
+    RooRealVar *x=new RooRealVar("x", "m_{X} (GeV)", 250, 1400);
+    for (unsigned i = 0; i<nPoints; i++) {
+        RooRealVar *sg_p0, *sg_p1, *sg_p2, *sg_p3,*sg_p4;
+        double m=mass[i];
+        
+        if (flag_MMR) {
+            double rangeHi = 0.9*m + 160;
+            double rangeLo = 0.7*m + 80;
+            if (rangeLo<250) rangeLo=250;
+            sg_p0=new RooRealVar("sg_p0", "sg_p0", interpol_param_0[0][0][i]);
+            sg_p1=new RooRealVar("sg_p1", "sg_p1", interpol_param_0[0][1][i]);
+            sg_p2=new RooRealVar("sg_p2", "sg_p2", interpol_param_0[0][2][i]);
+            sg_p3=new RooRealVar("sg_p3", "sg_p3", interpol_param_0[0][3][i]);
+            ExpGaussExp signal("signal", "Signal Prediction", *x, *sg_p0, *sg_p1, *sg_p2, *sg_p3);
+            plot[i]=x->frame();
+            signal.plotOn(plot[i]);
+            
+            plot[i]->Draw("same");
+        }
+        else{
+            double rangeHi = 1.1*m + 50;
+            double rangeLo = m/3. + 160;
+            if (rangeLo<250) rangeLo=250;
+            sg_p0=new RooRealVar("sg_p0", "sg_p0", interpol_param_0[0][0][i]);
+            sg_p1=new RooRealVar("sg_p1", "sg_p1", interpol_param_0[0][1][i]);
+            sg_p2=new RooRealVar("sg_p2", "sg_p2", interpol_param_0[0][2][i]);
+            sg_p3=new RooRealVar("sg_p3", "sg_p3", interpol_param_0[0][3][i]);
+            sg_p4=new RooRealVar("sg_p4", "sg_p4", interpol_param_0[0][4][i]);
+            
+            RooGaussian signalCore("signalCore", "Signal Prediction", *x, *sg_p0, *sg_p1);
+            RooGaussian signalComb("signalComb", "Combinatoric", *x, *sg_p2, *sg_p3);
+            RooAddPdf signal("signal", "signal", RooArgList(signalCore, signalComb), *sg_p4);
+            plot[i]=x->frame();
+            signal.plotOn(plot[i]);
+            
+            plot[i]->Draw("same");
+        }
+        
+    }
+
+}
+
+
+
+
+
+//================================================================================
+
+Double_t straight_line(Double_t *x, Double_t *par)
+{
+    Double_t m,q; // Exponential slope
+    
+    q = par[0];
+    m = par[1];
+    
+    return q + m*x[0];
+}
+
+//================================================================================
+
+Double_t pol_line(Double_t *x, Double_t *par)
+{
+    Double_t x_0,x_1,x_2,x_3; // Exponential slope
+    
+    x_0 = par[0];
+    x_1 = par[1];
+    x_2 = par[2];
+    x_3 = par[3];
+    
+    return x_0 + x_1*x[0]+ x_2*x[0]*x[0]+ x_3*x[0]*x[0]*x[0];
+}
+
+//================================================================================
+
+void PrintArray(Double_t *v, Int_t dim, Int_t precision){
+    int i;
+    for (i = 0; i < dim; i++){
+        switch (precision) {
+            case 0: printf("v[%d]: %.0f\n", i, v[i]); break;
+            case 1: printf("v[%d]: %.1f\n", i, v[i]); break;
+            case 2: printf("v[%d]: %.2f\n", i, v[i]); break;
+            case 3: printf("v[%d]: %.3f\n", i, v[i]); break;
+            case 4: printf("v[%d]: %.4f\n", i, v[i]); break;
+            case 5: printf("v[%d]: %.5f\n", i, v[i]); break;
+            case 6: printf("v[%d]: %.6f\n", i, v[i]); break;
+            case 7: printf("v[%d]: %.7f\n", i, v[i]); break;
+            default : printf("v[%d]: %.8f\n", i, v[i]); break;
+        }
+    }
+    cout << endl;
+}
+
+//================================================================================
+
+std::string itoa(int i)
+{
+    char res[4];
+    sprintf(res, "%d", i);
+    std::string ret(res);
+    return ret;
+}
+
+//================================================================================
