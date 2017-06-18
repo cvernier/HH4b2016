@@ -3,7 +3,7 @@
 run="RunB2"
 location=$1
 if test $location -eq 0
-        then folder="/eos/uscms/store/user/lpchbb/HeppyNtuples/V25rereco/BTagCSV/VHBB_HEPPY_V25b_BTagCSV__Run2016B-03Feb2017_ver2-v2/170226_200018/"
+        then folder="root://xrootd.ba.infn.it///store/user/arizzi/VHBBHeppyV25b/BTagCSV/VHBB_HEPPY_V25b_BTagCSV__Run2016B-03Feb2017_ver2-v2/170226_200018/"
 elif test $location -eq 1
         then folder="/gpfs/ddn/srm/cms/store/user/arizzi/VHBBHeppyV25b/BTagCSV/VHBB_HEPPY_V25b_BTagCSV__Run2016B-03Feb2017_ver2-v2/170226_200018/"
 else

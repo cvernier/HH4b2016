@@ -631,7 +631,7 @@ void HbbHbb_PreSelection(std::string dir, std::string sample,
   outfile->Close();
   std::cout<<"Wrote output file "<<outfilename<<std::endl;
   
-  TFile *file=new TFile(inputfilename.c_str());
+  TFile *file=TFile::Open(inputfilename.c_str());
   TH1F *h_Count=(TH1F*)file->Get("Count");
   double nInitial=h_Count->GetBinContent(1);
                   
