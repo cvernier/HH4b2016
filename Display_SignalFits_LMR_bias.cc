@@ -693,21 +693,21 @@ int Display_SignalFits_LMR_bias(std::string dir_preselection="PreselectedWithReg
   double bias;
   if(range==1){
 	switch(_mass){
-		case 260: bias=-0.06; break;
-		case 270: bias=-0.110; break;
-		case 300: bias=-0.192; break;
+		case 260: bias=-0.0201; break;
+		case 270: bias=-0.0446; break;
+		case 300: bias=-0.0661; break;
 		default: break;
 	}
   }
   else{
 	switch(_mass){
-		case 300: bias=0.036; break;
-		case 350: bias=-0.069; break;
-		case 400: bias=0.014; break;
-		case 450: bias=0.029; break;
-		case 500: bias=-0.002; break;
-		case 550: bias=-0.010; break;
-		case 600: bias=-0.019; break;
+		case 300: bias=0.0003; break;
+		case 350: bias=-0.0280; break;
+		case 400: bias=0.0095; break;
+		case 450: bias=0.0123; break;
+		case 500: bias=0.0031; break;
+		case 550: bias=-0.0057; break;
+		case 600: bias=-0.0044; break;
 		default: break;
 	}
   }
