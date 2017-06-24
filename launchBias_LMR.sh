@@ -13,9 +13,9 @@
   if [ $5 -eq 1 ];
           then
           masses_LMR=(260 270 300) #300) #260 270) # 300 350)
-          strenght_LMR=(0.0 0.5 1.0) #0.0 0.5 1.0)
-          else masses_LMR=(270 300 350 450 500 550 600 650) #300) #450 500 550 600 650)
-          strenght_LMR=(0.0 0.1 0.2 0.3 0.6) #0.6) # 0.0 0.1 0.2 0.3 1.0)
+          strenght_LMR=(0.0) # 0.5 1.0) #0.0 0.5 1.0)
+          else masses_LMR=(400) #270 300 350 400 450 500 550 600 650) #300) #450 500 550 600 650)
+          strenght_LMR=(0.0) # 0.1 0.2 0.3 0.6) #0.6) # 0.0 0.1 0.2 0.3 1.0)
   fi
   
   source_dir_LMR="PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/"
@@ -47,8 +47,8 @@
                   cp ../../../../${source_dir_LMR}LMR_${i}${background_LMR_1}/datacard*txt .
                   cp ../../../../${source_dir_LMR}LMR_${i}${background_LMR_2}/w_*.root .
                   cp ../../../../${source_dir_LMR}LMR_${i}${background_LMR_2}/datacard*txt .
-                  #combine datacard_${i}${background_LMR_1}.txt -M GenerateOnly -m $i -t ${n_toys} --saveToys -s ${seed} --expectSignal=$signal_strenght -n ${name} --toysNoSystematic
-                  #combine datacard_${i}${background_LMR_2}.txt -M MaxLikelihoodFit -m $i --expectSignal=$signal_strenght --rMin=-10 --rMax=10 -t ${n_toys} --toysFile=higgsCombine${name}.GenerateOnly.mH$i.${seed}.root -s ${seed} -n ${name}_${i} --robustFit=1  #--saveNormalizations --plot --out out 
+                  combine datacard_${i}${background_LMR_1}.txt -M GenerateOnly -m $i -t ${n_toys} --saveToys -s ${seed} --expectSignal=$signal_strenght -n ${name} --toysNoSystematic
+                  combine datacard_${i}${background_LMR_2}.txt -M MaxLikelihoodFit -m $i --expectSignal=$signal_strenght --rMin=-10 --rMax=10 -t ${n_toys} --toysFile=higgsCombine${name}.GenerateOnly.mH$i.${seed}.root -s ${seed} -n ${name}_${i} --robustFit=1  #--saveNormalizations --plot --out out 
           done
           root -l -b -q drawBias_LMR.C\($signal_strenght,\"$name\",\"$background_LMR_1\",\"$background_LMR_2\"\)
   done
