@@ -1,5 +1,5 @@
-source runLimits.sh gaus_exp 250_330 novo 550_1200 1
-source runLimits.sh novo 285_625 novo 550_1200 2
+#source runLimits.sh gaus_exp 250_330 novo 550_1200 1
+#source runLimits.sh novo 285_625 novo 550_1200 2
 
 echo "LMR"
 cp drawLimits_LMR.c PreselectedWithRegressionDeepCSV/limits/LMR/
