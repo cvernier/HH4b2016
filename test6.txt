@@ -1,7 +1,0 @@
-      r      lvl-here  lvl-there   stepping
-WARNING: underflow to -2.74315 in pdf_binHbbHbb_obsOnly for bin 103, weight 40
-[#0] ERROR:Eval -- RooAbsReal::logEvalError(HbbHbb) evaluation error, 
- origin       : RooAbsReal::HbbHbb[ params=(JEC,JER,PDF,bTag,lumi_13TeV,n_exp_binHbbHbb_proc_background,par_novo_0,par_novo_1,par_novo_2,r,signal_p0,signal_p1,signal_p2,signal_p3,signal_p4,trigger) ]
- message      : Number of events is negative or error
- server values: params=(JEC = -0.000260502 +/- 0.824872,JER = -0.000446662 +/- 0.915618,PDF = -0.000452668 +/- 0.877989,bTag = 0.000414248 +/- 0.880122,lumi_13TeV = -0.000427624 +/- 0.902343,n_exp_binHbbHbb_proc_background = 17637.2,par_novo_0 = 248.345 +/- 3.38481,par_novo_1 = 37.6102 +/- 0.391962,par_novo_2 = -1.29531 +/- 0.010871,r = -1.00146 +/- 0.00928745,signal_p0 = 650,signal_p1 = 21.9547,signal_p2 = 650,signal_p3 = 53.5044,signal_p4 = 0.902474,trigger = 0.00149023 +/- 0.682926)
-FASTEXIT from pdf_binHbbHbb_obsOnly
