@@ -52,7 +52,7 @@ done
 
 if [ $range_num_MMR -eq 1 ];
         then
-	massesMMR=(550 600 650 750 800 900 1000)
+	massesMMR=() #550 600 650 750 800 900 1000)
         else massesMMR=() #550 600 650 750 800 900 1000)
 fi
 
