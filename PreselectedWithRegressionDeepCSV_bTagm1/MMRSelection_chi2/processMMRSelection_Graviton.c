@@ -15,4 +15,5 @@
   HbbHbb_MMRSelection_chi2("Signal", "GluGluToBulkGravitonToHHTo4B_M-800_narrow_13TeV-madgraph", 800, true );
   HbbHbb_MMRSelection_chi2("Signal", "GluGluToBulkGravitonToHHTo4B_M-900_narrow_13TeV-madgraph", 900, true );
   HbbHbb_MMRSelection_chi2("Signal", "BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph", 1000, true );
+  HbbHbb_MMRSelection_chi2("Signal", "BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph", 1200, true );
 }
