@@ -4,6 +4,7 @@
 *.png
 *.root
 *.pcm
+*.out
 !libPhysicsToolsKinFitter.so
 PreselectedWithRegressionDeepCSV/Bias/
 PreselectedWithRegressionDeepCSV/LMRSelection_chi2/fit/
