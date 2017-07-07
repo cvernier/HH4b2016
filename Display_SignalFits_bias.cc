@@ -524,7 +524,7 @@ RooPlot* fitSignal(TH1F *h, std::string mass, int color, TLegend *leg, Params &p
   RooRealVar signal_p2_1("signal_p2_1", "signal_p2_1", sg_p2->getVal());
   RooRealVar signal_p3_1("signal_p3_1", "signal_p3_1", sg_p3->getVal());
   ExpGaussExp signal_bkg("signal_bkg", "Signal Prediction Fixed", *x, signal_p0_1, signal_p1_1, signal_p2_1, signal_p3_1);
-  RooRealVar *signal_bkg_norm= new RooRealVar("signal_bkg_norm","signal_bkg_norm", 0., -bias, bias,"");
+  RooRealVar *signal_bkg_norm= new RooRealVar("signal_bkg_norm","signal_bkg_norm", 0., -abs(bias), abs(bias),"");
   RooWorkspace *w=new RooWorkspace("HbbHbb");
   w->import(signal_fixed);
   w->import(signal_bkg);
@@ -773,25 +773,25 @@ int Display_SignalFits_bias(std::string dir_preselection="PreselectedWithRegress
   double bias;
   if(range==1){
 	switch(_mass){
-		case 550: bias=-0.00039; break;
-		case 600: bias=0.00045; break;
-		case 650: bias=-0.00014; break;
-		case 750: bias=-0.00042; break;
-		case 800: bias=-0.00054; break;
-		case 900: bias=-0.00049; break;
-		case 1000: bias=0.00015; break;
-		default: break;
+		case 550: bias=0.0297; break;
+                case 600: bias=-0.1081; break;
+                case 650: bias=0.1698; break;
+                case 750: bias=-0.2380; break;
+                case 800: bias=-0.1523; break;
+                case 900: bias=-0.0907; break;
+                case 1000: bias=0.0297; break;
+                default: break;
 	}
   }
   else{
 	switch(_mass){
-                case 550: bias=-0.00039; break;
-                case 600: bias=0.00045; break;
-                case 650: bias=-0.00014; break;
-                case 750: bias=-0.00042; break;
-                case 800: bias=-0.00054; break;
-                case 900: bias=-0.00049; break;
-                case 1000: bias=0.00015; break;
+                case 550: bias=-0.0396; break;
+                case 600: bias=0.0950; break;
+                case 650: bias=0.1535; break;
+                case 750: bias=-0.1249; break;
+                case 800: bias=-0.1706; break;
+                case 900: bias=-0.1212; break;
+                case 1000: bias=0.0359; break;
 		default: break;
 	}
   }
@@ -1167,4 +1167,5 @@ int Display_SignalFits_bias(std::string dir_preselection="PreselectedWithRegress
 
 return 0;
 }
+
 

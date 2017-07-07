@@ -75,7 +75,6 @@ using namespace RooFit ;
 /*************************************
  **      Function Declaration        *
  *************************************/
-Double_t straight_line(Double_t *x, Double_t *par);
 Double_t pol_line(Double_t *x, Double_t *par);
 void PrintArray(Double_t *v, Int_t dim, Int_t precision);
 std::string itoa(int i);
@@ -83,7 +82,7 @@ void interpolation_normalization(bool, std::string, std::string, int);
 bool flag_crystal = 1; //1 for CrystalBall 0 for ExpGaussExp
 const int NumOfSyst=5;
 
-void InterpolateSignal(std::string function, std::string name_range, int range, bool flag_MMR) {
+void InterpolateSignal_bias(std::string function, std::string name_range, int range, bool flag_MMR) {
     gSystem->Load("../../../PDFs/ExpGaussExp_cxx.so");
     interpolation_normalization(flag_MMR, function, name_range, range);
 
@@ -125,8 +124,11 @@ void InterpolateSignal(std::string function, std::string name_range, int range, 
     const unsigned int nMCpoints=masses.size();
     
     TFile *f[nMCpoints];
+    TFile *f_1[nMCpoints];    
     RooWorkspace* xf[nMCpoints];
+    RooWorkspace* xf_1[nMCpoints];    
     RooAbsPdf* PDF_mass[nMCpoints];
+    RooAbsPdf* PDF_mass_1[nMCpoints]; 
     
     for (unsigned int i = 0; i<nMCpoints; i++ ) {
         TString name = Form("%s_%d_%s/w_signal_%d.root", dir.c_str(), int(masses[i]), background.c_str(), int(masses[i]));
@@ -176,7 +178,6 @@ void InterpolateSignal(std::string function, std::string name_range, int range, 
         PDF_mass[i]->Print("t");
     }
 
-
     // C r e a t e   i n t e r p o l a t i n g   p d f
     // -----------------------------------------------
     
@@ -209,9 +210,11 @@ void InterpolateSignal(std::string function, std::string name_range, int range, 
         PDF_mass[iPoint]->plotOn(frame_tot,LineColor(kBlue)) ;
         PDF_mass[iPoint+1]->plotOn(frame_tot, LineColor(kBlue)) ;
         cout<< " Interpolate from " << masses[iPoint] << " to " << masses[iPoint+1] << endl;
-        
+
+
         int nPoints = int((masses[iPoint+1]-masses[iPoint])/step);
-        for (int i=0; i<nPoints; i++) {
+        double bias=1.0;
+        for (int i=0; i<=nPoints; i++) {
             
             alpha.setVal(double(i)/double(nPoints)) ;
             cout<< " Interpolate mass : " << int(masses[iPoint]+i*step) << endl;
@@ -231,10 +234,9 @@ void InterpolateSignal(std::string function, std::string name_range, int range, 
             c_temp->SaveAs(Form("%s_%d_%s/c_mX_SR_KinFit_%d.png", dir.c_str(), int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
             delete c_temp;
             
-            
             RooRealVar *x, *sg_p0, *sg_p1, *sg_p2, *sg_p3,*sg_p4;
             double m=masses[iPoint]+i*step;
-            
+
             if (flag_MMR) {
                 double rangeHi = 0.9*m + 160;
                 double rangeLo = 0.7*m + 80;
@@ -253,8 +255,17 @@ void InterpolateSignal(std::string function, std::string name_range, int range, 
                 RooRealVar signal_p2("signal_p2", "signal_p2", sg_p2->getVal());
                 RooRealVar signal_p3("signal_p3", "signal_p3", sg_p3->getVal());
                 ExpGaussExp signal_fixed("signal_fixed", "Signal Prediction Fixed", *x, signal_p0, signal_p1, signal_p2, signal_p3);
-                RooWorkspace *w=new RooWorkspace("HbbHbb");
+                RooRealVar signal_p0_1("signal_p0_1", "signal_p0_1", sg_p0->getVal());
+                RooRealVar signal_p1_1("signal_p1_1", "signal_p1_1", sg_p1->getVal());
+                RooRealVar signal_p2_1("signal_p2_1", "signal_p2_1", sg_p2->getVal());
+                RooRealVar signal_p3_1("signal_p3_1", "signal_p3_1", sg_p3->getVal());
+                ExpGaussExp signal_bkg("signal_bkg", "Signal-as-background Prediction Fixed", *x, signal_p0_1, signal_p1_1, signal_p2_1, signal_p3_1);
+                RooRealVar *signal_bkg_norm= new RooRealVar("signal_bkg_norm","signal_bkg_norm", 0., -abs(bias), abs(bias),"");
+
+                RooWorkspace *w=new RooWorkspace("HbbHbb");                
                 w->import(signal_fixed);
+                w->import(signal_bkg);
+                w->import(*signal_bkg_norm); 
                 w->SaveAs(Form("%s_%d_%s/w_signal_%d.root", dir.c_str(), int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
             }
             else{
@@ -285,9 +296,20 @@ void InterpolateSignal(std::string function, std::string name_range, int range, 
                 RooGaussian signalCore_fixed("signalCore_fixed", "Signal Prediction", *x, signal_p0, signal_p1);
                 RooGaussian signalComb_fixed("signalComb_fixed", "Combinatoric", *x, signal_p2, signal_p3);
                 RooAddPdf signal_fixed("signal_fixed", "signal", RooArgList(signalCore_fixed, signalComb_fixed), signal_p4);
+                RooRealVar signal_p0_1("signal_p0_1", "signal_p0_1", sg_p0->getVal());
+                RooRealVar signal_p1_1("signal_p1_1", "signal_p1_1", sg_p1->getVal());
+                RooRealVar signal_p2_1("signal_p2_1", "signal_p2_1", sg_p2->getVal());
+                RooRealVar signal_p3_1("signal_p3_1", "signal_p3_1", sg_p3->getVal());
+                RooRealVar signal_p4_1("signal_p4_1", "signal_p4_1", sg_p4->getVal());
+                RooGaussian signalCore_fixed_1("signalCore_fixed_1", "Signal Prediction_1", *x, signal_p0_1, signal_p1_1);
+                RooGaussian signalComb_fixed_1("signalComb_fixed_1", "Combinatoric_1", *x, signal_p2_1, signal_p3_1);
+                RooAddPdf signal_bkg("signal_bkg", "signal_1", RooArgList(signalCore_fixed_1, signalComb_fixed_1), signal_p4_1);
                 
-                RooWorkspace *w=new RooWorkspace("HbbHbb");
+                RooRealVar *signal_bkg_norm= new RooRealVar("signal_bkg_norm","signal_bkg_norm", 0., -abs(bias), abs(bias),"");                
+                RooWorkspace *w=new RooWorkspace("HbbHbb");             
                 w->import(signal_fixed);
+                w->import(signal_bkg);   
+                w->import(*signal_bkg_norm); 
                 w->SaveAs(Form("%s_%d_%s/w_signal_%d.root", dir.c_str(), int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
             }
         }
@@ -351,15 +373,19 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
     }
     const unsigned int nPoints=mass.size();
     const unsigned int nPoints_0=mass_0.size();
-    double signal[nPoints], lin[nPoints],interpol[nPoints];
-    double signal_test[nPoints], signal_0_test[nPoints_0];
+    double signal[nPoints],interpol[nPoints];
     double signal_0[nPoints_0];
+
     double interpol_syst_0[NumOfSyst][nPoints];
-    double syst_0[NumOfSyst][nPoints_0];
-    double syst[NumOfSyst][nPoints_0];
+    double syst_0[NumOfSyst][nPoints_0];  
     double sp_syst_0[nPoints_0];
+    
+    double signal_bias[nPoints], interpol_bias_0[nPoints];
+    double signal_0_bias[nPoints_0];  
+    double sp_bias_0[nPoints_0];
+
     std::string name_syst[NumOfSyst];
-    int j=0;
+    int j=0, j_bias=0;
     for (int syst_num=0; syst_num<NumOfSyst; syst_num++) {
         switch (syst_num) {
             case 0: name_syst[syst_num]="bTag";break;
@@ -390,16 +416,17 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         gSystem->Exec(Form("sed -i 's/%d./%d./g' %s_%d_%s/datacard_%d_%s.txt", int(mass_0[lMarker]), int(mass[i]), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
         
     }
+
     j = 0;
+    j_bias = 0;
     for (unsigned i = 0; i<nPoints; i++) {
-        
+
         std::string mass_string= itoa(mass[i]);
         std::cout<< mass_string << std::endl;
-        std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
-        std::cout<< filename << std::endl;
 
-        std::ifstream file(filename.c_str(), ios::in);
-        
+        //Get rate values from datacards of MC points
+        std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
+        std::ifstream file(filename.c_str(), ios::in);        
         bool found= false;
         std::string line;
         while (!found && !file.eof()) {
@@ -416,9 +443,28 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         }
         file.close();
 
-        //loop over systematics in the datacards
+        //Get bias values from datacards of MC points
+        std::string filename_bias=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
+        std::ifstream file_bias(filename_bias.c_str(), ios::in);        
+        bool found_bias= false;
+        std::string line_bias;
+        while (!found_bias && !file_bias.eof()) {
+            getline(file_bias, line_bias);
+            std::size_t pos = line_bias.find("shapeBkg_signal_bkg_HbbHbb__norm");
+            if (pos!=std::string::npos){
+                found_bias=true;
+                signal_bias[i] = atof(line_bias.substr(pos+43,line_bias.find_last_of(" ")).c_str());
+                if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){
+                    signal_0_bias[j_bias] = atof(line_bias.substr(pos+43,line_bias.find_last_of(" ")).c_str());
+                    j_bias++;
+                }
+            }
+        }
+        file_bias.close();
+
+
+        //Get systematics values from datacards of MC points
         for (int syst_num = 0; syst_num<NumOfSyst; syst_num++) {
-            
             std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
             std::ifstream file_syst(filename.c_str(), ios::in);
             found= false;
@@ -434,13 +480,14 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         }        
     }
 
+    //Interpolate rate
     TCanvas *c1 = new TCanvas("canvas","canvas",700,700);
     c1->SetGrid();
     double xPad = 0.3;
     TPad *p_1=new TPad("p_1", "p_1", 0, xPad, 1, 1);
     p_1->SetFillStyle(4000);
     p_1->SetFrameFillColor(0);
-    p_1->SetBottomMargin(0.035);
+    p_1->SetBottomMargin(0.035);    
     TPad* p_2 = new TPad("p_2", "p_2",0,0,1,xPad);
     p_2->SetBottomMargin(0.2);
     p_2->SetTopMargin(0.02);
@@ -461,7 +508,7 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         hr_1->SetTitle("Linear interpolation of yield in MMR");
     } else {
         if (range==1){hr_1 = c1->DrawFrame(250,0,370,600);}
-        else{hr_1 = c1->DrawFrame(250,0,650,1600);}
+        else{hr_1 = c1->DrawFrame(250,0,550,1600);}
         hr_1->SetTitle("Linear interpolation of yield in LMR");
     }
     hr_1->SetXTitle("m_X (GeV)");
@@ -485,13 +532,14 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
     hr_2->SetYTitle("Relative errors");    
     c1->GetFrame()->SetBorderSize(12);
     p_1->cd();
-        
+    
+
     TGraphErrors* g_signal_0 = new TGraphErrors(nPoints_0, &(mass_0[0]), signal_0);
     g_signal_0->SetMarkerColor(kRed);
     g_signal_0->SetMarkerStyle(21);
     g_signal_0->SetLineColor(0);
     g_signal_0->Draw("P");
-    
+        
     for (unsigned i = 0; i<nPoints; i++) {
         if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){
             interpol[i]=signal[i];
@@ -514,7 +562,8 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
     g_signal_2->SetLineColor(0);
     g_signal_2->Draw("P");
     g_signal_0->Draw("P");
-
+    
+    
     TF1 *fit_pol = new TF1("fit_pol",pol_line,100,1000,4);
     fit_pol->SetParameter(0, 1500.);
     fit_pol->SetParameter(1, -13.);
@@ -528,11 +577,10 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         g_signal_0->Fit(fit_pol,"","", 400,1000);
     }
     else{
-        if (range==1){
-            g_signal_0->Fit(fit_pol,"","",250,400);}
-        else{g_signal_0->Fit(fit_pol,"","",260,650);}
+        if (range==1){g_signal_0->Fit(fit_pol,"","",250,400);}
+        else{g_signal_0->Fit(fit_pol,"","",260,550);}
     }
- 
+
     TGraphErrors* g_pull = new TGraphErrors(nPoints);
     g_pull->SetMarkerStyle(7);
     g_pull->SetMarkerSize(0.4);
@@ -548,8 +596,8 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
             double temp = (interpol[i]-fit_pol->Eval(mass[i]))/fit_pol->Eval(mass[i]);
             g_pull->SetPoint(i, mass[i],temp);
         }
-    }     
-        
+    }
+     
     TLegend *leg=new TLegend(0.2, 0.65, 0.65, 0.85);
     leg->SetFillStyle(1); leg->SetFillColor(kWhite);
     leg->AddEntry(g_signal_0, "Norm for MC masses", "lep");
@@ -563,7 +611,7 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
 
     p_2->cd();
     TLine* line;
-    g_pull->Draw("P"); 
+    g_pull->Draw("P");    
     if (flag_MMR) {
         line= new TLine(350, 0, 1200, 0);
     }
@@ -582,12 +630,12 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         c1->SaveAs(Form("interpolation_yield_LMR_%d.pdf",range));
         c1->SaveAs(Form("interpolation_yield_LMR_%d.png",range));   
     }
-    
+
+
     for (unsigned i = 0; i<nPoints; i++) {
         
         std::string mass_string= itoa(mass[i]);
-        std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
-        
+        std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt"; 
         std::ifstream file(filename.c_str(), ios::in);
         
         bool found= false;
@@ -616,10 +664,92 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
             }
             lMarker++;
         }
-        gSystem->Exec(Form("sed -i 's/.*rate.*/rate                  %f %f/g' %s_%d_%s/datacard_%d_%s.txt", interpol[i], background_temp, dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
+        gSystem->Exec(Form("sed -i 's/.*rate.*/rate            %f   %f   %f /g' %s_%d_%s/datacard_%d_%s.txt", interpol[i], background_temp,interpol[i], dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
     }
     cout<<"end"<<endl;
 
+    //Interpolate bias
+    TCanvas *c3 = new TCanvas("canvas","canvas",700,700);
+    c3->SetGrid();
+    double xPad_bias = 0.0;
+    TPad *p_3=new TPad("p_3", "p_3", 0, 0, 1, 1);
+    p_3->SetFillStyle(4000);
+    p_3->SetFrameFillColor(0);
+    p_3->SetBottomMargin(0.035);  
+    p_3->Draw();
+    
+    TH1F* hr_3;
+    TH1F* hr_4;
+    if (flag_MMR) {
+        if (range==1){hr_3 = c3->DrawFrame(400,-0.5,1200,0.5);}
+        else{hr_3 = c3->DrawFrame(400,0.5,1200,0.5);}
+        hr_3->SetTitle("Interpolation of bias in MMR");
+    } else {
+        if (range==1){hr_3 = c3->DrawFrame(250,-0.5,370,0.5);}
+        else{hr_3 = c3->DrawFrame(250,-0.5,650,0.5);}
+        hr_3->SetTitle("Interpolation of bias in LMR");
+    }
+    hr_3->SetXTitle("m_X (GeV)");
+    hr_3->GetYaxis()->SetTitleOffset(1.2);
+    hr_3->SetYTitle("Bias");
+    c3->GetFrame()->SetBorderSize(12);
+    
+    TGraphErrors* g_signal_0_bias = new TGraphErrors(nPoints_0, &(mass_0[0]), signal_0_bias);
+    g_signal_0_bias->SetMarkerColor(kRed);
+    g_signal_0_bias->SetMarkerStyle(21);
+    g_signal_0_bias->SetLineColor(0);
+    g_signal_0_bias->Draw("P");
+    
+    //Code for Spline  
+    for (unsigned i = 0; i<nPoints_0; i++) {
+            sp_bias_0[i]= signal_0_bias[i];
+    }
+    sp_bias = new TSpline3("Spline_bias", &(mass_0[0]), sp_bias_0, nPoints_0, "b2e2", 0, 0);
+    sp_bias->SetLineColor(kGreen+2);   
+    for (unsigned i = 0; i<nPoints; i++) {
+            interpol_bias_0[i]=sp_bias->Eval(mass[i]);
+    }    
+
+    TGraphErrors* g_signal_2_bias = new TGraphErrors(nPoints, &(mass[0]), interpol_bias_0);
+    g_signal_2_bias->SetMarkerColor(kBlue);
+    g_signal_2_bias->SetMarkerStyle(20);
+    g_signal_2_bias->SetLineColor(0);
+    g_signal_2_bias->Draw("P");
+    g_signal_0_bias->Draw("P");
+    sp_bias->Draw("lsame");    
+    
+    TLegend *leg_bias=new TLegend(0.2, 0.65, 0.65, 0.85);
+    leg_bias->SetFillStyle(1); leg_bias->SetFillColor(kWhite);
+    leg_bias->AddEntry(g_signal_0_bias, "Bias for MC masses", "lep");
+    leg_bias->AddEntry(g_signal_2_bias, "Interpolation", "lep");
+    leg_bias->AddEntry(sp_bias, "Spline Interpolation", "l");    
+    leg_bias->SetFillColor(kWhite);
+    leg_bias->SetFillStyle(0);
+    leg_bias->SetTextSize(0.03);
+    leg_bias->SetTextFont(42);
+    leg_bias->SetBorderSize(0);
+    leg_bias->Draw();
+         
+    if (flag_MMR) {
+        c3->SaveAs("interpolation_bias_MMR.pdf");
+        c3->SaveAs("interpolation_bias_MMR.png");
+        
+    } else {
+        c3->SaveAs(Form("interpolation_bias_LMR_%d.pdf",range));
+        c3->SaveAs(Form("interpolation_bias_LMR_%d.png",range));   
+    }
+
+    //Change the bias value in datacards
+    for (unsigned i = 0; i<nPoints; i++) {
+        if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){ continue;}
+        std::string mass_string= itoa(mass[i]);
+        std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";    
+        gSystem->Exec(Form("sed -i 's/shapeBkg_signal_bkg_HbbHbb__norm.*param.*/shapeBkg_signal_bkg_HbbHbb__norm param  0.0 %f /g' %s_%d_%s/datacard_%d_%s.txt", interpol_bias_0[i], dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
+    }
+    cout<<"end"<<endl;
+
+
+    //Interpolate Systematics
     TCanvas *c2[NumOfSyst];
     TPad *p_syst1[NumOfSyst];
     TPad *p_syst2[NumOfSyst];
@@ -678,9 +808,6 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
                     case 3: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,600,1.10); break;
                     case 4: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,600,1.10); break;
                 }
-
-                //h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,600,1.10);
-
             }
             h_syst_1[syst_num]->SetTitle(Form("Interpolation of %s in LMR",name_syst[syst_num].c_str()));
         }
@@ -810,30 +937,19 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
             c2[syst_num]->SaveAs(Form("%s_interpolation_LMR_%d.pdf", name_syst[syst_num].c_str(), range));
             c2[syst_num]->SaveAs(Form("%s_interpolation_LMR_%d.png", name_syst[syst_num].c_str(), range));
         }
-        
-        for (unsigned i = 0; i<nPoints; i++) {
+
+        //Change the systematics value in the datacards
+        for (unsigned i = 0; i<nPoints; i++){
             if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){ continue;}
             std::string mass_string= itoa(mass[i]);
             std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
-            gSystem->Exec(Form("sed -i 's/%s.*lnN.*/%s      lnN     %f    -/g' %s_%d_%s/datacard_%d_%s.txt", name_syst[syst_num].c_str(), name_syst[syst_num].c_str(), interpol_syst_0[syst_num][i], dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
-
+            gSystem->Exec(Form("sed -i 's/%s.*lnN.*/%s      lnN     %f    -    -  /g' %s_%d_%s/datacard_%d_%s.txt", name_syst[syst_num].c_str(), name_syst[syst_num].c_str(), interpol_syst_0[syst_num][i], dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
         }
-        
+
     }
+
 }
 
-
-//================================================================================
-
-Double_t straight_line(Double_t *x, Double_t *par)
-{
-    Double_t m,q; // Exponential slope
-    
-    q = par[0];
-    m = par[1];
-    
-    return q + m*x[0];
-}
 
 //================================================================================
 

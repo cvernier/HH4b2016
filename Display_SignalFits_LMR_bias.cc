@@ -439,7 +439,7 @@ RooPlot* fitSignal(TH1F *h, std::string mass, int color, TLegend *leg, Params &p
   RooRealVar signal_p1_1("signal_p1_1", "signal_p1_1", sg_p1->getVal());
   RooRealVar signal_p2_1("signal_p2_1", "signal_p2_1", sg_p2->getVal());
   RooRealVar signal_p3_1("signal_p3_1", "signal_p3_1", sg_p3->getVal());
-  RooRealVar signal_p4_1("signal_p4_1", "signal_p4v", sg_p4->getVal());
+  RooRealVar signal_p4_1("signal_p4_1", "signal_p4_1", sg_p4->getVal());
   RooGaussian signalCore_fixed_1("signalCore_fixed_1", "Signal Prediction", *x, signal_p0_1, signal_p1_1);
   RooGaussian signalComb_fixed_1("signalComb_fixed_1", "Combinatoric", *x, signal_p2_1, signal_p3_1);
   RooAddPdf signal_bkg("signal_bkg", "signal", RooArgList(signalCore_fixed_1, signalComb_fixed_1), signal_p4_1);
@@ -693,21 +693,21 @@ int Display_SignalFits_LMR_bias(std::string dir_preselection="PreselectedWithReg
   double bias;
   if(range==1){
 	switch(_mass){
-		case 260: bias=-0.06; break;
-		case 270: bias=-0.110; break;
-		case 300: bias=-0.192; break;
+		case 260: bias=0.1464; break;
+		case 270: bias=0.1360; break;
+		case 300: bias=-0.2192; break;
 		default: break;
 	}
   }
   else{
 	switch(_mass){
-		case 300: bias=0.036; break;
-		case 350: bias=-0.069; break;
-		case 400: bias=0.014; break;
-		case 450: bias=0.029; break;
-		case 500: bias=-0.002; break;
-		case 550: bias=-0.010; break;
-		case 600: bias=-0.019; break;
+		case 300: bias=0.0154; break;
+		case 350: bias=-0.0224; break;
+		case 400: bias=0.0182; break;
+		case 450: bias=0.0130; break;
+		case 500: bias=0.0029; break;
+		case 550: bias=-0.0092; break;
+		case 600: bias=-0.0035; break;
 		default: break;
 	}
   }
@@ -1096,4 +1096,5 @@ int Display_SignalFits_LMR_bias(std::string dir_preselection="PreselectedWithReg
 
 return 0;
 }
+
 
