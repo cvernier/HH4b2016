@@ -773,25 +773,25 @@ int Display_SignalFits_bias(std::string dir_preselection="PreselectedWithRegress
   double bias;
   if(range==1){
 	switch(_mass){
-		case 550: bias=0.0297; break;
-                case 600: bias=-0.1081; break;
-                case 650: bias=0.1698; break;
-                case 750: bias=-0.2380; break;
-                case 800: bias=-0.1523; break;
-                case 900: bias=-0.0907; break;
-                case 1000: bias=0.0297; break;
+		case 550: bias=0.215; break;
+                case 600: bias=0.057; break;
+                case 650: bias=-0.078; break;
+                case 750: bias=-0.203; break;
+                case 800: bias=-0.130; break;
+                case 900: bias=-0.044; break;
+                case 1000: bias=0.050; break;
                 default: break;
 	}
   }
   else{
 	switch(_mass){
-                case 550: bias=-0.0396; break;
-                case 600: bias=0.0950; break;
-                case 650: bias=0.1535; break;
-                case 750: bias=-0.1249; break;
-                case 800: bias=-0.1706; break;
-                case 900: bias=-0.1212; break;
-                case 1000: bias=0.0359; break;
+                case 550: bias=0.215; break;
+                case 600: bias=0.057; break;
+                case 650: bias=-0.078; break;
+                case 750: bias=-0.203; break;
+                case 800: bias=-0.130; break;
+                case 900: bias=-0.044; break;
+                case 1000: bias=0.050; break;
 		default: break;
 	}
   }

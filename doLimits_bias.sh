@@ -39,8 +39,8 @@ for m in ${massesLMR[@]}
 do
     if [ $cleanUp -eq 0 ]; then
 	echo  'LMR' $m $function_LMR $range_LMR $location $range_num_LMR 
-        source doBuildInputsLMR_bias.sh $m $function_LMR $range_LMR $location $range_num_LMR
-        source doDatacardsLMR_bias.sh $m $function_LMR $range_LMR $range_num_LMR
+        ./doBuildInputsLMR_bias.sh $m $function_LMR $range_LMR $location $range_num_LMR
+        ./doDatacardsLMR_bias.sh $m $function_LMR $range_LMR $range_num_LMR
     fi
     
     if [ $cleanUp -eq 1 ]; then
@@ -53,7 +53,7 @@ done
 if [ $range_num_MMR -eq 1 ];
         then
 	massesMMR=(550 600 650 750 800 900 1000)
-        else massesMMR=() #550 600 650 750 800 900 1000)
+        else massesMMR=()
 fi
 
 cleanUp=0
@@ -77,8 +77,8 @@ for m in ${massesMMR[@]}
 do
     if [ $cleanUp -eq 0 ]; then
         echo  'MMR' $m $function_MMR $range_MMR $location $range_num_MMR 
-        source doBuildInputs_bias.sh $m $function_MMR $range_MMR $location $range_num_MMR
-        source doDatacards_bias.sh $m $function_MMR $range_MMR $range_num_MMR
+        ./doBuildInputs_bias.sh $m $function_MMR $range_MMR $location $range_num_MMR
+        ./doDatacards_bias.sh $m $function_MMR $range_MMR $range_num_MMR
     fi
 
     if [ $cleanUp -eq 1 ]; then

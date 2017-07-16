@@ -5,7 +5,6 @@ root -l -b -q "InterpolateSignal.C(\"gaus_exp\", \"250_330\",1, 0)"
 rm InterpolateSignal.C
 cd -
 
-
 echo "LMR 2"
 cp InterpolateSignal.C PreselectedWithRegressionDeepCSV/limits/LMR/
 cd PreselectedWithRegressionDeepCSV/limits/LMR/
@@ -20,9 +19,8 @@ root -l -b -q "InterpolateSignal.C(\"novo\", \"550_1200\",1, 1)"
 rm InterpolateSignal.C
 cd -
 
-source runLimits_Interpolation.sh gaus_exp 250_330 novo 550_1200 1
-source runLimits_Interpolation.sh novo 285_625 novo 550_1200 2
-
+./runLimits_Interpolation.sh gaus_exp 250_330 novo 550_1200 1
+./runLimits_Interpolation.sh novo 285_625 novo 550_1200 2
 
 echo "LMR"
 cp drawLimits_LMR_interpolated.c PreselectedWithRegressionDeepCSV/limits/LMR/
@@ -41,4 +39,3 @@ root -l -b -q drawLimits_MMR_interpolated.c
 rm -fr drawLimits_MMR_interpolated.c 
 rm -fr DrawLimitPlot.cc
 cd -
-

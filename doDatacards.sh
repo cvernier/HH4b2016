@@ -13,6 +13,7 @@ pdfLogName="pdf.log"
 sigLogName="signal"${mass}"_sig.log"
 trgLogName="PDFs/trig.log"
 
+
 sig_norm=`grep 'norm =' ${dirName}/${sigLogName}| awk '{print $3/50}'`
 jec_norm=`grep 'JEC     lnN' ${dirName}/${sigLogName} | awk '{print $3}'`
 jer_norm=`grep 'JER     lnN' ${dirName}/${sigLogName} | awk '{print $3}'`
