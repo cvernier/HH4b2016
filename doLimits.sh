@@ -11,8 +11,8 @@ function show_help {
 
 if [ $5 -eq 1 ]; 
 	then
-	massesLMR=() #260 270 300 350)
-	else massesLMR=(650) #270 300 350 400 450 500 550 600 650)
+	massesLMR=(260 270 300 350)
+	else massesLMR=(270 300 350 400 450 500 550 600 650)
 fi
 cleanUp=0
 #rebin=10
@@ -36,8 +36,8 @@ for m in ${massesLMR[@]}
 do
     if [ $cleanUp -eq 0 ]; then
 	echo  'LMR' $function_LMR $range_LMR
-        ./doBuildInputsLMR.sh $m $function_LMR $range_LMR $7
-        ./doDatacardsLMR.sh $m $function_LMR $range_LMR
+        source doBuildInputsLMR.sh $m $function_LMR $range_LMR $7
+        source doDatacardsLMR.sh $m $function_LMR $range_LMR
     fi
     
     if [ $cleanUp -eq 1 ]; then
@@ -74,8 +74,8 @@ for m in ${massesMMR[@]}
 do
     if [ $cleanUp -eq 0 ]; then
         echo  'MMR' $function_MMR $range_MMR
-        ./doBuildInputs.sh $m $function_MMR $range_MMR $7
-        ./doDatacards.sh $m $function_MMR $range_MMR
+        source doBuildInputs.sh $m $function_MMR $range_MMR $7
+        source doDatacards.sh $m $function_MMR $range_MMR
     fi
 
     if [ $cleanUp -eq 1 ]; then

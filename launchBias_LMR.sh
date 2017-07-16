@@ -12,9 +12,9 @@
   background_LMR_2="_${function_LMR_2}_${range_LMR_2}"
   if [ $5 -eq 1 ];
           then
-          masses_LMR=() #260 270 300)  
-          strenght_LMR=() #0.0 0.6 1.0) 
-          else masses_LMR=(400)  #270 300 350 450 500 550 600)
+          masses_LMR=(260 270 300)  
+          strenght_LMR=(0.0 0.6 1.0) 
+          else masses_LMR=(270 300 350 400 450 500 550 600)
           strenght_LMR=(0.0 0.1 0.2 0.3 0.6)
   fi
   
