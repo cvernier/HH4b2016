@@ -780,6 +780,7 @@ int Display_SignalFits_bias(std::string dir_preselection="PreselectedWithRegress
                 case 800: bias=-0.130; break;
                 case 900: bias=-0.044; break;
                 case 1000: bias=0.050; break;
+                case 1200: bias=0.077; break;
                 default: break;
 	}
   }
@@ -792,6 +793,7 @@ int Display_SignalFits_bias(std::string dir_preselection="PreselectedWithRegress
                 case 800: bias=-0.130; break;
                 case 900: bias=-0.044; break;
                 case 1000: bias=0.050; break;
+                case 1200: bias=0.077; break; 
 		default: break;
 	}
   }
@@ -950,8 +952,7 @@ int Display_SignalFits_bias(std::string dir_preselection="PreselectedWithRegress
   plot->Draw("same");
   leg->SetFillColor(0);
   leg->Draw();
-  c_mX_SR->SaveAs((dest_dir+"/"+"SignalFits"+reg+"/c_mX_SR_"+masses.at(i)+".png").c_str());
-  
+  c_mX_SR->SaveAs((dest_dir+"/"+"SignalFits"+reg+"/c_mX_SR_"+masses.at(i)+".png").c_str());  
 
 
   double xPad = 0.3;
