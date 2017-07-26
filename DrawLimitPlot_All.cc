@@ -250,9 +250,9 @@ void DrawLimitPlot_All(std::vector<double> mass_1,
 		gStyle->SetTitleFillColor(10);
 		gStyle->SetTitleFontSize(0.05);
 
-    writeExtraText = true;       
-	extraText  = "Preliminary";  
-	lumi_13TeV  = "35.9 fb^{-1}";
+        writeExtraText = true;       
+	    extraText  = "Preliminary";  
+	    lumi_13TeV  = "35.9 fb^{-1}";
 
 	// LMR1 definitions
 	const unsigned int nPoints_1=mass_1.size();
@@ -266,7 +266,7 @@ void DrawLimitPlot_All(std::vector<double> mass_1,
 	double obs_2[nPoints_2];
 	double expNeg2_2[nPoints_2], expNeg1_2[nPoints_2], expPos1_2[nPoints_2], expPos2_2[nPoints_2];
 	double norm_2=1000;
-
+	// MMR1 definitions
 	const unsigned int nPoints_3=mass_3.size();
 	double xsec_3[nPoints_3], xsecNeg1_3[nPoints_3], xsecPos1_3[nPoints_3], xsecNeg2_3[nPoints_3], xsecPos2_3[nPoints_3];
 	double obs_3[nPoints_3];
@@ -471,7 +471,7 @@ std::vector<double> br_hh={
 	0.2618915924170746,	
 	0.054417137017588976};
 
-
+/*
 // Multiply graviton x-sec with appropriate Br(G->HH)*Br(H->bb)^2 * (k'/k)^2
 for(int i=0; i<masses_graviton.size(); ++i) 
 {
@@ -483,6 +483,7 @@ for(int i=0; i<masses_radion.size(); ++i)
 {
 	x_radion[i]=x_radion[i]*0.23*(0.57*0.57)*1000.; 
 }
+*/
 
 // Graviton curve from github
 std::vector<double> masses_graviton_new={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
@@ -490,10 +491,13 @@ std::vector<double> x_graviton_new={6.87e+00, 1.36e+02, 2.32e+02, 1.23e+02, 5.73
 //Radion curve from github
 std::vector<double> masses_radion_new={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
 std::vector<double> x_radion_new={7.64e+03, 7.13e+03, 2.92e+03, 1.50e+03, 9.08e+02, 5.84e+02, 4.74e+02, 3.93e+02, 2.70e+02, 1.90e+02, 1.38e+02, 1.01e+02, 7.38e+01, 5.39e+01, 3.93e+01};
-
+//Radion curve divided by 9 from github
+std::vector<double> masses_radion_new2={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
+std::vector<double> x_radion_new2={848.88, 792.22, 324.44, 166.66, 100.88, 64.88, 52.66, 43.66, 30.0, 21.11, 15.33, 11.22, 8.20, 5.98, 4.36};
 
 TGraph *g_graviton=new TGraph(masses_graviton_new.size(), &(masses_graviton_new[0]), &(x_graviton_new[0])); g_graviton->SetLineWidth(2); g_graviton->SetLineColor(kBlue+1); g_graviton->SetFillColor(kWhite);
 TGraph *g_radion=new TGraph(masses_radion_new.size(), &(masses_radion_new[0]), &(x_radion_new[0])); g_radion->SetLineWidth(2); g_radion->SetLineColor(kBlue+1); g_radion->SetFillColor(kWhite);
+TGraph *g_radion2=new TGraph(masses_radion_new2.size(), &(masses_radion_new2[0]), &(x_radion_new2[0])); g_radion2->SetLineWidth(2); g_radion2->SetLineColor(kBlue+1); g_radion->SetFillColor(kWhite);
 TStyle *tdrStyle=setTDRStyle();
 gROOT->SetStyle("Plain");
 
@@ -508,9 +512,9 @@ g_xsec_1sigma_1->SetFillColorAlpha(kGreen+3,0.5);
 TGraphAsymmErrors *g_xsec_2sigma_1=new TGraphAsymmErrors(nPoints_1, &(mass_1[0]), xsec_1, 0, 0, expNeg2_1, expPos2_1);
 g_xsec_2sigma_1->SetLineColorAlpha(kYellow+3,0.5);
 g_xsec_2sigma_1->SetFillColorAlpha(kYellow+3,0.5);
-//TGraph *g_obs=new TGraph(nPoints, &(mass[0]), obs);
-//g_obs->SetLineWidth(2);
-//g_obs->SetLineStyle(1);
+TGraph *g_obs_1=new TGraph(nPoints_1, &(mass_1[0]), obs_1);
+g_obs_1->SetLineWidth(2);
+g_obs_1->SetLineStyle(1);
 
 // LMR2 flag 
 TGraphErrors *g_xsec_2=new TGraphErrors(nPoints_2, &(mass_2[0]), xsec_2);
@@ -523,9 +527,9 @@ g_xsec_1sigma_2->SetFillColorAlpha(kGreen+1, 0.5);
 TGraphAsymmErrors *g_xsec_2sigma_2=new TGraphAsymmErrors(nPoints_2, &(mass_2[0]), xsec_2, 0, 0, expNeg2_2, expPos2_2);
 g_xsec_2sigma_2->SetLineColorAlpha(kYellow+1, 0.5);
 g_xsec_2sigma_2->SetFillColorAlpha(kYellow+1, 0.5);
-//TGraph *g_obs=new TGraph(nPoints, &(mass[0]), obs);
-//g_obs->SetLineWidth(2);
-//g_obs->SetLineStyle(1);
+TGraph *g_obs_2=new TGraph(nPoints_2, &(mass_2[0]), obs_2);
+g_obs_2->SetLineWidth(2);
+g_obs_2->SetLineStyle(1);
 
 // MMR flag 
 TGraphErrors *g_xsec_3=new TGraphErrors(nPoints_3, &(mass_3[0]), xsec_3);
@@ -538,20 +542,19 @@ g_xsec_1sigma_3->SetFillColorAlpha(kGreen, 0.5);
 TGraphAsymmErrors *g_xsec_2sigma_3=new TGraphAsymmErrors(nPoints_3, &(mass_3[0]), xsec_3, 0, 0, expNeg2_3, expPos2_3);
 g_xsec_2sigma_3->SetLineColorAlpha(kYellow, 0.5);
 g_xsec_2sigma_3->SetFillColorAlpha(kYellow, 0.5);
-//TGraph *g_obs=new TGraph(nPoints, &(mass[0]), obs);
-//g_obs->SetLineWidth(2);
-//g_obs->SetLineStyle(1);
-
-
+TGraph *g_obs_3=new TGraph(nPoints_2, &(mass_3[0]), obs_3);
+g_obs_3->SetLineWidth(2);
+g_obs_3->SetLineStyle(1);
 
 TCanvas *c_xsec=new TCanvas("c_xsec", "c_xsec", 1000, 700);
 c_xsec->SetLogy();
-c_xsec->SetGridx(1); c_xsec->SetGridy(1);
+//c_xsec->SetGridx(1); 
+//c_xsec->SetGridy(1);
 g_xsec_2->SetMaximum(ymax); g_xsec_2->SetMinimum(ymin);
 g_xsec_2->Draw("AL");
 g_xsec_2sigma_2->Draw("3");
 g_xsec_1sigma_2->Draw("3");
-g_xsec_2->GetXaxis()->SetLimits(200,1250);
+g_xsec_2->GetXaxis()->SetLimits(260,1200);
 g_xsec_2->Draw("L");
 g_xsec_1->DrawClone("L same");
 g_xsec_2sigma_1->DrawClone("3 same");
@@ -563,8 +566,17 @@ g_xsec_1sigma_3->DrawClone("3same");
 g_xsec_3->Draw("L same");
 g_graviton->Draw("C same");
 //g_radion->Draw("C same");
-//g_obs_1->SetMarkerStyle(20);	
-//g_obs_1->Draw("LP SAME");
+//g_radion2->Draw("C same");
+
+g_obs_1->SetMarkerStyle(20);
+g_obs_1->SetMarkerColor(kBlack);	
+g_obs_1->Draw("CP SAME");
+g_obs_2->SetMarkerStyle(20);
+g_obs_2->SetMarkerColor(kRed);	
+g_obs_2->Draw("CP SAME");
+g_obs_3->SetMarkerStyle(20);
+g_obs_3->SetMarkerColor(kBlue);	
+g_obs_3->Draw("CP SAME");
 c_xsec->Update();
 
 TLegend *leg=new TLegend(0.45, 0.65, 0.90, 0.85);
@@ -576,9 +588,10 @@ leg->AddEntry(g_xsec_1sigma_2, "Expected #pm 1 #sigma (LMR [285,625] GeV)", "F")
 leg->AddEntry(g_xsec_2sigma_2, "Expected #pm 2 #sigma (LMR [285,625] GeV)", "F");
 leg->AddEntry(g_xsec_1sigma_3, "Expected #pm 1 #sigma (MMR [550,1200] GeV)", "F");
 leg->AddEntry(g_xsec_2sigma_3, "Expected #pm 2 #sigma (MMR [550,1200] GeV)", "F");
-//leg->AddEntry(g_obs, "Observed Upper Limit", "LP");
+leg->AddEntry(g_obs_1, "Observed Upper Limit", "LP");
 leg->AddEntry(g_graviton,"Bulk Graviton k=0.1","L");
-//leg->AddEntry(g_radion,"Bulk Radion #lambda= 1 TeV, kl=35","L");	
+//leg->AddEntry(g_radion,"Bulk Radion #lambda= 1 TeV, kl=35","L");
+//leg->AddEntry(g_radion2,"Bulk Radion #lambda= 3 TeV, kl=35","L");	
 leg->SetFillColor(kWhite);
 leg->SetFillStyle(0);
 leg->SetTextSize(0.03);
@@ -591,7 +604,9 @@ c_xsec->SaveAs("UpperLimit_all.png");
 c_xsec->SaveAs("UpperLimit_all.root");
 
 TFile *file=new TFile("UpperLimits_xsec_all.root", "RECREATE");
-//g_obs_1->Write("g_obs");
+g_obs_1->Write("g_obs_1");
+g_obs_2->Write("g_obs_2");
+g_obs_3->Write("g_obs_3");
 g_xsec_1->Write("g_xsec_1");
 g_xsec_1sigma_1->Write("g_xsec_1sigma_1");
 g_xsec_2sigma_1->Write("g_xsec_2sigma_1");
@@ -602,6 +617,4 @@ g_xsec_3->Write("g_xsec_3");
 g_xsec_1sigma_3->Write("g_xsec_1sigma_3");
 g_xsec_2sigma_3->Write("g_xsec_2sigma_3");
 file->Close();
-
 }
-
