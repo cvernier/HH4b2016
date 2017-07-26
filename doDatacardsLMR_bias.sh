@@ -24,11 +24,11 @@ bkg_norm=`grep ' Background number of '${function}_${range}' = ' ${dirName}/${bg
 if [ $4 -eq 1 ];
         then
 	case "$mass" in
-	260) bias=-0.041;; 270) bias=-0.075;;	300) bias=-0.056;;
+	260) bias=-0.033;; 270) bias=-0.071;;	300) bias=-0.050;;
 	esac
 	else 
         case "$mass" in
-	300) bias=0.037;; 350) bias=0.006;; 400) bias=-0.001;; 450) bias=-0.003;; 500) bias=-0.003;; 550) bias=-0.004;; 600) bias=0.001;;
+	300) bias=0.038;; 350) bias=0.005;; 400) bias=0.0;; 450) bias=-0.003;; 500) bias=-0.002;; 550) bias=-0.003;; 600) bias=0.002;;
         esac
 fi
 
