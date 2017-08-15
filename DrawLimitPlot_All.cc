@@ -273,7 +273,7 @@ void DrawLimitPlot_All(std::vector<double> mass_1,
 	double expNeg2_3[nPoints_3], expNeg1_3[nPoints_3], expPos1_3[nPoints_3], expPos2_3[nPoints_3];
 	double norm_3=2;	
 
-    // LMR1 LOOP
+        // LMR1 LOOP
 	for (unsigned int i=0; i<nPoints_1; ++i)
 	{
 		std::string mass_string_1=itoa(mass_1[i]);
@@ -299,9 +299,10 @@ void DrawLimitPlot_All(std::vector<double> mass_1,
 		expNeg1_1[i]=xsec_1[i]-xsecNeg1_1[i];
 		expPos1_1[i]=xsecPos1_1[i]-xsec_1[i];
 		expPos2_1[i]=xsecPos2_1[i]-xsec_1[i];
+                cout<<mass_string_1<<" "<<obs_1[i]<<" & "<<xsec_1[i]<<" & "<<expNeg1_1[i]<<" & "<<expPos1_1[i]<<" \\\\"<<endl; 
 	}
 
-    // LMR2 LOOP
+        // LMR2 LOOP
 	for (unsigned int i=0; i<nPoints_2; ++i)
 	{
 		std::string mass_string_2=itoa(mass_2[i]);
@@ -327,9 +328,12 @@ void DrawLimitPlot_All(std::vector<double> mass_1,
 		expNeg1_2[i]=xsec_2[i]-xsecNeg1_2[i];
 		expPos1_2[i]=xsecPos1_2[i]-xsec_2[i];
 		expPos2_2[i]=xsecPos2_2[i]-xsec_2[i];
+                cout<<mass_string_2<<" "<<obs_2[i]<<" & "<<xsec_2[i]<<" & "<<expNeg1_2[i]<<" & "<<expPos1_2[i]<<" \\\\"<<endl;
+
+
 	}	
 
-    // MMR1 LOOP
+        // MMR1 LOOP
 	for (unsigned int i=0; i<nPoints_3; ++i)
 	{
 		std::string mass_string_3=itoa(mass_3[i]);
@@ -355,6 +359,7 @@ void DrawLimitPlot_All(std::vector<double> mass_1,
 		expNeg1_3[i]=xsec_3[i]-xsecNeg1_3[i];
 		expPos1_3[i]=xsecPos1_3[i]-xsec_3[i];
 		expPos2_3[i]=xsecPos2_3[i]-xsec_3[i];
+                cout<<mass_string_3<<" "<<obs_3[i]<<" & "<<xsec_3[i]<<" & "<<expNeg1_3[i]<<" & "<<expPos1_3[i]<<" \\\\"<<endl;
 	}
 
 	// Graviton curve
@@ -485,13 +490,13 @@ for(int i=0; i<masses_radion.size(); ++i)
 }
 */
 
-// Graviton curve from github
+// Graviton curve K=0.1 from github reference (scale from 0.5 to 0.1)
 std::vector<double> masses_graviton_new={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
-std::vector<double> x_graviton_new={6.87e+00, 1.36e+02, 2.32e+02, 1.23e+02, 5.73e+01, 2.84e+01, 2.04e+01, 1.50e+01, 8.16e+00, 4.74e+00, 3.00e+00, 1.90e+00, 1.20e+00, 7.63e-01, 4.83e-01};
-//Radion curve from github
+std::vector<double> x_graviton_new={0.2748, 5.44, 9.28, 4.92, 2.29, 1.14, 0.08, 0.6, 0.33, 0.19, 0.12, 0.08, 0.05, 0.03, 0.02};
+//Radion curve from github reference
 std::vector<double> masses_radion_new={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
 std::vector<double> x_radion_new={7.64e+03, 7.13e+03, 2.92e+03, 1.50e+03, 9.08e+02, 5.84e+02, 4.74e+02, 3.93e+02, 2.70e+02, 1.90e+02, 1.38e+02, 1.01e+02, 7.38e+01, 5.39e+01, 3.93e+01};
-//Radion curve divided by 9 from github
+//Radion curve divided by 9 from github reference
 std::vector<double> masses_radion_new2={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
 std::vector<double> x_radion_new2={848.88, 792.22, 324.44, 166.66, 100.88, 64.88, 52.66, 43.66, 30.0, 21.11, 15.33, 11.22, 8.20, 5.98, 4.36};
 
@@ -579,7 +584,7 @@ g_obs_3->SetMarkerColor(kBlue);
 g_obs_3->Draw("CP SAME");
 c_xsec->Update();
 
-TLegend *leg=new TLegend(0.45, 0.65, 0.90, 0.85);
+TLegend *leg=new TLegend(0.45, 0.55, 0.90, 0.85);
 leg->SetFillStyle(1); leg->SetFillColor(kWhite);
 leg->AddEntry(g_xsec_1, "Expected Upper Limit", "L");
 leg->AddEntry(g_xsec_1sigma_1, "Expected #pm 1 #sigma (LMR [250,330] GeV)", "F");
@@ -601,6 +606,7 @@ leg->Draw();
 CMS_lumi( c_xsec, iPeriod, iPos );
 c_xsec->Update();
 c_xsec->SaveAs("UpperLimit_all.png");
+c_xsec->SaveAs("UpperLimit_all.pdf");
 c_xsec->SaveAs("UpperLimit_all.root");
 
 TFile *file=new TFile("UpperLimits_xsec_all.root", "RECREATE");

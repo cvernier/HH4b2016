@@ -28,7 +28,7 @@ if [ $4 -eq 1 ];
 	esac
 	else 
         case "$mass" in
-	300) bias=0.038;; 350) bias=0.005;; 400) bias=0.0;; 450) bias=-0.003;; 500) bias=-0.002;; 550) bias=-0.003;; 600) bias=0.002;;
+	300) bias=0.038;; 350) bias=0.005;; 400) bias=0.0001;; 450) bias=-0.003;; 500) bias=-0.002;; 550) bias=-0.003;; 600) bias=0.002;;
         esac
 fi
 
@@ -72,7 +72,6 @@ EOF
 
 
 #now add the systematics to the card
-#grep 'sg_' ${dirName}/${sigLogName} | grep ' param ' >> ${dirName}/${dcardName}
 grep 'par_'${function}'_' ${dirName}/${bgLogName} | grep ' param ' >> ${dirName}/${dcardName}
 
 cards+="${dirName}/${dcardName} "

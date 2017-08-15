@@ -257,8 +257,6 @@ void DrawLimitPlot(std::vector<double> mass, double ymin, double ymax, std::stri
 	double xsec[nPoints], xsecNeg1[nPoints], xsecPos1[nPoints], xsecNeg2[nPoints], xsecPos2[nPoints];
 	double obs[nPoints];
 	double expNeg2[nPoints], expNeg1[nPoints], expPos1[nPoints], expPos2[nPoints];
-	// double mass[nPoints]={400, 600, 800, 1000, 1200};
-	// double mass[nPoints]={400, 450, 500, 550, 600, 650, 700, 800, 900, 1000, 1100};
 
 	for (unsigned int i=0; i<nPoints; ++i)
 	{
@@ -270,9 +268,6 @@ void DrawLimitPlot(std::vector<double> mass, double ymin, double ymax, std::stri
 		std::ifstream file(filename.c_str(), ios::in);
 		std::cout<<"Opened file "<<filename<<std::endl;
 		std::string line;
-//		getline(file, line);
-//		getline(file, line);
-//		getline(file, line);
                 bool found= false;
 
                 while (!found && !file.eof() && !gSystem->AccessPathName(filename.c_str())) {

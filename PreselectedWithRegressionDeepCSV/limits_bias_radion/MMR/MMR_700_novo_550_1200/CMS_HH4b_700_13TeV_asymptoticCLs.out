@@ -1,0 +1,40 @@
+>>> including systematics
+>>> method used to compute upper limit is Asymptotic
+>>> random number generator seed is 123456
+[?1034hComputing limit starting from observation
+Will compute both limit(s) using minimizer Minuit2 with strategy 0 and tolerance 0.01
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Median for expected limits: 13.0625
+Sigma  for expected limits: 6.66466
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Restricting r to positive values.
+
+Make global fit of real data
+NLL at global minimum of data: 7.40867 (r = 4.94833e-05)
+
+Make global fit of asimov data
+NLL at global minimum of asimov: -0.147155 (r = 4.58951e-05)
+At r = 7.391498:	q_mu = 3.27399	q_A  = 1.30861	CLsb = 0.02259	CLb  = 0.19516	CLs  = 0.11575
+At r = 14.782995:	q_mu = 8.51232	q_A  = 4.81683	CLsb = 0.00120	CLb  = 0.19992	CLs  = 0.00598
+At r = 7.391522:	q_mu = 3.27400	q_A  = 1.30861	CLsb = 0.02259	CLb  = 0.19516	CLs  = 0.11575
+At r = 11.087259:	q_mu = 5.68865	q_A  = 2.82665	CLsb = 0.00566	CLb  = 0.19734	CLs  = 0.02870
+At r = 9.171233:	q_mu = 4.38074	q_A  = 1.97577	CLsb = 0.01188	CLb  = 0.19614	CLs  = 0.06055
+At r = 9.947539:	q_mu = 4.89741	q_A  = 2.30524	CLsb = 0.00885	CLb  = 0.19665	CLs  = 0.04499
+At r = 9.571525:	q_mu = 4.64452	q_A  = 2.14266	CLsb = 0.01021	CLb  = 0.19639	CLs  = 0.05201
+At r = 9.728554:	q_mu = 4.74951	q_A  = 2.20986	CLsb = 0.00962	CLb  = 0.19650	CLs  = 0.04897
+At r = 9.653723:	q_mu = 4.69936	q_A  = 2.17770	CLsb = 0.00990	CLb  = 0.19644	CLs  = 0.05040
+At r = 9.685210:	q_mu = 4.72043	q_A  = 2.19120	CLsb = 0.00978	CLb  = 0.19647	CLs  = 0.04979
+
+ -- Asymptotic -- 
+Observed Limit: r < 9.6852
+Expected  2.5%: r < 6.8629
+Expected 16.0%: r < 9.2120
+Expected 50.0%: r < 13.0625
+Expected 84.0%: r < 18.7379
+Expected 97.5%: r < 26.0328
+
+Done in 0.01 min (cpu), 0.01 min (real)

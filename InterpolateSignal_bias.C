@@ -103,26 +103,44 @@ void InterpolateSignal_bias(std::string function, std::string name_range, int ra
     std::string dir, background=function+"_"+name_range;
     double step = 10;
     std::vector<double> masses;
+    std::vector<double> biases;    
     if (flag_MMR) {
         dir = "MMR";
         std::vector<double> masses_temp;
-        if (range==1){masses_temp= {550, 600, 650, 750, 800, 900, 1000, 1200};}
-        else{masses_temp= {550, 600, 650, 750, 800, 900, 1000, 1200};}
+        std::vector<double> biases_temp;        
+        if (range==1){
+            masses_temp= {550, 600, 650, 750, 800, 900, 1000, 1200};
+            biases_temp= {0.170,0.053,-0.062,-0.190,-0.119,-0.033,0.061,0.094};
+        }
+        else{
+            masses_temp= {550, 600, 650, 750, 800, 900, 1000, 1200};
+            biases_temp= {0.170,0.053,-0.062,-0.190,-0.119,-0.033,0.061,0.094};
+        }
         for (unsigned int i = 0 ; i< masses_temp.size(); i++) {
             masses.push_back(masses_temp[i]);
+            biases.push_back(biases_temp[i]);            
         }
     }
     else{
         dir = "LMR";
         std::vector<double> masses_temp;
-        if (range==1){masses_temp= {260, 270, 300, 350};}
-        else{masses_temp= {270, 300, 350, 400, 450, 500, 550, 600, 650};}
+        std::vector<double> biases_temp;        
+        if (range==1){
+            masses_temp= {260, 270, 300, 350};
+            biases_temp= {-0.033,-0.071,-0.049,0.};            
+        }
+        else{
+            masses_temp= {270, 300, 350, 400, 450, 500, 550, 600, 650};
+            biases_temp= {0., 0.038,0.005, 0.0001,-0.003,-0.002,-0.003,0.002, 0.};            
+        }
         for (unsigned int i = 0 ; i< masses_temp.size(); i++) {
             masses.push_back(masses_temp[i]);
+            biases.push_back(biases_temp[i]);
         }
         
     }
     const unsigned int nMCpoints=masses.size();
+
     
     TFile *f[nMCpoints];   
     RooWorkspace* xf[nMCpoints];    
@@ -174,7 +192,7 @@ void InterpolateSignal_bias(std::string function, std::string name_range, int ra
     for (unsigned int i = 0; i!=nMCpoints; ++i ) {
         cout<<"test_10" << endl;
         PDF_mass[i]->Print("t");
-    }
+    } 
 
     // C r e a t e   i n t e r p o l a t i n g   p d f
     // -----------------------------------------------
@@ -188,9 +206,11 @@ void InterpolateSignal_bias(std::string function, std::string name_range, int ra
     
     TCanvas* c[nMCpoints];
     TCanvas* c_tot;
+    TSpline3* s_bias;
     RooPlot* frame1[nMCpoints];
     RooPlot* frame_tot;
-    frame_tot = X->frame() ;
+    frame_tot = X->frame();
+    s_bias = new TSpline3(Form("Spline_bias_%d_%d",flag_MMR,range), &(masses[0]), &(biases[0]), nMCpoints, "b2e2", 0, 0);
     
     for (unsigned int iPoint = 0; iPoint<nMCpoints-1; iPoint++) {
         
@@ -209,10 +229,8 @@ void InterpolateSignal_bias(std::string function, std::string name_range, int ra
         PDF_mass[iPoint+1]->plotOn(frame_tot, LineColor(kBlue)) ;
         cout<< " Interpolate from " << masses[iPoint] << " to " << masses[iPoint+1] << endl;
 
-
         int nPoints = int((masses[iPoint+1]-masses[iPoint])/step);
-        //here bias is the range in which we define the variable in the workspace
-        double bias=1.0;
+
         for (int i=0; i<=nPoints; i++) {
             if (std::find(masses.begin(), masses.end(), int(masses[iPoint]+i*step)) != masses.end()){continue; }            
             alpha.setVal(double(i)/double(nPoints)) ;
@@ -235,7 +253,8 @@ void InterpolateSignal_bias(std::string function, std::string name_range, int ra
             
             RooRealVar *x, *sg_p0, *sg_p1, *sg_p2, *sg_p3,*sg_p4;
             double m=masses[iPoint]+i*step;
-
+            double bias = s_bias->Eval(m);
+            cout<<"This is the RooWorkspace bias: "<<bias<<endl;
             if (flag_MMR) {
                 double rangeHi = 1.1584*m -5.84;
                 double rangeLo = 0.72*m + 98;

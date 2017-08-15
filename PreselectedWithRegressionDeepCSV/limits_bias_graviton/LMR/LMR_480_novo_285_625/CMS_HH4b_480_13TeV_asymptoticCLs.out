@@ -1,0 +1,41 @@
+>>> including systematics
+>>> method used to compute upper limit is Asymptotic
+>>> random number generator seed is 123456
+[?1034hComputing limit starting from observation
+Will compute both limit(s) using minimizer Minuit2 with strategy 0 and tolerance 0.01
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Median for expected limits: 0.0805664
+Sigma  for expected limits: 0.0411061
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Restricting r to positive values.
+
+Make global fit of real data
+NLL at global minimum of data: -723.346 (r = 0.0671997)
+
+Make global fit of asimov data
+NLL at global minimum of asimov: -783.216 (r = 6.59988e-06)
+At r = 1.267200:	q_mu = 175.28932	q_A  = 207.66697	CLsb = 0.00000	CLb  = 0.87919	CLs  = 0.00000
+At r = 0.667200:	q_mu = 81.25625	q_A  = 105.88528	CLsb = 0.00000	CLb  = 0.89899	CLs  = 0.00000
+At r = 0.367200:	q_mu = 31.54706	q_A  = 49.34460	CLsb = 0.00000	CLb  = 0.92042	CLs  = 0.00000
+At r = 0.217200:	q_mu = 10.25285	q_A  = 22.26762	CLsb = 0.00068	CLb  = 0.93535	CLs  = 0.00073
+At r = 0.142200:	q_mu = 2.92143	q_A  = 10.85043	CLsb = 0.04371	CLb  = 0.94349	CLs  = 0.04632
+At r = 0.104700:	q_mu = 0.77486	q_A  = 6.24570	CLsb = 0.18936	CLb  = 0.94726	CLs  = 0.19990
+At r = 0.123450:	q_mu = 1.69396	q_A  = 8.43090	CLsb = 0.09654	CLb  = 0.94543	CLs  = 0.10211
+At r = 0.137000:	q_mu = 2.55216	q_A  = 10.15774	CLsb = 0.05507	CLb  = 0.94403	CLs  = 0.05834
+At r = 0.139782:	q_mu = 2.74706	q_A  = 10.52622	CLsb = 0.04872	CLb  = 0.94374	CLs  = 0.05162
+At r = 0.140835:	q_mu = 2.82247	q_A  = 10.66693	CLsb = 0.04648	CLb  = 0.94363	CLs  = 0.04925
+At r = 0.140354:	q_mu = 2.78793	q_A  = 10.60261	CLsb = 0.04749	CLb  = 0.94368	CLs  = 0.05032
+
+ -- Asymptotic -- 
+Observed Limit: r < 0.1404
+Expected  2.5%: r < 0.0425
+Expected 16.0%: r < 0.0571
+Expected 50.0%: r < 0.0806
+Expected 84.0%: r < 0.1149
+Expected 97.5%: r < 0.1581
+
+Done in 0.00 min (cpu), 0.01 min (real)

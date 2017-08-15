@@ -59,7 +59,7 @@ EOF
 #bkg_norm rateParam HbbHbb 1 ${bkg_norm} 
 
 #now add the systematics to the card
-#grep 'sg_' ${dirName}/${sigLogName} | grep ' param ' >> ${dirName}/${dcardName}
+
 grep 'par_'${function}'_' ${dirName}/${bgLogName} | grep ' param ' >> ${dirName}/${dcardName}
 
 cards+="${dirName}/${dcardName} "

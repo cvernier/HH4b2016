@@ -38,7 +38,7 @@ echo "PDF"
 python PDFSyst.py --mass $1 --location $4> $folder/pdf.log
 mv $dest_dir/w_background$background.root $folder/
 mv $dest_dir/*BackgroundFit_*${background}*.png* $folder/ 
-mv $dest_dir/BackgroundFit_SB_Split* $folder/ 
+mv $dest_dir/BackgroundFit_SR_Split* $folder/ 
 rm -fr $dest_dir/Background*  
 rm -fr $dest_dir/w_background*
 echo "end"

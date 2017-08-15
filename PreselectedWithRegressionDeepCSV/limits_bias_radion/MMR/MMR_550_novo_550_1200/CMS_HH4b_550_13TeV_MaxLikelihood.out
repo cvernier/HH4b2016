@@ -1,0 +1,19 @@
+>>> including systematics
+>>> method used to compute upper limit is MaxLikelihoodFit
+>>> random number generator seed is 123456
+[?1034hMissing background ModelConfig 'ModelConfig_bonly' in workspace 'w' in file roostats-Pf5B4v.root
+Will make one from the signal ModelConfig 'ModelConfig' setting signal strenth 'r' to zero
+Computing limit starting from observation
+Created Branches
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Running Minos for POI 
+Real time 0:00:00, CP time 0.020
+
+
+ --- MaxLikelihoodFit ---
+Best fit r: 2.99999  -2.99999/+9.14325e-06  (68% CL)
+nll S+B -> -0.0535203  nll B -> -0.000325304
+Done in 0.01 min (cpu), 0.03 min (real)

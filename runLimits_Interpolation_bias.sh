@@ -1,8 +1,7 @@
 #!/bin/bash
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-#cd /scratch/malara/WorkingArea/release/CMSSW_7_4_7/src/HiggsAnalysis/CombinedLimit 
-#cmsenv
+
 cd $DIR
 
 function_LMR=$1
@@ -21,9 +20,11 @@ fi
 
 if [ $5 -eq 1 ];
         then
-        masses_MMR=(550 570 600 620 650 670 700 720 750 770 800 820 840 860 880 900 920 940 960 980 1000) 
+        masses_MMR=(550 570 600 620 650 670 700 720 750 770 800 820 840 860 880 900 920 940 960 980 1000 1050 1100 1150 1200) 
         else masses_MMR=() 
 fi
+
+#Here -t -1 was removed for the unblinding
 
 echo 'MMR'
 for i in ${masses_MMR[@]}
@@ -40,11 +41,11 @@ do
 	fi
 	mkdir out
         echo "Asymptotic"
-        combine -M Asymptotic datacard_${i}${background_MMR}.txt -t -1  |& tee  CMS_HH4b_$i\_13TeV_asymptoticCLs.out
+        combine -M Asymptotic datacard_${i}${background_MMR}.txt |& tee  CMS_HH4b_$i\_13TeV_asymptoticCLs.out
         echo "MaxLikelihoodFit"
-        combine -M MaxLikelihoodFit datacard_${i}${background_MMR}.txt -t -1 --minimizerTolerance=0.001 --rMin=0 --rMax=3 |& tee CMS_HH4b_$i\_13TeV_MaxLikelihood.out
+        combine -M MaxLikelihoodFit datacard_${i}${background_MMR}.txt --minimizerTolerance=0.001 --rMin=0 --rMax=3 |& tee CMS_HH4b_$i\_13TeV_MaxLikelihood.out
         echo "Plot"
-        combine -M MaxLikelihoodFit datacard_${i}${background_MMR}.txt -t -1 --minimizerTolerance=0.001 --rMin=0 --rMax=3 --saveNormalizations --plot --out out 
+        combine -M MaxLikelihoodFit datacard_${i}${background_MMR}.txt --minimizerTolerance=0.001 --rMin=0 --rMax=3 --saveNormalizations --plot --out out 
 done
 
 cd $DIR
@@ -65,11 +66,11 @@ do
         fi
         mkdir out
         echo "Asymptotic"
-        combine -M Asymptotic datacard_${i}${background_LMR}.txt -t -1  |& tee  CMS_HH4b_$i\_13TeV_asymptoticCLs.out
+        combine -M Asymptotic datacard_${i}${background_LMR}.txt  |& tee  CMS_HH4b_$i\_13TeV_asymptoticCLs.out
         echo "MaxLikelihoodFit"
-        combine -M MaxLikelihoodFit datacard_${i}${background_LMR}.txt -t -1 --minimizerTolerance=0.001 --rMin=0 --rMax=3  |& tee  CMS_HH4b_$i\_13TeV_MaxLikelihood.out
+        combine -M MaxLikelihoodFit datacard_${i}${background_LMR}.txt --minimizerTolerance=0.001 --rMin=0 --rMax=3  |& tee  CMS_HH4b_$i\_13TeV_MaxLikelihood.out
         echo "Plot"
-        combine -M MaxLikelihoodFit datacard_${i}${background_LMR}.txt -t -1 --minimizerTolerance=0.001 --rMin=0 --rMax=3 --saveNormalizations --plot --out out
+        combine -M MaxLikelihoodFit datacard_${i}${background_LMR}.txt --minimizerTolerance=0.001 --rMin=0 --rMax=3 --saveNormalizations --plot --out out
 done
 
 cd $DIR

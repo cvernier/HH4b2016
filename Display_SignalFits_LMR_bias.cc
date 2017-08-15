@@ -703,7 +703,7 @@ int Display_SignalFits_LMR_bias(std::string dir_preselection="PreselectedWithReg
 	switch(_mass){
 		case 300: bias=0.038; break;
 		case 350: bias=0.005; break;
-		case 400: bias=0.0; break;
+		case 400: bias=0.0001; break;
 		case 450: bias=-0.003; break;
 		case 500: bias=-0.002; break;
 		case 550: bias=-0.003; break;
@@ -1002,7 +1002,7 @@ int Display_SignalFits_LMR_bias(std::string dir_preselection="PreselectedWithReg
   p_2->cd();
   RooHist* hpull;
   hpull = plot_KinFit->pullHist();
-  RooRealVar* x=new RooRealVar("x", "m_{X} (GeV)", 0, 1200);
+  RooRealVar* x=new RooRealVar("x", "m_{X} (GeV)", 0, 1350);
 
   RooPlot* frameP = x->frame() ;
   frameP->SetTitle("");

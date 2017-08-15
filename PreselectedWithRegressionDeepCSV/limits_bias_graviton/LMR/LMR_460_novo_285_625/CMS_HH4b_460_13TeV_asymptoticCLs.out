@@ -1,0 +1,41 @@
+>>> including systematics
+>>> method used to compute upper limit is Asymptotic
+>>> random number generator seed is 123456
+[?1034hComputing limit starting from observation
+Will compute both limit(s) using minimizer Minuit2 with strategy 0 and tolerance 0.01
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Median for expected limits: 0.090332
+Sigma  for expected limits: 0.0460886
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Restricting r to positive values.
+
+Make global fit of real data
+NLL at global minimum of data: -572.005 (r = 0.112722)
+
+Make global fit of asimov data
+NLL at global minimum of asimov: -647.67 (r = 2.20653e-06)
+At r = 1.312722:	q_mu = 142.85437	q_A  = 185.50792	CLsb = 0.00000	CLb  = 0.95234	CLs  = 0.00000
+At r = 0.712722:	q_mu = 64.09288	q_A  = 97.42142	CLsb = 0.00000	CLb  = 0.96887	CLs  = 0.00000
+At r = 0.412722:	q_mu = 24.18801	q_A  = 48.57848	CLsb = 0.00000	CLb  = 0.97990	CLs  = 0.00000
+At r = 0.262722:	q_mu = 7.73244	q_A  = 24.83864	CLsb = 0.00271	CLb  = 0.98621	CLs  = 0.00275
+At r = 0.187722:	q_mu = 2.19396	q_A  = 14.29437	CLsb = 0.06928	CLb  = 0.98926	CLs  = 0.07003
+At r = 0.225222:	q_mu = 4.63568	q_A  = 19.38447	CLsb = 0.01566	CLb  = 0.98777	CLs  = 0.01585
+At r = 0.202024:	q_mu = 3.03747	q_A  = 16.18506	CLsb = 0.04068	CLb  = 0.98870	CLs  = 0.04115
+At r = 0.194970:	q_mu = 2.60712	q_A  = 15.24416	CLsb = 0.05319	CLb  = 0.98898	CLs  = 0.05378
+At r = 0.197919:	q_mu = 2.78362	q_A  = 15.63542	CLsb = 0.04762	CLb  = 0.98887	CLs  = 0.04815
+At r = 0.196526:	q_mu = 2.69965	q_A  = 15.45027	CLsb = 0.05019	CLb  = 0.98892	CLs  = 0.05075
+At r = 0.197120:	q_mu = 2.73530	q_A  = 15.52909	CLsb = 0.04908	CLb  = 0.98890	CLs  = 0.04963
+
+ -- Asymptotic -- 
+Observed Limit: r < 0.1971
+Expected  2.5%: r < 0.0476
+Expected 16.0%: r < 0.0640
+Expected 50.0%: r < 0.0903
+Expected 84.0%: r < 0.1296
+Expected 97.5%: r < 0.1778
+
+Done in 0.00 min (cpu), 0.00 min (real)

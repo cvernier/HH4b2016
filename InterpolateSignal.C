@@ -234,7 +234,8 @@ void InterpolateSignal(std::string function, std::string name_range, int range, 
             
             RooRealVar *x, *sg_p0, *sg_p1, *sg_p2, *sg_p3,*sg_p4;
             double m=masses[iPoint]+i*step;
-            
+
+            //create workspace for signal            
             if (flag_MMR) {
                 double rangeHi = 1.1584*m -5.84;
                 double rangeLo = 0.72*m + 98;

@@ -57,7 +57,6 @@ PDF       lnN     ${pdf_norm}   -
 EOF
 
 #now add the systematics to the card
-#grep 'sg_' ${dirName}/${sigLogName} | grep ' param ' >> ${dirName}/${dcardName}
 grep 'par_'${function}'_' ${dirName}/${bgLogName} | grep ' param ' >> ${dirName}/${dcardName}
 
 cards+="${dirName}/${dcardName} "
