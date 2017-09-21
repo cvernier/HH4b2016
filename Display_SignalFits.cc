@@ -1049,7 +1049,7 @@ int Display_SignalFits(std::string dir_preselection="PreselectedWithRegressionDe
   p_2->cd();
   RooHist* hpull;
   hpull = plot_KinFit->pullHist();
-  RooRealVar* x=new RooRealVar("x", "m_{X} (GeV)", 0, 1200);
+  RooRealVar* x=new RooRealVar("x", "m_{X} (GeV)", 0, 1350);
 
   RooPlot* frameP = x->frame() ;
   frameP->SetTitle("");

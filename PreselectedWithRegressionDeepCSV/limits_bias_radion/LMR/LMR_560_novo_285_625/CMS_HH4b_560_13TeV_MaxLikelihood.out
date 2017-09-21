@@ -1,0 +1,19 @@
+>>> including systematics
+>>> method used to compute upper limit is MaxLikelihoodFit
+>>> random number generator seed is 123456
+[?1034hMissing background ModelConfig 'ModelConfig_bonly' in workspace 'w' in file roostats-jrfaFR.root
+Will make one from the signal ModelConfig 'ModelConfig' setting signal strenth 'r' to zero
+Computing limit starting from observation
+Created Branches
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Constraints of type RooGaussian: 4
+Constraints of type SimpleGaussianConstraint: 6
+Running Minos for POI 
+Real time 0:00:00, CP time 0.010
+
+
+ --- MaxLikelihoodFit ---
+Best fit r: 3.82511e-12  -3.82511e-12/+0.00648579  (68% CL)
+nll S+B -> -0.0365182  nll B -> -0.0365178
+Done in 0.01 min (cpu), 0.02 min (real)

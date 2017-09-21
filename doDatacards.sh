@@ -13,6 +13,7 @@ pdfLogName="pdf.log"
 sigLogName="signal"${mass}"_sig.log"
 trgLogName="PDFs/trig.log"
 
+
 sig_norm=`grep 'norm =' ${dirName}/${sigLogName}| awk '{print $3/50}'`
 jec_norm=`grep 'JEC     lnN' ${dirName}/${sigLogName} | awk '{print $3}'`
 jer_norm=`grep 'JER     lnN' ${dirName}/${sigLogName} | awk '{print $3}'`
@@ -56,7 +57,6 @@ PDF       lnN     ${pdf_norm}   -
 EOF
 
 #now add the systematics to the card
-#grep 'sg_' ${dirName}/${sigLogName} | grep ' param ' >> ${dirName}/${dcardName}
 grep 'par_'${function}'_' ${dirName}/${bgLogName} | grep ' param ' >> ${dirName}/${dcardName}
 
 cards+="${dirName}/${dcardName} "

@@ -207,11 +207,12 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
 
 
     TFile *f_data=new TFile((dest_dir+"/"+filename).c_str());
-    TH1F *h_mX_SR=(TH1F*)f_data->Get(hist.c_str());
+    TH1F *h_mX_SR=(TH1F*)f_data->Get(hist.c_str()); 
     h_mX_SR->Rebin(rebin);
-    TH1F *h_SR=(TH1F*)f_data->Get("h_mX_SR_kinFit");
-    double nEventsSR= h_SR->Integral();
 
+    TFile *f_norm=new TFile("PreselectedWithRegressionDeepCSV/MMRSelection_chi2/Histograms_MMR_BTagTotal.root");    
+    TH1F *h_SR=(TH1F*)f_norm->Get("h_mX_SR_kinFit");
+    double nEventsSR= h_SR->Integral();     
 
     char value[1000];
     
@@ -222,6 +223,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     
     string type;
 
+    //Crystal ball fit
     RooRealVar par_crystal_0("par_crystal_0", "par_crystal_0", 0.01, 5.1);
     RooRealVar par_crystal_1("par_crystal_1", "par_crystal_1", 0.01, 5.1);
     RooRealVar par_crystal_2("par_crystal_2", "par_crystal_2", 400, 600);
@@ -265,6 +267,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     type= "SB_crystal_"+to_string(range_lo_1)+"_"+to_string(range_hi_1);
     c_crystal->SaveAs((dest_dir+"/"+"BackgroundFit_"+type+".png").c_str());
     
+    //Gausexp fit
     RooRealVar par_gaus_exp_0("par_gaus_exp_0", "par_gaus_exp_0", 400, 700);
     RooRealVar par_gaus_exp_1("par_gaus_exp_1", "par_gaus_exp_1", 9, 100);
     RooRealVar par_gaus_exp_2("par_gaus_exp_2", "par_gaus_exp_2", 0.05, 3.1);
@@ -303,10 +306,10 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     c_gaus_exp->SaveAs((dest_dir+"/"+"BackgroundFit_"+type+".png").c_str());
     
     
-    
-    RooRealVar par_novo_0("par_novo_0", "par_novo_0", 500, 650);
-    RooRealVar par_novo_1("par_novo_1", "par_novo_1", 0, 200);
-    RooRealVar par_novo_2("par_novo_2", "par_novo_2", -100, 100);
+    //Novosibirsk fit
+    RooRealVar par_novo_0("par_novo_0", "par_novo_0", 300, 445);
+    RooRealVar par_novo_1("par_novo_1", "par_novo_1", 0.01, 300);
+    RooRealVar par_novo_2("par_novo_2", "par_novo_2", -10, 1);
     RooNovosibirsk f_novo("f_novo", "Background Prediction PDF", *x_2, par_novo_0, par_novo_1, par_novo_2);
     RooFitResult *r_novo=f_novo.fitTo(pred_2, RooFit::Range(range_lo_2, range_hi_2), RooFit::Save());
     
@@ -344,11 +347,12 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     type= "SB_novo_"+to_string(range_lo_2)+"_"+to_string(range_hi_2);
     c_novo->SaveAs((dest_dir+"/"+"BackgroundFit_"+type+".png").c_str());
     
-    
-    RooRealVar par_crystal_1_0("par_crystal_1_0", "par_crystal_1_0", 0.01, 5.1);
-    RooRealVar par_crystal_1_1("par_crystal_1_1", "par_crystal_1_1", 0.01, 5.1);
-    RooRealVar par_crystal_1_2("par_crystal_1_2", "par_crystal_1_2", 400, 700);
-    RooRealVar par_crystal_1_3("par_crystal_1_3", "par_crystal_1_3", 9, 200);
+
+    //Crystalball fit
+    RooRealVar par_crystal_1_0("par_crystal_1_0", "par_crystal_1_0", 0.01, 9.1);
+    RooRealVar par_crystal_1_1("par_crystal_1_1", "par_crystal_1_1", 0.01, 9.1);
+    RooRealVar par_crystal_1_2("par_crystal_1_2", "par_crystal_1_2", 400, 549);
+    RooRealVar par_crystal_1_3("par_crystal_1_3", "par_crystal_1_3", 10, 200);
     RevCrystalBall f_crystal_1("f_crystal_1","f_crystal_1", *x_2, par_crystal_1_0, par_crystal_1_1, par_crystal_1_2, par_crystal_1_3);
     RooFitResult *r_crystal_1=f_crystal_1.fitTo(pred_2, RooFit::Range(range_lo_2, range_hi_2), RooFit::Save());
     
@@ -387,153 +391,9 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     pave_crystal_1->Draw();
     type= "SB_crystal_1_"+to_string(range_lo_2)+"_"+to_string(range_hi_2);
     c_crystal_1->SaveAs((dest_dir+"/"+"BackgroundFit_"+type+".png").c_str());
-    
-
-/*
-    RooRealVar par_gaus_bern_0("par_gaus_bern_0", "par_gaus_bern_0", 0.);
-    par_gaus_bern_0.setConstant(1);
-    RooRealVar par_gaus_bern_1("par_gaus_bern_1", "par_gaus_bern_1", 10, 1. , 100.);
-    RooRealVar par_gaus_bern_2("par_gaus_bern_2", "par_gaus_bern_2", 260, 160., 600. );
-    RooRealVar *par_gaus_bern_3, *par_gaus_bern_4, *par_gaus_bern_5, *par_gaus_bern_6, *par_gaus_bern_7, *bpar_gaus_bern_8;
-    par_gaus_bern_3=new RooRealVar("par_gaus_bern_3", "par_gaus_bern_3", 5.);
-    par_gaus_bern_3->setConstant(1);
-    par_gaus_bern_4=new RooRealVar("par_gaus_bern_4", "par_gaus_bern_4", 3, -10., 10.);
-    par_gaus_bern_5=new RooRealVar("par_gaus_bern_5", "par_gaus_bern_5", 1, -10., 10.);
-    par_gaus_bern_6=new RooRealVar("par_gaus_bern_6", "par_gaus_bern_6", -10., 10.);
-    par_gaus_bern_7=new RooRealVar("par_gaus_bern_7", "par_gaus_bern_7", -10., 10.);
-    par_gaus_bern_8=new RooRealVar("par_gaus_bern_8", "par_gaus_bern_8", -10., 5.);
 
 
-    RooGaussStepBernstein f_gaus_bern("f_gaus_bern","f_gaus_bern",*x_2, par_gaus_bern_0, par_gaus_bern_1, par_gaus_bern_2, RooArgList(*par_gaus_bern_3, *par_gaus_bern_4, *par_gaus_bern_5)); //, *par_gaus_bern_6));
-    RooFitResult *r_gaus_bern=f_gaus_bern.fitTo(pred_2, RooFit::Range(range_lo_2, range_hi_2), RooFit::Save());
-
-    RooPlot *frame_gaus_bern=x_2->frame();
-    pred_2.plotOn(frame_gaus_bern, RooFit::LineColor(kBlack), RooFit::MarkerColor(kBlack));
-    f_gaus_bern.plotOn(frame_gaus_bern, RooFit::VisualizeError(*r_gaus_bern, 1), RooFit::FillColor(kGray+1), RooFit::FillStyle(3001));
-    f_gaus_bern.plotOn(frame_gaus_bern, RooFit::LineColor(kBlue+1));
-    double fitChi2_gaus_bern=frame_gaus_bern->chiSquare();
-    RooAbsReal* chi2_gaus_bern = f_gaus_bern.createChi2(pred_2);
-    double pvalue_gaus_bern=TMath::Prob(chi2_gaus_bern->getVal(),int((range_hi_2-range_lo_2)/rebin)-3);
-
-    TCanvas *c_gaus_bern=new TCanvas("c_gaus_bern", "c_gaus_bern", 700, 700);
-    frame_gaus_bern->Draw();
-
-    TPaveText *pave_gaus_bern = new TPaveText(0.55,0.7,0.82,0.9,"NDC");
-    pave_gaus_bern->SetBorderSize(0);
-    pave_gaus_bern->SetTextSize(0.03);
-    pave_gaus_bern->SetLineColor(1);
-    pave_gaus_bern->SetLineStyle(1);
-    pave_gaus_bern->SetLineWidth(2);
-    pave_gaus_bern->SetFillColor(0);
-    pave_gaus_bern->SetFillStyle(0);
-    pave_gaus_bern->AddText("Gaus_bern");
-    sprintf(value,"par_gaus_bern_0= %2.3f +- %2.3f",par_gaus_bern_0.getVal(),par_gaus_bern_0.getError());
-    pave_gaus_bern->AddText(value);
-    sprintf(value,"par_gaus_bern_1= %2.3f +- %2.3f",par_gaus_bern_1.getVal(),par_gaus_bern_1.getError());
-    pave_gaus_bern->AddText(value);
-    sprintf(value,"par_gaus_bern_2= %2.3f +- %2.3f",par_gaus_bern_2.getVal(),par_gaus_bern_2.getError());
-    pave_gaus_bern->AddText(value);
-    sprintf(value,"par_gaus_bern_3= %2.3f +- %2.3f",par_gaus_bern_3->getVal(),par_gaus_bern_3->getError());
-    pave_gaus_bern->AddText(value);
-    sprintf(value,"par_gaus_bern_4= %2.3f +- %2.3f",par_gaus_bern_4->getVal(),par_gaus_bern_4->getError());
-    pave_gaus_bern->AddText(value);
-    sprintf(value,"par_gaus_bern_5= %2.3f +- %2.3f",par_gaus_bern_5->getVal(),par_gaus_bern_5->getError());
-    pave_gaus_bern->AddText(value);
-    sprintf(value,"par_gaus_bern_6= %2.3f +- %2.3f",par_gaus_bern_6->getVal(),par_gaus_bern_6->getError());
-    pave_gaus_bern->AddText(value);
-    sprintf(value,"range [%d,%d]",range_lo_2,range_hi_2);
-    pave_gaus_bern->AddText(value);
-    sprintf(value,"chi^2 %2.1f",fitChi2_gaus_bern);
-    pave_gaus_bern->AddText(value);
-    pave_gaus_bern->Draw();
-    type= "SB_gaus_bern_"+to_string(range_lo_2)+"_"+to_string(range_hi_2);
-    c_gaus_bern->SaveAs((dest_dir+"/"+"BackgroundFit_"+type+".png").c_str());
- 
-    
-
-
-    RooRealVar par_landau_0("par_landau_0","par_landau_0",5.54e+02,4.5e+02,6e+02) ;
-    RooRealVar par_landau_1("par_landau_1","par_landau_1",2.5e+01,18,30) ;
-    RooLandau f_landau("f_landau","f_landau",*x_2, par_landau_0, par_landau_1);
-    RooFitResult *r_landau=f_landau.fitTo(pred_2, RooFit::Range(range_lo_2, range_hi_2), RooFit::Save());
-
-    RooPlot *frame_landau=x_2->frame();
-    pred_2.plotOn(frame_landau, RooFit::LineColor(kBlack), RooFit::MarkerColor(kBlack));
-    f_landau.plotOn(frame_landau, RooFit::VisualizeError(*r_landau, 1), RooFit::FillColor(kGray+1), RooFit::FillStyle(3001));
-    f_landau.plotOn(frame_landau, RooFit::LineColor(kBlue+1));
-    double fitChi2_landau=frame_landau->chiSquare();
-    RooAbsReal* chi2_landau = f_landau.createChi2(pred_2);
-    double pvalue_landau=TMath::Prob(chi2_landau->getVal(),int((range_hi_2-range_lo_2)/rebin)-3);
-
-    TCanvas *c_landau=new TCanvas("c_landau", "c_landau", 700, 700);
-    frame_landau->Draw();
-
-    TPaveText *pave_landau = new TPaveText(0.55,0.7,0.82,0.9,"NDC");
-    pave_landau->SetBorderSize(0);
-    pave_landau->SetTextSize(0.03);
-    pave_landau->SetLineColor(1);
-    pave_landau->SetLineStyle(1);
-    pave_landau->SetLineWidth(2);
-    pave_landau->SetFillColor(0);
-    pave_landau->SetFillStyle(0);
-    pave_landau->AddText("Landau");
-    sprintf(value,"par_landau_0= %2.3f +- %2.3f",par_landau_0.getVal(),par_landau_0.getError());
-    pave_landau->AddText(value);
-    sprintf(value,"par_landau_1= %2.3f +- %2.3f",par_landau_1.getVal(),par_landau_1.getError());
-    pave_landau->AddText(value);
-    sprintf(value,"range [%d,%d]",range_lo_2,range_hi_2);
-    pave_landau->AddText(value);
-    sprintf(value,"chi^2 %2.1f",fitChi2_landau);
-    pave_landau->AddText(value);
-    pave_landau->Draw();
-    type= "SB_landau_"+to_string(range_lo_2)+"_"+to_string(range_hi_2);
-    c_landau->SaveAs((dest_dir+"/"+"BackgroundFit_"+type+".png").c_str());
-
-
-*/
-
-    
-    TH1* hh_pdf = f_gaus_exp.createHistogram("hh", *x_1, RooFit::Binning(1000,range_hi_1, range_hi_1)) ;
-    TH1* hh_pdf_11 = f_crystal.createHistogram("hh1", *x_1, RooFit::Binning(1000,range_hi_1, range_hi_1)) ;
-    //TH1* hh_pdf_11 = f_novo.createHistogram("hh1", *x_1, RooFit::Binning(1000,range_hi_1, range_hi_1)) ;
-    TH1* hh_pdf_2 = f_gaus_exp.createHistogram("difference_1", *x_1, RooFit::Binning(1000,range_hi_1, range_hi_1)) ;
-    TH1* hh_pdf_4 = f_gaus_exp.createHistogram("sum", *x_1, RooFit::Binning(1000,range_hi_1, range_hi_1)) ;
-    TH1* hh_pdf_5 = f_gaus_exp.createHistogram("ratio", *x_1, RooFit::Binning(1000,range_hi_1, range_hi_1)) ;
-    hh_pdf_5->SetLineColor(kRed);
-    hh_pdf_2->Add(hh_pdf_11,-1);
-    hh_pdf_4->Add(hh_pdf_11,1);
-    hh_pdf_4->Scale(0.5);
-    hh_pdf_5->Add(hh_pdf,-1);
-    hh_pdf_5->Add(hh_pdf_2,1);
-    hh_pdf_5->Divide(hh_pdf_4);
-    hh_pdf_5->GetYaxis()->SetRangeUser(-1,1);
-    new TCanvas; hh_pdf_5->Draw();
- 
-    
-    
-    TH1* hh_pdf_1 = f_novo.createHistogram("hh_1", *x_2, RooFit::Binning(1000,range_hi_2, range_hi_2)) ;
-    TH1* hh_pdf_1_1 = f_crystal_1.createHistogram("hh1_1", *x_2, RooFit::Binning(1000,range_hi_2, range_hi_2)) ;
-    //TH1* hh_pdf_1_1 = f_gaus_bern.createHistogram("hh1_1", *x_2, RooFit::Binning(1000,range_hi_2, range_hi_2)) ;
-    //TH1* hh_pdf_1_1 = f_gaus_exp.createHistogram("hh1_1", *x_2, RooFit::Binning(1000,range_hi_2, range_hi_2)) ;
-    //TH1* hh_pdf_1_1 = f_landau.createHistogram("hh1_1", *x_2, RooFit::Binning(1000,range_hi_2, range_hi_2)) ;
-    TH1* hh_pdf_2_1 = f_novo.createHistogram("difference_1_1", *x_2, RooFit::Binning(1000,range_hi_2, range_hi_2)) ;
-    TH1* hh_pdf_4_1 = f_novo.createHistogram("sum_1", *x_2, RooFit::Binning(1000,range_hi_2, range_hi_2)) ;
-    TH1* hh_pdf_5_1 = f_novo.createHistogram("ratio_1", *x_2, RooFit::Binning(1000,range_hi_2, range_hi_2)) ;
-    hh_pdf_5_1->SetLineColor(kRed);
-    hh_pdf_2_1->Add(hh_pdf_1_1,-1);
-    hh_pdf_4_1->Add(hh_pdf_1_1,1);
-    hh_pdf_4_1->Scale(0.5);
-    hh_pdf_5_1->Add(hh_pdf_1,-1);
-    hh_pdf_5_1->Add(hh_pdf_2_1,1);
-    hh_pdf_5_1->Divide(hh_pdf_4_1);
-    hh_pdf_5_1->GetYaxis()->SetRangeUser(-1,1);
-    new TCanvas; hh_pdf_5_1->Draw();
-    
-    
-    
-    
-    
-    
+    //LMR 1 gauss exp only            
     double xPad = 0.3;
     TCanvas *c_gaus_exp_1=new TCanvas("c_gaus_exp_1", "c_gaus_exp_1", 700*(1.-xPad), 700);
     c_gaus_exp_1->SetFillStyle(4000);
@@ -559,11 +419,11 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     
     
     RooPlot *frame_gaus_exp_1=x_1->frame();
-    pred_1.plotOn(frame_gaus_exp_1, RooFit::LineColor(kBlack), RooFit::MarkerColor(kBlack));
-    f_gaus_exp.plotOn(frame_gaus_exp_1, RooFit::VisualizeError(*r_gaus_exp, 1), RooFit::FillColor(kBlack), RooFit::FillStyle(3004));
-    f_crystal.plotOn(frame_gaus_exp_1, RooFit::VisualizeError(*r_crystal, 1), RooFit::FillColor(kRed+1), RooFit::FillStyle(3001));
-    f_gaus_exp.plotOn(frame_gaus_exp_1, RooFit::LineColor(kBlack), RooFit::LineWidth(6));
-    f_crystal.plotOn(frame_gaus_exp_1, RooFit::LineColor(kRed), RooFit::LineWidth(3), RooFit::LineStyle(kDashed) );
+    pred_1.plotOn(frame_gaus_exp_1, RooFit::LineColor(kRed), RooFit::MarkerColor(kBlack));
+    f_gaus_exp.plotOn(frame_gaus_exp_1, RooFit::VisualizeError(*r_gaus_exp, 1), RooFit::FillColor(kRed), RooFit::FillStyle(3004));
+    //f_crystal.plotOn(frame_gaus_exp_1, RooFit::VisualizeError(*r_crystal, 1), RooFit::FillColor(kRed+1), RooFit::FillStyle(3001));
+    f_gaus_exp.plotOn(frame_gaus_exp_1, RooFit::LineColor(kRed), RooFit::LineWidth(6));
+    //f_crystal.plotOn(frame_gaus_exp_1, RooFit::LineColor(kRed), RooFit::LineWidth(3), RooFit::LineStyle(kDashed) );
     
     
     if (log=="log") frame_gaus_exp_1->GetYaxis()->SetRangeUser(1e-4, h_mX_SR->GetMaximum()*5.);
@@ -593,13 +453,14 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     else sprintf(name,"SR_gaus_exp #chi^{2}/n = %.2f",fitChi2_gaus_exp);
     pave->AddText(name);
     pave->AddText(name1);
-    if (hist.substr(0,7)=="h_mX_SB") {
+    /* if (hist.substr(0,7)=="h_mX_SB") {
         sprintf(name,"SB_crystal #chi^{2}/n = %.2f",fitChi2_crystal);
         sprintf(name1,"p-value_crystal = %.2f",pvalue_crystal);
     }
     else sprintf(name,"SR_crystal #chi^{2}/n = %.2f",fitChi2_crystal);
     pave->AddText(name);
     pave->AddText(name1);
+    */
     pave->Draw();
     
     TLatex * tPrel = new TLatex();
@@ -623,11 +484,11 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
         
     }
     else leg->AddEntry(h_mX_SR, "Data in SR", "ep");
-    TH1F * temp = new TH1F("temp", "temp", 100, 0,1); temp->SetLineWidth(2);  temp->SetLineColor(kBlack);
+    TH1F * temp = new TH1F("temp", "temp", 100, 0,1); temp->SetLineWidth(2);  temp->SetLineColor(kBlue);
     leg->AddEntry(temp, "GaussExp fit", "l");
-    TH1F * temp1 = new TH1F("temp1", "temp1", 100, 0,1); temp1->SetLineWidth(2);
-    temp1->SetLineColor(kRed);
-    leg->AddEntry(temp1, "CrystalBall fit", "l");
+    //TH1F * temp1 = new TH1F("temp1", "temp1", 100, 0,1); temp1->SetLineWidth(2);
+    //temp1->SetLineColor(kRed);
+    //leg->AddEntry(temp1, "CrystalBall fit", "l");
     leg->Draw();
     
     CMS_lumi( p_1, iPeriod, iPos );
@@ -636,16 +497,16 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     RooHist *hpull, *hpull1;
     hpull = frame_gaus_exp->pullHist();
     hpull->SetLineWidth(2);
-    hpull1 = frame_crystal->pullHist();
-    hpull1->SetMarkerColor(kRed);
-    hpull1->SetLineStyle(kDashed);
-    hpull1->SetMarkerSize(0.6);
-    hpull1->SetLineColor(kRed);
+    //hpull1 = frame_crystal->pullHist();
+    //hpull1->SetMarkerColor(kRed);
+    //hpull1->SetLineStyle(kDashed);
+    //hpull1->SetMarkerSize(0.6);
+    //hpull1->SetLineColor(kRed);
     RooPlot* frameP = x_1->frame() ;
     
     frameP->SetTitle("; m_{X} (GeV); Pull");
     frameP->addPlotable(hpull,"P");
-    frameP->addPlotable(hpull1,"P same");
+    //frameP->addPlotable(hpull1,"P same");
     frameP->GetYaxis()->SetTitleSize(0.07);
     frameP->GetYaxis()->SetTitleOffset(0.5);
     frameP->GetXaxis()->SetTitleSize(0.09);
@@ -665,7 +526,8 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     c_gaus_exp_1->SaveAs((dest_dir+"/"+"BackgroundFit_"+tag+"_Split_1.png").c_str());
     c_gaus_exp_1->SaveAs((dest_dir+"/"+"BackgroundFit_"+tag+"_Split_1.pdf").c_str());
  
-    
+
+    //LMR2 unblind   
     TCanvas *c_novo_1=new TCanvas("c_novo_1", "c_novo_1", 700*(1.-xPad), 700);
     c_novo_1->SetFillStyle(4000);
     c_novo_1->SetFrameFillColor(0);
@@ -691,10 +553,10 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     
     RooPlot *frame_novo_1=x_2->frame();
     pred_2.plotOn(frame_novo_1, RooFit::LineColor(kBlack), RooFit::MarkerColor(kBlack));
-    f_crystal_1.plotOn(frame_novo_1, RooFit::VisualizeError(*r_crystal_1, 1), RooFit::FillColor(kBlack), RooFit::FillStyle(3001));
-    f_novo.plotOn(frame_novo_1, RooFit::VisualizeError(*r_novo, 1), RooFit::FillColor(kRed+1), RooFit::FillStyle(3004));
-    f_crystal_1.plotOn(frame_novo_1, RooFit::LineColor(kBlack), RooFit::LineWidth(6));
-    f_novo.plotOn(frame_novo_1, RooFit::LineColor(kRed), RooFit::LineWidth(3), RooFit::LineStyle(kDashed) );
+    //f_crystal_1.plotOn(frame_novo_1, RooFit::VisualizeError(*r_crystal_1, 1), RooFit::FillColor(kBlack), RooFit::FillStyle(3001));
+    f_novo.plotOn(frame_novo_1, RooFit::VisualizeError(*r_novo, 1), RooFit::FillColor(kBlue), RooFit::FillStyle(3004));
+    //f_crystal_1.plotOn(frame_novo_1, RooFit::LineColor(kBlack), RooFit::LineWidth(6));
+    f_novo.plotOn(frame_novo_1, RooFit::LineColor(kBlue), RooFit::LineWidth(3), RooFit::LineStyle(kDashed) );
     
     
     if (log=="log") frame_novo_1->GetYaxis()->SetRangeUser(1e-4, h_mX_SR->GetMaximum()*5);
@@ -712,25 +574,26 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     pave_1->SetTextSize(0.03);
     pave_1->SetLineColor(1);
     pave_1->SetLineStyle(1);
-    pave_1->SetLineWidth(2);
+    pave_1->SetLineWidth(1);
     pave_1->SetFillColor(0);
     pave_1->SetFillStyle(0);
     char name_1[1000];
     char name_11[1000];
-    if (hist.substr(0,7)=="h_mX_SB") {
+    /*if (hist.substr(0,7)=="h_mX_SB") {
         sprintf(name_1,"SB_crystal #chi^{2}/n = %.2f",fitChi2_crystal_1);
         sprintf(name_11,"p-value_crystal = %.2f",pvalue_crystal_1);
     }
     else sprintf(name_1,"SR_crystal #chi^{2}/n = %.2f",fitChi2_crystal_1);
     pave_1->AddText(name_1);
     pave_1->AddText(name_11);
+    */
     if (hist.substr(0,7)=="h_mX_SB") {
-        sprintf(name_1,"SB_novo #chi^{2}/n = %.2f",fitChi2_Novo);
-        sprintf(name_11,"p-value_novo = %.2f",pvalue_novo);
+        sprintf(name_1,"#chi^{2}/n = %.2f",fitChi2_Novo);
+//        sprintf(name_11,"p-value_novo = %.2f",pvalue_novo);
     }
-    else sprintf(name_1,"SR_novo #chi^{2}/n = %.2f",fitChi2_Novo);
+    else sprintf(name_1,"#chi^{2}/n = %.2f",fitChi2_Novo);
     pave_1->AddText(name_1);
-    pave_1->AddText(name_11);
+    //pave_1->AddText(name_11);
     pave_1->Draw();
     
     TLatex * tPrel_1 = new TLatex();
@@ -754,10 +617,10 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
         
     }
     else leg_1->AddEntry(h_mX_SR, "Data in SR", "ep");
-    TH1F* temp_1 = new TH1F("temp_1", "temp_1", 100, 0,1); temp_1->SetLineWidth(2);  temp_1->SetLineColor(kRed);
+    TH1F* temp_1 = new TH1F("temp_1", "temp_1", 100, 0,1); temp_1->SetLineWidth(2);  temp_1->SetLineColor(kBlue);
     TH1F* temp_11 = new TH1F("temp_11", "temp_11", 100, 0,1); temp_11->SetLineWidth(2);
     temp_11->SetLineColor(kBlack);
-    leg_1->AddEntry(temp_11, "CrystalBall fit", "l");
+    //leg_1->AddEntry(temp_11, "CrystalBall fit", "l");
     leg_1->AddEntry(temp_1, "Novorsibisk fit", "l");
     leg_1->Draw();
     
@@ -767,16 +630,16 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     RooHist *hpull_1, *hpull_11;
     hpull_1 = frame_novo->pullHist();
     hpull_1->SetLineWidth(2);
-    hpull_11 = frame_crystal_1->pullHist();
-    hpull_11->SetLineStyle(kDashed);
-    hpull_11->SetLineColor(kRed);
-    hpull_11->SetMarkerSize(0.6);
-    hpull_11->SetMarkerColor(kRed);
+    //hpull_11 = frame_crystal_1->pullHist();
+    //hpull_11->SetLineStyle(kDashed);
+    //hpull_11->SetLineColor(kRed);
+    //hpull_11->SetMarkerSize(0.6);
+    //hpull_11->SetMarkerColor(kRed);
     RooPlot* frameP_1 = x_2->frame() ;
     
     frameP_1->SetTitle("; m_{X} (GeV); Pull");
     frameP_1->addPlotable(hpull_1,"P");
-    frameP_1->addPlotable(hpull_11,"P same");
+    //frameP_1->addPlotable(hpull_11,"P same");
     frameP_1->GetYaxis()->SetTitleSize(0.07);
     frameP_1->GetYaxis()->SetTitleOffset(0.5);
     frameP_1->GetXaxis()->SetTitleSize(0.09);
@@ -794,81 +657,54 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     c_novo_1->SaveAs((dest_dir+"/"+"BackgroundFit_"+tag+"_Split_2.pdf").c_str());
     
     
-    
-    
-    
-    
-    
-    
-    
-    TH1F *h_mX_SR_fakeData=(TH1F*)h_mX_SR->Clone("h_mX_SR_fakeData");
+    TH1F *h_mX_SR_fakeData=(TH1F*)h_mX_SR->Clone("h_mX_SR_fakeData");    
     h_mX_SR_fakeData->Scale(nEventsSR/h_mX_SR_fakeData->GetSumOfWeights());
+
     
     RooDataHist data_obs_crystal(Form("data_obs_crystal_%d_%d",range_lo_1, range_hi_1), "Data", RooArgList(*x_1), h_mX_SR_fakeData);
     RooDataHist data_obs_gaus_exp(Form("data_obs_gaus_exp_%d_%d",range_lo_1, range_hi_1), "Data", RooArgList(*x_1), h_mX_SR_fakeData);
     RooDataHist data_obs_novo(Form("data_obs_novo_%d_%d",range_lo_2, range_hi_2), "Data", RooArgList(*x_2), h_mX_SR_fakeData);
     RooDataHist data_obs_crystal_1(Form("data_obs_crystal_1_%d_%d",range_lo_2, range_hi_2), "Data", RooArgList(*x_2), h_mX_SR_fakeData);
-    //RooDataHist data_obs_gaus_bern(Form("data_obs_gaus_bern_%d_%d",range_lo_2, range_hi_2), "Data", RooArgList(*x_2), h_mX_SR_fakeData);
-    //RooDataHist data_obs_landau(Form("data_obs_landau_%d_%d",range_lo_2, range_hi_2), "Data", RooArgList(*x_2), h_mX_SR_fakeData);
-    
-    RooRealVar f_crystal_norm("f_crystal_norm","f_crystal_norm",h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_1),h_mX_SR_fakeData->FindBin(range_hi_1))); 
+
     RooWorkspace *w_background_crystal=new RooWorkspace("HbbHbb");
     w_background_crystal->import(data_obs_crystal);
     w_background_crystal->import(f_crystal);
-    //w_background_crystal->import(f_crystal_norm);
     w_background_crystal->SaveAs((dest_dir+"/"+Form("w_background_crystal_%d_%d.root",range_lo_1,range_hi_1)).c_str());
-    
-    RooRealVar f_gaus_exp_norm("f_gaus_exp_norm","f_gaus_exp_norm",h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_1),h_mX_SR_fakeData->FindBin(range_hi_1))); 
+     
     RooWorkspace *w_background_gaus_exp=new RooWorkspace("HbbHbb");
     w_background_gaus_exp->import(data_obs_gaus_exp);
     w_background_gaus_exp->import(f_gaus_exp);
-    //w_background_gaus_exp->import(f_gaus_exp_norm);
     w_background_gaus_exp->SaveAs((dest_dir+"/"+Form("w_background_gaus_exp_%d_%d.root",range_lo_1,range_hi_1)).c_str());
     
-    
-    RooRealVar f_novo_norm("f_novo_norm","f_novo_norm",h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_2),h_mX_SR_fakeData->FindBin(range_hi_2))); 
     RooWorkspace *w_background_novo=new RooWorkspace("HbbHbb");
     w_background_novo->import(data_obs_novo);
     w_background_novo->import(f_novo);
-    //w_background_novo->import(f_novo_norm);
     w_background_novo->SaveAs((dest_dir+"/"+Form("w_background_novo_%d_%d.root",range_lo_2,range_hi_2)).c_str());
-
-    RooRealVar f_crystal_1_norm("f_crystal_1_norm","f_crystal_1_norm",h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_2),h_mX_SR_fakeData->FindBin(range_hi_2))); 
+ 
     RooWorkspace *w_background_crystal_1=new RooWorkspace("HbbHbb");
     w_background_crystal_1->import(data_obs_crystal_1);
     w_background_crystal_1->import(f_crystal_1);
-    //w_background_crystal_1->import(f_crystal_1_norm);
     w_background_crystal_1->SaveAs((dest_dir+"/"+Form("w_background_crystal_1_%d_%d.root",range_lo_2,range_hi_2)).c_str());
-
-/*
-    RooWorkspace *w_background_gaus_bern=new RooWorkspace("HbbHbb");
-    w_background_gaus_bern->import(data_obs_gaus_bern);
-    w_background_gaus_bern->import(f_gaus_bern);
-    w_background_gaus_bern->SaveAs((dest_dir+"/"+Form("w_background_gaus_bern_%d_%d.root",range_lo_2,range_hi_2)).c_str());
-
-
-    RooWorkspace *w_background_landau=new RooWorkspace("HbbHbb");
-    w_background_landau->import(data_obs_landau);
-    w_background_landau->import(f_landau);
-    w_background_landau->SaveAs((dest_dir+"/"+Form("w_background_landau_%d_%d.root",range_lo_2,range_hi_2)).c_str());
-*/
-    
-    
-    
+ 
+    //Right normalization for background
     std::cout<<" === RooFit data fit result to be entered in datacard === "<<std::endl;
-    
+    if (hist.substr(0,7)=="h_mX_SB"){    
     std::cout<<Form(" Background number of crystal_%d_%d = ", range_lo_1, range_hi_1)<<h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_1),h_mX_SR_fakeData->FindBin(range_hi_1))<<std::endl;
     std::cout<<Form(" Background number of gaus_exp_%d_%d = ", range_lo_1, range_hi_1)<<h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_1),h_mX_SR_fakeData->FindBin(range_hi_1))<<std::endl;
     std::cout<<Form(" Background number of novo_%d_%d = ", range_lo_2, range_hi_2)<<h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_2),h_mX_SR_fakeData->FindBin(range_hi_2))<<std::endl;
     std::cout<<Form(" Background number of crystal_1_%d_%d = ", range_lo_2, range_hi_2)<<h_mX_SR_fakeData->Integral(h_mX_SR_fakeData->FindBin(range_lo_2),h_mX_SR_fakeData->FindBin(range_hi_2))<<std::endl;
-    
+    }
+    else{
+    std::cout<<Form(" Background number of crystal_%d_%d = ", range_lo_1, range_hi_1)<<h_SR->Integral(range_lo_1,range_hi_1)<<std::endl;
+    std::cout<<Form(" Background number of gaus_exp_%d_%d = ", range_lo_1, range_hi_1)<<h_SR->Integral(range_lo_1,range_hi_1)<<std::endl;
+    std::cout<<Form(" Background number of novo_%d_%d = ", range_lo_2, range_hi_2)<<h_SR->Integral(range_lo_2,range_hi_2)<<std::endl;
+    std::cout<<Form(" Background number of crystal_1_%d_%d = ", range_lo_2, range_hi_2)<<h_SR->Integral(range_lo_2,range_hi_2)<<std::endl;        
+    }
     
     std::cout<<"par_crystal_0   param   "<<par_crystal_0.getVal()<<" "<<par_crystal_0.getError()<<std::endl;
     std::cout<<"par_crystal_1   param   "<<par_crystal_1.getVal()<<" "<<par_crystal_1.getError()<<std::endl;
     std::cout<<"par_crystal_2   param   "<<par_crystal_2.getVal()<<" "<<par_crystal_2.getError()<<std::endl;
     std::cout<<"par_crystal_3   param   "<<par_crystal_3.getVal()<<" "<<par_crystal_3.getError()<<std::endl;
-    
-    
     
     std::cout<<"par_crystal_1_0   param   "<<par_crystal_1_0.getVal()<<" "<<par_crystal_1_0.getError()<<std::endl;
     std::cout<<"par_crystal_1_1   param   "<<par_crystal_1_1.getVal()<<" "<<par_crystal_1_1.getError()<<std::endl;

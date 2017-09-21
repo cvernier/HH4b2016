@@ -49,8 +49,8 @@ done
 
 if [ $5 -eq 1 ];
         then
-	massesMMR=(550 600 650 750 800 900 1000)
-        else massesMMR=() #550 600 650 750 800 900 1000)
+	massesMMR=(1200) #550 600 650 750 800 900 1000 1200)
+        else massesMMR=()
 fi
 
 cleanUp=0

@@ -524,7 +524,7 @@ RooPlot* fitSignal(TH1F *h, std::string mass, int color, TLegend *leg, Params &p
   RooRealVar signal_p2_1("signal_p2_1", "signal_p2_1", sg_p2->getVal());
   RooRealVar signal_p3_1("signal_p3_1", "signal_p3_1", sg_p3->getVal());
   ExpGaussExp signal_bkg("signal_bkg", "Signal Prediction Fixed", *x, signal_p0_1, signal_p1_1, signal_p2_1, signal_p3_1);
-  RooRealVar *signal_bkg_norm= new RooRealVar("signal_bkg_norm","signal_bkg_norm", 0., -bias, bias,"");
+  RooRealVar *signal_bkg_norm= new RooRealVar("signal_bkg_norm","signal_bkg_norm", 0., -abs(bias), abs(bias),"");
   RooWorkspace *w=new RooWorkspace("HbbHbb");
   w->import(signal_fixed);
   w->import(signal_bkg);
@@ -773,25 +773,27 @@ int Display_SignalFits_bias(std::string dir_preselection="PreselectedWithRegress
   double bias;
   if(range==1){
 	switch(_mass){
-		case 550: bias=-0.00039; break;
-		case 600: bias=0.00045; break;
-		case 650: bias=-0.00014; break;
-		case 750: bias=-0.00042; break;
-		case 800: bias=-0.00054; break;
-		case 900: bias=-0.00049; break;
-		case 1000: bias=0.00015; break;
-		default: break;
+		case 550: bias=0.170; break;
+                case 600: bias=0.053; break;
+                case 650: bias=-0.062; break;
+                case 750: bias=-0.190; break;
+                case 800: bias=-0.119; break;
+                case 900: bias=-0.033; break;
+                case 1000: bias=0.061; break;
+                case 1200: bias=0.094; break;
+                default: break;
 	}
   }
   else{
 	switch(_mass){
-                case 550: bias=-0.00039; break;
-                case 600: bias=0.00045; break;
-                case 650: bias=-0.00014; break;
-                case 750: bias=-0.00042; break;
-                case 800: bias=-0.00054; break;
-                case 900: bias=-0.00049; break;
-                case 1000: bias=0.00015; break;
+                case 550: bias=0.170; break;
+                case 600: bias=0.053; break;
+                case 650: bias=-0.062; break;
+                case 750: bias=-0.190; break;
+                case 800: bias=-0.119; break;
+                case 900: bias=-0.033; break;
+                case 1000: bias=0.061; break;
+                case 1200: bias=0.094; break; 
 		default: break;
 	}
   }
@@ -950,8 +952,7 @@ int Display_SignalFits_bias(std::string dir_preselection="PreselectedWithRegress
   plot->Draw("same");
   leg->SetFillColor(0);
   leg->Draw();
-  c_mX_SR->SaveAs((dest_dir+"/"+"SignalFits"+reg+"/c_mX_SR_"+masses.at(i)+".png").c_str());
-  
+  c_mX_SR->SaveAs((dest_dir+"/"+"SignalFits"+reg+"/c_mX_SR_"+masses.at(i)+".png").c_str());  
 
 
   double xPad = 0.3;
@@ -1084,7 +1085,7 @@ int Display_SignalFits_bias(std::string dir_preselection="PreselectedWithRegress
   p_2->cd();
   RooHist* hpull;
   hpull = plot_KinFit->pullHist();
-  RooRealVar* x=new RooRealVar("x", "m_{X} (GeV)", 0, 1200);
+  RooRealVar* x=new RooRealVar("x", "m_{X} (GeV)", 0, 1350);
 
   RooPlot* frameP = x->frame() ;
   frameP->SetTitle("");
@@ -1167,4 +1168,5 @@ int Display_SignalFits_bias(std::string dir_preselection="PreselectedWithRegress
 
 return 0;
 }
+
 

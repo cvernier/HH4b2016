@@ -83,7 +83,7 @@ void interpolation_normalization(bool, std::string, std::string, int);
 bool flag_crystal = 1; //1 for CrystalBall 0 for ExpGaussExp
 const int NumOfSyst=5;
 
-void Interpolation(std::string function, std::string name_range, int range, bool flag_MMR) {
+void InterpolateSignal(std::string function, std::string name_range, int range, bool flag_MMR) {
     gSystem->Load("../../../PDFs/ExpGaussExp_cxx.so");
     interpolation_normalization(flag_MMR, function, name_range, range);
 
@@ -93,7 +93,7 @@ void Interpolation(std::string function, std::string name_range, int range, bool
     // Observable
     RooRealVar *X;
     if(flag_MMR){
-        X= new RooRealVar("x","x",400,1200);
+        X= new RooRealVar("x","x",400,1400);
     }
     else{
         if (range==1){X= new RooRealVar("x","x",230,400);}
@@ -106,8 +106,8 @@ void Interpolation(std::string function, std::string name_range, int range, bool
     if (flag_MMR) {
         dir = "MMR";
         std::vector<double> masses_temp;
-        if (range==1){masses_temp= {550, 600, 650, 750, 800, 900, 1000};}
-        else{masses_temp= {550, 600, 650, 750, 800, 900, 1000};}
+        if (range==1){masses_temp= {550, 600, 650, 750, 800, 900, 1000, 1200};}
+        else{masses_temp= {550, 600, 650, 750, 800, 900, 1000, 1200};}
         for (unsigned int i = 0 ; i< masses_temp.size(); i++) {
             masses.push_back(masses_temp[i]);
         }
@@ -141,7 +141,7 @@ void Interpolation(std::string function, std::string name_range, int range, bool
             return;
         }
     }
- 
+
     RooWorkspace* w_test= new RooWorkspace("w_test");
     for (unsigned int i = 0; i!=nMCpoints; ++i ) {
         RooWorkspace w("w");
@@ -169,10 +169,13 @@ void Interpolation(std::string function, std::string name_range, int range, bool
     }
     cout<<"test_9" << endl;
     w_test->Print();
+
+ 
     for (unsigned int i = 0; i!=nMCpoints; ++i ) {
         cout<<"test_10" << endl;
         PDF_mass[i]->Print("t");
     }
+
 
     // C r e a t e   i n t e r p o l a t i n g   p d f
     // -----------------------------------------------
@@ -209,7 +212,7 @@ void Interpolation(std::string function, std::string name_range, int range, bool
         
         int nPoints = int((masses[iPoint+1]-masses[iPoint])/step);
         for (int i=0; i<=nPoints; i++) {
-            
+            if (std::find(masses.begin(), masses.end(), int(masses[iPoint]+i*step)) != masses.end()){continue; }
             alpha.setVal(double(i)/double(nPoints)) ;
             cout<< " Interpolate mass : " << int(masses[iPoint]+i*step) << endl;
             lmorph.plotOn(frame1[iPoint],LineColor(kRed)) ;
@@ -217,7 +220,7 @@ void Interpolation(std::string function, std::string name_range, int range, bool
             
             TH1D* hist;
             if(flag_MMR){
-                hist= (TH1D*)lmorph.createHistogram("m_X (GeV)",*X,Binning(1000,400,1200));
+                hist= (TH1D*)lmorph.createHistogram("m_X (GeV)",*X,Binning(1000,400,1400));
             }
             else{
                 hist= (TH1D*)lmorph.createHistogram("m_X (GeV)",*X,Binning(1000,0,1000));
@@ -231,14 +234,17 @@ void Interpolation(std::string function, std::string name_range, int range, bool
             
             RooRealVar *x, *sg_p0, *sg_p1, *sg_p2, *sg_p3,*sg_p4;
             double m=masses[iPoint]+i*step;
-            
+
+            //create workspace for signal            
             if (flag_MMR) {
-                double rangeHi = 0.9*m + 160;
-                double rangeLo = 0.7*m + 80;
+                double rangeHi = 1.1584*m -5.84;
+                double rangeLo = 0.72*m + 98;
+                double sg_p1_up; 
                 if (rangeLo<250) rangeLo=250;
-                sg_p0=new RooRealVar("sg_p0", "sg_p0", 0.9*m+20, m+30);
-                sg_p1=new RooRealVar("sg_p1", "sg_p1", 5., 35.);
-                sg_p2=new RooRealVar("sg_p2", "sg_p2", 0., 0.5);
+                if (m<600){sg_p1_up=10;} else{sg_p1_up=25;} 
+                sg_p0=new RooRealVar("sg_p0", "sg_p0", 0.90208*m+47.792, 1.09712*m-32.712);
+                sg_p1=new RooRealVar("sg_p1", "sg_p1", 5.,sg_p1_up);
+                sg_p2=new RooRealVar("sg_p2", "sg_p2", 0.,5.);
                 sg_p3=new RooRealVar("sg_p3", "sg_p3", 0.,7.);
                 x=new RooRealVar("x", "m_{X} (GeV)", rangeLo-100., rangeHi+100.);
                 ExpGaussExp signal("signal", "Signal Prediction", *x, *sg_p0, *sg_p1, *sg_p2, *sg_p3);
@@ -273,6 +279,7 @@ void Interpolation(std::string function, std::string name_range, int range, bool
                 RooAddPdf signal("signal", "signal", RooArgList(signalCore, signalComb), *sg_p4);
                 RooDataHist signalHistogram("signalHistogram", "Signal Histogram", RooArgList(*x), hist);
                 signal.fitTo(signalHistogram, RooFit::Range(rangeLo-50, rangeHi), RooFit::Save());
+
                 RooRealVar signal_p0("signal_p0", "signal_p0", sg_p0->getVal());
                 RooRealVar signal_p1("signal_p1", "signal_p1", sg_p1->getVal());
                 RooRealVar signal_p2("signal_p2", "signal_p2", sg_p2->getVal());
@@ -286,20 +293,22 @@ void Interpolation(std::string function, std::string name_range, int range, bool
                 w->import(signal_fixed);
                 w->SaveAs(Form("%s_%d_%s/w_signal_%d.root", dir.c_str(), int(masses[iPoint]+i*step), background.c_str(), int(masses[iPoint]+i*step)));
             }
+
         }
         c[iPoint] = new TCanvas(Form("linearmorph_%d",iPoint),Form("linearmorph_%d",iPoint),700,700) ;
         frame1[iPoint]->Draw();
-        c[iPoint]->SaveAs(Form("fig/linearmorph_%d_%d.png",int(masses[iPoint]), int(masses[iPoint+1])));
-        c[iPoint]->SaveAs(Form("fig/linearmorph_%d_%d.pdf",int(masses[iPoint]), int(masses[iPoint+1])));
-        c[iPoint]->SaveAs(Form("fig/linearmorph_%d_%d.root",int(masses[iPoint]), int(masses[iPoint+1])));
+        c[iPoint]->SaveAs(Form("fig/linearmorph_%d_%d_%d.png",int(masses[iPoint]), int(masses[iPoint+1]),range));
+        c[iPoint]->SaveAs(Form("fig/linearmorph_%d_%d_%d.pdf",int(masses[iPoint]), int(masses[iPoint+1]),range));
+        c[iPoint]->SaveAs(Form("fig/linearmorph_%d_%d_%d.root",int(masses[iPoint]), int(masses[iPoint+1]),range));
         
     }
     c_tot = new TCanvas("linearmorph_tot","linearmorph_tot",700,700) ;
     frame_tot->Draw();
-    c_tot->SaveAs("fig/linearmorph_tot.png");
-    c_tot->SaveAs("fig/linearmorph_tot.pdf");
-    c_tot->SaveAs("fig/linearmorph_tot.root");
+    c_tot->SaveAs(Form("fig/linearmorph_tot_%d.png",range));
+    c_tot->SaveAs(Form("fig/linearmorph_tot_%d.pdf",range));
+    c_tot->SaveAs(Form("fig/linearmorph_tot_%d.root",range));
     return ;
+
 }
 
 /*********************************
@@ -316,10 +325,10 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
     if (flag_MMR) {
         dir = "MMR";
         std::vector<double> mass_0_temp,mass_temp;
-        if (range==1){mass_0_temp= {550, 600, 650, 750, 800, 900, 1000};}
-        else{mass_0_temp= {550, 600, 650, 750, 800, 900, 1000};}
-        if (range==1){mass_temp= {550, 570, 600, 620, 650, 670, 700, 720, 750, 770, 800, 820, 840, 860, 880, 900, 920, 940, 960, 980, 1000};}
-        else{mass_temp= {550, 570, 600, 620, 650, 670, 700, 720, 750, 770, 800, 820, 840, 860, 880, 900, 920, 940, 960, 980, 1000};}
+        if (range==1){mass_0_temp= {550, 600, 650, 750, 800, 900, 1000, 1200};}
+        else{mass_0_temp= {550, 600, 650, 750, 800, 900, 1000, 1200};}
+        if (range==1){mass_temp= {550, 570, 600, 620, 650, 670, 700, 720, 750, 770, 800, 820, 840, 860, 880, 900, 920, 940, 960, 980, 1000, 1050, 1100, 1150, 1200};}
+        else{mass_temp= {550, 570, 600, 620, 650, 670, 700, 720, 750, 770, 800, 820, 840, 860, 880, 900, 920, 940, 960, 980, 1000, 1050, 1100, 1150, 1200};}
         for (unsigned int i = 0 ; i< mass_0_temp.size(); i++) {
             mass_0.push_back(mass_0_temp[i]);
         }
@@ -334,7 +343,7 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         if (range==1){mass_0_temp= {260, 270, 300, 350};}
         else{mass_0_temp= {270, 300, 350, 400, 450, 500, 550, 600, 650};}
         if (range==1){mass_temp= {260, 265, 270, 275, 280, 285, 290, 295, 300, 310, 320, 350};}
-        else{mass_temp= {270, 275, 280, 285, 290, 295, 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600, 610, 620};}
+        else{mass_temp= {270, 275, 280, 285, 290, 295, 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600, 610, 620, 650};}
         for (unsigned int i = 0 ; i< mass_0_temp.size(); i++) {
             mass_0.push_back(mass_0_temp[i]);
         }
@@ -383,65 +392,34 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         gSystem->Exec(Form("cp -r %s_%d_%s/datacard_%d_%s.txt %s_%d_%s/datacard_%d_%s.txt", dir.c_str(), int(mass_0[lMarker]), background.c_str(), int(mass_0[lMarker]), background.c_str(), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
         gSystem->Exec(Form("cp -r %s_%d_%s/signal%d_sig.log %s_%d_%s/signal%d_sig.log", dir.c_str(), int(mass_0[lMarker]), background.c_str(), int(mass_0[lMarker]), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i])));
         gSystem->Exec(Form("cp -r %s_%d_%s/w_background_%s.root %s_%d_%s/w_background_%s.root", dir.c_str(), int(mass_0[lMarker]), background.c_str(), background.c_str(), dir.c_str(), int(mass[i]), background.c_str(), background.c_str()));
-        gSystem->Exec(Form("sed -i 's/%d./%d./g' %s_%d_%s/datacard_%d_%s.txt", int(mass_0[lMarker]), int(mass[i]), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));
+        if(mass_0[lMarker] == 1200){gSystem->Exec(Form("sed -i 's/.signal_%d./_signal_%d./g' %s_%d_%s/datacard_%d_%s.txt", int(mass_0[lMarker]), int(mass[i]), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str())); }
+        else{gSystem->Exec(Form("sed -i 's/%d./%d./g' %s_%d_%s/datacard_%d_%s.txt", int(mass_0[lMarker]), int(mass[i]), dir.c_str(), int(mass[i]), background.c_str(), int(mass[i]), background.c_str()));}
         
     }
-
-    for (unsigned i = 0; i<nPoints; i++) {
-        
-        std::string mass_string= itoa(mass[i]);
-        std::cout<< mass_string << std::endl;
-        std::string filename=dir+"_"+mass_string+"_"+background+"/signal"+mass_string+"_sig.log";
-        std::cout<< filename << std::endl;
-        
-        std::ifstream file(filename.c_str(), ios::in);
-        
-        bool found= false;
-        std::string line;
-        while (!found && !file.eof()) {
-            getline(file, line);
-            std::size_t pos = line.find("norm");
-            if (pos!=std::string::npos){
-                found=true;
-                signal_test[i] = atof(line.substr(line.find("norm")+7,line.find_last_of(" ")).c_str());
-                cout <<"trova " << signal_test[i]<< " "<< mass_string << endl;
-                if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){
-                    signal_0_test[j] = atof(line.substr(line.find("norm")+3,line.find_last_of(" ")).c_str());
-                    cout <<"trova " << signal_test[i]<< " "<< mass_string << endl;
-                    j++;
-                }
-            }
-        }
-        file.close();
-    }
-
     j = 0;
-    for (unsigned i = 0; i<nPoints; i++) {
+    for (unsigned i = 0; i<nPoints_0; i++) {
         
-        std::string mass_string= itoa(mass[i]);
+        std::string mass_string= itoa(mass_0[i]);
         std::cout<< mass_string << std::endl;
         std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
-        std::cout<< filename << std::endl;
-
-        std::ifstream file(filename.c_str(), ios::in);
         
+        std::ifstream file(filename.c_str(), ios::in);
         bool found= false;
+        
+        
         std::string line;
         while (!found && !file.eof()) {
             getline(file, line);
             std::size_t pos = line.find("rate");
             if (pos!=std::string::npos){
                 found=true;
-                signal[i] = atof(line.substr(pos+22,line.find_last_of(" ")).c_str());
-                if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){
-                    signal_0[j] = atof(line.substr(pos+22,line.find_last_of(" ")).c_str());
-                    j++;
-                }
+                signal_0[i] = atof(line.substr(pos+22,line.find_last_of(" ")).c_str());
             }
         }
+        
         file.close();
-
-        //loop over systematics in the datacards
+        
+        
         for (int syst_num = 0; syst_num<NumOfSyst; syst_num++) {
             
             std::string filename=dir+"_"+mass_string+"_"+background+"/datacard_"+mass_string+"_"+background+".txt";
@@ -453,10 +431,12 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
                 if (pos!=std::string::npos){
                     found=true;
                     syst_0[syst_num][i] = atof(line.substr(pos+16,line.find_last_of("-")).c_str());
+                    cout<<"This is the systematic in the datacards: "<<syst_0[syst_num][i]<<endl;
                 }
             }
             file_syst.close();
-        }        
+        }
+        if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){j++;}        
     }
 
     TCanvas *c1 = new TCanvas("canvas","canvas",700,700);
@@ -466,7 +446,6 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
     p_1->SetFillStyle(4000);
     p_1->SetFrameFillColor(0);
     p_1->SetBottomMargin(0.035);
-    
     TPad* p_2 = new TPad("p_2", "p_2",0,0,1,xPad);
     p_2->SetBottomMargin(0.2);
     p_2->SetTopMargin(0.02);
@@ -487,10 +466,10 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         hr_1->SetTitle("Linear interpolation of yield in MMR");
     } else {
         if (range==1){hr_1 = c1->DrawFrame(250,0,370,600);}
-        else{hr_1 = c1->DrawFrame(250,0,550,1600);}
+        else{hr_1 = c1->DrawFrame(250,0,650,2000);}
         hr_1->SetTitle("Linear interpolation of yield in LMR");
     }
-    hr_1->SetXTitle("m_X (GeV)");
+    hr_1->SetXTitle("m_{X} (GeV)");
     hr_1->GetYaxis()->SetTitleOffset(1.2);
     hr_1->SetYTitle("Normalization");
     c1->GetFrame()->SetBorderSize(12);
@@ -500,9 +479,9 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         else{hr_2 = c1->DrawFrame(400,-0.07,1200,0.07);}
     } else {
         if (range==1){hr_2 = c1->DrawFrame(250,-0.04,370,0.04);}
-        else{hr_2 = c1->DrawFrame(250,-0.04,550,0.04);}
+        else{hr_2 = c1->DrawFrame(250,-0.04,650,0.04);}
     }
-    hr_2->SetXTitle("m_X (GeV)");
+    hr_2->SetXTitle("m_{X} (GeV)");
     hr_2->GetXaxis()->SetTitleOffset(0.6);
     hr_2->GetXaxis()->SetTitleSize(0.08);
     hr_2->GetYaxis()->SetTitleOffset(0.5);
@@ -511,69 +490,32 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
     hr_2->SetYTitle("Relative errors");    
     c1->GetFrame()->SetBorderSize(12);
     p_1->cd();
-    
-    
-    
-    TGraphErrors* g_signal = new TGraphErrors(nPoints, &(mass[0]), signal);
-    g_signal->SetMarkerColor(kBlue-7);
-    g_signal->SetMarkerStyle(20);
-    g_signal->SetLineColor(0);
-    //g_signal->Draw("P");
-    
+        
     TGraphErrors* g_signal_0 = new TGraphErrors(nPoints_0, &(mass_0[0]), signal_0);
     g_signal_0->SetMarkerColor(kRed);
     g_signal_0->SetMarkerStyle(21);
     g_signal_0->SetLineColor(0);
     g_signal_0->Draw("P");
     
-    TF1 *fit_lin = new TF1("fit_lin",straight_line,100,1000,2);
-    fit_lin->SetParameter(0, 1000.);
-    fit_lin->SetParameter(1, 5.);
-    fit_lin->SetParName(0, "q");
-    fit_lin->SetParName(1, "m");
-    if (flag_MMR) {
-        g_signal_0->Fit(fit_lin,"","",400,1000);
-    }
-    else{
-        if (range==1){g_signal_0->Fit(fit_lin,"","",260,250);}
-        else{g_signal_0->Fit(fit_lin,"","",270,550);}
-    }
-    
-    for (unsigned i = 0; i<nPoints; i++) {
-        lin[i]=fit_lin->GetParameter(1)*mass[i]+fit_lin->GetParameter(0);
-    }
-    TGraphErrors* g_signal_1 = new TGraphErrors(nPoints, &(mass[0]), lin);
-    g_signal_1->SetMarkerColor(8);
-    g_signal_1->SetMarkerStyle(22);
-    g_signal_1->SetLineColor(0);
-
-
-
-
-    
+    j=0;
     for (unsigned i = 0; i<nPoints; i++) {
         if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){
-            interpol[i]=signal[i];
+            interpol[i]=signal_0[j];
+            j++;
         }
-        else{
-            int lMarker=0;
-            for (auto pVal : mass_0){
-                if (pVal > mass[i]){
-                    break;
-                }
-                lMarker++;
-            }
+        else{int lMarker=0;
+            for (auto pVal : mass_0){  if (pVal > mass[i]){break;}lMarker++;}
             interpol[i] =( (signal_0[lMarker]-signal_0[lMarker-1])*(mass[i]-mass_0[lMarker-1])/(mass_0[lMarker]-mass_0[lMarker-1])+signal_0[lMarker-1]);
         }
     }
+
     TGraphErrors* g_signal_2 = new TGraphErrors(nPoints, &(mass[0]), interpol);
     g_signal_2->SetMarkerColor(kBlue);
     g_signal_2->SetMarkerStyle(20);
     g_signal_2->SetLineColor(0);
     g_signal_2->Draw("P");
     g_signal_0->Draw("P");
-    
-    
+
     TF1 *fit_pol = new TF1("fit_pol",pol_line,100,1000,4);
     fit_pol->SetParameter(0, 1500.);
     fit_pol->SetParameter(1, -13.);
@@ -584,14 +526,30 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
     fit_pol->SetParName(2, "x_2");
     fit_pol->SetParName(3, "x_3");
     if (flag_MMR) {
-        g_signal_0->Fit(fit_pol,"","", 400,1000);
+        g_signal_0->Fit(fit_pol,"","", 550,1200);
     }
     else{
         if (range==1){
-            g_signal_0->Fit(fit_pol,"","",250,400);}
-        else{g_signal_0->Fit(fit_pol,"","",260,550);}
+            g_signal_0->Fit(fit_pol,"","",260,400);}
+        else{g_signal_0->Fit(fit_pol,"","",260,650);}
     }
+ 
+    TGraphErrors* g_pull = new TGraphErrors(nPoints);
+    g_pull->SetMarkerStyle(7);
+    g_pull->SetMarkerSize(0.4);
     
+    for (unsigned i = 0; i<nPoints; i++) {
+        bool trovato = false;
+        for (double m : mass_0) {
+            if (m == mass[i]) {
+                trovato=true;
+            }
+        }
+        if (!trovato) {
+            double temp = (interpol[i]-fit_pol->Eval(mass[i]))/fit_pol->Eval(mass[i]);
+            g_pull->SetPoint(i, mass[i],temp);
+        }
+    }     
         
     TLegend *leg=new TLegend(0.2, 0.65, 0.65, 0.85);
     leg->SetFillStyle(1); leg->SetFillColor(kWhite);
@@ -604,12 +562,11 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
     leg->SetBorderSize(0);
     leg->Draw();
 
-
-
     p_2->cd();
     TLine* line;
+    g_pull->Draw("P"); 
     if (flag_MMR) {
-        line= new TLine(350, 0, 1200, 0);
+        line= new TLine(350, 0, 1300, 0);
     }
     else{
         line= new TLine(250, 0, 550, 0);
@@ -617,16 +574,14 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
     line->SetLineStyle(2);
     line->SetLineWidth(1);
     line->Draw();
-
-
          
     if (flag_MMR) {
-        c1->SaveAs("interpolation_MMR.pdf");
-        c1->SaveAs("interpolation_MMR.png");
+        c1->SaveAs("interpolation_yield_MMR.pdf");
+        c1->SaveAs("interpolation_yield_MMR.png");
         
     } else {
-        c1->SaveAs("interpolation_LMR.pdf");
-        c1->SaveAs("interpolation_LMR.png");   
+        c1->SaveAs(Form("interpolation_yield_LMR_%d.pdf",range));
+        c1->SaveAs(Form("interpolation_yield_LMR_%d.png",range));   
     }
     
     for (unsigned i = 0; i<nPoints; i++) {
@@ -700,43 +655,41 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         p_syst1[syst_num]->cd();
         if (flag_MMR) {
             if (range==1){
-                h_syst_1[syst_num] = c2[syst_num]->DrawFrame(500,1,1050,1.10);
+                h_syst_1[syst_num] = c2[syst_num]->DrawFrame(500,1,1250,1.10);
             }
             else{
-                h_syst_1[syst_num] = c2[syst_num]->DrawFrame(500,1,1050,1.10);
+                h_syst_1[syst_num] = c2[syst_num]->DrawFrame(500,1,1250,1.10);
             }
             h_syst_1[syst_num]->SetTitle(Form("Interpolation of %s in MMR",name_syst[syst_num].c_str()));
         } else {
             if (range==1){
                 switch (syst_num) {
-                    case 0: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1.065,370,1.10); break;
-                    case 1: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1.005,370,1.10); break;
-                    case 2: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,370,1.10); break;
-                    case 3: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,370,1.10); break;
-                    case 4: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,370,1.10); break;
+                    case 0: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1.0,370,1.30); break;
+                    case 1: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,0.97,370,1.07); break;
+                    case 2: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,0.95,370,1.05); break;
+                    case 3: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1.0,370,1.05); break;
+                    case 4: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1.05,370,1.15); break;
                 }
             }
             else{
                 switch (syst_num) {
-                    case 0: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1.065,600,1.10); break;
-                    case 1: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1.005,600,1.10); break;
-                    case 2: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,600,1.10); break;
-                    case 3: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,600,1.10); break;
-                    case 4: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,600,1.10); break;
+                    case 0: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1.0,650,1.30); break;
+                    case 1: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,0.97,650,1.07); break;
+                    case 2: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,0.95,650,1.05); break;
+                    case 3: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,650,1.05); break;
+                    case 4: h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1.05,650,1.15); break;
                 }
-
-                //h_syst_1[syst_num] = c2[syst_num]->DrawFrame(250,1,600,1.10);
 
             }
             h_syst_1[syst_num]->SetTitle(Form("Interpolation of %s in LMR",name_syst[syst_num].c_str()));
         }
-        h_syst_1[syst_num]->SetXTitle("m_X (GeV)");
+        h_syst_1[syst_num]->SetXTitle("m_{X} (GeV)");
         h_syst_1[syst_num]->GetYaxis()->SetTitleOffset(1.2);
         h_syst_1[syst_num]->SetYTitle(Form("%s",name_syst[syst_num].c_str()));
         p_syst2[syst_num]->cd();
         if (flag_MMR) {
-            if (range==1){h_syst_2[syst_num] = c2[syst_num]->DrawFrame(500,-0.07,1100,0.07);}
-            else{h_syst_2[syst_num] = c2[syst_num]->DrawFrame(500,-0.07,1100,0.07);}
+            if (range==1){h_syst_2[syst_num] = c2[syst_num]->DrawFrame(500,-0.07,1250,0.07);}
+            else{h_syst_2[syst_num] = c2[syst_num]->DrawFrame(500,-0.07,1250,0.07);}
         } else {
             if (range==1){
                 switch (syst_num) {
@@ -747,16 +700,16 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
                 }
             }
             else{
-                h_syst_2[syst_num] = c2[syst_num]->DrawFrame(250,-0.002,600,0.002);
+                h_syst_2[syst_num] = c2[syst_num]->DrawFrame(250,-0.002,650,0.002);
             }
         }
-        h_syst_2[syst_num]->SetXTitle("m_X (GeV)");
+        h_syst_2[syst_num]->SetXTitle("m_{X} (GeV)");
         h_syst_2[syst_num]->GetXaxis()->SetTitleOffset(0.6);
         h_syst_2[syst_num]->GetXaxis()->SetTitleSize(0.08);
         h_syst_2[syst_num]->GetYaxis()->SetTitleOffset(0.5);
         h_syst_2[syst_num]->GetYaxis()->SetTitleSize(0.08);
         h_syst_2[syst_num]->SetLabelSize(0.06,"xy");
-        h_syst_2[syst_num]->SetYTitle("Relative errors");
+        h_syst_2[syst_num]->SetYTitle("Relative errors (Pol. fit)");
         
         g_syst_0[syst_num] = new TGraphErrors(nPoints_0, &(mass_0[0]), syst_0[syst_num]);
         g_syst_0[syst_num]->SetMarkerColor(kRed);
@@ -765,18 +718,30 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         c2[syst_num]->cd();
         p_syst1[syst_num]->cd();
         g_syst_0[syst_num]->Draw("P");
-        //j=0;
+
 
         //Code for Spline  
         for (unsigned i = 0; i<nPoints_0; i++) {
             sp_syst_0[i]= syst_0[syst_num][i];
+            cout<<"This is the spline mc input: "<<sp_syst_0[i]<<endl;
         }
         sp_syst[syst_num] = new TSpline3(Form("Spline_syst_%d",syst_num), &(mass_0[0]), sp_syst_0, nPoints_0, "b2e2", 0, 0);
         sp_syst[syst_num]->SetLineColor(kGreen+2);   
+        j=0;
         for (unsigned i = 0; i<nPoints; i++) {
-            interpol_syst_0[syst_num][i]=sp_syst[syst_num]->Eval(mass[i]);
+            if (std::find(mass_0.begin(), mass_0.end(), mass[i]) != mass_0.end()){
+                interpol_syst_0[syst_num][i]=syst_0[syst_num][j];
+                cout<<"This is the mc: "<<interpol_syst_0[syst_num][i]<<endl;
+                j++;
+            }
+            else{
+                interpol_syst_0[syst_num][i]=sp_syst[syst_num]->Eval(mass[i]);
+                cout<<"This is the interpolation: "<<interpol_syst_0[syst_num][i]<<endl;
+            }
+
         }
          
+
         g_syst_1[syst_num] = new TGraphErrors(nPoints, &(mass[0]), interpol_syst_0[syst_num]);
         g_syst_1[syst_num]->SetMarkerColor(kBlue);
         g_syst_1[syst_num]->SetMarkerStyle(20);
@@ -784,7 +749,7 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         g_syst_1[syst_num]->Draw("P");
         g_syst_0[syst_num]->Draw("P");
         
-        fit_pol_syst[syst_num] = new TF1(Form("fit_pol_syst_%d", syst_num),Form("pol%d",nPoints_0-1),100,1000);
+        fit_pol_syst[syst_num] = new TF1(Form("fit_pol_syst_%d", syst_num),Form("pol%d",nPoints_0-1),100,1250);
         fit_pol_syst[syst_num]->SetParameter(0, 1.);
         fit_pol_syst[syst_num]->SetParameter(1, -13.);
         fit_pol_syst[syst_num]->SetParameter(2, 0.07 );
@@ -794,10 +759,10 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         fit_pol_syst[syst_num]->SetParName(2, "x_2");
         fit_pol_syst[syst_num]->SetParName(3, "x_3");
         sp_syst[syst_num]->Draw("lsame");
-        if (flag_MMR) {g_syst_0[syst_num]->Fit(fit_pol_syst[syst_num],"","", 540,1010);}
+        if (flag_MMR) {g_syst_0[syst_num]->Fit(fit_pol_syst[syst_num],"","", 550,1250);}
         else{
-            if (range==1){g_syst_0[syst_num]->Fit(fit_pol_syst[syst_num],"","",259,351);}
-            else{g_syst_0[syst_num]->Fit(fit_pol_syst[syst_num],"","",260,600);}
+            if (range==1){g_syst_0[syst_num]->Fit(fit_pol_syst[syst_num],"","",260,350);}
+            else{g_syst_0[syst_num]->Fit(fit_pol_syst[syst_num],"","",260,650);}
         }       
 
         //Pull for interpolated errors
@@ -830,10 +795,10 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         g_pull_syst[syst_num]->Draw("P");
         if (flag_MMR) {
             if (range==1){
-                line= new TLine(350, 0, 1200, 0);
+                line= new TLine(350, 0, 1250, 0);
             }
             else{
-                line= new TLine(350, 0, 1200, 0);
+                line= new TLine(350, 0, 1250, 0);
             }
         }
         else{
@@ -841,7 +806,7 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
                 line= new TLine(250, 0, 370, 0);
             }
             else{
-                line= new TLine(250, 0, 600, 0);
+                line= new TLine(250, 0, 650, 0);
             }
             
         }
@@ -868,9 +833,6 @@ void interpolation_normalization(bool flag_MMR, std::string function, std::strin
         
     }
 }
-
-
-
 
 
 //================================================================================

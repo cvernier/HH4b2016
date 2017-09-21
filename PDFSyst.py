@@ -6,7 +6,7 @@ def PDFsyst(mass, location):
     
   if location==0:
 	print("fnal")
-  	path="/eos/uscms/store/user/lpchbb/HeppyNtuples/V25/"
+  	path="/eos/uscms/store/user/guerrero/HeppyNtuples/V25/"
   elif location==1:
 	print("pisa")
   	path="/scratch/malara/WorkingArea/IO_file/output_file/DeepCSV_final/MC/Original/"
@@ -17,6 +17,10 @@ def PDFsyst(mass, location):
   if(mass==1000) :
 	print("1000")
 	_file0 = ROOT.TFile.Open(path+"BulkGravTohhTohbbhbb_narrow_M-"+str(mass)+"_13TeV-madgraph.root")
+  if(mass==1200) :
+        print("1200")
+        _file0 = ROOT.TFile.Open(path+"BulkGravTohhTohbbhbb_narrow_M-"+str(mass)+"_13TeV-madgraph.root")
+
   tree = _file0.Get("tree")
   CountWeighted = _file0.Get("CountWeighted")
   CountWeightedLHEWeightPdf = _file0.Get("CountWeightedLHEWeightPdf")
