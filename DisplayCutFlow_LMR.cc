@@ -208,7 +208,7 @@ void pushBackHistograms(Samples &sample, TFile *file, TFile * old, bool MC=true)
 
 void signalEff(int npoint)
 {
-        int massPtsStd[8]={260, 270, 300, 350, 400, 450,  500, 550};
+        int massPtsStd[9]={260, 270, 300, 350, 400, 450, 500, 550, 600};
 	int massPts[npoint];
 	for(int i=0; i<npoint; i++) massPts[i]=massPtsStd[i];  
 	std::cout<<" === Signal Efficiencies === "<<std::endl;
@@ -229,7 +229,7 @@ void signalEff(int npoint)
 
 void cumEff(int npoint)
 {
-	int massPtsStd[8]={260, 270, 300, 350, 400, 450,  500, 550};
+	int massPtsStd[9]={260, 270, 300, 350, 400, 450,  500, 550, 600};
 	int massPts[npoint];
 	for(int i=0; i<npoint; i++) massPts[i]=massPtsStd[i];
 
@@ -260,40 +260,27 @@ void DisplayCutFlow_LMR()
   lumi_13TeV  = "(2016)";  // default is "5.1 fb^{-1}"
 
 
-	//int n=10;
-	int massL[6]={260, 270, 300, 400, 500, 550};// 800, 1000, 1200};
-//	int massL[5]={260, 270, 300, 400, 600}; //, 700, 800, 900, 1000, 1100};
-  TFile *glugluToX260=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-260_narrow_13TeV-madgraph.root");
-  TFile *glugluToX270=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-270_narrow_13TeV-madgraph.root");
-  TFile *glugluToX300=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-300_narrow_13TeV-madgraph.root");
- //TFile *glugluToX350=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-350_narrow_13TeV-madgraph.root");
-  TFile *glugluToX400=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-400_narrow_13TeV-madgraph.root");
- // TFile *glugluToX450=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-450_narrow_13TeV-madgraph.root"); 
-  TFile *glugluToX500=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-500_narrow_13TeV-madgraph.root");
-  TFile *glugluToX550=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-550_narrow_13TeV-madgraph.root");
-  //TFile *glugluToX600=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-600_narrow_13TeV-madgraph.root");
-  //TFile *glugluToX650=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-650_narrow_13TeV-madgraph.root");
- // TFile *glugluToX700=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-700_narrow_13TeV-madgraph.root");
-//TFile *glugluToX800=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-800_narrow_13TeV-madgraph.root");
-//TFile *glugluToX900=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-900_narrow_13TeV-madgraph.root");
-//TFile *glugluToX1000=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-1000_narrow_13TeV-madgraph.root");
-//TFile *glugluToX1200=new TFile("Histograms_GluGluToBulkGravitonToHHTo4B_M-1200_narrow_13TeV-madgraph.root");
+  int massL[9]={260, 270, 300, 350, 400, 450, 500, 550, 600};
+  TFile *glugluToX260=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-260_narrow_13TeV-madgraph.root");
+  TFile *glugluToX270=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-270_narrow_13TeV-madgraph.root");
+  TFile *glugluToX300=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-300_narrow_13TeV-madgraph.root");
+  TFile *glugluToX350=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-350_narrow_13TeV-madgraph.root");
+  TFile *glugluToX400=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-400_narrow_13TeV-madgraph.root");
+  TFile *glugluToX450=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-450_narrow_13TeV-madgraph.root"); 
+  TFile *glugluToX500=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-500_narrow_13TeV-madgraph.root");
+  TFile *glugluToX550=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-550_narrow_13TeV-madgraph.root");
+  TFile *glugluToX600=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-600_narrow_13TeV-madgraph.root");
+
 
   pushBackHistograms(signals, glugluToX260, glugluToX260);
   pushBackHistograms(signals, glugluToX270, glugluToX270);
-  pushBackHistograms(signals, glugluToX300, glugluToX300 );
-//  pushBackHistograms(signals, glugluToX350, glugluToX350 );
+  pushBackHistograms(signals, glugluToX300, glugluToX300);
+  pushBackHistograms(signals, glugluToX350, glugluToX350);
   pushBackHistograms(signals, glugluToX400, glugluToX400);
-//  pushBackHistograms(signals, glugluToX450, glugluToX450);
+  pushBackHistograms(signals, glugluToX450, glugluToX450);
   pushBackHistograms(signals, glugluToX500, glugluToX500);
   pushBackHistograms(signals, glugluToX550, glugluToX550);
-  //pushBackHistograms(signals, glugluToX600, glugluToX600);
- // pushBackHistograms(signals, glugluToX650, glugluToX650);
- // pushBackHistograms(signals, glugluToX700, glugluToX700);
-//pushBackHistograms(signals, glugluToX800, glugluToX800);
-//pushBackHistograms(signals, glugluToX900, glugluToX900);
-//pushBackHistograms(signals, glugluToX1000, glugluToX1000);
-//pushBackHistograms(signals, glugluToX1200, glugluToX1200);
+  pushBackHistograms(signals, glugluToX600, glugluToX600);
 
   std::vector<TH1F *> h_Cut;
   TH1F *h_Init=new TH1F("h_Init", "h_Init", 154, 260, 1800);
@@ -302,13 +289,9 @@ void DisplayCutFlow_LMR()
   TH1F *h_Events8=(TH1F*)h_Init->Clone("h_Events8");
   TH1F *h_Events10=(TH1F*)h_Init->Clone("h_Events10");
   TH1F *h_Events16=(TH1F*)h_Init->Clone("h_Events16");
-  for (unsigned int i=0; i<6; ++i)
-//   for (unsigned int i=0; i<9; ++i)
+  for (unsigned int i=0; i<9; ++i)
   {
 	  h_Init->SetBinContent(h_Init->FindBin(massL[i]), signals.v_CountWithPU.at(i)->GetBinContent(1));
-	  // std::cout<<"signals.v_CountWithPU.at(i)->GetBinContent(1) = "<<.signals.v_CountWithPU.at(i)->GetBinContent(1)<<std::endl;
-	  // h_Events2->SetBinContent(i, signals.v_Cuts.at(i)->GetBinContent(2));
-	  //
 	  std::cout<<massL[i]<<"   "<<signals.v_Cuts.at(i)->GetBinContent(4)<< "   "<<signals.v_Cuts.at(i)->GetBinContent(8)<<"   "<< signals.v_Cuts.at(i)->GetBinContent(10)<< "  "<< signals.v_Cuts.at(i)->GetBinContent(12)<<std::endl;
 	  h_Events3->SetBinContent(h_Init->FindBin(massL[i]), signals.v_Cuts.at(i)->GetBinContent(4));
 	  h_Events8->SetBinContent(h_Init->FindBin(massL[i]), signals.v_Cuts.at(i)->GetBinContent(8));
@@ -372,7 +355,5 @@ void DisplayCutFlow_LMR()
   // g_Ae_2->Draw("AL*");
 
   c_Ae->SaveAs("c_Ae_LMR.pdf");
-  c_Ae->SaveAs("c_Ae.root");
-
 
 }
