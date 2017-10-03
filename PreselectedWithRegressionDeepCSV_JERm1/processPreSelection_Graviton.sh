@@ -1,7 +1,7 @@
 #!/bin/sh
 location=$1
 if test $location -eq 0
-        then export dir="/eos/uscms/store/user/lpchbb/HeppyNtuples/V25"
+        then export dir="/eos/uscms/store/user/guerrero/HeppyNtuples/V25"
 elif test $location -eq 1
         then export dir="/scratch/malara/WorkingArea/IO_file/output_file/DeepCSV_final/MC/Original"
 else
@@ -25,5 +25,6 @@ root -l -b -q '../HbbHbb_PreSelection.cc++("$dir", "GluGluToBulkGravitonToHHTo4B
 root -l -b -q '../HbbHbb_PreSelection.cc++("$dir", "GluGluToBulkGravitonToHHTo4B_M-800_narrow_13TeV-madgraph","JEC","JERm1","Trig","bTag","gravall-v25.weights.xml")'
 root -l -b -q '../HbbHbb_PreSelection.cc++("$dir", "GluGluToBulkGravitonToHHTo4B_M-900_narrow_13TeV-madgraph","JEC","JERm1","Trig","bTag","gravall-v25.weights.xml")'
 root -l -b -q '../HbbHbb_PreSelection.cc++("$dir", "BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph","JEC","JERm1","Trig","bTag","gravall-v25.weights.xml")'
+root -l -b -q '../HbbHbb_PreSelection.cc++("$dir", "BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph","JEC","JERm1","Trig","bTag","gravall-v25.weights.xml")'
 
 rm -fr PDFs/

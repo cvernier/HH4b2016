@@ -153,7 +153,7 @@ void ABCD(std::string filename1,std::string  filename2, double plot_lo,
   p_1_1->Draw();
   p_1_1->cd();
   data_plot1_1->Draw();
-  data_plot1_1->SetMaximum(0.12);
+  data_plot1_1->SetMaximum(0.06);
   data_plot1_1->GetXaxis()->SetLabelOffset(0.01); 
   data_plot1_1->GetXaxis()->SetLabelFont(42);
   data_plot1_1->GetYaxis()->SetLabelFont(42);
@@ -183,6 +183,9 @@ void ABCD(std::string filename1,std::string  filename2, double plot_lo,
   CMS_lumi( p_1_1, iPeriod, iPos );
   c_Background_1->SaveAs(Form("Background_SR_norm1_%s.png", mass.c_str()) );
   c_Background_1->SaveAs(Form("Background_SR_norm1_%s.pdf", mass.c_str()) );
+  c_Background_1->SaveAs(Form("Background_SR_norm1_%s.root", mass.c_str()) );
+  c_Background_1->SaveAs(Form("Background_SR_norm1_%s.C", mass.c_str()) );
+
 
   //Ratio plot
   TH1F *h_mX_SR_ratio=(TH1F*)h_mX_SR_kinFit_A->Clone("h_mX_SR_ratio");

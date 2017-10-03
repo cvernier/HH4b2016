@@ -137,6 +137,12 @@ void Display_SignalKinFitReg()
   CMS_lumi( p_1, iPeriod, iPos );
   c_KinFit->SaveAs("c_KinFit.pdf");
   c_KinFit->SaveAs("c_KinFit.png");
+  c_KinFit->SaveAs("c_KinFit.root");
+  c_KinFit->SaveAs("c_KinFit.C");
+
+
+
+
 }
 
  

@@ -208,7 +208,7 @@ void pushBackHistograms(Samples &sample, TFile *file, TFile * old, bool MC=true)
 
 void signalEff(int npoint)
 {
-        int massPtsStd[9]={260, 270, 300, 350, 400, 450, 500, 550, 600};
+        int massPtsStd[10]={260, 270, 300, 350, 400, 450, 500, 550, 600, 650};
 	int massPts[npoint];
 	for(int i=0; i<npoint; i++) massPts[i]=massPtsStd[i];  
 	std::cout<<" === Signal Efficiencies === "<<std::endl;
@@ -229,7 +229,7 @@ void signalEff(int npoint)
 
 void cumEff(int npoint)
 {
-	int massPtsStd[9]={260, 270, 300, 350, 400, 450,  500, 550, 600};
+	int massPtsStd[10]={260, 270, 300, 350, 400, 450,  500, 550, 600, 650};
 	int massPts[npoint];
 	for(int i=0; i<npoint; i++) massPts[i]=massPtsStd[i];
 
@@ -260,7 +260,7 @@ void DisplayCutFlow_LMR()
   lumi_13TeV  = "(2016)";  // default is "5.1 fb^{-1}"
 
 
-  int massL[9]={260, 270, 300, 350, 400, 450, 500, 550, 600};
+  int massL[10]={260, 270, 300, 350, 400, 450, 500, 550, 600, 650};
   TFile *glugluToX260=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-260_narrow_13TeV-madgraph.root");
   TFile *glugluToX270=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-270_narrow_13TeV-madgraph.root");
   TFile *glugluToX300=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-300_narrow_13TeV-madgraph.root");
@@ -270,7 +270,7 @@ void DisplayCutFlow_LMR()
   TFile *glugluToX500=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-500_narrow_13TeV-madgraph.root");
   TFile *glugluToX550=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-550_narrow_13TeV-madgraph.root");
   TFile *glugluToX600=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-600_narrow_13TeV-madgraph.root");
-
+  TFile *glugluToX650=new TFile("PreselectedWithRegressionDeepCSV/LMRSelection_chi2/Histograms_LMR_GluGluToBulkGravitonToHHTo4B_M-650_narrow_13TeV-madgraph.root");
 
   pushBackHistograms(signals, glugluToX260, glugluToX260);
   pushBackHistograms(signals, glugluToX270, glugluToX270);
@@ -281,6 +281,7 @@ void DisplayCutFlow_LMR()
   pushBackHistograms(signals, glugluToX500, glugluToX500);
   pushBackHistograms(signals, glugluToX550, glugluToX550);
   pushBackHistograms(signals, glugluToX600, glugluToX600);
+  pushBackHistograms(signals, glugluToX650, glugluToX650);
 
   std::vector<TH1F *> h_Cut;
   TH1F *h_Init=new TH1F("h_Init", "h_Init", 154, 260, 1800);
@@ -289,7 +290,7 @@ void DisplayCutFlow_LMR()
   TH1F *h_Events8=(TH1F*)h_Init->Clone("h_Events8");
   TH1F *h_Events10=(TH1F*)h_Init->Clone("h_Events10");
   TH1F *h_Events16=(TH1F*)h_Init->Clone("h_Events16");
-  for (unsigned int i=0; i<9; ++i)
+  for (unsigned int i=0; i<10; ++i)
   {
 	  h_Init->SetBinContent(h_Init->FindBin(massL[i]), signals.v_CountWithPU.at(i)->GetBinContent(1));
 	  std::cout<<massL[i]<<"   "<<signals.v_Cuts.at(i)->GetBinContent(4)<< "   "<<signals.v_Cuts.at(i)->GetBinContent(8)<<"   "<< signals.v_Cuts.at(i)->GetBinContent(10)<< "  "<< signals.v_Cuts.at(i)->GetBinContent(12)<<std::endl;
@@ -355,5 +356,12 @@ void DisplayCutFlow_LMR()
   // g_Ae_2->Draw("AL*");
 
   c_Ae->SaveAs("c_Ae_LMR.pdf");
+  c_Ae->SaveAs("c_Ae_LMR.png");
+  c_Ae->SaveAs("c_Ae_LMR.C");
+  c_Ae->SaveAs("c_Ae_LMR.root");
+
+
+
+
 
 }

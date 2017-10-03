@@ -207,7 +207,7 @@ void pushBackHistograms(Samples &sample, TFile *file, TFile * old, bool MC=true)
 
 void signalEff(int npoint)
 {
-	int massPtsStd[8]={550, 600, 650, 750, 800, 900, 1000, 1200};
+	int massPtsStd[11]={400, 450, 500, 550, 600, 650, 750, 800, 900, 1000, 1200};
 	int massPts[npoint];
 
 
@@ -230,7 +230,7 @@ void signalEff(int npoint)
 
 void cumEff(int npoint)
 {
-	int massPtsStd[8]={550, 600, 650, 750, 800, 900, 1000, 1200};
+	int massPtsStd[11]={400, 450, 500, 550, 600, 650, 750, 800, 900, 1000, 1200};
 
 	int massPts[npoint];
 	for(int i=0; i<npoint; i++) massPts[i]=massPtsStd[i];
@@ -262,8 +262,11 @@ void DisplayCutFlow_MMR()
   lumi_13TeV  = "(2016)";  // default is "5.1 fb^{-1}"
 
 
-	int massL[]={550, 600,  650, 750, 800, 900, 1000, 1200};
+	int massL[]={400, 450, 500, 550, 600,  650, 750, 800, 900, 1000, 1200};
 
+  TFile *glugluToX400=new TFile("PreselectedWithRegressionDeepCSV/MMRSelection_chi2/Histograms_MMR_GluGluToBulkGravitonToHHTo4B_M-400_narrow_13TeV-madgraph.root");
+  TFile *glugluToX450=new TFile("PreselectedWithRegressionDeepCSV/MMRSelection_chi2/Histograms_MMR_GluGluToBulkGravitonToHHTo4B_M-450_narrow_13TeV-madgraph.root");
+  TFile *glugluToX500=new TFile("PreselectedWithRegressionDeepCSV/MMRSelection_chi2/Histograms_MMR_GluGluToBulkGravitonToHHTo4B_M-500_narrow_13TeV-madgraph.root");
   TFile *glugluToX550=new TFile("PreselectedWithRegressionDeepCSV/MMRSelection_chi2/Histograms_MMR_GluGluToBulkGravitonToHHTo4B_M-550_narrow_13TeV-madgraph.root");
   TFile *glugluToX600=new TFile("PreselectedWithRegressionDeepCSV/MMRSelection_chi2/Histograms_MMR_GluGluToBulkGravitonToHHTo4B_M-600_narrow_13TeV-madgraph.root");
   TFile *glugluToX650=new TFile("PreselectedWithRegressionDeepCSV/MMRSelection_chi2/Histograms_MMR_GluGluToBulkGravitonToHHTo4B_M-650_narrow_13TeV-madgraph.root");
@@ -273,6 +276,9 @@ void DisplayCutFlow_MMR()
   TFile *glugluToX1000=new TFile("PreselectedWithRegressionDeepCSV/MMRSelection_chi2/Histograms_MMR_BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph.root");
   TFile *glugluToX1200=new TFile("PreselectedWithRegressionDeepCSV/MMRSelection_chi2/Histograms_MMR_BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph.root");
 
+  pushBackHistograms(signals, glugluToX400, glugluToX400);
+  pushBackHistograms(signals, glugluToX450, glugluToX450);
+  pushBackHistograms(signals, glugluToX500, glugluToX500);
   pushBackHistograms(signals, glugluToX550, glugluToX550);
   pushBackHistograms(signals, glugluToX600, glugluToX600);
   pushBackHistograms(signals, glugluToX650, glugluToX650);
@@ -290,7 +296,7 @@ TH1F *h_Events8=(TH1F*)h_Init->Clone("h_Events8");
 TH1F *h_Events10=(TH1F*)h_Init->Clone("h_Events10");
 TH1F *h_Events16=(TH1F*)h_Init->Clone("h_Events16");
 
-for (unsigned int i=0; i<8; ++i)
+for (unsigned int i=0; i<11; ++i)
 {
 	h_Init->SetBinContent(h_Init->FindBin(massL[i]), signals.v_CountWithPU.at(i)->GetBinContent(1));
 	// std::cout<<"signals.v_CountWithPU.at(i)->GetBinContent(1) = "<<.signals.v_CountWithPU.at(i)->GetBinContent(1)<<std::endl;
@@ -357,5 +363,9 @@ g_Ae_3->SetMinimum(0.0001);
   c_Ae->Update();
 
 c_Ae->SaveAs("c_Ae_MMR.pdf");
+c_Ae->SaveAs("c_Ae_MMR.png");
+c_Ae->SaveAs("c_Ae_MMR.C");
+c_Ae->SaveAs("c_Ae_MMR.root");
+
 
 }

@@ -138,8 +138,8 @@ void DisplaymHmX(std::vector<std::string> files, std::vector<double> mean_gen,  
 {
   std::vector<TFile*> v_files;
   for (unsigned int i=0; i<files.size(); ++i) v_files.push_back(new TFile(files.at(i).c_str()));
-  TFile *f_data=new TFile("Histograms_LMR_BTagTotal.root");
-  //TFile *f_data=new TFile("Histograms_MMR_BTagTotal.root");
+  //TFile *f_data=new TFile("Histograms_LMR_BTagTotal.root");
+  TFile *f_data=new TFile("Histograms_MMR_BTagTotal.root");
   std::vector<int> v_colors = {kRed+1, kRed+3, kGreen+2, kOrange+2, kAzure+1, kAzure+3, kPink+2};//, kGray+2,kBlue+1};
   
   gROOT->SetStyle("Plain");
@@ -159,11 +159,7 @@ void DisplaymHmX(std::vector<std::string> files, std::vector<double> mean_gen,  
   h_pTOrder_JetpT_1=(TH1F*)f_data->Get("h_pTOrder_JetpT_1");
   h_pTOrder_JetpT_1->SetLineColor(kBlack);
   h_pTOrder_JetpT_1->SetLineWidth(2);
-  leg->AddEntry(h_pTOrder_JetpT_1, "13 TeV Data");
-  /*h_pTOrder_JetpT_1=(TH1F*)f_ttbar->Get("h_pTOrder_JetpT_1");
-  h_pTOrder_JetpT_1->SetLineColor(kRed);
-  h_pTOrder_JetpT_1->SetLineWidth(2);
-  leg->AddEntry(h_pTOrder_JetpT_1, "t#bar{t}");*/
+  //leg->AddEntry(h_pTOrder_JetpT_1, "13 TeV Data");
 
   // Plot mH1
   first=true;
@@ -174,7 +170,7 @@ void DisplaymHmX(std::vector<std::string> files, std::vector<double> mean_gen,  
    //  std::cout<<" here "<<std::endl;	
     DisplayHistogram_mH_forFile(v_files.at(i), "h_H1_mass", v_colors.at(i));
   }
- //  DisplayHistogram_mH_forFile(f_data, "h_H1_mass", kBlack);
+  //DisplayHistogram_mH_forFile(f_data, "h_H1_mass", kBlack);
   //DisplayHistogram_mH_forFile(f_ttbar, "h_H1_mass", kRed);
   leg->Draw();
   c_H1_mass->SaveAs("c_H1_mass.png");
@@ -187,7 +183,7 @@ void DisplaymHmX(std::vector<std::string> files, std::vector<double> mean_gen,  
   {
     DisplayHistogram_mH_forFile(v_files.at(i), "h_H2_mass", v_colors.at(i));
   }
-  // DisplayHistogram_mH_forFile(f_data, "h_H2_mass", kBlack);
+  //DisplayHistogram_mH_forFile(f_data, "h_H2_mass", kBlack);
   //DisplayHistogram_mH_forFile(f_ttbar, "h_H2_mass", kRed);
   leg->Draw();
   c_H2_mass->SaveAs("c_H2_mass.png");
@@ -220,6 +216,9 @@ void DisplaymHmX(std::vector<std::string> files, std::vector<double> mean_gen,  
   CMS_lumi(c_mH1_mH2_asym_Data, 4, 11);
   c_mH1_mH2_asym_Data->SaveAs("c_mH1_mH2_asym_Data.png");
   c_mH1_mH2_asym_Data->SaveAs("c_mH1_mH2_asym_Data.pdf");
+  c_mH1_mH2_asym_Data->SaveAs("c_mH1_mH2_asym_Data.root");
+  c_mH1_mH2_asym_Data->SaveAs("c_mH1_mH2_asym_Data.C");
+
   delete c_mH1_mH2_asym_Data;
  
 }    

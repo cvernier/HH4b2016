@@ -193,7 +193,7 @@ void DrawLimitPlot_Combined(std::vector<double> mass_1,
 	std::string background_1,
 	std::string background_2,
 	std::string background_3){
-	/*
+
 	    gStyle->SetTitleOffset(1.2,"Y");
 		gStyle->SetPadLeftMargin(0.18);
 		gStyle->SetPadBottomMargin(0.15);
@@ -250,7 +250,7 @@ void DrawLimitPlot_Combined(std::vector<double> mass_1,
 		gStyle->SetTitleTextColor(1);
 		gStyle->SetTitleFillColor(10);
 		gStyle->SetTitleFontSize(0.05);
-*/
+
         writeExtraText = true;       
 	    extraText  = "Preliminary";  
 	    lumi_13TeV  = "35.9 fb^{-1}";
@@ -473,15 +473,23 @@ std::vector<double> br_hh={
 	0.2618915924170746,	
 	0.054417137017588976};
 
-// Graviton curve K=0.1 from github reference (scale from 0.5 to 0.1)
+
+// Graviton curve K=0.5 from github reference
 std::vector<double> masses_graviton_new={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
-std::vector<double> x_graviton_new={0.2748, 5.44, 9.28, 4.92, 2.29, 1.14, 0.08, 0.6, 0.33, 0.19, 0.12, 0.08, 0.05, 0.03, 0.02};
-//Radion curve from github reference
+std::vector<double> x_graviton_new={6.87, 136.0, 232.0, 123.0, 57.3, 28.4, 20.4, 15.0, 8.16, 4.74, 3.0, 1.9, 1.2, 0.763, 0.483};
+
+// Graviton curve K=0.1 from github reference (scale from 0.5 to 0.1)
+std::vector<double> masses_graviton_new2={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
+std::vector<double> x_graviton_new2={0.2748, 5.44, 9.28, 4.92, 2.29, 1.14, 0.08, 0.6, 0.33, 0.19, 0.12, 0.08, 0.05, 0.03, 0.02};
+
+//Radion curve 1 TeV from github reference
 std::vector<double> masses_radion_new={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
 std::vector<double> x_radion_new={7.64e+03, 7.13e+03, 2.92e+03, 1.50e+03, 9.08e+02, 5.84e+02, 4.74e+02, 3.93e+02, 2.70e+02, 1.90e+02, 1.38e+02, 1.01e+02, 7.38e+01, 5.39e+01, 3.93e+01};
-//Radion curve divided by 9 from github reference
+
+//Radion curve 3 TeV  from github reference (scale from 1 TeV to 3 TeV, dividing by 9)
 std::vector<double> masses_radion_new2={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
 std::vector<double> x_radion_new2={848.88, 792.22, 324.44, 166.66, 100.88, 64.88, 52.66, 43.66, 30.0, 21.11, 15.33, 11.22, 8.20, 5.98, 4.36};
+
 
 TGraph *g_graviton=new TGraph(masses_graviton_new.size(), &(masses_graviton_new[0]), &(x_graviton_new[0])); g_graviton->SetLineWidth(2); g_graviton->SetLineColor(kBlue+1); g_graviton->SetFillColor(kWhite);
 TGraph *g_radion=new TGraph(masses_radion_new.size(), &(masses_radion_new[0]), &(x_radion_new[0])); g_radion->SetLineWidth(2); g_radion->SetLineColor(kBlue+1); g_radion->SetFillColor(kWhite);
@@ -530,18 +538,21 @@ leg->AddEntry(g_xsec_c, "Expected Upper Limit", "L");
 leg->AddEntry(g_xsec_1sigma_c, "Expected #pm 1 #sigma", "F");
 leg->AddEntry(g_xsec_2sigma_c, "Expected #pm 2 #sigma", "F");
 leg->AddEntry(g_obs_c, "Observed Upper Limit", "LP");
-leg->AddEntry(g_graviton,"Bulk Graviton k=0.1","L");
-//leg->AddEntry(g_radion,"Bulk Radion #lambda= 1 TeV, kl=35","L");
-//leg->AddEntry(g_radion2,"Bulk Radion #lambda= 3 TeV, kl=35","L");	
+leg->AddEntry(g_graviton,"Bulk Graviton k=0.5","L");
+//leg->AddEntry(g_radion,"Bulk Radion #Lambda= 1 TeV, kl=35","L");
+//leg->AddEntry(g_radion2,"Bulk Radion #Lambda= 3 TeV, kl=35","L");	
 leg->SetFillColor(kWhite);
 leg->SetFillStyle(0);
 leg->SetTextSize(0.03);
 leg->SetTextFont(42);
 leg->SetBorderSize(0);
 leg->Draw();
+
 CMS_lumi( c_xsec, iPeriod, iPos );
 c_xsec->Update();
 c_xsec->SaveAs("UpperLimit_combined.png");
 c_xsec->SaveAs("UpperLimit_combined.pdf");
+c_xsec->SaveAs("UpperLimit_combined.root");
+c_xsec->SaveAs("UpperLimit_combined.C");
 
 }
