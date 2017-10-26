@@ -537,7 +537,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     
     RooPlot *frame_novo_1=x_2->frame();
     pred_2.plotOn(frame_novo_1, RooFit::LineColor(kBlack), RooFit::MarkerColor(kBlack));
-    f_novo.plotOn(frame_novo_1, RooFit::VisualizeError(*r_novo, 1), RooFit::FillColor(kRed), RooFit::FillStyle(3004));
+    //f_novo.plotOn(frame_novo_1, RooFit::VisualizeError(*r_novo, 1), RooFit::FillColor(kRed), RooFit::FillStyle(3004));
     f_novo.plotOn(frame_novo_1, RooFit::LineColor(kBlue));
 
     //correct error bands MMR
