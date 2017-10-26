@@ -307,7 +307,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     
     
     //Novosibirsk fit
-    RooRealVar par_novo_0("par_novo_0", "par_novo_0", 300, 445);
+    RooRealVar par_novo_0("par_novo_0", "par_novo_0", 300, 450); //445 originally
     RooRealVar par_novo_1("par_novo_1", "par_novo_1", 0.01, 300);
     RooRealVar par_novo_2("par_novo_2", "par_novo_2", -10, 1);
     RooNovosibirsk f_novo("f_novo", "Background Prediction PDF", *x_2, par_novo_0, par_novo_1, par_novo_2);
@@ -318,6 +318,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     f_novo.plotOn(frame_novo, RooFit::VisualizeError(*r_novo, 1), RooFit::FillColor(kGray+1), RooFit::FillStyle(3001));
     f_novo.plotOn(frame_novo, RooFit::LineColor(kBlue+1));
     double fitChi2_Novo=frame_novo->chiSquare();
+    double fitNDF_Novo=int((range_hi_2-range_lo_2)/rebin)-3;
     RooAbsReal* chi2_novo = f_novo.createChi2(pred_2);
     double pvalue_novo=TMath::Prob(chi2_novo->getVal(),int((range_hi_2-range_lo_2)/rebin)-3);
     
@@ -393,7 +394,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     c_crystal_1->SaveAs((dest_dir+"/"+"BackgroundFit_"+type+".png").c_str());
 
 
-    //LMR 1 gauss exp only            
+    //MMR 1 gauss exp only            
     double xPad = 0.3;
     TCanvas *c_gaus_exp_1=new TCanvas("c_gaus_exp_1", "c_gaus_exp_1", 700*(1.-xPad), 700);
     c_gaus_exp_1->SetFillStyle(4000);
@@ -421,10 +422,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     RooPlot *frame_gaus_exp_1=x_1->frame();
     pred_1.plotOn(frame_gaus_exp_1, RooFit::LineColor(kRed), RooFit::MarkerColor(kBlack));
     f_gaus_exp.plotOn(frame_gaus_exp_1, RooFit::VisualizeError(*r_gaus_exp, 1), RooFit::FillColor(kRed), RooFit::FillStyle(3004));
-    //f_crystal.plotOn(frame_gaus_exp_1, RooFit::VisualizeError(*r_crystal, 1), RooFit::FillColor(kRed+1), RooFit::FillStyle(3001));
     f_gaus_exp.plotOn(frame_gaus_exp_1, RooFit::LineColor(kRed), RooFit::LineWidth(6));
-    //f_crystal.plotOn(frame_gaus_exp_1, RooFit::LineColor(kRed), RooFit::LineWidth(3), RooFit::LineStyle(kDashed) );
-    
     
     if (log=="log") frame_gaus_exp_1->GetYaxis()->SetRangeUser(1e-4, h_mX_SR->GetMaximum()*5.);
     else frame_gaus_exp_1->GetYaxis()->SetRangeUser(0, h_mX_SR->GetMaximum()*1.2);
@@ -439,6 +437,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     TPaveText *pave = new TPaveText(0.65,0.57,0.83,0.72,"NDC");
     pave->SetBorderSize(0);
     pave->SetTextSize(0.03);
+    pave->SetTextFont(42);    
     pave->SetLineColor(1);
     pave->SetLineStyle(1);
     pave->SetLineWidth(2);
@@ -453,14 +452,6 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     else sprintf(name,"SR_gaus_exp #chi^{2}/n = %.2f",fitChi2_gaus_exp);
     pave->AddText(name);
     pave->AddText(name1);
-    /* if (hist.substr(0,7)=="h_mX_SB") {
-        sprintf(name,"SB_crystal #chi^{2}/n = %.2f",fitChi2_crystal);
-        sprintf(name1,"p-value_crystal = %.2f",pvalue_crystal);
-    }
-    else sprintf(name,"SR_crystal #chi^{2}/n = %.2f",fitChi2_crystal);
-    pave->AddText(name);
-    pave->AddText(name1);
-    */
     pave->Draw();
     
     TLatex * tPrel = new TLatex();
@@ -486,9 +477,6 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     else leg->AddEntry(h_mX_SR, "Data in SR", "ep");
     TH1F * temp = new TH1F("temp", "temp", 100, 0,1); temp->SetLineWidth(2);  temp->SetLineColor(kBlue);
     leg->AddEntry(temp, "GaussExp fit", "l");
-    //TH1F * temp1 = new TH1F("temp1", "temp1", 100, 0,1); temp1->SetLineWidth(2);
-    //temp1->SetLineColor(kRed);
-    //leg->AddEntry(temp1, "CrystalBall fit", "l");
     leg->Draw();
     
     CMS_lumi( p_1, iPeriod, iPos );
@@ -496,17 +484,11 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     p_2->cd();
     RooHist *hpull, *hpull1;
     hpull = frame_gaus_exp->pullHist();
-    hpull->SetLineWidth(2);
-    //hpull1 = frame_crystal->pullHist();
-    //hpull1->SetMarkerColor(kRed);
-    //hpull1->SetLineStyle(kDashed);
-    //hpull1->SetMarkerSize(0.6);
-    //hpull1->SetLineColor(kRed);
+    hpull->SetLineWidth(1);
     RooPlot* frameP = x_1->frame() ;
     
     frameP->SetTitle("; m_{X} (GeV); Pull");
     frameP->addPlotable(hpull,"P");
-    //frameP->addPlotable(hpull1,"P same");
     frameP->GetYaxis()->SetTitleSize(0.07);
     frameP->GetYaxis()->SetTitleOffset(0.5);
     frameP->GetXaxis()->SetTitleSize(0.09);
@@ -517,7 +499,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     
     
     TLine *line=new TLine(range_lo_1, 0, range_hi_1, 0);
-    line->SetLineWidth(2);
+    line->SetLineWidth(1);
     line->Draw();
     
     string tag;
@@ -525,9 +507,9 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     else tag="SR";
     c_gaus_exp_1->SaveAs((dest_dir+"/"+"BackgroundFit_"+tag+"_Split_1.png").c_str());
     c_gaus_exp_1->SaveAs((dest_dir+"/"+"BackgroundFit_"+tag+"_Split_1.pdf").c_str());
- 
+    c_gaus_exp_1->SaveAs((dest_dir+"/"+"BackgroundFit_"+tag+"_Split_1.root").c_str());
 
-    //LMR2 unblind   
+    //MMR2 novosibirsk only  
     TCanvas *c_novo_1=new TCanvas("c_novo_1", "c_novo_1", 700*(1.-xPad), 700);
     c_novo_1->SetFillStyle(4000);
     c_novo_1->SetFrameFillColor(0);
@@ -535,10 +517,12 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     TPad *p_3=new TPad("p_3", "p_3", 0, xPad, 1, 1);
     p_3->SetFillStyle(4000);
     p_3->SetFrameFillColor(0);
+    p_3->SetLeftMargin(0.15);    
     p_3->SetBottomMargin(0.02);
     
     TPad* p_4 = new TPad("p_4", "p_4",0,0,1,xPad);
     p_4->SetBottomMargin((1.-xPad)/xPad*0.13);
+    p_4->SetLeftMargin(0.15); 
     p_4->SetTopMargin(0.03);
     p_4->SetFillColor(0);
     p_4->SetBorderMode(0);
@@ -553,25 +537,93 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     
     RooPlot *frame_novo_1=x_2->frame();
     pred_2.plotOn(frame_novo_1, RooFit::LineColor(kBlack), RooFit::MarkerColor(kBlack));
-    //f_crystal_1.plotOn(frame_novo_1, RooFit::VisualizeError(*r_crystal_1, 1), RooFit::FillColor(kBlack), RooFit::FillStyle(3001));
-    f_novo.plotOn(frame_novo_1, RooFit::VisualizeError(*r_novo, 1), RooFit::FillColor(kBlue), RooFit::FillStyle(3004));
-    //f_crystal_1.plotOn(frame_novo_1, RooFit::LineColor(kBlack), RooFit::LineWidth(6));
-    f_novo.plotOn(frame_novo_1, RooFit::LineColor(kBlue), RooFit::LineWidth(3), RooFit::LineStyle(kDashed) );
-    
-    
+    f_novo.plotOn(frame_novo_1, RooFit::LineColor(kBlue));
+
+    //correct error bands
+    TGraph* error_curve[5];    
+
+    for (int i=2; i!=5; ++i) {
+        error_curve[i] = new TGraph();
+    }
+
+    error_curve[2] = (TGraph*)frame_novo_1->getObject(1)->Clone("errs");
+    int nPoints = error_curve[2]->GetN();
+    error_curve[0] = new TGraph(2*nPoints);
+    error_curve[1] = new TGraph(2*nPoints);
+    error_curve[0]->SetFillStyle(1001);
+    error_curve[1]->SetFillStyle(1001);
+    error_curve[0]->SetFillColor(kGreen);
+    error_curve[1]->SetFillColor(kYellow);
+    error_curve[0]->SetLineColor(kGreen);
+    error_curve[1]->SetLineColor(kYellow);
+
+    RooDataHist pred2("pred2", "SR/SB histogram", RooArgList(*x_2), h_SR);
+    error_curve[3]->SetFillStyle(1001);
+    error_curve[4]->SetFillStyle(1001);
+    error_curve[3]->SetFillColor(kGreen);
+    error_curve[4]->SetFillColor(kYellow);
+    error_curve[3]->SetLineColor(kGreen);
+    error_curve[4]->SetLineColor(kYellow);
+    error_curve[2]->SetLineColor(kBlue);
+    error_curve[2]->SetLineWidth(3);
+        
+    double binSize = rebin;
+
+    for (int i=0; i!=nPoints; ++i) {
+            double x0,y0, x1,y1,lim;
+            error_curve[2]->GetPoint(i,x0,y0);
+
+            if (hist.substr(0,7)=="h_mX_SB"){lim=10500;}
+            else{lim =100000;}
+
+            RooAbsReal* nlim = new RooRealVar("nlim","y0",y0,-lim,lim);
+            double lowedge = x0 - binSize/2.;
+            double upedge = x0 + binSize/2.;        
+            x_2->setRange("errRange",lowedge,upedge);
+            RooExtendPdf* epdf = new RooExtendPdf("epdf","extpdf",f_novo, *nlim,"errRange");
+         
+            // Construct unbinned likelihood
+            RooAbsReal* nll = epdf->createNLL(pred2,RooFit::NumCPU(2));
+            // Minimize likelihood w.r.t all parameters before making plots
+            RooMinimizer* minim = new RooMinimizer(*nll);
+            minim->setMinimizerType("Minuit2");
+            minim->setStrategy(2);
+            minim->setPrintLevel(-1);
+            minim->migrad();
+            minim->hesse();
+            RooFitResult* result = minim->lastMinuitFit();
+            double errm = nlim->getPropagatedError(*result);
+            
+            error_curve[0]->SetPoint(i,x0,(y0-errm));
+            error_curve[0]->SetPoint(2*nPoints-i-1,x0,y0+errm);
+            error_curve[1]->SetPoint(i,x0,(y0-2*errm));
+            error_curve[1]->SetPoint(2*nPoints-i-1,x0,(y0+2*errm));
+            error_curve[3]->SetPoint(i,x0,-errm/sqrt(y0));
+            error_curve[3]->SetPoint(2*nPoints-i-1,x0,errm/sqrt(y0));
+            error_curve[4]->SetPoint(i,x0,-2*errm/sqrt(y0));
+            error_curve[4]->SetPoint(2*nPoints-i-1,x0,2*errm/sqrt(y0));            
+    }
+
+
     if (log=="log") frame_novo_1->GetYaxis()->SetRangeUser(1e-4, h_mX_SR->GetMaximum()*5);
     else frame_novo_1->GetYaxis()->SetRangeUser(0, h_mX_SR->GetMaximum()*1.2);
-    frame_novo_1->GetXaxis()->SetLabelOffset(0.03);
+    frame_novo_1->GetXaxis()->SetLabelOffset(0.05);
     frame_novo_1->GetYaxis()->SetLabelFont(42);
     frame_novo_1->GetYaxis()->SetTitleFont(42);
-    frame_novo_1->GetYaxis()->SetTitleOffset(1.25);
-    frame_novo_1->Draw("same");
+    frame_novo_1->GetYaxis()->SetTitleOffset(1.6);
+    frame_novo_1->Draw();
     frame_novo_1->SetTitle(("; m_{X} (GeV); Events / "+itoa(h_mX_SR->GetBinWidth(1))+" GeV").c_str());
+    error_curve[1]->Draw("Fsame");
+    error_curve[0]->Draw("Fsame");
+    error_curve[2]->Draw("Lsame");
+    frame_novo_1->Draw("same");
+
     if (log=="log") p_3->SetLogy();
     
     TPaveText *pave_1 = new TPaveText(0.65,0.57,0.85,0.72,"NDC");
     pave_1->SetBorderSize(0);
     pave_1->SetTextSize(0.03);
+    pave_1->SetTextFont(42);    
     pave_1->SetLineColor(1);
     pave_1->SetLineStyle(1);
     pave_1->SetLineWidth(1);
@@ -579,21 +631,12 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     pave_1->SetFillStyle(0);
     char name_1[1000];
     char name_11[1000];
-    /*if (hist.substr(0,7)=="h_mX_SB") {
-        sprintf(name_1,"SB_crystal #chi^{2}/n = %.2f",fitChi2_crystal_1);
-        sprintf(name_11,"p-value_crystal = %.2f",pvalue_crystal_1);
-    }
-    else sprintf(name_1,"SR_crystal #chi^{2}/n = %.2f",fitChi2_crystal_1);
-    pave_1->AddText(name_1);
-    pave_1->AddText(name_11);
-    */
+
     if (hist.substr(0,7)=="h_mX_SB") {
-        sprintf(name_1,"#chi^{2}/n = %.2f",fitChi2_Novo);
-//        sprintf(name_11,"p-value_novo = %.2f",pvalue_novo);
+        sprintf(name_1,"#chi^{2} = %.2f",fitChi2_Novo*fitNDF_Novo);
     }
-    else sprintf(name_1,"#chi^{2}/n = %.2f",fitChi2_Novo);
+    else sprintf(name_1,"#chi^{2} = %.2f",fitChi2_Novo*fitNDF_Novo);
     pave_1->AddText(name_1);
-    //pave_1->AddText(name_11);
     pave_1->Draw();
     
     TLatex * tPrel_1 = new TLatex();
@@ -605,6 +648,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     leg_1->SetBorderSize(0);
     leg_1->SetTextSize(0.035);
     leg_1->SetLineColor(1);
+    leg_1->SetTextFont(42);
     leg_1->SetLineStyle(1);
     leg_1->SetLineWidth(2);
     leg_1->SetFillColor(0);
@@ -614,14 +658,19 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
         h_mX_SR->SetLineColor(kBlack);
         h_mX_SR->SetMarkerColor(kBlack);
         leg_1->AddEntry(h_mX_SR, "Data in SB", "ep");
-        
+        leg_1->AddEntry(error_curve[2], "Novosibirsk fit", "l");
+        leg_1->AddEntry(error_curve[0], "Fit #pm1#sigma", "f");
+        leg_1->AddEntry(error_curve[1], "Fit #pm2#sigma", "f");        
     }
-    else leg_1->AddEntry(h_mX_SR, "Data in SR", "ep");
-    TH1F* temp_1 = new TH1F("temp_1", "temp_1", 100, 0,1); temp_1->SetLineWidth(2);  temp_1->SetLineColor(kBlue);
-    TH1F* temp_11 = new TH1F("temp_11", "temp_11", 100, 0,1); temp_11->SetLineWidth(2);
-    temp_11->SetLineColor(kBlack);
-    //leg_1->AddEntry(temp_11, "CrystalBall fit", "l");
-    leg_1->AddEntry(temp_1, "Novorsibisk fit", "l");
+    else {leg_1->AddEntry(h_mX_SR, "Data in SR", "ep");
+    leg_1->AddEntry(error_curve[2], "Novosibirsk fit", "l");
+    leg_1->AddEntry(error_curve[0], "Fit #pm1#sigma", "f");
+    leg_1->AddEntry(error_curve[1], "Fit #pm2#sigma", "f");
+    }
+    //TH1F* temp_1 = new TH1F("temp_1", "temp_1", 100, 0,1); temp_1->SetLineWidth(2);  temp_1->SetLineColor(kBlue);
+    //TH1F* temp_11 = new TH1F("temp_11", "temp_11", 100, 0,1); temp_11->SetLineWidth(2);
+    //temp_11->SetLineColor(kBlack);
+    //leg_1->AddEntry(temp_1, "Novorsibisk fit", "l");
     leg_1->Draw();
     
     CMS_lumi( p_3, iPeriod, iPos );
@@ -629,37 +678,35 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     p_4->cd();
     RooHist *hpull_1, *hpull_11;
     hpull_1 = frame_novo->pullHist();
-    hpull_1->SetLineWidth(2);
-    //hpull_11 = frame_crystal_1->pullHist();
-    //hpull_11->SetLineStyle(kDashed);
-    //hpull_11->SetLineColor(kRed);
-    //hpull_11->SetMarkerSize(0.6);
-    //hpull_11->SetMarkerColor(kRed);
+    hpull_1->SetLineWidth(1);
     RooPlot* frameP_1 = x_2->frame() ;
-    
+    frameP_1->GetYaxis()->SetTitleSize(0.07);    
     frameP_1->SetTitle("; m_{X} (GeV); Pull");
     frameP_1->addPlotable(hpull_1,"P");
-    //frameP_1->addPlotable(hpull_11,"P same");
-    frameP_1->GetYaxis()->SetTitleSize(0.07);
-    frameP_1->GetYaxis()->SetTitleOffset(0.5);
-    frameP_1->GetXaxis()->SetTitleSize(0.09);
-    frameP_1->GetXaxis()->SetTitleOffset(1.0);
-    frameP_1->GetXaxis()->SetLabelSize(0.07);
-    frameP_1->GetYaxis()->SetLabelSize(0.06);
+    frameP_1->SetMaximum(4);
+    frameP_1->SetMinimum(-4);
+    frameP_1->GetYaxis()->SetLabelFont(42);
+    frameP_1->GetYaxis()->SetTitleFont(42);    
+    frameP_1->GetXaxis()->SetLabelFont(42);
+    frameP_1->GetXaxis()->SetTitleFont(42);
+    frameP_1->GetYaxis()->SetTitleOffset(0.5);    
+    frameP_1->GetYaxis()->SetTitleSize((1.-xPad)/xPad*0.05);
+    frameP_1->GetXaxis()->SetTitleSize((1.-xPad)/xPad*0.05);
+    frameP_1->GetXaxis()->SetLabelSize((1.-xPad)/xPad*0.04);
+    frameP_1->GetYaxis()->SetLabelSize((1.-xPad)/xPad*0.04);
     frameP_1->Draw();
     
     
     TLine *line_1=new TLine(range_lo_2, 0, range_hi_2, 0);
-    line_1->SetLineWidth(2);
+    line_1->SetLineWidth(1);
     line_1->Draw();
     
     c_novo_1->SaveAs((dest_dir+"/"+"BackgroundFit_"+tag+"_Split_2.png").c_str());
     c_novo_1->SaveAs((dest_dir+"/"+"BackgroundFit_"+tag+"_Split_2.pdf").c_str());
-    
+    c_novo_1->SaveAs((dest_dir+"/"+"BackgroundFit_"+tag+"_Split_2.root").c_str());
     
     TH1F *h_mX_SR_fakeData=(TH1F*)h_mX_SR->Clone("h_mX_SR_fakeData");    
     h_mX_SR_fakeData->Scale(nEventsSR/h_mX_SR_fakeData->GetSumOfWeights());
-
     
     RooDataHist data_obs_crystal(Form("data_obs_crystal_%d_%d",range_lo_1, range_hi_1), "Data", RooArgList(*x_1), h_mX_SR_fakeData);
     RooDataHist data_obs_gaus_exp(Form("data_obs_gaus_exp_%d_%d",range_lo_1, range_hi_1), "Data", RooArgList(*x_1), h_mX_SR_fakeData);
