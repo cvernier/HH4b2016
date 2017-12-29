@@ -193,67 +193,9 @@ void DrawLimitPlot_Combined(std::vector<double> mass_1,
 	std::string background_1,
 	std::string background_2,
 	std::string background_3){
-
-	    gStyle->SetTitleOffset(1.2,"Y");
-		gStyle->SetPadLeftMargin(0.18);
-		gStyle->SetPadBottomMargin(0.15);
-		gStyle->SetPadTopMargin(0.08);
-		gStyle->SetPadRightMargin(0.05);
-		gStyle->SetMarkerSize(0.5);
-		gStyle->SetHistLineWidth(1);
-		gStyle->SetStatFontSize(0.020);
-		gStyle->SetTitleSize(0.06, "XYZ");
-		gStyle->SetLabelSize(0.05, "XYZ");
-		gStyle->SetNdivisions(510, "XYZ");
-		gStyle->SetLegendBorderSize(0);
-		gStyle->SetPadBorderMode(0);
-		gStyle->SetFrameBorderMode(0);
-		gStyle->SetPadBottomMargin(0.12);
-		gStyle->SetPadLeftMargin(0.12);
-		gStyle->SetCanvasColor(kWhite);
-		gStyle->SetCanvasDefH(600);
-		gStyle->SetCanvasDefW(600);
-		gStyle->SetCanvasDefX(0);
-		gStyle->SetCanvasDefY(0);
-
-		gStyle->SetPadTopMargin(0.05);
-		gStyle->SetPadBottomMargin(0.15);
-		gStyle->SetPadLeftMargin(0.15);
-		gStyle->SetPadRightMargin(0.05);
-
-		gStyle->SetPadBorderMode(0);
-		gStyle->SetPadColor(kWhite);
-		gStyle->SetGridColor(0);
-		gStyle->SetGridStyle(3);
-		gStyle->SetGridWidth(1);
-
-		gStyle->SetFrameBorderMode(0);
-		gStyle->SetFrameBorderSize(1);
-		gStyle->SetFrameFillColor(0);
-		gStyle->SetFrameFillStyle(0);
-		gStyle->SetFrameLineColor(1);
-		gStyle->SetFrameLineStyle(1);
-		gStyle->SetFrameLineWidth(1);
-
-		gStyle->SetTitleColor(1, "XYZ");
-		gStyle->SetTitleFont(42, "XYZ");
-		gStyle->SetTitleSize(0.05, "XYZ");
-		gStyle->SetTitleXOffset(1.15);
-		gStyle->SetTitleYOffset(1.3) ;
-		gStyle->SetLabelColor(1, "XYZ");
-		gStyle->SetLabelFont(42, "XYZ");
-		gStyle->SetLabelOffset(0.007, "XYZ");
-		gStyle->SetLabelSize(0.045, "XYZ");
-
-		gStyle->SetPadBorderMode(0);
-		gStyle->SetFrameBorderMode(0);
-		gStyle->SetTitleTextColor(1);
-		gStyle->SetTitleFillColor(10);
-		gStyle->SetTitleFontSize(0.05);
-
-        writeExtraText = true;       
-	    extraText  = "Preliminary";  
-	    lumi_13TeV  = "35.9 fb^{-1}";
+    writeExtraText = true;       
+	extraText  = "";  
+	lumi_13TeV  = "35.9 fb^{-1}";
 
 	// LMR1 definitions
 	const unsigned int nPoints_1=mass_1.size();
@@ -264,13 +206,17 @@ void DrawLimitPlot_Combined(std::vector<double> mass_1,
 	// MMR1 definitions
 	const unsigned int nPoints_3=mass_3.size();
 	double norm_3=2;	
-    // All definitions
-    const unsigned int nPoints_c=nPoints_1 + nPoints_2 + nPoints_3;
+    // All definitions for LMR 1 and 2
+    const unsigned int nPoints_c=nPoints_1 + nPoints_2;
     double xsec_c[nPoints_c], xsecNeg1_c[nPoints_c], xsecPos1_c[nPoints_c], xsecNeg2_c[nPoints_c], xsecPos2_c[nPoints_c];
     double obs_c[nPoints_c];
     double expNeg2_c[nPoints_c], expNeg1_c[nPoints_c], expPos1_c[nPoints_c], expPos2_c[nPoints_c];
+    // All definitions for MMR
+    double xsec_3[nPoints_3], xsecNeg1_3[nPoints_3], xsecPos1_3[nPoints_3], xsecNeg2_3[nPoints_3], xsecPos2_3[nPoints_3];
+    double obs_3[nPoints_3];
+    double expNeg2_3[nPoints_3], expNeg1_3[nPoints_3], expPos1_3[nPoints_3], expPos2_3[nPoints_3];
 
-    // All LOOP
+    // LOOP over all LMR
 	for (unsigned int i=0; i<nPoints_1; ++i)
 	{
 		std::string mass_string_1=itoa(mass_1[i]);
@@ -299,7 +245,7 @@ void DrawLimitPlot_Combined(std::vector<double> mass_1,
         cout<<mass_string_1<<" & "<<obs_c[i]<<" & "<<xsec_c[i]<<" & "<<expNeg1_c[i]<<" & "<<expPos1_c[i]<<" \\\\"<<endl; 
    }
 
-  	for (unsigned int i=0; i<nPoints_2; ++i)
+   for (unsigned int i=0; i<nPoints_2; ++i)
 	{  
 		std::string mass_string_2=itoa(mass_2[i]);
 		std::string filename_2;
@@ -327,158 +273,42 @@ void DrawLimitPlot_Combined(std::vector<double> mass_1,
                 cout<<mass_string_2<<" & "<<obs_c[i+nPoints_1]<<" & "<<xsec_c[i+nPoints_1]<<" & "<<expNeg1_c[i+nPoints_1]<<" & "<<expPos1_c[i+nPoints_1]<<" \\\\"<<endl;
 }
         
-
- 	for (unsigned int i=0; i<nPoints_3; ++i)
-	{       	
-		std::string mass_string_3=itoa(mass_3[i]);
-		std::string filename_3;
-		filename_3="MMR/MMR_"+mass_string_3+"_"+background_3+"/CMS_HH4b_"+mass_string_3+"_13TeV_asymptoticCLs.out";
-		std::ifstream file_3(filename_3.c_str(), ios::in);
-		std::string line_3;
+for (unsigned int i=0; i<nPoints_3; ++i)
+        {
+                std::string mass_string_3=itoa(mass_3[i]);
+                std::string filename_3;
+                filename_3="MMR/MMR_"+mass_string_3+"_"+background_3+"/CMS_HH4b_"+mass_string_3+"_13TeV_asymptoticCLs.out";
+                std::ifstream file_3(filename_3.c_str(), ios::in);
+                std::string line_3;
         bool found_3= false;
         while (!found_3 && !file_3.eof() && !gSystem->AccessPathName(filename_3.c_str())) {
                           getline(file_3, line_3);
-                          std::size_t pos = line_3.find("-- Asymptotic --");  
+                          std::size_t pos = line_3.find("-- Asymptotic --");
                           if (pos!=std::string::npos){
                           found_3=true;
                           }
         }
-		getline(file_3, line_3); obs_c[i+nPoints_2+nPoints_1]=atof(line_3.substr(line_3.find("<")+1).c_str())*norm_3;
-		getline(file_3, line_3); xsecNeg2_c[i+nPoints_2+nPoints_1]=atof(line_3.substr(line_3.find("<")+1).c_str())*norm_3;
-		getline(file_3, line_3); xsecNeg1_c[i+nPoints_2+nPoints_1]=atof(line_3.substr(line_3.find("<")+1).c_str())*norm_3;
-		getline(file_3, line_3); xsec_c[i+nPoints_2+nPoints_1]=atof(line_3.substr(line_3.find("<")+1).c_str())*norm_3;
-		getline(file_3, line_3); xsecPos1_c[i+nPoints_2+nPoints_1]=atof(line_3.substr(line_3.find("<")+1).c_str())*norm_3;
-		getline(file_3, line_3); xsecPos2_c[i+nPoints_2+nPoints_1]=atof(line_3.substr(line_3.find("<")+1).c_str())*norm_3;
-		expNeg2_c[i+nPoints_2+nPoints_1]=xsec_c[i+nPoints_2+nPoints_1]-xsecNeg2_c[i+nPoints_2+nPoints_1];
-		expNeg1_c[i+nPoints_2+nPoints_1]=xsec_c[i+nPoints_2+nPoints_1]-xsecNeg1_c[i+nPoints_2+nPoints_1];
-		expPos1_c[i+nPoints_2+nPoints_1]=xsecPos1_c[i+nPoints_2+nPoints_1]-xsec_c[i+nPoints_2+nPoints_1];
-		expPos2_c[i+nPoints_2+nPoints_1]=xsecPos2_c[i+nPoints_2+nPoints_1]-xsec_c[i+nPoints_2+nPoints_1];
-                cout<<mass_string_3<<" & "<<obs_c[i+nPoints_2+nPoints_1]<<" & "<<xsec_c[i+nPoints_2+nPoints_1]<<" & "<<expNeg1_c[i+nPoints_2+nPoints_1]<<" & "<<expPos1_c[i+nPoints_2+nPoints_1]<<" \\\\"<<endl;
-
-  
-	}
+                getline(file_3, line_3); obs_3[i]=atof(line_3.substr(line_3.find("<")+1).c_str())*norm_3;
+                getline(file_3, line_3); xsecNeg2_3[i]=atof(line_3.substr(line_3.find("<")+1).c_str())*norm_3;
+                getline(file_3, line_3); xsecNeg1_3[i]=atof(line_3.substr(line_3.find("<")+1).c_str())*norm_3;
+                getline(file_3, line_3); xsec_3[i]=atof(line_3.substr(line_3.find("<")+1).c_str())*norm_3;
+                getline(file_3, line_3); xsecPos1_3[i]=atof(line_3.substr(line_3.find("<")+1).c_str())*norm_3;
+                getline(file_3, line_3); xsecPos2_3[i]=atof(line_3.substr(line_3.find("<")+1).c_str())*norm_3;
+                expNeg2_3[i]=xsec_3[i]-xsecNeg2_3[i];
+                expNeg1_3[i]=xsec_3[i]-xsecNeg1_3[i];
+                expPos1_3[i]=xsecPos1_3[i]-xsec_3[i];
+                expPos2_3[i]=xsecPos2_3[i]-xsec_3[i];
+                cout<<mass_string_3<<" & "<<obs_3[i]<<" & "<<xsec_3[i]<<" & "<<expNeg1_3[i]<<" & "<<expPos1_3[i]<<" \\\\"<<endl;
+        }
 
 
-	// Graviton curve
-	std::vector<double> masses_graviton={
-	260,  
-		300,  
-		350,  
-		400,  
-		450,  
-		500,  
-		550,  
-		600,  
-		650,  
-		700,  
-		750,  
-		800,  
-		850,  
-		900,
-		950,  
-		1000,
-		1050,
-		1100,
-		1150,
-		1200,
-		1250,
-		1300,
-		1350,
-		1400,
-		1450,
-		1500};
 
-std::vector<double> x_graviton{
-	13189.5110556213,
-		7213.724953,
-		3724.152306612245,
-		2074.118283562500,
-		1220.908845777777,
-		756.0527086799999,
-		484.2628197024792,
-		321.127891575,
-		219.297103860355, 
-		152.2164810122449,
-		108.4982254720000,
-		78.4962635203125 ,
-		57.88419000415223,
-		43.08418917777778,
-		32.69710000221605,
-		24.96632111100000,
-		19.26116379591836,
-		15.04592709917355,
-		11.87132725293005,
-		9.391763225,
-		7.510401695231998,
-		6.032381149171598,
-		4.878695042469133,
-		3.980540729387755,
-		3.259530744827586,
-		2.6789518692	
-};
-
-std::vector<double> br_hh={
-7.875333606243001e-6,
-	0.0002609363907507743,
-	0.0008527793007645482 , 
-	0.0014748453016228675,
-	0.00202120813640487,
-	0.0024744221679741125,
-	0.002843812476091045,
-	0.003144265384982541,
-	0.0033897489806557304,
-	0.0035917787224510177, 
-	0.003759423688146881,
-	0.0038997130095539006, 
-	0.004018077826392619,
-	0.004118727164348574,   
-	0.004204942476367313,   
-	0.00427930100894505,   
-	0.004343843097937954, 
-	0.004400197131035117,  
-	0.004449673107888205,
-	0.0044933330427632395, 
-	0.00453204428524029 , 
-	0.004566520194709918,   
-	0.004597351400961763, 
-	0.004625030011213332, 
-	0.00464996849485267,   
-	0.004672514523079795
-	};
-
-	// Radion curve
-	std::vector<double> masses_radion={
-	260,  
-		300,
-		400,
-		500,
-		600,
-		700,
-		750,
-		800,
-		900,
-	   1000,
-       1500};
-
-    std::vector<double> x_radion{
-    10.314910442540885,	
-    7.20114376233762,	
-    3.369927115848731,	
-    1.962250361817225,	
-    1.235987766884442,	
-    0.8043402650432466,	
-    0.6557538821852814,	
-    0.5434525134607641,	
-    0.3735615328391298,	
-	0.2618915924170746,	
-	0.054417137017588976};
-
-
+//Bulk model
 // Graviton curve K=0.5 from github reference
 std::vector<double> masses_graviton_new={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
 std::vector<double> x_graviton_new={6.87, 136.0, 232.0, 123.0, 57.3, 28.4, 20.4, 15.0, 8.16, 4.74, 3.0, 1.9, 1.2, 0.763, 0.483};
 
-// Graviton curve K=0.1 from github reference (scale from 0.5 to 0.1)
+// Graviton curve K=0.1 from github reference (scale from 0.5 to 0.1 by (0.1/0.5)^2)
 std::vector<double> masses_graviton_new2={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
 std::vector<double> x_graviton_new2={0.2748, 5.44, 9.28, 4.92, 2.29, 1.14, 0.08, 0.6, 0.33, 0.19, 0.12, 0.08, 0.05, 0.03, 0.02};
 
@@ -486,61 +316,119 @@ std::vector<double> x_graviton_new2={0.2748, 5.44, 9.28, 4.92, 2.29, 1.14, 0.08,
 std::vector<double> masses_radion_new={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
 std::vector<double> x_radion_new={7.64e+03, 7.13e+03, 2.92e+03, 1.50e+03, 9.08e+02, 5.84e+02, 4.74e+02, 3.93e+02, 2.70e+02, 1.90e+02, 1.38e+02, 1.01e+02, 7.38e+01, 5.39e+01, 3.93e+01};
 
-//Radion curve 3 TeV  from github reference (scale from 1 TeV to 3 TeV, dividing by 9)
+//Radion curve 3 TeV  from github reference (divide by 9)
 std::vector<double> masses_radion_new2={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
 std::vector<double> x_radion_new2={848.88, 792.22, 324.44, 166.66, 100.88, 64.88, 52.66, 43.66, 30.0, 21.11, 15.33, 11.22, 8.20, 5.98, 4.36};
 
 
+// RS1 model
+//Radion curve from github reference
+double masses_radion[11]={260, 300, 400, 500, 600, 700, 750, 800, 900, 1000, 1500};
+double x_radion[11]= { 7.0000671104779855,	
+4.843380339233729,	
+2.2033362626321535,	
+1.2884373572757672,	
+0.815930653669519,	
+0.5326974432791105,	
+0.4342318406630251,	
+0.3600098167141369,	
+0.24694197195075712,	
+0.17295592620253558,	
+0.0354691843409431
+};
+for(int i=0; i<11; i++ ) x_radion[i]=x_radion[i]*0.23*0.57*0.57*1000*9; // Line=xsec*BR(X->HH)*BR(HH->4b)*units*Lambda_R(3TeV->1TeV)
+ 	
+
+//RunI paper
+//TGraph *g_graviton_0=new TGraph(18, masses_graviton, x_graviton); g_graviton_0->SetLineWidth(2); g_graviton_0->SetLineColor(kBlue+1); g_graviton_0->SetFillColor(kWhite);
+TGraph *g_radion_0=new TGraph(11, masses_radion, x_radion); g_radion_0->SetLineWidth(2); g_radion_0->SetLineColor(kOrange+2); g_radion_0->SetFillColor(kWhite);
+
+//RunII paper
 TGraph *g_graviton=new TGraph(masses_graviton_new.size(), &(masses_graviton_new[0]), &(x_graviton_new[0])); g_graviton->SetLineWidth(2); g_graviton->SetLineColor(kBlue+1); g_graviton->SetFillColor(kWhite);
 TGraph *g_radion=new TGraph(masses_radion_new.size(), &(masses_radion_new[0]), &(x_radion_new[0])); g_radion->SetLineWidth(2); g_radion->SetLineColor(kBlue+1); g_radion->SetFillColor(kWhite);
-TGraph *g_radion2=new TGraph(masses_radion_new2.size(), &(masses_radion_new2[0]), &(x_radion_new2[0])); g_radion2->SetLineWidth(2); g_radion2->SetLineColor(kBlue+1); g_radion->SetFillColor(kWhite);
+TGraph *g_radion2=new TGraph(masses_radion_new2.size(), &(masses_radion_new2[0]), &(x_radion_new2[0])); g_radion2->SetLineWidth(2); g_radion2->SetLineColor(kRed+1); g_radion2->SetFillColor(kWhite);
 TStyle *tdrStyle=setTDRStyle();
 gROOT->SetStyle("Plain");
 
-// Big flag 
+// Big LMR flag 
 TGraphErrors *g_xsec_c=new TGraphErrors(nPoints_c, &(mass_c[0]), xsec_c);
 g_xsec_c->SetTitle("; m_{X} (GeV); #sigma(pp#rightarrowX) #times Br(X#rightarrowH(b#bar{b}) H(b#bar{b})) (fb)");
 g_xsec_c->SetLineWidth(2);
 g_xsec_c->SetLineStyle(2);
 TGraphAsymmErrors *g_xsec_1sigma_c=new TGraphAsymmErrors(nPoints_c, &(mass_c[0]), xsec_c, 0, 0, expNeg1_c, expPos1_c);
-g_xsec_1sigma_c->SetLineColor(kGreen);
-g_xsec_1sigma_c->SetFillColor(kGreen);
+g_xsec_1sigma_c->SetLineColor(kGreen+1);
+g_xsec_1sigma_c->SetFillColor(kGreen+1);
 TGraphAsymmErrors *g_xsec_2sigma_c=new TGraphAsymmErrors(nPoints_c, &(mass_c[0]), xsec_c, 0, 0, expNeg2_c, expPos2_c);
-g_xsec_2sigma_c->SetLineColor(kYellow);
-g_xsec_2sigma_c->SetFillColor(kYellow);
+g_xsec_2sigma_c->SetLineColor(kOrange);
+g_xsec_2sigma_c->SetFillColor(kOrange);
 TGraph *g_obs_c=new TGraph(nPoints_c, &(mass_c[0]), obs_c);
 g_obs_c->SetLineWidth(2);
 g_obs_c->SetLineStyle(1);
+
+
+// MMR flag
+TGraphErrors *g_xsec_3=new TGraphErrors(nPoints_3, &(mass_3[0]), xsec_3);
+g_xsec_3->SetTitle("; m_{X} (GeV); #sigma(pp#rightarrowX) #times Br(X#rightarrowH(b#bar{b}) H(b#bar{b})) (fb)");
+g_xsec_3->SetLineWidth(2);
+//g_xsec_3->SetTextFont(42);
+g_xsec_3->SetLineStyle(2);
+TGraphAsymmErrors *g_xsec_1sigma_3=new TGraphAsymmErrors(nPoints_3, &(mass_3[0]), xsec_3, 0, 0, expNeg1_3, expPos1_3);
+g_xsec_1sigma_3->SetLineColor(kGreen+1);
+g_xsec_1sigma_3->SetFillColor(kGreen+1);
+TGraphAsymmErrors *g_xsec_2sigma_3=new TGraphAsymmErrors(nPoints_3, &(mass_3[0]), xsec_3, 0, 0, expNeg2_3, expPos2_3);
+g_xsec_2sigma_3->SetLineColor(kOrange);
+g_xsec_2sigma_3->SetFillColor(kOrange);
+TGraph *g_obs_3=new TGraph(nPoints_3, &(mass_3[0]), obs_3);
+g_obs_3->SetLineWidth(2);
+g_obs_3->SetLineStyle(1);
+
 
 
 TCanvas *c_xsec=new TCanvas("c_xsec", "c_xsec", 1000, 700);
 c_xsec->SetLogy();
 g_xsec_c->SetMaximum(ymax); 
 g_xsec_c->SetMinimum(ymin);
-g_xsec_c->Draw("AL");
+g_xsec_c->Draw("AL axis");
 g_xsec_2sigma_c->Draw("3");
 g_xsec_1sigma_c->Draw("3");
 g_xsec_c->GetXaxis()->SetLimits(260,1200);
 g_xsec_c->Draw("L");
-g_graviton->Draw("C same");
-//g_radion->Draw("C same");
-//g_radion2->Draw("C same");
+g_xsec_3->Draw("L same");
+g_xsec_2sigma_3->Draw("3 same");
+g_xsec_1sigma_3->Draw("3 same");
+g_xsec_3->Draw("L same");
+//g_graviton->Draw("C same");
+g_radion_0->Draw("C same");
+g_radion->Draw("C same");
+g_radion2->Draw("C same");
+
 
 g_obs_c->SetMarkerStyle(20);
 g_obs_c->SetMarkerColor(kBlack);	
 g_obs_c->Draw("CP SAME");
-
+g_obs_3->SetMarkerStyle(20);
+g_obs_3->SetMarkerColor(kBlack);	
+g_obs_3->Draw("CP SAME");
+gPad->RedrawAxis("g");
+g_xsec_c->GetXaxis()->SetLabelFont(42);
+g_xsec_c->GetXaxis()->SetTitleFont(42);
+g_xsec_c->GetYaxis()->SetLabelFont(42);
+g_xsec_c->GetYaxis()->SetTitleFont(42);
 c_xsec->Update();
 
 TLegend *leg=new TLegend(0.45, 0.55, 0.90, 0.85);
 leg->SetFillStyle(1); leg->SetFillColor(kWhite);
-leg->AddEntry(g_xsec_c, "Expected Upper Limit", "L");
-leg->AddEntry(g_xsec_1sigma_c, "Expected #pm 1 #sigma", "F");
-leg->AddEntry(g_xsec_2sigma_c, "Expected #pm 2 #sigma", "F");
+leg->SetTextFont(42);
+//leg->SetHeader("Spin-2");
+leg->SetHeader("Spin-0");
 leg->AddEntry(g_obs_c, "Observed Upper Limit", "LP");
-leg->AddEntry(g_graviton,"Bulk Graviton k=0.5","L");
-//leg->AddEntry(g_radion,"Bulk Radion #Lambda= 1 TeV, kl=35","L");
-//leg->AddEntry(g_radion2,"Bulk Radion #Lambda= 3 TeV, kl=35","L");	
+leg->AddEntry(g_xsec_c, "Expected Upper Limit", "L");
+leg->AddEntry(g_xsec_1sigma_c, "68% Expected", "F");
+leg->AddEntry(g_xsec_2sigma_c, "95% Expected", "F");
+//leg->AddEntry(g_graviton,"Bulk Graviton k=0.5","L");
+leg->AddEntry(g_radion_0,"RS1 Radion #Lambda= 1 TeV, kl=35","L");
+leg->AddEntry(g_radion,"Bulk Radion #Lambda= 1 TeV, kl=35","L");
+leg->AddEntry(g_radion2,"Bulk Radion #Lambda= 3 TeV, kl=35","L");	
 leg->SetFillColor(kWhite);
 leg->SetFillStyle(0);
 leg->SetTextSize(0.03);
