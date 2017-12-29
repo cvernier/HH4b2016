@@ -202,7 +202,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     gStyle->SetPadGridY(0);
     gStyle->SetOptStat(0000);
     writeExtraText = true;
-    extraText  = "Preliminary";
+    extraText  = "";
     lumi_13TeV  = "35.9 fb^{-1}";
 
 
@@ -280,6 +280,8 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     f_gaus_exp.plotOn(frame_gaus_exp, RooFit::LineColor(kBlue+1));
     double fitChi2_gaus_exp=frame_gaus_exp->chiSquare();
     RooAbsReal* chi2_gaus_exp = f_gaus_exp.createChi2(pred_1);
+    double fitNDF_gaus_exp=int((range_hi_1-range_lo_1)/rebin)-3;
+
     double pvalue_gaus_exp=TMath::Prob(chi2_gaus_exp->getVal(),int((range_hi_1-range_lo_1)/rebin)-3);
     TCanvas *c_gaus_exp=new TCanvas("c_gaus_exp", "c_gaus_exp", 700, 700);
     frame_gaus_exp->Draw();
@@ -538,7 +540,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     RooPlot *frame_novo_1=x_2->frame();
     pred_2.plotOn(frame_novo_1, RooFit::LineColor(kBlack), RooFit::MarkerColor(kBlack));
     //f_novo.plotOn(frame_novo_1, RooFit::VisualizeError(*r_novo, 1), RooFit::FillColor(kRed), RooFit::FillStyle(3004));
-    f_novo.plotOn(frame_novo_1, RooFit::LineColor(kBlue));
+    f_novo.plotOn(frame_novo_1, RooFit::LineColor(kBlue), RooFit::LineWidth(1));
 
     //correct error bands MMR
     TGraph* error_curve[5];    
@@ -553,20 +555,20 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     error_curve[1] = new TGraph(2*nPoints);
     error_curve[0]->SetFillStyle(1001);
     error_curve[1]->SetFillStyle(1001);
-    error_curve[0]->SetFillColor(kGreen);
-    error_curve[1]->SetFillColor(kYellow);
-    error_curve[0]->SetLineColor(kGreen);
-    error_curve[1]->SetLineColor(kYellow);
+    error_curve[0]->SetFillColor(kGreen+1);
+    error_curve[1]->SetFillColor(kOrange);
+    error_curve[0]->SetLineColor(kGreen+1);
+    error_curve[1]->SetLineColor(kOrange);
 
     RooDataHist pred2("pred2", "SR/SB histogram", RooArgList(*x_2), h_SR);
     error_curve[3]->SetFillStyle(1001);
     error_curve[4]->SetFillStyle(1001);
-    error_curve[3]->SetFillColor(kGreen);
-    error_curve[4]->SetFillColor(kYellow);
-    error_curve[3]->SetLineColor(kGreen);
-    error_curve[4]->SetLineColor(kYellow);
+    error_curve[3]->SetFillColor(kGreen+1);
+    error_curve[4]->SetFillColor(kOrange);
+    error_curve[3]->SetLineColor(kGreen+1);
+    error_curve[4]->SetLineColor(kOrange);
     error_curve[2]->SetLineColor(kBlue);
-    error_curve[2]->SetLineWidth(3);
+    error_curve[2]->SetLineWidth(1);
         
     double binSize = rebin;
 
@@ -632,11 +634,11 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     pave_1->SetFillStyle(0);
     char name_1[1000];
     char name_11[1000];
-
+    cout<<"This is the ndf of Novo MMR: "<<fitNDF_Novo<<endl;
     if (hist.substr(0,7)=="h_mX_SB") {
-        sprintf(name_1,"#chi^{2} = %.2f",fitChi2_Novo*fitNDF_Novo);
+        sprintf(name_1,"#chi^{2} = %.2f", fitChi2_Novo);
     }
-    else sprintf(name_1,"#chi^{2} = %.2f",fitChi2_Novo*fitNDF_Novo);
+    else sprintf(name_1,"#chi^{2} = %.2f", fitChi2_Novo);
     pave_1->AddText(name_1);
     pave_1->Draw();
     
@@ -682,7 +684,7 @@ void BackgroundPrediction_Kinematic_Split_MMR(int range_lo_1, int range_hi_1, do
     hpull_1->SetLineWidth(1);
     RooPlot* frameP_1 = x_2->frame() ;
     frameP_1->GetYaxis()->SetTitleSize(0.07);    
-    frameP_1->SetTitle("; m_{X} (GeV); Pull");
+    frameP_1->SetTitle("; m_{X} (GeV); #frac{Data-Fit}{Uncertainty}");
     frameP_1->addPlotable(hpull_1,"P");
     frameP_1->SetMaximum(4);
     frameP_1->SetMinimum(-4);
